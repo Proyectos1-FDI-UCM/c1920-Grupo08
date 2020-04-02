@@ -14,7 +14,6 @@ public class ImpactDamage : MonoBehaviour
         if (hp != null)
         {
             hp.ApplyDamage(damage);
-            Destroy(this.gameObject);
         }       
     }  
 }

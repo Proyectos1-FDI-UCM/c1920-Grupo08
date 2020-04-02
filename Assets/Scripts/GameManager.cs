@@ -8,9 +8,13 @@ public class GameManager : MonoBehaviour
     Sprite checkpointShield; // Escudo que tenía el jugador al pasar por el checkpoint
     GameObject player, shield;
     public static GameManager instance;
-
+    const bool DEBUG = true;
     // Definir como único GameManager y designar quién será la UIManager
 
+    public bool Debug()
+    {
+        return DEBUG;
+    }
     private void Awake()
     {
         if (instance == null)

@@ -10,7 +10,7 @@ public class CollisionKnockBack : MonoBehaviour
         Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            rb.AddForce(new Vector2((rb.position.x - transform.position.x) * knockBackForce*100, (rb.position.y - transform.position.y) * knockBackForce), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2((rb.position.x - transform.position.x) * knockBackForce, (rb.position.y - transform.position.y) * knockBackForce), ForceMode2D.Impulse);
         }
     }
 
