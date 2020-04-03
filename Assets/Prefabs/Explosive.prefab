@@ -65,3 +65,5 @@ MonoBehaviour:
   maxRadius: 3
   force: 40
   explosionDamage: 0
+  horizontalFactor: 1
+  verticalFactor: 1

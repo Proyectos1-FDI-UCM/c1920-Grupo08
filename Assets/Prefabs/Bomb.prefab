@@ -27,8 +27,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7415073572545927375}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.98, y: -3.06, z: 33.42075}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6732522643437223855}
@@ -145,11 +145,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7415073572545927372}
     m_Modifications:
-    - target: {fileID: 230217852659374417, guid: b3ed771105fd79747a6867048f229a1f,
-        type: 3}
-      propertyPath: m_Name
-      value: Explosive
-      objectReference: {fileID: 0}
     - target: {fileID: 230217852659374382, guid: b3ed771105fd79747a6867048f229a1f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -205,6 +200,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 230217852659374417, guid: b3ed771105fd79747a6867048f229a1f,
+        type: 3}
+      propertyPath: m_Name
+      value: Explosive
+      objectReference: {fileID: 0}
     - target: {fileID: 8081488720406162019, guid: b3ed771105fd79747a6867048f229a1f,
         type: 3}
       propertyPath: delay
@@ -223,12 +223,22 @@ PrefabInstance:
     - target: {fileID: 8081488720406162019, guid: b3ed771105fd79747a6867048f229a1f,
         type: 3}
       propertyPath: force
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8081488720406162019, guid: b3ed771105fd79747a6867048f229a1f,
         type: 3}
       propertyPath: maxRadius
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8081488720406162019, guid: b3ed771105fd79747a6867048f229a1f,
+        type: 3}
+      propertyPath: horizontalFactor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8081488720406162019, guid: b3ed771105fd79747a6867048f229a1f,
+        type: 3}
+      propertyPath: verticalFactor
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3ed771105fd79747a6867048f229a1f, type: 3}

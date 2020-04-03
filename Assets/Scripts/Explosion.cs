@@ -23,6 +23,10 @@ public class Explosion : MonoBehaviour
     public float force = 1f;
     //Daño máxmimo de la explosión
     public int explosionDamage;
+    //Modificador horizontal de la fuerza
+    public float horizontalFactor = 1;
+    //Modificador vertical de la fuerza
+    public float verticalFactor = 1;
     //true cuando la explosión haya comenzado
     bool exploded = false;
     //Este collider marca en cada momento el umbral de efecto de la explosión
@@ -95,13 +99,17 @@ public class Explosion : MonoBehaviour
                 Vector2 target = collision.gameObject.transform.position;
                 Vector2 bomb = gameObject.transform.position;
                 Vector2 direction = target - bomb;
+                direction.Normalize();
+
+                //Aplicamos los modificadores de fuerza
+                direction.x *= horizontalFactor;
+                direction.y *= verticalFactor;
+                rb.AddForce(10 * force * direction);
 
                 ObjectHealth hp = collision.gameObject.GetComponent<ObjectHealth>();
                 //Hacemos menos daño mientras más se aleje el jugador del centro de la explosión
                 if (hp != null)
                     hp.ApplyDamage((int) (explosionDamage*(maxRadius-radius)));
-
-                rb.AddForce(10 * force * direction);
             }
         }
     }

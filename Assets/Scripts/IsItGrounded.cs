@@ -9,8 +9,10 @@ public class IsItGrounded : MonoBehaviour
     public Transform groundCheck; // Punto inferior del personaje
 
     private float groundRadius = 0.1f; // Radio para el detector de suelo
-
-    private float wallRadius = 0.3f;
+    
+    //Radio para el detector de paredes. Mientras más grande sea, más fiable será el acto de subir esquinas, 
+    //pero menos fiable serán los knockbacks
+    private float wallRadius = 0.25f;
 
     public bool IsGrounded()
     {
