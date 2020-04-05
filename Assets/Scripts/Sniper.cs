@@ -75,16 +75,17 @@ public class Sniper : MonoBehaviour
 
                 // Dibuja el trazado de la bala
                 LineRenderer tracer = Bullet.GetComponent<LineRenderer>();
-                DrawLine(tracer);                
+
+                DrawLine(tracer);
+                // Destruye la bala rapidamente para crear efecto de movimiento
+                Destroy(Bullet, 0.08f);
+
 
                 // Si el impactado el el player o el shield llama al GM y aplica daño
                 if (hit.collider.tag == "Player" || hit.collider.tag == "Shield")
                 {
                     GameManager.instance.OnHit(hit.collider.gameObject, damage);
-                }
-
-                // Destruye la bala rapidamente para crear efecto de movimiento
-                Destroy(Bullet, 0.10f);
+                }                
 
                 // Aumenta el contador de disparo
                 elapsedTime = Time.time + shotCD;
