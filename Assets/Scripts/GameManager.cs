@@ -2,8 +2,8 @@
 
 public class GameManager : MonoBehaviour
 {
-    int playerHP, playerMaxHP, shieldHP, shieldWeight; // Estado del juego
-    int checkpointPlayerHP, checkpointShieldHP, checkpointShieldWeight; // Variables de puntos de guardados
+    float playerHP, playerMaxHP, shieldHP, shieldWeight; // Estado del juego
+    float checkpointPlayerHP, checkpointShieldHP, checkpointShieldWeight; // Variables de puntos de guardados
     Vector2 lastCheckpoint; // Lugar donde reaparecerá el jugador al morir
     Sprite checkpointShield; // Escudo que tenía el jugador al pasar por el checkpoint
     GameObject player, shield;
@@ -33,21 +33,21 @@ public class GameManager : MonoBehaviour
         // Dar valores a lastCheckpoint y a checkpointShield
     }
 
-    private void SetPlayer(GameObject p)
+    public void SetPlayer(GameObject p)
     {
         player = p;
         shield = p.transform.GetChild(0).GetChild(0).gameObject;
     }
 
 
-    private void GetShield(int healPoints, int weight) // Inicia los valores al coger un escudo
+    public void GetShield(int healPoints, int weight) // Inicia los valores al coger un escudo
     {
         shieldHP = healPoints;
         shieldWeight = weight;
         // Llamar al UIManager
     }
 
-    private void OnHit(GameObject o, int damage) // Quita vida al jugador (colisión con enemigo)
+    public void OnHit(GameObject o, float damage) // Quita vida al jugador (colisión con enemigo)
     {
         if(o == shield) 
         {
@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
         if (playerHP <= 0) OnDead();
     }
 
-    private void OnHeal(int heal) // Cura al jugador (colision con botiquines)
+    public void OnHeal(int heal) // Cura al jugador (colision con botiquines)
     {
         if(playerHP < playerMaxHP)
         {
@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Checkpoint(Vector2 pos, Sprite s) // Guarda los valores al pasar por un checkpoint 
+    public void Checkpoint(Vector2 pos, Sprite s) // Guarda los valores al pasar por un checkpoint 
     {
         lastCheckpoint = pos;
         checkpointPlayerHP = playerHP;
@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
         checkpointShield = s;
     }
 
-    private void OnDead() // Resetea desde el checkpoint
+    public void OnDead() // Resetea desde el checkpoint
     {
 // Llamar a un método del jugador para que cambie a la posición de lastCheckpoint (enviada como parámetro) y le envíe el sprite del escudo
         playerHP = checkpointPlayerHP;
