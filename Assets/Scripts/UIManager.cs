@@ -1,18 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject healthBar, shieldBar, shieldHolder;
+    private Slider healthS, shieldS;
+    
     void Start()
     {
-        
+        healthS = healthBar.GetComponent<Slider>();
+        shieldS = shieldBar.GetComponent<Slider>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    public void UpdateHeathBar(float maxHP, float currentHP)
+    {       
+        healthS.maxValue = maxHP;
         
+        healthS.value = currentHP;
     }
+
+    public void UpdateShieldBar(float maxShield, float currentShield)
+    {        
+        shieldS.maxValue = maxShield;
+        
+        shieldS.value = currentShield;
+    }
+    public void UpdateShieldHolder() { }
 }

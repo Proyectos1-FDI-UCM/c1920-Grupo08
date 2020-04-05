@@ -2,7 +2,9 @@
 
 public class GameManager : MonoBehaviour
 {
-    float playerHP, playerMaxHP, shieldHP, shieldWeight; // Estado del juego
+    const float playerMaxHP = 200f;
+    const float shieldMaxHP = 100f;
+    float playerHP, shieldHP, shieldWeight; // Estado del juego
     float checkpointPlayerHP, checkpointShieldHP, checkpointShieldWeight; // Variables de puntos de guardados
     Vector2 lastCheckpoint; // Lugar donde reaparecerá el jugador al morir
     Sprite checkpointShield; // Escudo que tenía el jugador al pasar por el checkpoint
@@ -10,6 +12,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     const bool DEBUG = true;
     // Definir como único GameManager y designar quién será la UIManager
+    UIManager UIManager;
 
     public bool Debug()
     {
@@ -27,9 +30,14 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        playerHP = playerMaxHP = 100;
-        shieldHP = 0;
+        UIManager = GetComponent<UIManager>();
+        playerHP = playerMaxHP;
+        shieldHP = shieldMaxHP;
         shieldWeight = 0;
+
+        UIManager.UpdateHeathBar(playerMaxHP, playerHP);
+        UIManager.UpdateShieldBar(shieldHP, shieldMaxHP);
+        UIManager.UpdateShieldHolder();
         // Dar valores a lastCheckpoint y a checkpointShield
     }
 
@@ -42,23 +50,31 @@ public class GameManager : MonoBehaviour
 
     public void GetShield(int healPoints, int weight) // Inicia los valores al coger un escudo
     {
-        shieldHP = healPoints;
-        shieldWeight = weight;
+        //shieldHP = healPoints;
+        //shieldWeight = weight;
         // Llamar al UIManager
     }
 
-    public void OnHit(GameObject o, float damage) // Quita vida al jugador (colisión con enemigo)
+    public void OnHit(GameObject obj, float damage) // Quita vida al jugador (colisión con enemigo)
     {
-        if(o == shield) 
+        if(obj.tag == "Shield") 
         {
             shieldHP -= damage;
-            if (shieldHP < 0) playerHP += shieldHP; // Si el escudo queda con vida negativa, hace también daño al jugador
             // Llamar al UIManager
+            UIManager.UpdateShieldBar(shieldMaxHP, shieldHP);
+
+            if (shieldHP < 0)
+            {
+                playerHP += shieldHP; // Si el escudo queda con vida negativa, hace también daño al jugador
+                // Llamar al UIManager
+                UIManager.UpdateHeathBar(playerMaxHP, playerHP);
+            }             
         }
-        else if(o == player)
+        else if(obj.tag == "Player")
         {
             playerHP -= damage;
             // Llamar al UIManager
+            UIManager.UpdateHeathBar(playerMaxHP, playerHP);
         }
 
         if (playerHP <= 0) OnDead();
