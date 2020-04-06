@@ -4,27 +4,30 @@ using UnityEngine;
 
 public class MachineGun : MonoBehaviour
 {
+    // Dispara a un objetivo (no necesariamente al player) en ráfagas de 3 disparos
+    // Usa Raycast para "simular impactos de objetos a alta velocidad"
+    // FALTA MEJORAR EL MÉTODO DE DIBUJADO DE LA BALA PARA QUE USE UN TRACE RENDERER EN LUGAR DE UN LINE REDERER
 
-    public Transform firePoint;
+    public Transform firePoint; // Punto de origen del disparo
 
-    public Transform target;
+    public Transform target; // Posición del target
 
-    public float range = 10f;
+    public float range = 10f; // Rango de disparo
 
-    public LayerMask targetLayer;
+    public LayerMask targetLayer; // Capa en la que se encuentra el objetivo
 
-    public float shotCD = 0.5f;
+    public float shotCD = 0.2f; // Cooldown entre balas
 
-    public float burstCD = 5f;
+    public float burstCD = 2f; // Cooldown entre ráfagas
 
-    Vector2 hitPoint;
+    Vector2 hitPoint; // Punto de impacto
 
-    AudioSource sound;
+    AudioSource sound; // Efecto de audio
 
-    public GameObject projectile;
+    public GameObject projectile; // Bala
 
-    float elapsedTime = 0;
-    // Start is called before the first frame update
+    float elapsedTime = 0; // Tiempo trascurrido desde la última ráfaga
+    
     void Start()
     {
         sound = GetComponent<AudioSource>();
@@ -32,7 +35,8 @@ public class MachineGun : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {        
+    {   
+        // Si el enemigo esta en rango...
         if (Physics2D.OverlapCircle(firePoint.position, range, targetLayer))
         {
             // Rota su posición en dirección al objetivo
@@ -44,6 +48,8 @@ public class MachineGun : MonoBehaviour
 
             // ALmacena el punto de impacto
             hitPoint = hit.point;
+
+            // Dispara respetando la cadencia
             if (Time.time > elapsedTime)
             {
                 StartCoroutine(Burst());
@@ -82,6 +88,8 @@ public class MachineGun : MonoBehaviour
 
         Destroy(Bullet, 0.08f);
     }
+
+    // Dibuja una línea de una posición a otra utilizando el componente LineRenderer
     void DrawLine(LineRenderer line)
     {
         line.SetPosition(0, firePoint.position);

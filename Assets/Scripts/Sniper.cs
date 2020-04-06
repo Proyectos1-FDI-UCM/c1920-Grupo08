@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Sniper : MonoBehaviour
 {
-    // Dispara a un objetivo con una cadencia de disparo predeterminada y si esta activado lo avisa mediante un láser
+    // Dispara a un objetivo (no necesariamente al player) con una cadencia de disparo predeterminada y si esta activado lo avisa mediante un láser
     // Usa Raycast para "simular impactos de objetos a alta velocidad"
     // FALTA MEJORAR EL MÉTODO DE DIBUJADO DE LA BALA PARA QUE USE UN TRACE RENDERER EN LUGAR DE UN LINE REDERER
 
@@ -30,7 +30,7 @@ public class Sniper : MonoBehaviour
 
     private LineRenderer laser; // Componente LineRenderer para el láser
 
-    private AudioSource sound; //    
+    private AudioSource sound; // Efecto de audio   
 
     void Start()
     {
