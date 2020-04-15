@@ -43,4 +43,4 @@ Contaremos con peligros como: disparos, nidos de ametralladora, minas, bombardeo
 * Pablo Etayo Rodríguez
 * Diego Jiménez Gómez
 
-![Game Logo](/Branding/logo_1.png)
+![Game Logo](/Branding/Logo_1.png)
