@@ -106,10 +106,8 @@ public class Explosion : MonoBehaviour
                 direction.y *= verticalFactor;
                 rb.AddForce(10 * force * direction);
 
-                ObjectHealth hp = collision.gameObject.GetComponent<ObjectHealth>();
                 //Hacemos menos daño mientras más se aleje el jugador del centro de la explosión
-                if (hp != null)
-                    hp.ApplyDamage((int) (explosionDamage*(maxRadius-radius)));
+                    GameManager.instance.OnHit(collision.gameObject, (explosionDamage*(maxRadius-radius)));
             }
         }
     }
