@@ -1,7 +1,5 @@
 # SAFE & SOUND
 
-![Game Logo 0](/Branding/Logo_0.png)
-
 Juego desarrollado para la asignatura de Proyecto 1, curso 2019/20, Grupo 08.
 
 ## Objetivos
