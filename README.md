@@ -42,3 +42,5 @@ Contaremos con peligros como: disparos, nidos de ametralladora, minas, bombardeo
 * Cristian Castillo de León
 * Pablo Etayo Rodríguez
 * Diego Jiménez Gómez
+
+![Game Logo](/Branding/logo_1.png)
