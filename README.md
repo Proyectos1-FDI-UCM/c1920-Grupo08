@@ -29,9 +29,9 @@ Contaremos con peligros como: disparos, nidos de ametralladora, minas, bombardeo
 
 ## Herramientas usadas
 
-[Unity](https://unity.com/) - Motor.
-[Visual Studio](https://visualstudio.microsoft.com/) - Código.
-[Pivotal](https://www.pivotaltracker.com/) - Historias de usuario.
+* [Unity](https://unity.com/) - Motor.
+* [Visual Studio](https://visualstudio.microsoft.com/) - Código.
+* [Pivotal](https://www.pivotaltracker.com/) - Historias de usuario.
 
 ## Autores
 
