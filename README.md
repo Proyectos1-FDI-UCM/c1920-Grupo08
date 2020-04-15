@@ -1,5 +1,7 @@
 # SAFE & SOUND
 
+![Game Logo 0](/Branding/Logo_0.png)
+
 Juego desarrollado para la asignatura de Proyecto 1, curso 2019/20, Grupo 08.
 
 ## Objetivos
@@ -43,4 +45,4 @@ Contaremos con peligros como: disparos, nidos de ametralladora, minas, bombardeo
 * Pablo Etayo Rodríguez
 * Diego Jiménez Gómez
 
-![Game Logo](/Branding/Logo_1.png)
+![Game Logo 1](/Branding/Logo_1.png)
