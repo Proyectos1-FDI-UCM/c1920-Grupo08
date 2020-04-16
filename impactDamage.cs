@@ -1,21 +1,25 @@
-﻿//Este script se usa para todo objeto que hace daño al jugador o al escudo cuando colisiona con ellos
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class impactDamage : MonoBehaviour
+
+public class DamageArea : MonoBehaviour
 {
-    //Daño configurable desde el editor
+    float time = 0f;
     public int damage;
-    private void OnCollisionEnter2D(Collision2D collision)
+    //Cuando el jugador este en el collider, el método se activa
+    private void OnTriggerStay2D(Collider2D other)
     {
-        //Accedemos a la vida del jugador/escudo para luego poder reducirla
-        objectHealth hp = collision.gameObject.GetComponent<objectHealth>();
-        //Codigo defensivo
-        if (hp != null)
+        //Con el transcurso de los segundos, se añade 1 al contador
+        time += Time.deltaTime;
+        ObjectHealth hp = other.gameObject.GetComponent<ObjectHealth>();
+        PlayerMove player = other.gameObject.GetComponent<PlayerMove>();
+        //Si el contador es mayor que 2, el objeto que ha impactado con el collider 
+        //posee el elemento PlayerController y posee vida, entonces resta salud
+        if (time>2 && hp != null && player != null)
         {
-            hp.applyDamage(damage);
-            Destroy(this.gameObject);
+            hp.ApplyDamage(damage);
         }
+
     }
 }
+
