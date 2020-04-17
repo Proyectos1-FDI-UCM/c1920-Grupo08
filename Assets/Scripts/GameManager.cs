@@ -14,10 +14,7 @@ public class GameManager : MonoBehaviour
     // Definir como único GameManager y designar quién será la UIManager
     UIManager UIManager;
 
-    public bool Debug()
-    {
-        return DEBUG;
-    }
+
     private void Awake()
     {
         if (instance == null)
@@ -34,8 +31,8 @@ public class GameManager : MonoBehaviour
         playerHP = playerMaxHP;
         shieldHP = shieldMaxHP;
         shieldWeight = 0;
-
-        UIManager.UpdateHeathBar(playerMaxHP, playerHP);
+        
+        UIManager.UpdateHealthBar(playerMaxHP, playerHP);
         UIManager.UpdateShieldBar(shieldHP, shieldMaxHP);
         UIManager.UpdateShieldHolder();
         // Dar valores a lastCheckpoint y a checkpointShield
@@ -48,10 +45,11 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void GetShield(int healPoints, int weight) // Inicia los valores al coger un escudo
+    public void GetShield(float healPoints, float weight) // Inicia los valores al coger un escudo
     {
-        //shieldHP = healPoints;
-        //shieldWeight = weight;
+        //Actualizamos los valores de peso y salud del escudo
+        shieldHP = healPoints;
+        shieldWeight = weight;
         // Llamar al UIManager
     }
 
@@ -67,14 +65,14 @@ public class GameManager : MonoBehaviour
             {
                 playerHP += shieldHP; // Si el escudo queda con vida negativa, hace también daño al jugador
                 // Llamar al UIManager
-                UIManager.UpdateHeathBar(playerMaxHP, playerHP);
+                UIManager.UpdateHealthBar(playerMaxHP, playerHP);
             }             
         }
         else if(obj.tag == "Player")
         {
             playerHP -= damage;
             // Llamar al UIManager
-            UIManager.UpdateHeathBar(playerMaxHP, playerHP);
+            UIManager.UpdateHealthBar(playerMaxHP, playerHP);
         }
 
         if (playerHP <= 0) OnDead();
