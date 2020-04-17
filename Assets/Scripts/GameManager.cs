@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     const bool DEBUG = true;
 
+    private bool isItPaused = false;
+
     // Almacena las frases para el sistema de diálogo
     private string[] frases = { "Texto por defecto, cambia el index", "Hola mi nombre es Ben, bienvenido!", "Seguramente necesite esto", "Mi escudo esta a punto de romperse!", "Necesito curar mis heridas", "༼ つ ◕_◕ ༽つ" };
 
@@ -35,6 +37,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         UIManager = GetComponent<UIManager>();
+        UIManager.PauseMenu(isItPaused);
         playerHP = playerMaxHP;
         shieldHP = shieldMaxHP;
         shieldWeight = 0;
@@ -43,6 +46,26 @@ public class GameManager : MonoBehaviour
         UIManager.UpdateShieldBar(shieldHP, shieldMaxHP);
         UIManager.UpdateShieldHolder();
         // Dar valores a lastCheckpoint y a checkpointShield
+    }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Escape")) 
+        {
+            if (isItPaused) 
+            {
+                isItPaused = false;
+                UIManager.PauseMenu(isItPaused);
+                Time.timeScale = 1f;                
+            }
+
+            else 
+            {
+                isItPaused = true;
+                UIManager.PauseMenu(isItPaused);                
+                Time.timeScale = 0f;
+            }        
+        }
     }
 
     public void SetPlayer(GameObject p)

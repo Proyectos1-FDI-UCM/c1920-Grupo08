@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject healthBar, shieldBar, shieldHolder, dialogueBubble;
+    public GameObject healthBar, shieldBar, shieldHolder, dialogueBubble,pauseMenu;
     public Text bubbleText;
     private string dialogue;
     private float typeSpeed= 0.05f;
-    private Slider healthS, shieldS;
+    private Slider healthS, shieldS;    
     
     void Start()
     {
@@ -38,10 +38,10 @@ public class UIManager : MonoBehaviour
         dialogue = text;
         dialogueBubble.SetActive(true);
         bubbleText.text = "";
-        StartCoroutine(type());
+        StartCoroutine(Type());
     }
 
-    private IEnumerator type()
+    private IEnumerator Type()
     {
         foreach (char c in dialogue.ToCharArray())
         {
@@ -53,4 +53,9 @@ public class UIManager : MonoBehaviour
 
         dialogueBubble.SetActive(false);
     }
+
+    public void PauseMenu(bool isItPaused) 
+    {
+        pauseMenu.SetActive(isItPaused);    
+    }                 
 }
