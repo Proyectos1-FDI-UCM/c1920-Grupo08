@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MachineGun : MonoBehaviour
+public class MachineGunTrace : MonoBehaviour
 {
     // Dispara a un objetivo (no necesariamente al player) en ráfagas de 3 disparos
     // Usa Raycast para "simular impactos de objetos a alta velocidad"
@@ -27,7 +27,7 @@ public class MachineGun : MonoBehaviour
     public GameObject projectile; // Bala
 
     float elapsedTime = 0; // Tiempo trascurrido desde la última ráfaga
-    
+
     void Start()
     {
         sound = GetComponent<AudioSource>();
@@ -35,7 +35,7 @@ public class MachineGun : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
+    {
         // Si el enemigo esta en rango...
         if (Physics2D.OverlapCircle(firePoint.position, range, targetLayer))
         {
@@ -58,9 +58,9 @@ public class MachineGun : MonoBehaviour
                 elapsedTime = Time.time + burstCD;
             }
         }
-    }    
+    }
 
-    IEnumerator Burst() 
+    IEnumerator Burst()
     {
         yield return new WaitForSeconds(2f);
 
@@ -68,15 +68,15 @@ public class MachineGun : MonoBehaviour
 
         createBullet();
         yield return new WaitForSeconds(shotCD);
-        
+
         createBullet();
         yield return new WaitForSeconds(shotCD);
-        
+
         createBullet();
-        yield return new WaitForSeconds(shotCD);        
+        yield return new WaitForSeconds(shotCD);
     }
 
-    void createBullet() 
+    void createBullet()
     {
         // Crea una bala (un prefab vacio con un line renderer) 
         GameObject Bullet = Instantiate(projectile, firePoint.position, firePoint.rotation);
