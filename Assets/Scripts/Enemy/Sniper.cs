@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SniperLine : MonoBehaviour
+public class Sniper : MonoBehaviour
 {
     // Dispara a un objetivo (no necesariamente al player) con una cadencia de disparo predeterminada y si esta activado lo avisa mediante un láser
     // Usa Raycast para "simular impactos de objetos a alta velocidad"
