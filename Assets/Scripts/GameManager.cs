@@ -11,6 +11,12 @@ public class GameManager : MonoBehaviour
     GameObject player, shield;
     public static GameManager instance;
     const bool DEBUG = true;
+
+    private bool isItPaused = false;
+
+    // Almacena las frases para el sistema de diálogo
+    private string[] frases = { "Texto por defecto, cambia el index", "Hola mi nombre es Ben, bienvenido!", "Seguramente necesite esto", "Mi escudo esta a punto de romperse!", "Necesito curar mis heridas", "༼ つ ◕_◕ ༽つ" };
+
     // Definir como único GameManager y designar quién será la UIManager
     UIManager UIManager;
 
@@ -31,6 +37,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         UIManager = GetComponent<UIManager>();
+        UIManager.PauseMenu(isItPaused);
         playerHP = playerMaxHP;
         shieldHP = shieldMaxHP;
         shieldWeight = 0;
@@ -39,6 +46,26 @@ public class GameManager : MonoBehaviour
         UIManager.UpdateShieldBar(shieldHP, shieldMaxHP);
         UIManager.UpdateShieldHolder();
         // Dar valores a lastCheckpoint y a checkpointShield
+    }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Escape")) 
+        {
+            if (isItPaused) 
+            {
+                isItPaused = false;
+                UIManager.PauseMenu(isItPaused);
+                Time.timeScale = 1f;                
+            }
+
+            else 
+            {
+                isItPaused = true;
+                UIManager.PauseMenu(isItPaused);                
+                Time.timeScale = 0f;
+            }        
+        }
     }
 
     public void SetPlayer(GameObject p)
@@ -57,7 +84,7 @@ public class GameManager : MonoBehaviour
 
     public void OnHit(GameObject obj, float damage) // Quita vida al jugador (colisión con enemigo)
     {
-        if(obj.tag == "Shield") 
+        if (obj.tag == "Shield")
         {
             shieldHP -= damage;
             // Llamar al UIManager
@@ -68,9 +95,9 @@ public class GameManager : MonoBehaviour
                 playerHP += shieldHP; // Si el escudo queda con vida negativa, hace también daño al jugador
                 // Llamar al UIManager
                 UIManager.UpdateHeathBar(playerMaxHP, playerHP);
-            }             
+            }
         }
-        else if(obj.tag == "Player")
+        else if (obj.tag == "Player")
         {
             playerHP -= damage;
             // Llamar al UIManager
@@ -82,7 +109,7 @@ public class GameManager : MonoBehaviour
 
     public void OnHeal(int heal) // Cura al jugador (colision con botiquines)
     {
-        if(playerHP < playerMaxHP)
+        if (playerHP < playerMaxHP)
         {
             if (playerHP + heal > playerMaxHP) playerHP = playerMaxHP;
             else playerHP += heal;
@@ -101,9 +128,14 @@ public class GameManager : MonoBehaviour
 
     public void OnDead() // Resetea desde el checkpoint
     {
-// Llamar a un método del jugador para que cambie a la posición de lastCheckpoint (enviada como parámetro) y le envíe el sprite del escudo
+        // Llamar a un método del jugador para que cambie a la posición de lastCheckpoint (enviada como parámetro) y le envíe el sprite del escudo
         playerHP = checkpointPlayerHP;
         shieldHP = checkpointShieldHP;
         shieldWeight = checkpointShieldWeight;
+    }
+
+    public void OnDialogue(int index)
+    {
+        UIManager.Dialogue(frases[index]);
     }
 }
