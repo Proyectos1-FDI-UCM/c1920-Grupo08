@@ -23,6 +23,7 @@ public class PlayerMove : MonoBehaviour
     bool dashRight;
     void Start()
     {
+        GameManager.instance.SetPlayer(this.gameObject);
         rb = GetComponent<Rigidbody2D>();
         isItGrounded = GetComponent<IsItGrounded>();
         dashCD = false;

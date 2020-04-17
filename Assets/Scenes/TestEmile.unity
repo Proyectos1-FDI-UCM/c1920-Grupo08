@@ -316,7 +316,7 @@ GameObject:
   - component: {fileID: 589682582}
   - component: {fileID: 589682581}
   m_Layer: 14
-  m_Name: door
+  m_Name: ShieldPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -334,7 +334,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4112dcfbf25ee34b8cf7da8175de097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shield: {fileID: 0}
   weight: 1
   maxhp: 100
 --- !u!61 &589682582
@@ -354,7 +353,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -401,7 +400,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 49653d4c43821c847b9dfdbfc55b74d2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 92219efcd9615164a9e6560894e3941e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

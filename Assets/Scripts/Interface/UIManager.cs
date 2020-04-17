@@ -18,7 +18,7 @@ public class UIManager : MonoBehaviour
         shieldS = shieldBar.GetComponent<Slider>();
     }
 
-    public void UpdateHeathBar(float maxHP, float currentHP)
+    public void UpdateHealthBar(float maxHP, float currentHP)
     {       
         healthS.maxValue = maxHP;
         

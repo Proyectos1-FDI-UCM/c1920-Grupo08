@@ -68,15 +68,16 @@ public class GameManager : MonoBehaviour
     public void SetPlayer(GameObject p)
     {
         player = p;
-        shield = p.transform.GetChild(0).GetChild(0).gameObject;
+        shield = p.transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
     }
 
 
-    public void GetShield(float healPoints, float weight) // Inicia los valores al coger un escudo
+    public void GetShield(float healPoints, float weight, Sprite newsprite) // Inicia los valores al coger un escudo
     {
         //Actualizamos los valores de peso y salud del escudo
         shieldHP = healPoints;
         shieldWeight = weight;
+        shield.GetComponent<SpriteRenderer>().sprite = newsprite;
         // Llamar al UIManager
     }
 
