@@ -27,7 +27,9 @@ public class MachineGun : MonoBehaviour
     public GameObject projectile; // Bala
 
     float elapsedTime = 0; // Tiempo trascurrido desde la última ráfaga
-    
+
+    public float damage = 10f; // Daño de disparo
+
     void Start()
     {
         sound = GetComponent<AudioSource>();
@@ -52,6 +54,11 @@ public class MachineGun : MonoBehaviour
             // Dispara respetando la cadencia
             if (Time.time > elapsedTime)
             {
+                if (hit.collider.tag == "Player" || hit.collider.tag == "Shield")
+                {
+                    GameManager.instance.OnHit(hit.collider.gameObject, damage);
+                }
+
                 StartCoroutine(Burst());
 
                 // Aumenta el contador de disparo
@@ -62,8 +69,6 @@ public class MachineGun : MonoBehaviour
 
     IEnumerator Burst() 
     {
-        yield return new WaitForSeconds(2f);
-
         sound.Play();
 
         createBullet();
