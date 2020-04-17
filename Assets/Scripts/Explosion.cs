@@ -38,7 +38,7 @@ public class Explosion : MonoBehaviour
 
     void Start()
     {
-        debug = GameManager.instance.Debug();
+        debug = false;
         radius = 0f;
         
         explosionRadius = gameObject.GetComponent<CircleCollider2D>();
