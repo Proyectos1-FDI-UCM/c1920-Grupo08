@@ -6,47 +6,60 @@ public class MachineGun : MonoBehaviour
 {
     // Dispara a un objetivo (no necesariamente al player) en ráfagas de 3 disparos
     // Usa Raycast para "simular impactos de objetos a alta velocidad"
-    // FALTA MEJORAR EL MÉTODO DE DIBUJADO DE LA BALA PARA QUE USE UN TRACE RENDERER EN LUGAR DE UN LINE REDERER
 
-    public Transform firePoint; // Punto de origen del disparo
+    // El jugador puede esquivar este enemigo, saltando la ráfaga, por ejemplo
 
-    public Transform target; // Posición del target
+    // El objeto debe de tener un primer objeto vacio como hijo que indique el punto de origen del disparo (firePoint) y se debe asignar desde el editor
+    // El objeto debe de tener un segundo objeto vacío como hijo que indique la dirección de disparo (targetVector)
+    // La bala debe ser un prefab vacio con un componente LineRenderer que se ocupa de como se va a visualizar la bala (projectile)
+    // El objeto no dispara mientras que el un objeto con una capa definida este en rango (targetLayer, range)
 
-    public float range = 10f; // Rango de disparo
+    public float range = 30f; // Rango de detección, se usa para detectar si el player esta cerca
 
-    public LayerMask targetLayer; // Capa en la que se encuentra el objetivo
+    public float damage = 10f; // Daño del burst
 
     public float shotCD = 0.2f; // Cooldown entre balas
 
     public float burstCD = 2f; // Cooldown entre ráfagas
 
-    Vector2 hitPoint; // Punto de impacto
+    private float elapsedTime = 0; // Tiempo trascurrido desde la última ráfaga
+
+    public LayerMask targetLayer; // Capa de detección, se usa para detectar si el player esta cerca
+
+    private Vector2 hitPoint; // Punto de impacto
+
+    private Transform targetVector; // Indicador de dirección
+
+    public Transform firePoint; // Punto de origen del disparo   
 
     AudioSource sound; // Efecto de audio
 
-    public GameObject projectile; // Bala
+    public GameObject projectile; // Bala    
 
-    float elapsedTime = 0; // Tiempo trascurrido desde la última ráfaga
+    private float raycastR = 100f; // Rango de raycast
 
-    public float damage = 10f; // Daño de disparo
+    private Vector2 direction; // dirección de la bala
 
-    void Start()
+    private void Start()
     {
+        // Almacena el componenente de audio
         sound = GetComponent<AudioSource>();
+
+        targetVector = this.gameObject.transform.GetChild(1).GetComponent<Transform>();
+
+        // Rota su posición en dirección al objetivo
+        direction = targetVector.position - transform.position;
+        transform.right = direction;
     }
 
     // Update is called once per frame
-    void Update()
-    {   
+    private void FixedUpdate()
+    {
         // Si el enemigo esta en rango...
         if (Physics2D.OverlapCircle(firePoint.position, range, targetLayer))
         {
-            // Rota su posición en dirección al objetivo
-            Vector2 direction = target.position - transform.position;
-
-            transform.right = direction;
             // RAYCAST
-            RaycastHit2D hit = Physics2D.Raycast(firePoint.position, direction, range);
+            RaycastHit2D hit = Physics2D.Raycast(firePoint.position, direction, raycastR);
 
             // ALmacena el punto de impacto
             hitPoint = hit.point;
@@ -54,6 +67,7 @@ public class MachineGun : MonoBehaviour
             // Dispara respetando la cadencia
             if (Time.time > elapsedTime)
             {
+                // Si el impactado es el player o el shield llama al GM y aplica daño
                 if (hit.collider.tag == "Player" || hit.collider.tag == "Shield")
                 {
                     GameManager.instance.OnHit(hit.collider.gameObject, damage);
@@ -65,37 +79,39 @@ public class MachineGun : MonoBehaviour
                 elapsedTime = Time.time + burstCD;
             }
         }
-    }    
+    }
 
-    IEnumerator Burst() 
+    // Crea un burst de 3 balas
+    private IEnumerator Burst()
     {
         sound.Play();
 
         createBullet();
         yield return new WaitForSeconds(shotCD);
-        
+
         createBullet();
         yield return new WaitForSeconds(shotCD);
-        
+
         createBullet();
-        yield return new WaitForSeconds(shotCD);        
+        yield return new WaitForSeconds(shotCD);
     }
 
-    void createBullet() 
+    // Crea la bala y la dibuja
+    private void createBullet()
     {
         // Crea una bala (un prefab vacio con un line renderer) 
-        GameObject Bullet = Instantiate(projectile, firePoint.position, firePoint.rotation);
+        GameObject bullet = Instantiate(projectile, firePoint.position, firePoint.rotation);
 
         // Dibuja el trazado de la bala
-        LineRenderer tracer = Bullet.GetComponent<LineRenderer>();
-
+        LineRenderer tracer = bullet.GetComponent<LineRenderer>();
         DrawLine(tracer);
 
-        Destroy(Bullet, 0.08f);
+        // Destruye la bala rápidamente para crear sensación de movimiento
+        Destroy(bullet, 0.08f);
     }
 
     // Dibuja una línea de una posición a otra utilizando el componente LineRenderer
-    void DrawLine(LineRenderer line)
+    private void DrawLine(LineRenderer line)
     {
         line.SetPosition(0, firePoint.position);
         line.SetPosition(1, hitPoint);
