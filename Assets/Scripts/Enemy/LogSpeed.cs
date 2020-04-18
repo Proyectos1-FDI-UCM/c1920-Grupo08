@@ -14,12 +14,7 @@ public class LogSpeed : MonoBehaviour
     }
 
     //Mueve el tronco a la velocidad de "Speed" 
-    void Update()
-    {
-        
-    }
 
-    
     public void Rotate(Vector2 rotation)
     {
         transform.right = rotation;

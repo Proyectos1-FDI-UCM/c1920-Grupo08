@@ -40,10 +40,10 @@ public class PlayerMove : MonoBehaviour
             {
                 //Entra en modo dash
                 dash = true;
-                if (Input.GetAxisRaw("Horizontal") > 0)
+                /*if (Input.GetAxisRaw("Horizontal") > 0)
                     dashRight = true;
                 else if (Input.GetAxisRaw("Horizontal") < 0)
-                    dashRight = false;
+                    dashRight = false;*/
                 //Cuando acabe el periodo dashDur, saldremos de modo dash
                 Invoke("DashDuration", dashDur);
                 //Ponemos el dash en enfriamiento
