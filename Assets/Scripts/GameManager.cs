@@ -110,14 +110,21 @@ public class GameManager : MonoBehaviour
         if (playerHP <= 0) OnDead();
     }
 
-    public void OnHeal(int heal) // Cura al jugador (colision con botiquines)
+    public void OnHeal(float heal) // Cura al jugador (colision con botiquines)
     {
-        if (playerHP < playerMaxHP)
+        Debug.Log("Heal + " + heal);
+
+        if (playerHP + heal > playerMaxHP)
         {
-            if (playerHP + heal > playerMaxHP) playerHP = playerMaxHP;
-            else playerHP += heal;
-            // Llamar al UIManager
+            playerHP = playerMaxHP;
         }
+
+        else
+        {
+            playerHP += heal;
+        }
+
+        UIManager.UpdateHealthBar(playerMaxHP, playerHP);
     }
 
     public void Checkpoint(Vector2 pos, Sprite s) // Guarda los valores al pasar por un checkpoint 
@@ -139,6 +146,7 @@ public class GameManager : MonoBehaviour
 
     public void OnDialogue(int index)
     {
+        Debug.Log("OnDialogue index " + index);
         UIManager.Dialogue(frases[index]);
     }
 
