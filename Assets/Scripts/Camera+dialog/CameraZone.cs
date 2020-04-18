@@ -19,9 +19,9 @@ public class CameraZone : MonoBehaviour
     Transform cam;
     //La posición donde se colocará la cámara en esta zona
     Transform anchor;
-    //La posición relativa al jugadory el tamaño a los que habrá que devolver la cámara 
+    //La posición relativa al jugador y el tamaño a los que habrá que devolver la cámara 
     //una vez el jugador sale de la zona
-    Transform playerPos;
+    Transform camerapos;
     float defaultSize;
     //Los scripts que tendremos que acceder de la cámara
     SmoothMovement movement;
@@ -41,12 +41,12 @@ public class CameraZone : MonoBehaviour
         //se detecte la colisión de la cámara el script se guarde los datos de esta.
         if (cam == null)
         {
-            //Aunque se llame player, este es realmente el hijo CameraPosition del player.
+            //Este es el hijo CameraPosition del player.
             //Hacemos esta separación para que se pueda ajustar la posición de la cámara en relación 
             //al jugador.
-            playerPos = collision.gameObject.transform;
+            camerapos = collision.gameObject.transform;
             //Guardamos una referencia a la cámara
-            cam = playerPos.transform.GetChild(0).transform;
+            cam = camerapos.transform.GetChild(0).transform;
             //Guardamos referencias a los scripts necesarios de la cámara
             movement = cam.gameObject.GetComponent<SmoothMovement>();
             camSize = cam.gameObject.GetComponent<CameraSize>();
@@ -66,9 +66,7 @@ public class CameraZone : MonoBehaviour
         //No es necesario asignar cam: para poder salir del trigger tiene que haber primero entrado
 
         //Movemos la cámara a su posición relativa al jugador
-        movement.MoveTo(playerPos, snapSpeed);
-        //Hacemos que sea hija del jugador para que le siga
-        cam.transform.parent = playerPos;
+        movement.MoveTo(camerapos, snapSpeed);
         //Devolvemos la cámara a su tamaño original
         camSize.ChangeSize(defaultSize);
     }
