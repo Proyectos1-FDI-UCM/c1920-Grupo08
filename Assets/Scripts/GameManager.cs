@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,7 +18,7 @@ public class GameManager : MonoBehaviour
     private bool isItPaused = false;
 
     // Almacena las frases para el sistema de diálogo
-    private string[] frases = { "Texto por defecto, cambia el index", "Hola mi nombre es Ben, bienvenido!", "Seguramente necesite esto", "Mi escudo esta a punto de romperse!", "Necesito curar mis heridas", "༼ つ ◕_◕ ༽つ" };
+    private string[] frases = { "Texto por defecto, cambia el index", "Hola mi nombre es Ben, bienvenido!", "Seguramente necesite esto", "Mi escudo esta a punto de romperse!", "Necesito curar mis heridas" };
 
     // Definir como único GameManager y designar quién será la UIManager
     UIManager UIManager;
@@ -137,5 +140,15 @@ public class GameManager : MonoBehaviour
     public void OnDialogue(int index)
     {
         UIManager.Dialogue(frases[index]);
+    }
+
+    public void MainMenu() 
+    {
+        SceneManager.LoadScene("00_MainMenu");
+    }
+    public void Exit() 
+    {
+        Debug.Log("El juego se ha cerrado");
+        Application.Quit();
     }
 }

@@ -295,8 +295,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: a87ac2daf1b772e49b4b1e33cef002ea,
-    type: 2}
+  m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_overrideHtmlColors: 0
@@ -1517,4 +1516,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9d10d164cb78834e97868c023f1ca45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playScene: MainScene
+  playScene: 01_MainScene

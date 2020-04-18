@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
     {
         if (playScene != null)
         {
-            SceneManager.LoadScene("MainScene");
+            SceneManager.LoadScene(playScene);
         }
         else
         {
