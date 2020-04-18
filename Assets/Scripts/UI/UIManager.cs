@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
     public GameObject healthBar, shieldBar, shieldHolder, dialogueBubble,pauseMenu;
-    public Text bubbleText;
+    public TextMeshProUGUI bubbleText;
     private string dialogue;
-    private float typeSpeed= 0.05f;
+    private float typeSpeed= 0.1f;
     private Slider healthS, shieldS;    
     
     void Start()
@@ -16,7 +17,7 @@ public class UIManager : MonoBehaviour
         dialogueBubble.SetActive(false);
         healthS = healthBar.GetComponent<Slider>();
         shieldS = shieldBar.GetComponent<Slider>();
-    }
+    }   
 
     public void UpdateHealthBar(float maxHP, float currentHP)
     {       
@@ -49,7 +50,7 @@ public class UIManager : MonoBehaviour
             yield return new WaitForSeconds(typeSpeed);
         }
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
 
         dialogueBubble.SetActive(false);
     }
