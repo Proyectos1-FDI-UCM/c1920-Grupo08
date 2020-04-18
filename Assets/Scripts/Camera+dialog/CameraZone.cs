@@ -41,7 +41,6 @@ public class CameraZone : MonoBehaviour
         //se detecte la colisión de la cámara el script se guarde los datos de esta.
         if (cam == null)
         {
-            Debug.Log(anchor.position.x+", "+anchor.position.y+", "+anchor.position.z);
             //Aunque se llame player, este es realmente el hijo CameraPosition del player.
             //Hacemos esta separación para que se pueda ajustar la posición de la cámara en relación 
             //al jugador.
