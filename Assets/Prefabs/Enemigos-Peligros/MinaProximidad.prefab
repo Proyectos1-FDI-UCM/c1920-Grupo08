@@ -198,7 +198,7 @@ PrefabInstance:
     - target: {fileID: 8081488720406162019, guid: b3ed771105fd79747a6867048f229a1f,
         type: 3}
       propertyPath: maxRadius
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8081488720406162019, guid: b3ed771105fd79747a6867048f229a1f,
         type: 3}
