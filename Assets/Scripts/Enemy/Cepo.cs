@@ -5,39 +5,45 @@ using UnityEngine;
 public class Cepo : MonoBehaviour
 {
     
+   
     public float retencion;
+    public bool presionado;
+    public PlayerMove moving;
+    Rigidbody2D rb2d;
     
-    //public bool presionado;
-    
-   // Rigidbody2D rb2d;
 
     private void Start()
     {
-        
-        
+        presionado = false;
     }
-    /*private void Update()
+    private void Update()
     {
-        while (retencion > 0 && presionado)
+        //Si el cepo es presionado el movimiento del jugador se detiene hasta que el contador llegue a cero
+        if (presionado)
         {
             retencion -= Time.deltaTime;
-            moving.Stunned();
-            
-        }
-        if (retencion < 0f && presionado)
-        {
+            //rb2d.velocity = new Vector2(0f, 0f);
+            //moving.Stunned();
+            moving.enabled = false;
+            if (retencion <= 0)
+            {
+                moving.enabled = true;
+                retencion = 0;
+                presionado = false;
+                Destroy(this.gameObject);
 
-            retencion = 0f;
-            Destroy(this.gameObject);
+            }
         }
-    }*/
-    private void OnTriggerEnter2D(Collider2D player)
-    {
-        Stunned(player);
-        Destroy(this.gameObject, retencion);
     }
-    public void Stunned(Collider2D player)
-    {
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        presionado = true;
+
+      //player = other.gameObject.GetComponent<GameObject>();
+        
     }
+   
+
+   
 }
