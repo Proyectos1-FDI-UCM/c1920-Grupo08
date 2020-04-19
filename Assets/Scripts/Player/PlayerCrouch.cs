@@ -48,8 +48,6 @@ public class PlayerCrouch : MonoBehaviour
             {
                 // Lo mantiene agachado y...
                 crouch = true;
-                // ...reduce la velocidad,
-                playerMove.speed *= crouchspeed;
             }
 
             // ... y no esta bloqueado por un techo.
