@@ -104,14 +104,16 @@ public class GameManager : MonoBehaviour
 
                     UIManager.UpdateHealthBar(playerMaxHP, playerHP);
                 }
-                Invoke("InvulnerableTimer", 0.2f);
+                if (damage > 10)
+                    Invoke("InvulnerableTimer", 0.2f);
             }
             else if (obj.tag == "Player")
             {
                 playerHP -= damage;
                 // Llamar al UIManager
                 UIManager.UpdateHealthBar(playerMaxHP, playerHP);
-                Invoke("InvulnerableTimer", 0.2f);
+                if (damage>10)
+                    Invoke("InvulnerableTimer", 0.2f);
             }
         }
         if (playerHP <= 0) OnDead();
