@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     const float playerMaxHP = 200f;
-    const float shieldMaxHP = 100f;
+    float shieldMaxHP = 100f;
     float playerHP, shieldHP, shieldWeight; // Estado del juego
     float checkpointPlayerHP, checkpointShieldHP, checkpointShieldWeight; // Variables de puntos de guardados
     Vector2 lastCheckpoint; // Lugar donde reaparecerá el jugador al morir
@@ -81,10 +81,11 @@ public class GameManager : MonoBehaviour
     public void GetShield(float healPoints, float weight, Sprite newsprite) // Inicia los valores al coger un escudo
     {
         //Actualizamos los valores de peso y salud del escudo
+        shieldMaxHP = healPoints;
         shieldHP = healPoints;
         shieldWeight = weight;
         shield.GetComponent<SpriteRenderer>().sprite = newsprite;
-        // Llamar al UIManager
+        UIManager.UpdateShieldBar(healPoints, healPoints);
     }
 
     public void OnHit(GameObject obj, float damage) // Quita vida al jugador (colisión con enemigo)
@@ -105,15 +106,21 @@ public class GameManager : MonoBehaviour
                     UIManager.UpdateHealthBar(playerMaxHP, playerHP);
                 }
                 if (damage > 10)
+                {
+                    invulnerable = true;
                     Invoke("InvulnerableTimer", 0.2f);
+                }
             }
             else if (obj.tag == "Player")
             {
                 playerHP -= damage;
                 // Llamar al UIManager
                 UIManager.UpdateHealthBar(playerMaxHP, playerHP);
-                if (damage>10)
+                if (damage > 10)
+                {
+                    invulnerable = true;
                     Invoke("InvulnerableTimer", 0.2f);
+                }
             }
         }
         if (playerHP <= 0) OnDead();
