@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     Vector2 lastCheckpoint; // Lugar donde reaparecerá el jugador al morir
     Sprite checkpointShield; // Escudo que tenía el jugador al pasar por el checkpoint
     GameObject player, shield;
+    //True cuando el jugador acaba de recibir daño y es brevemente inmune al daño
+    bool invulnerable;
     public static GameManager instance;
     const bool DEBUG = true;
 
@@ -36,6 +38,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        invulnerable = false;
         UIManager = GetComponent<UIManager>();
         UIManager.PauseMenu(isItPaused);
         playerHP = playerMaxHP;
@@ -86,28 +89,36 @@ public class GameManager : MonoBehaviour
 
     public void OnHit(GameObject obj, float damage) // Quita vida al jugador (colisión con enemigo)
     {
-        if (obj.tag == "Shield")
+        if (!invulnerable)
         {
-            shieldHP -= damage;
-            // Llamar al UIManager
-            UIManager.UpdateShieldBar(shieldMaxHP, shieldHP);
-
-            if (shieldHP < 0)
+            if (obj.tag == "Shield")
             {
-                playerHP += shieldHP; // Si el escudo queda con vida negativa, hace también daño al jugador
+                shieldHP -= damage;
                 // Llamar al UIManager
+                UIManager.UpdateShieldBar(shieldMaxHP, shieldHP);
 
+                if (shieldHP < 0)
+                {
+                    playerHP += shieldHP; // Si el escudo queda con vida negativa, hace también daño al jugador
+                                          // Llamar al UIManager
+
+                    UIManager.UpdateHealthBar(playerMaxHP, playerHP);
+                }
+                Invoke("InvulnerableTimer", 0.2f);
+            }
+            else if (obj.tag == "Player")
+            {
+                playerHP -= damage;
+                // Llamar al UIManager
                 UIManager.UpdateHealthBar(playerMaxHP, playerHP);
-            }             
+                Invoke("InvulnerableTimer", 0.2f);
+            }
         }
-        else if (obj.tag == "Player")
-        {
-            playerHP -= damage;
-            // Llamar al UIManager
-            UIManager.UpdateHealthBar(playerMaxHP, playerHP);
-        }
-
         if (playerHP <= 0) OnDead();
+    }
+    private void InvulnerableTimer()
+    {
+        invulnerable = false;
     }
 
     public void OnHeal(float heal) // Cura al jugador (colision con botiquines)
