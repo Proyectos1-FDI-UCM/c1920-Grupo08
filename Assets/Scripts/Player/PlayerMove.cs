@@ -71,4 +71,9 @@ public class PlayerMove : MonoBehaviour
     {
         dashCD = false;
     }
+    public void Stunned()
+    {
+        rb.velocity = new Vector2(0,0);
+    }
+
 }
