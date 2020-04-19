@@ -86,7 +86,6 @@ public class Explosion : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collision)
     {
-
         //Si la explosión está en curso, todo objeto que entre en el collider y tenga un rigidbody será repelido
         if (exploded == true)
         {
