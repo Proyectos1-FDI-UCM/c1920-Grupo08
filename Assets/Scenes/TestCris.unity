@@ -3960,6 +3960,7 @@ GameObject:
   - component: {fileID: 1222890042}
   - component: {fileID: 1222890041}
   - component: {fileID: 1222890040}
+  - component: {fileID: 1222890049}
   m_Layer: 10
   m_Name: PlayerNuevo
   m_TagString: Player
@@ -4163,6 +4164,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1222890049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222890038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cceccfde7f9a17f439fb93d7c2ade4eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crouch: 0
+  crouchspeed: 0.4
+  crouchCol: {fileID: 1222890046}
+  standCollider: {fileID: 1222890045}
+  playerMove: {fileID: 1222890043}
+  ground:
+    serializedVersion: 2
+    m_Bits: 256
+  ceilingCheck: {fileID: 1165487171}
 --- !u!1 &1324927699
 GameObject:
   m_ObjectHideFlags: 0
