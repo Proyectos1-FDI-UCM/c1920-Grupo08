@@ -39,10 +39,10 @@ public class Cepo : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        moving.Stunned(retencion);
-        moving = other.GetComponent<PlayerMove>();
-
         
+        moving = other.GetComponent<PlayerMove>();
+        moving.Stunned(retencion);
+
         /*if (moving != null)
         {
             StartCoroutine(M());
