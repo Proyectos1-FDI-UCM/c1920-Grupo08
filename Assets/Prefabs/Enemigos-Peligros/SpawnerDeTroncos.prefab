@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShootingPoint: {fileID: 8756588941129423593}
-  Logs: {fileID: 0}
+  Logs: {fileID: 935690591578110164, guid: 453cd7104961491488bbaf30a2a50413, type: 3}
   SpawnTime: 4

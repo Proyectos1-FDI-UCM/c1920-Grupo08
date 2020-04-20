@@ -11,6 +11,7 @@ public class LogSpeed : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * speed;
+        Destroy(this.gameObject, 3f);
     }
 
     //Mueve el tronco a la velocidad de "Speed" 
