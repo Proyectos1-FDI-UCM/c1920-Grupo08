@@ -128,7 +128,7 @@ public class GameManager : MonoBehaviour
         {
             playerHP -= damage;
             // Llamar al UIManager
-            UIManager.UpdateHeathBar(playerMaxHP, playerHP);
+            UIManager.UpdateHealthBar(playerMaxHP, playerHP);
         }
 
         if (playerHP <= 0) OnDead(player);
