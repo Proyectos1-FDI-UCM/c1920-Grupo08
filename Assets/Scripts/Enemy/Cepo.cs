@@ -7,18 +7,18 @@ public class Cepo : MonoBehaviour
     
    
     public float retencion;
-    public bool presionado;
-    public PlayerMove moving;
-    Rigidbody2D rb2d;
+    //public bool presionado;
+    PlayerMove moving;
+    //Rigidbody2D rb2d;
     
 
     private void Start()
     {
-        presionado = false;
+       // presionado = false;
     }
     private void Update()
     {
-        //Si el cepo es presionado el movimiento del jugador se detiene hasta que el contador llegue a cero
+        /*/Si el cepo es presionado el movimiento del jugador se detiene hasta que el contador llegue a cero
         if (presionado)
         {
             retencion -= Time.deltaTime;
@@ -28,21 +28,36 @@ public class Cepo : MonoBehaviour
             if (retencion <= 0)
             {
                 moving.enabled = true;
+                
                 retencion = 0;
                 presionado = false;
                 Destroy(this.gameObject);
 
             }
-        }
+        }*/
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        presionado = true;
+        moving.Stunned(retencion);
+        moving = other.GetComponent<PlayerMove>();
 
-      //player = other.gameObject.GetComponent<GameObject>();
         
+        /*if (moving != null)
+        {
+            StartCoroutine(M());
+        }*/
     }
+   /* private IEnumerator M()
+    {
+
+        moving.Stunned();
+        //desactiva el componente playermove
+        yield return new WaitForSeconds(3f);
+        
+        Destroy(this.gameObject);
+
+    }*/
    
 
    

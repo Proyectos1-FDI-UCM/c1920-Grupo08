@@ -2371,7 +2371,7 @@ GameObject:
   - component: {fileID: 358757875}
   - component: {fileID: 358757874}
   - component: {fileID: 358757873}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: shield
   m_TagString: Shield
   m_Icon: {fileID: 0}
@@ -2813,12 +2813,12 @@ PrefabInstance:
     - target: {fileID: 1851706553297901060, guid: f1b21fa074f833a498284b1a9ee1657d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.14009
+      value: 6.2
       objectReference: {fileID: 0}
     - target: {fileID: 1851706553297901060, guid: f1b21fa074f833a498284b1a9ee1657d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.27364
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1851706553297901060, guid: f1b21fa074f833a498284b1a9ee1657d,
         type: 3}
@@ -3387,7 +3387,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1222890038}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.86, y: -2.67, z: 0}
+  m_LocalPosition: {x: -1.9, y: -2.8, z: 0}
   m_LocalScale: {x: 1.2489574, y: 1.2489574, z: 1.2489574}
   m_Children:
   - {fileID: 1575031631}
@@ -3454,6 +3454,7 @@ MonoBehaviour:
   dashDur: 1.5
   dashSpeed: 20
   dashCDDur: 1
+  stunCD: 0
 --- !u!95 &1222890044
 Animator:
   serializedVersion: 3
@@ -4517,8 +4518,7 @@ GameObject:
   - component: {fileID: 1923988976}
   - component: {fileID: 1923988975}
   - component: {fileID: 1923988978}
-  - component: {fileID: 1923988979}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: cepo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4537,10 +4537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd42fc2dede6a741a094a0318622f21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1222890038}
-  retencion: 5
-  presionado: 0
-  moving: {fileID: 1222890043}
+  retencion: 3
 --- !u!212 &1923988976
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4614,7 +4611,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -4630,27 +4627,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &1923988979
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1923988974}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 100
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &1943216642
 GameObject:
   m_ObjectHideFlags: 0
