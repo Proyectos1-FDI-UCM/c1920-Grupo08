@@ -10,7 +10,6 @@ public class PlayerCrouch : MonoBehaviour
     public Collider2D standCollider; // Collider original del personaje
     public PlayerMove playerMove;
     public LayerMask ground;
-    float originalspeed;
 
     public Transform ceilingCheck; // Punto superior del personaje
     private float ceilingRadius = 0.24f; // Radio para el detector de techo
@@ -19,7 +18,6 @@ public class PlayerCrouch : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        float originalspeed = playerMove.speed;
     }
     private void Update()
     {
@@ -53,12 +51,12 @@ public class PlayerCrouch : MonoBehaviour
             // ... y no esta bloqueado por un techo.
             else
             {
+                playerMove.speed = 10f;
                 // ...activa el collider correspondiente para hacer mas grande al jugador.
                 standCollider.enabled = true;
                 crouchCol.enabled = false;
                 // ...avisa al animador.
                 animator.SetBool("isCrouching", false);
-                playerMove.speed = originalspeed;
             }
         }
 
@@ -66,7 +64,7 @@ public class PlayerCrouch : MonoBehaviour
         else
         {
             // ...reduce la velocidad,
-            playerMove.speed *= crouchspeed;
+            playerMove.speed = crouchspeed * 10;
 
             // ...desactiva el collider correspondiente para hacer mas pequeño al jugador.
             standCollider.enabled = false;
