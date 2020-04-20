@@ -6,8 +6,6 @@ public class PlayerCrouch : MonoBehaviour
 {
     public bool crouch;
     [Range(0, 1)] public float crouchspeed;
-    public Collider2D crouchCol; // Collider al agacharse
-    public Collider2D standCollider; // Collider original del personaje
     public PlayerMove playerMove;
     public LayerMask ground;
 
@@ -15,9 +13,11 @@ public class PlayerCrouch : MonoBehaviour
     private float ceilingRadius = 0.24f; // Radio para el detector de techo
 
     Animator animator;
+    public CapsuleCollider2D collider;
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        collider = GetComponent<CapsuleCollider2D>();
     }
     private void Update()
     {
@@ -53,8 +53,7 @@ public class PlayerCrouch : MonoBehaviour
             {
                 playerMove.speed = 10f;
                 // ...activa el collider correspondiente para hacer mas grande al jugador.
-                standCollider.enabled = true;
-                crouchCol.enabled = false;
+                collider.size = new Vector2(collider.size.x, 1.6f);
                 // ...avisa al animador.
                 animator.SetBool("isCrouching", false);
             }
@@ -67,8 +66,7 @@ public class PlayerCrouch : MonoBehaviour
             playerMove.speed = crouchspeed * 10;
 
             // ...desactiva el collider correspondiente para hacer mas pequeño al jugador.
-            standCollider.enabled = false;
-            crouchCol.enabled = true;
+            collider.size = new Vector2(collider.size.x, 1f);
 
             // ...avisa al animador.
             animator.SetBool("isCrouching", true);

@@ -3953,7 +3953,6 @@ GameObject:
   - component: {fileID: 1222890039}
   - component: {fileID: 1222890048}
   - component: {fileID: 1222890047}
-  - component: {fileID: 1222890046}
   - component: {fileID: 1222890045}
   - component: {fileID: 1222890044}
   - component: {fileID: 1222890043}
@@ -4075,24 +4074,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.033496447, y: -0.11597579}
-  m_Size: {x: 0.4805631, y: 1.5889264}
-  m_Direction: 0
---- !u!70 &1222890046
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1222890038}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: d113deafbd279d4449c3cde8e06d461c, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.033496473, y: -0.45217225}
-  m_Size: {x: 0.48056307, y: 0.96779734}
+  m_Offset: {x: -0.033496447, y: -0.11}
+  m_Size: {x: 0.4805631, y: 1.6}
   m_Direction: 0
 --- !u!50 &1222890047
 Rigidbody2D:
@@ -4178,13 +4161,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crouch: 0
   crouchspeed: 0.4
-  crouchCol: {fileID: 1222890046}
-  standCollider: {fileID: 1222890045}
   playerMove: {fileID: 1222890043}
   ground:
     serializedVersion: 2
     m_Bits: 256
   ceilingCheck: {fileID: 1165487171}
+  collider: {fileID: 1222890045}
 --- !u!1 &1324927699
 GameObject:
   m_ObjectHideFlags: 0
