@@ -7,6 +7,9 @@ public class PlayerMove : MonoBehaviour
     Rigidbody2D rb;
     IsItGrounded isItGrounded;
     PlayerJump jumping;
+
+    Animator animator;
+
     public float speed;
     //Valor en porcentaje de cuanto queremos incrementar la velocidad cuando hacemos sprint (sprint CoD)
     //public float sprintBoost;
@@ -29,6 +32,8 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         GameManager.instance.SetPlayer(this.gameObject);
+
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         isItGrounded = GetComponent<IsItGrounded>();
         jumping = GetComponent<PlayerJump>();
@@ -67,7 +72,10 @@ public class PlayerMove : MonoBehaviour
                 rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed * (1 + dashSpeed / 100), rb.velocity.y);
             //Si no, nos movemos a la velocidad normal
             else
+            {
                 rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, rb.velocity.y);
+                animator.SetFloat("Speed", Mathf.Abs(Input.GetAxis("Horizontal")));
+            }
         }
 
     }
