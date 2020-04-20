@@ -5,20 +5,17 @@ using UnityEngine;
 public class Respawn : MonoBehaviour
 {
     Vector2 respawnPoint;
+    Sprite s;
     void OnTriggerEnter2D(Collider2D other)
     {
-        Checkpoint checkpoint = other.GetComponent<Checkpoint>();
+        PlayerMove player = other.GetComponent<PlayerMove>();
 
-        if (checkpoint != null)
-            respawnPoint = other.transform.position;
-    }
-
-    void PlayerLostLife ()
-    {
-        if (GameManager.instance != null)
+        if (GameManager.instance != null && player != null)
         {
-            if (GameManager.instance.PlayerDied() == true)
-                this.transform.position = respawnPoint;
+            respawnPoint = this.transform.position;
+
+            GameManager.instance.Checkpoint(respawnPoint, s);
         }
     }
 }
+
