@@ -17,11 +17,8 @@ public class InstantKill : MonoBehaviour
             //Establecemos la barra de salud a 0
             healthBar.GetComponent<ValueBar>().SetValue(0);
 
-            //Detenemos el tiempo en pantalla
-            Time.timeScale = 0;
-
             //Llamamos al método de respawneo
-            GameManager.instance.OnDead();
+            GameManager.instance.OnDead(player.gameObject);
         }
     }
 }
