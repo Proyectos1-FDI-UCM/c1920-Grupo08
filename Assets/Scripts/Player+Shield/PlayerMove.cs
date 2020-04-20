@@ -6,6 +6,7 @@ public class PlayerMove : MonoBehaviour
 {
     Rigidbody2D rb;
     IsItGrounded isItGrounded;
+    PlayerJump jumping;
     public float speed;
     //Valor en porcentaje de cuanto queremos incrementar la velocidad cuando hacemos sprint (sprint CoD)
     //public float sprintBoost;
@@ -15,6 +16,10 @@ public class PlayerMove : MonoBehaviour
     public float dashSpeed;
     //Duración del enfriamiento del dash
     public float dashCDDur;
+    //true si no puede moverse
+    bool stunned;
+    //duracion del stun
+    public float stunCD;
     //true si dash está en enfriamiento
     bool dashCD;
     //true si dash está activo
@@ -26,8 +31,10 @@ public class PlayerMove : MonoBehaviour
         GameManager.instance.SetPlayer(this.gameObject);
         rb = GetComponent<Rigidbody2D>();
         isItGrounded = GetComponent<IsItGrounded>();
+        jumping = GetComponent<PlayerJump>();
         dashCD = false;
         dash = false;
+        stunned = false;
     }
 
     //Movivmiento con sprint "dash"
@@ -53,7 +60,7 @@ public class PlayerMove : MonoBehaviour
             }
         //Si estamos al lado de un muro, podemos controlar nuestro movimiento aunque no tengamos los pies en el suelo
         //De este modo podemos subir esquinas
-        if (isItGrounded.WallCheck())
+        if (isItGrounded.WallCheck()&& !stunned)
         {
             //Si nos encontramos en modo dash, nos movemos a la velocidad incrementada
             if (dash)
@@ -71,5 +78,18 @@ public class PlayerMove : MonoBehaviour
     void DashCooldown()
     {
         dashCD = false;
+    }
+    public void Stunned(float time)
+    {
+
+        stunned = true;
+        Invoke("StunCD", time);
+        rb.velocity = Vector2.zero;
+        jumping.enabled = false;
+    }
+    void StunCD()
+    {
+        stunned = false;
+        jumping.enabled = true;
     }
 }
