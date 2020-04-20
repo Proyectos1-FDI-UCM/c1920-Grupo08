@@ -6,6 +6,7 @@ public class PlayerMove : MonoBehaviour
 {
     Rigidbody2D rb;
     IsItGrounded isItGrounded;
+    PlayerJump jumping;
     public float speed;
     //Valor en porcentaje de cuanto queremos incrementar la velocidad cuando hacemos sprint (sprint CoD)
     //public float sprintBoost;
@@ -29,6 +30,7 @@ public class PlayerMove : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         isItGrounded = GetComponent<IsItGrounded>();
+        jumping = GetComponent<PlayerJump>();
         dashCD = false;
         dash = false;
         stunned = false;
@@ -82,9 +84,11 @@ public class PlayerMove : MonoBehaviour
         stunned = true;
         Invoke("StunCD", time);
         rb.velocity = Vector2.zero;
+        jumping.enabled = false;
     }
     void StunCD()
     {
         stunned = false;
+        jumping.enabled = true;
     }
 }
