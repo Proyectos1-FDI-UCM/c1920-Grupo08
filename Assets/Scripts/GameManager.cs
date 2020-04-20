@@ -1,14 +1,19 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     const float playerMaxHP = 200f;
-    const float shieldMaxHP = 100f;
+    float shieldMaxHP = 100f;
     float playerHP, shieldHP, shieldWeight; // Estado del juego
     float checkpointPlayerHP, checkpointShieldHP, checkpointShieldWeight; // Variables de puntos de guardados
     Vector2 lastCheckpoint; // Lugar donde reaparecerá el jugador al morir
     Sprite checkpointShield; // Escudo que tenía el jugador al pasar por el checkpoint
     GameObject player, shield;
+    //True cuando el jugador acaba de recibir daño y es brevemente inmune al daño
+    bool invulnerable;
     public static GameManager instance;
     bool isDead = false;
     const bool DEBUG = true;
@@ -16,15 +21,12 @@ public class GameManager : MonoBehaviour
     private bool isItPaused = false;
 
     // Almacena las frases para el sistema de diálogo
-    private string[] frases = { "Texto por defecto, cambia el index", "Hola mi nombre es Ben, bienvenido!", "Seguramente necesite esto", "Mi escudo esta a punto de romperse!", "Necesito curar mis heridas", "༼ つ ◕_◕ ༽つ" };
+    private string[] frases = { "Texto por defecto, cambia el index", "Hola mi nombre es Ben, bienvenido!", "Seguramente necesite esto", "Mi escudo esta a punto de romperse!", "Necesito curar mis heridas" };
 
     // Definir como único GameManager y designar quién será la UIManager
     UIManager UIManager;
 
-    public bool Debug()
-    {
-        return DEBUG;
-    }
+
     private void Awake()
     {
         if (instance == null)
@@ -37,13 +39,14 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        invulnerable = false;
         UIManager = GetComponent<UIManager>();
         UIManager.PauseMenu(isItPaused);
         playerHP = playerMaxHP;
         shieldHP = shieldMaxHP;
         shieldWeight = 0;
-
-        UIManager.UpdateHeathBar(playerMaxHP, playerHP);
+        
+        UIManager.UpdateHealthBar(playerMaxHP, playerHP);
         UIManager.UpdateShieldBar(shieldHP, shieldMaxHP);
         UIManager.UpdateShieldHolder();
         // Dar valores a lastCheckpoint y a checkpointShield
@@ -72,33 +75,55 @@ public class GameManager : MonoBehaviour
     public void SetPlayer(GameObject p)
     {
         player = p;
-        shield = p.transform.GetChild(0).GetChild(0).gameObject;
+        shield = p.transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
     }
 
 
-    public void GetShield(int healPoints, int weight) // Inicia los valores al coger un escudo
+    public void GetShield(float healPoints, float weight, Sprite newsprite) // Inicia los valores al coger un escudo
     {
-        //shieldHP = healPoints;
-        //shieldWeight = weight;
-        // Llamar al UIManager
+        //Actualizamos los valores de peso y salud del escudo
+        shieldMaxHP = healPoints;
+        shieldHP = healPoints;
+        shieldWeight = weight;
+        shield.GetComponent<SpriteRenderer>().sprite = newsprite;
+        UIManager.UpdateShieldBar(healPoints, healPoints);
     }
 
     public void OnHit(GameObject obj, float damage) // Quita vida al jugador (colisión con enemigo)
     {
-        if (obj.tag == "Shield")
+        if (!invulnerable)
         {
-            shieldHP -= damage;
-            // Llamar al UIManager
-            UIManager.UpdateShieldBar(shieldMaxHP, shieldHP);
-
-            if (shieldHP < 0)
+            if (obj.tag == "Shield")
             {
-                playerHP += shieldHP; // Si el escudo queda con vida negativa, hace también daño al jugador
+                shieldHP -= damage;
                 // Llamar al UIManager
-                UIManager.UpdateHeathBar(playerMaxHP, playerHP);
+                UIManager.UpdateShieldBar(shieldMaxHP, shieldHP);
+
+                if (shieldHP < 0)
+                {
+                    playerHP += shieldHP; // Si el escudo queda con vida negativa, hace también daño al jugador
+                                          // Llamar al UIManager
+
+                    UIManager.UpdateHealthBar(playerMaxHP, playerHP);
+                }
+                if (damage > 10)
+                {
+                    invulnerable = true;
+                    Invoke("InvulnerableTimer", 0.2f);
+                }
+            }
+            else if (obj.tag == "Player")
+            {
+                playerHP -= damage;
+                // Llamar al UIManager
+                UIManager.UpdateHealthBar(playerMaxHP, playerHP);
+                if (damage > 10)
+                {
+                    invulnerable = true;
+                    Invoke("InvulnerableTimer", 0.2f);
+                }
             }
         }
-
         else if (obj.tag == "Player")
         {
             playerHP -= damage;
@@ -108,15 +133,26 @@ public class GameManager : MonoBehaviour
 
         if (playerHP <= 0) OnDead(player);
     }
-
-    public void OnHeal(int heal) // Cura al jugador (colision con botiquines)
+    private void InvulnerableTimer()
     {
-        if (playerHP < playerMaxHP)
+        invulnerable = false;
+    }
+
+    public void OnHeal(float heal) // Cura al jugador (colision con botiquines)
+    {
+        Debug.Log("Heal + " + heal);
+
+        if (playerHP + heal > playerMaxHP)
         {
-            if (playerHP + heal > playerMaxHP) playerHP = playerMaxHP;
-            else playerHP += heal;
-            // Llamar al UIManager
+            playerHP = playerMaxHP;
         }
+
+        else
+        {
+            playerHP += heal;
+        }
+
+        UIManager.UpdateHealthBar(playerMaxHP, playerHP);
     }
 
     public void Checkpoint(Vector2 pos, Sprite s) // Guarda los valores al pasar por un checkpoint 
@@ -138,6 +174,17 @@ public class GameManager : MonoBehaviour
 
     public void OnDialogue(int index)
     {
+        Debug.Log("OnDialogue index " + index);
         UIManager.Dialogue(frases[index]);
+    }
+
+    public void MainMenu() 
+    {
+        SceneManager.LoadScene("00_MainMenu");
+    }
+    public void Exit() 
+    {
+        Debug.Log("El juego se ha cerrado");
+        Application.Quit();
     }
 }
