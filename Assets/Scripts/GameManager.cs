@@ -106,16 +106,7 @@ public class GameManager : MonoBehaviour
             UIManager.UpdateHeathBar(playerMaxHP, playerHP);
         }
 
-        if (playerHP <= 0) OnDead();
-    }
-
-    public bool PlayerDied ()
-    {
-        if (playerHP<=0)
-        {
-            isDead = true;
-        }
-        return isDead;
+        if (playerHP <= 0) OnDead(player);
     }
 
     public void OnHeal(int heal) // Cura al jugador (colision con botiquines)
@@ -137,11 +128,12 @@ public class GameManager : MonoBehaviour
         checkpointShield = s;
     }
 
-    public void OnDead() // Resetea desde el checkpoint
+    public void OnDead(GameObject player) // Resetea desde el checkpoint
     {
         // Llamar a un método del jugador para que cambie a la posición de 
         //lastCheckpoint (enviada como parámetro) y le envíe el sprite del escudo
         Checkpoint(lastCheckpoint, checkpointShield);
+        player.transform.position = lastCheckpoint;
     }
 
     public void OnDialogue(int index)
