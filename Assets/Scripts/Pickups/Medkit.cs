@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Medkit : MonoBehaviour
 {
-    public float heal = 100f;
+    
+    [SerializeField] private float heal = 100f;
     private AudioSource sound;    
 
     private void Start()

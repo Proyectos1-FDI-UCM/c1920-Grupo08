@@ -5,8 +5,7 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     [Header("Consulta el index en el array del GM para elegir la frase")]
-    public int index = 0;
-    
+    [SerializeField] private int index = 0;    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
