@@ -29,7 +29,7 @@ public class ShieldPickup : MonoBehaviour
         Debug.Log("col detected");
         //Si en cualquier momento en el que el jugador está en contacto con el escudo se pulsa
         //el botón de interactuar, cambiamos el escudo y destruimos el del suelo
-        if (Input.GetButtonDown("Crouch"))
+        if (Input.GetButtonDown("Use"))
         {
             GameManager.instance.GetShield(maxhp, weight, sprite);
             Destroy(this.gameObject);
