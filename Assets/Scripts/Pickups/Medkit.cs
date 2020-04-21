@@ -5,8 +5,7 @@ using UnityEngine;
 public class Medkit : MonoBehaviour
 {
     public float heal = 100f;
-    private AudioSource sound;
-    private int n = 0;
+    private AudioSource sound;    
 
     private void Start()
     {
@@ -15,9 +14,8 @@ public class Medkit : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((collision.gameObject.tag == "Player") && (n < 1))
-        {            
-            n += 1;
+        if (collision.GetComponent<PlayerMove>()!=null)
+        {           
             sound.Play();
             GameManager.instance.OnHeal(heal);
             Destroy(this.gameObject, 1f);
