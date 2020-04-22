@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6718273936134683917}
   - component: {fileID: 9085578695115418756}
   - component: {fileID: 1858417906269581612}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Medkit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0024864674, y: -0.13676178}
