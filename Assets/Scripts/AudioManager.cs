@@ -3,10 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 public enum Sound
 {
-    click,
-    hit,
-    dead,
-    prueba
+    defaultSound,
+    medKit,
+    machineGun,
+    sniper,
+    bomb,
+    mine,
+    trap,
+    log,
+    repairKit,
+    playerBulletHit,
+    shieldBulletHit,
+    groundBulletHit,
+    playerJump,
+    playerLand,
+    playerRun,
+    respawn,
+    death,
+    button,
+    shieldOn,
+    shieldOff,
+    shieldBroken,
+    shieldPickup,
 }
 
 public class AudioManager : MonoBehaviour
