@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CircleCollider2D))]
-[RequireComponent(typeof(AudioSource))]
 public class RangedWeapon : MonoBehaviour
 {
     // Scrip configurable para el uso en armas a distancia
@@ -21,6 +20,7 @@ public class RangedWeapon : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject bullet;
     [SerializeField] private int damagePerShot;
+    [SerializeField] private Sound sound;
 
     [Header("Duración del ciclo de disparo")]
     [SerializeField] private float shot_CD = 1f;
@@ -39,8 +39,7 @@ public class RangedWeapon : MonoBehaviour
     private Transform target;
     private LineRenderer laser;
     private bool onRange = false;
-    private CircleCollider2D c_collider;
-    private new AudioSource audio;
+    private CircleCollider2D c_collider;    
 
     private void Start()
     {
@@ -54,8 +53,7 @@ public class RangedWeapon : MonoBehaviour
             }
         }
 
-        c_collider = GetComponent<CircleCollider2D>();
-        audio = GetComponent<AudioSource>();
+        c_collider = GetComponent<CircleCollider2D>();        
     }
 
     private void Update()
@@ -117,7 +115,7 @@ public class RangedWeapon : MonoBehaviour
     {
         if (Time.time >= elapsedTime)
         {
-            audio.Play();
+            AudioManager.instance.PlaySoundOnce(sound);
             StartCoroutine(Burst());
             elapsedTime = Time.time + burst_CD + shot_CD * burst_count;
         }
