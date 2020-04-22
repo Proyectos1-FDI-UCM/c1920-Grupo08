@@ -43,4 +43,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a1ce67c621dc414b8edd6b94d135a15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundFileArrray: []
+  soundFileArrray:
+  - sound: 0
+    audioClip: {fileID: 8300000, guid: 9be6ea76d75f4014783e3434eb3bce62, type: 3}
+  - sound: 1
+    audioClip: {fileID: 8300000, guid: c09aa2432345e914a83b9718dd9c4955, type: 3}
+  - sound: 2
+    audioClip: {fileID: 8300000, guid: 4f44ac0cf48050443b99b6c383dde7b1, type: 3}
+  - sound: 3
+    audioClip: {fileID: 8300000, guid: efe0d9b9a6c97214e8ff7840032e943b, type: 3}
+  - sound: 0
+    audioClip: {fileID: 0}
+  - sound: 0
+    audioClip: {fileID: 0}
+  - sound: 0
+    audioClip: {fileID: 0}
+  - sound: 0
+    audioClip: {fileID: 0}
+  - sound: 0
+    audioClip: {fileID: 0}
+  - sound: 0
+    audioClip: {fileID: 0}
+  - sound: 0
+    audioClip: {fileID: 0}
+  - sound: 0
+    audioClip: {fileID: 0}
+  - sound: 0
+    audioClip: {fileID: 0}
+  - sound: 0
+    audioClip: {fileID: 0}
+  - sound: 0
+    audioClip: {fileID: 0}
+  - sound: 0
+    audioClip: {fileID: 0}
+  - sound: 0
+    audioClip: {fileID: 0}
+  - sound: 0
+    audioClip: {fileID: 0}
+  - sound: 0
+    audioClip: {fileID: 0}
+  - sound: 0
+    audioClip: {fileID: 0}
