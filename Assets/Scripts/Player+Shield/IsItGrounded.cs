@@ -12,7 +12,7 @@ public class IsItGrounded : MonoBehaviour
     
     //Radio para el detector de paredes. Mientras más grande sea, más fiable será el acto de subir esquinas, 
     //pero menos fiable serán los knockbacks
-    private float wallRadius = 0.25f;
+    private float wallRadius = 0.3f;
 
     public bool IsGrounded()
     {
