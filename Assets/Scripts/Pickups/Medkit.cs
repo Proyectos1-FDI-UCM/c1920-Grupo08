@@ -6,20 +6,18 @@ public class Medkit : MonoBehaviour
 {
     
     [SerializeField] private float heal = 100f;
-    private AudioSource sound;    
+    [SerializeField] private Sound sound; 
 
-    private void Start()
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        sound = GetComponent<AudioSource>();
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.GetComponent<PlayerMove>()!=null)
-        {           
-            sound.Play();
-            GameManager.instance.OnHeal(heal);
-            Destroy(this.gameObject, 1f);
+        if (collision.GetComponent<PlayerMove>() != null)
+        {
+            if (Input.GetButtonDown("Use"))
+            {
+                AudioManager.instance.PlaySoundOnce(sound);
+                GameManager.instance.OnHeal(heal);
+                Destroy(this.gameObject);
+            }
         }
     }
 }
