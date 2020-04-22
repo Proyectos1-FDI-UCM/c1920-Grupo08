@@ -158,6 +158,23 @@ public class GameManager : MonoBehaviour
         UIManager.UpdateHealthBar(playerMaxHP, playerHP);
     }
 
+    public void OnRepair(float reapairvalue) // Cura al jugador (colision con botiquines)
+    {
+        Debug.Log("Repair + " + reapairvalue);
+
+        if (shieldHP + reapairvalue > shieldMaxHP)
+        {
+            shieldHP = shieldMaxHP;
+        }
+
+        else
+        {
+            shieldHP += reapairvalue;
+        }
+
+        UIManager.UpdateShieldBar(shieldMaxHP, shieldHP);
+    }
+
     public void Checkpoint(Vector2 pos, Sprite s) // Guarda los valores al pasar por un checkpoint 
     {
         lastCheckpoint = pos;
