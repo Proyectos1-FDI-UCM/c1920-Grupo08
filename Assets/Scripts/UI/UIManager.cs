@@ -12,6 +12,20 @@ public class UIManager : MonoBehaviour
     private float typeSpeed = 0.1f;
     private Slider healthS, shieldS;
 
+    #region Singleton
+    public static UIManager instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else Destroy(this.gameObject);
+    }
+    #endregion
+
     void Start()
     {
         dialogueBubble.SetActive(false);
