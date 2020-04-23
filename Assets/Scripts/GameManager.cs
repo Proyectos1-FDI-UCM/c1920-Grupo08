@@ -18,10 +18,7 @@ public class GameManager : MonoBehaviour
     bool isDead = false;
     const bool DEBUG = true;
 
-    private bool isItPaused = false;
-
-    // Almacena las frases para el sistema de diálogo
-    private string[] frases = { "Texto por defecto, cambia el index", "Hola mi nombre es Ben, bienvenido!", "Seguramente necesite esto", "Mi escudo esta a punto de romperse!", "Necesito curar mis heridas" };
+    private bool isItPaused = false; 
 
     // Definir como único GameManager y designar quién será la UIManager
     UIManager UIManager;
@@ -198,10 +195,9 @@ public class GameManager : MonoBehaviour
         player.transform.position = lastCheckpoint;
     }
 
-    public void OnDialogue(int index)
-    {
-        Debug.Log("OnDialogue index " + index);
-        UIManager.Dialogue(frases[index]);
+    public void OnDialogue(string frase)
+    {        
+        UIManager.Dialogue(frase);
     }
 
     public void MainMenu() 

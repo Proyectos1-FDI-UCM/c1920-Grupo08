@@ -9551,12 +9551,12 @@ PrefabInstance:
     - target: {fileID: 6883080145059108789, guid: 6b3191b39f9a27d4d9beb72c8f615958,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -29.49
+      value: -28.04
       objectReference: {fileID: 0}
     - target: {fileID: 6883080145059108789, guid: 6b3191b39f9a27d4d9beb72c8f615958,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.59
+      value: -3.58
       objectReference: {fileID: 0}
     - target: {fileID: 6883080145059108789, guid: 6b3191b39f9a27d4d9beb72c8f615958,
         type: 3}
@@ -9607,6 +9607,11 @@ PrefabInstance:
         type: 3}
       propertyPath: index
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6883080145059108788, guid: 6b3191b39f9a27d4d9beb72c8f615958,
+        type: 3}
+      propertyPath: frase
+      value: Hola mi nombre es Ben! Bienvenido!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b3191b39f9a27d4d9beb72c8f615958, type: 3}
