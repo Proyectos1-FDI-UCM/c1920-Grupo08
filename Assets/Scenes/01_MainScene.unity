@@ -351,8 +351,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1496543968}
-        m_MethodName: 
+      - m_Target: {fileID: 1496543969}
+        m_MethodName: BackButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10044,7 +10044,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 896899955}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1496543969}
+        m_MethodName: ControlsMenuButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &896899955
@@ -10429,8 +10440,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1739696838}
-        m_MethodName: Exit
+      - m_Target: {fileID: 1496543969}
+        m_MethodName: ExitButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10570,7 +10581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1076742960
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12131,12 +12142,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8090a8ecf13a44949900124fdf917090, type: 3}
---- !u!1 &1496543968 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7354965604544485765, guid: ddcab367c32bbc64ca07dff435693f42,
+--- !u!114 &1496543969 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7354965604544485766, guid: ddcab367c32bbc64ca07dff435693f42,
     type: 3}
   m_PrefabInstance: {fileID: 7354965605178720872}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e60ae6a9f24d34d4e9a19066e124507b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1520925523
 GameObject:
   m_ObjectHideFlags: 0
@@ -12219,8 +12236,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1739696838}
-        m_MethodName: MainMenu
+      - m_Target: {fileID: 1496543969}
+        m_MethodName: MainMenuButtor
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12680,18 +12697,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1739696838 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1788764327720613557, guid: 5602fe2ac44301b4cb9997fa246ff848,
-    type: 3}
-  m_PrefabInstance: {fileID: 1788764328199050968}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccd9181692b98994fa8e93abc78452d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1744828115
 GameObject:
   m_ObjectHideFlags: 0
@@ -16292,6 +16297,11 @@ PrefabInstance:
       propertyPath: bubbleText
       value: 
       objectReference: {fileID: 1706974038}
+    - target: {fileID: 7354965604544485766, guid: ddcab367c32bbc64ca07dff435693f42,
+        type: 3}
+      propertyPath: controlsMenu
+      value: 
+      objectReference: {fileID: 1076742959}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddcab367c32bbc64ca07dff435693f42, type: 3}
 --- !u!1001 &8214010355912794779

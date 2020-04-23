@@ -19,8 +19,7 @@ public class GameManager : MonoBehaviour
     const bool DEBUG = true;
 
     private bool isItPaused = false; 
-
-    // Definir como único GameManager y designar quién será la UIManager
+    
     UIManager UIManager;
 
     #region Singleton
@@ -46,8 +45,8 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         invulnerable = false;
-        UIManager = UIManager.instance;
-        UIManager.PauseMenu(isItPaused);
+        isItPaused = false;
+        UIManager = UIManager.instance;        
         playerHP = playerMaxHP;
         shieldHP = shieldMaxHP;
         shieldWeight = 0;
@@ -58,25 +57,7 @@ public class GameManager : MonoBehaviour
         // Dar valores a lastCheckpoint y a checkpointShield
     }
 
-    private void Update()
-    {
-        if (Input.GetButtonDown("Escape")) 
-        {
-            if (isItPaused) 
-            {
-                isItPaused = false;
-                UIManager.PauseMenu(isItPaused);
-                Time.timeScale = 1f;                
-            }
-
-            else 
-            {
-                isItPaused = true;
-                UIManager.PauseMenu(isItPaused);                
-                Time.timeScale = 0f;
-            }        
-        }
-    }
+   
 
     public void SetPlayer(GameObject p)
     {
