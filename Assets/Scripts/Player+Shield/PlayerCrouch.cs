@@ -66,7 +66,7 @@ public class PlayerCrouch : MonoBehaviour
             playerMove.speed = crouchspeed * 10;
 
             // ...reduce el tamaño del collider del personaje,
-            col.size = new Vector2(col.size.x, 1f);
+            col.size = new Vector2(col.size.x, 0.8f);
 
             // ...avisa al animador.
             animator.SetBool("isCrouching", true);
