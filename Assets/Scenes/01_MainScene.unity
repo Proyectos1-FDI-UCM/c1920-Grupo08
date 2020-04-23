@@ -11452,6 +11452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 15
+  sound: 12
 --- !u!114 &1336794042
 MonoBehaviour:
   m_ObjectHideFlags: 0
