@@ -46,6 +46,9 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   shieldBar: {fileID: 0}
   shieldHolder: {fileID: 0}
-  dialogueBubble: {fileID: 0}
+  controlsMenu: {fileID: 0}
   pauseMenu: {fileID: 0}
+  damageOverlay: {fileID: 0}
+  dialogueBubble: {fileID: 0}
   bubbleText: {fileID: 0}
+  buttonSound: 17

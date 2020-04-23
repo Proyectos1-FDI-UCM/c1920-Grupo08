@@ -12,6 +12,8 @@ public class UIManager : MonoBehaviour
     private float typeSpeed = 0.1f;
     private Slider healthS, shieldS;
     bool paused;
+    private AudioManager audioManager;
+    [SerializeField] Sound buttonSound;
 
     #region Singleton
     public static UIManager instance;
@@ -31,6 +33,7 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
+        audioManager = AudioManager.instance;
         Time.timeScale = 1f;
         paused = false;
         pauseMenu.SetActive(paused);
@@ -46,7 +49,7 @@ public class UIManager : MonoBehaviour
         if (Input.GetButtonDown("Escape"))
         {
             if (paused)
-            {
+            {                
                 paused = false;
                 pauseMenu.SetActive(false);
                 controlsMenu.SetActive(false);
@@ -54,7 +57,7 @@ public class UIManager : MonoBehaviour
             }
 
             else
-            {
+            {                
                 paused = true;
                 pauseMenu.SetActive(true);
                 controlsMenu.SetActive(false);
@@ -99,24 +102,28 @@ public class UIManager : MonoBehaviour
         dialogueBubble.SetActive(false);
     }
 
-    public void MainMenuButtor()
+    public void MainMenuButton()
     {
+        audioManager.PlaySoundOnce(buttonSound);
         GameManager.instance.MainMenu();
     }
 
     public void ExitButton() 
     {
+        audioManager.PlaySoundOnce(buttonSound);
         GameManager.instance.Exit();
     }
 
     public void ControlsMenuButton() 
     {
+        audioManager.PlaySoundOnce(buttonSound);
         controlsMenu.SetActive(true);
         pauseMenu.SetActive(false);
     }
 
     public void BackButton() 
     {
+        audioManager.PlaySoundOnce(buttonSound);
         controlsMenu.SetActive(false);
         pauseMenu.SetActive(true);
     }

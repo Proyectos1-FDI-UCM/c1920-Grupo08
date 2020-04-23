@@ -12295,7 +12295,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1496543969}
-        m_MethodName: MainMenuButtor
+        m_MethodName: MainMenuButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16426,15 +16426,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8214010356011057256, guid: 13927ab55df65014daaece805147424e,
-        type: 3}
-      propertyPath: soundFileArrray.Array.data[5].sound
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8214010356011057256, guid: 13927ab55df65014daaece805147424e,
-        type: 3}
-      propertyPath: soundFileArrray.Array.data[5].audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 4ed2c428b6ff9474f88c2f2536d7a30a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13927ab55df65014daaece805147424e, type: 3}

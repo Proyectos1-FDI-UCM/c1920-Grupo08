@@ -7,9 +7,12 @@ public class MainMenu : MonoBehaviour
 {
    public string playScene;
    public GameObject mainMenu, controlsMenu, title;
+   [SerializeField] Sound buttonSound;
+   private AudioManager audioManager;
 
     public void Start()
     {
+        audioManager = AudioManager.instance;
         if (mainMenu != null)
         {
             mainMenu.SetActive(true);
@@ -26,6 +29,7 @@ public class MainMenu : MonoBehaviour
     {
         if (playScene != null)
         {
+            audioManager.PlaySoundOnce(buttonSound);
             SceneManager.LoadScene(playScene);
         }
         else
@@ -36,18 +40,21 @@ public class MainMenu : MonoBehaviour
 
     public void Controls() 
     {
+        audioManager.PlaySoundOnce(buttonSound);
         mainMenu.SetActive(false);
         controlsMenu.SetActive(true);
     }
 
     public void Back() 
     {
+        audioManager.PlaySoundOnce(buttonSound);
         mainMenu.SetActive(true);
         controlsMenu.SetActive(false);
     }
 
     public void Exit() 
     {
+        audioManager.PlaySoundOnce(buttonSound);
         Debug.Log("El juego se ha cerrado");
         Application.Quit();    
     }
