@@ -21,3 +21,8 @@ public class Shield
     public float durability;
     public Sprite sprite;
 }
+
+public class ShieldClass : MonoBehaviour 
+{
+    // ESTO ES UN ESCUDO
+}

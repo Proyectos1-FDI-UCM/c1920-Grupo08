@@ -9646,24 +9646,6 @@ Transform:
   m_Father: {fileID: 1336794047}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &591844143 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4240981917507720079, guid: 5d3f7108f722b2b4f872fc018ac31ff0,
-    type: 3}
-  m_PrefabInstance: {fileID: 1795316103}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &591844144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 591844143}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e130513b772028240b17e6889f011343, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &617501852
 GameObject:
   m_ObjectHideFlags: 0
@@ -12785,7 +12767,6 @@ GameObject:
   - component: {fileID: 1744828119}
   - component: {fileID: 1744828118}
   - component: {fileID: 1744828117}
-  - component: {fileID: 1744828120}
   m_Layer: 9
   m_Name: shield
   m_TagString: Shield
@@ -12903,18 +12884,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1744828120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1744828115}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6d184e565ffc1848a565f7069e3e9d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1790164072
 GameObject:
   m_ObjectHideFlags: 0

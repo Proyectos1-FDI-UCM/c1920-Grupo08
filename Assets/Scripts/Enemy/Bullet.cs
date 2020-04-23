@@ -24,7 +24,7 @@ public class Bullet : MonoBehaviour
             audioManager.PlaySoundOnce(playerHit);
         }
 
-        else if(collision.GetComponent<Shield>() != null)
+        else if(collision.GetComponent<ShieldClass>() != null)
         {
             GameManager.instance.OnHit(collision.gameObject, damage);
             audioManager.PlaySoundOnce(shieldHit);
