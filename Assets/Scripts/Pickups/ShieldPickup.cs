@@ -7,7 +7,7 @@ public class ShieldPickup : MonoBehaviour
     //Placeholder para mostrar las estadísticas del escudo
     bool showinfo=false;
     [SerializeField] ShieldType shieldType;
-  
+    [SerializeField] Sound sound;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         showinfo = true;
@@ -20,6 +20,7 @@ public class ShieldPickup : MonoBehaviour
         //el botón de interactuar, cambiamos el escudo y destruimos el del suelo
         if (Input.GetButtonDown("Use"))
         {
+            AudioManager.instance.PlaySoundOnce(sound);
             GameManager.instance.GetShield(shieldType);
             Destroy(this.gameObject);
         }
