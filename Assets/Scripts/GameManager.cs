@@ -18,7 +18,9 @@ public class GameManager : MonoBehaviour
     bool isDead = false;
     const bool DEBUG = true;
 
-    private bool isItPaused = false; 
+    private bool isItPaused = false;
+
+    [SerializeField] Shield[] shieldArray;
     
     UIManager UIManager;
 
@@ -55,16 +57,13 @@ public class GameManager : MonoBehaviour
         UIManager.UpdateShieldBar(shieldHP, shieldMaxHP);
         UIManager.UpdateShieldHolder();
         // Dar valores a lastCheckpoint y a checkpointShield
-    }
-
-   
+    }   
 
     public void SetPlayer(GameObject p)
     {
         player = p;
         shield = p.transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
     }
-
 
     public void GetShield(float healPoints, float weight, Sprite newsprite) // Inicia los valores al coger un escudo
     {
@@ -120,6 +119,7 @@ public class GameManager : MonoBehaviour
 
         if (playerHP <= 0) OnDead(player);
     }
+
     private void InvulnerableTimer()
     {
         invulnerable = false;
@@ -174,17 +174,13 @@ public class GameManager : MonoBehaviour
         //lastCheckpoint (enviada como parámetro) y le envíe el sprite del escudo
         Checkpoint(lastCheckpoint, checkpointShield);
         player.transform.position = lastCheckpoint;
-    }
-
-    public void OnDialogue(string frase)
-    {        
-        UIManager.Dialogue(frase);
-    }
+    }    
 
     public void MainMenu() 
     {
         SceneManager.LoadScene("00_MainMenu");
     }
+
     public void Exit() 
     {
         Debug.Log("El juego se ha cerrado");
