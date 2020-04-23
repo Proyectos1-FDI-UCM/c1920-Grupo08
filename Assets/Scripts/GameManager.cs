@@ -91,6 +91,7 @@ public class GameManager : MonoBehaviour
                                           // Llamar al UIManager
 
                     UIManager.UpdateHealthBar(playerMaxHP, playerHP);
+                    UIManager.DamageOverlay();
                 }
                 if (damage > 10)
                 {
@@ -103,6 +104,8 @@ public class GameManager : MonoBehaviour
                 playerHP -= damage;
                 // Llamar al UIManager
                 UIManager.UpdateHealthBar(playerMaxHP, playerHP);
+                UIManager.DamageOverlay();
+
                 if (damage > 10)
                 {
                     invulnerable = true;
@@ -115,6 +118,7 @@ public class GameManager : MonoBehaviour
             playerHP -= damage;
             // Llamar al UIManager
             UIManager.UpdateHealthBar(playerMaxHP, playerHP);
+            UIManager.DamageOverlay();
         }
 
         if (playerHP <= 0) OnDead(player);

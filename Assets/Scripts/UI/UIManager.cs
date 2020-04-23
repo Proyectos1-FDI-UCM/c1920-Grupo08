@@ -6,7 +6,7 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject healthBar, shieldBar, shieldHolder, controlsMenu, pauseMenu, dialogueBubble;
+    public GameObject healthBar, shieldBar, shieldHolder, controlsMenu, pauseMenu,damageOverlay, dialogueBubble;
     public TextMeshProUGUI bubbleText;
     private string dialogue;
     private float typeSpeed = 0.1f;
@@ -36,6 +36,7 @@ public class UIManager : MonoBehaviour
         pauseMenu.SetActive(paused);
         controlsMenu.SetActive(false);
         dialogueBubble.SetActive(false);
+        damageOverlay.SetActive(false);
         healthS = healthBar.GetComponent<Slider>();
         shieldS = shieldBar.GetComponent<Slider>();
     }
@@ -118,5 +119,17 @@ public class UIManager : MonoBehaviour
     {
         controlsMenu.SetActive(false);
         pauseMenu.SetActive(true);
+    }
+
+    public void DamageOverlay()    
+    {
+        StartCoroutine(DamageEffect());
+    }
+
+    IEnumerator DamageEffect() 
+    {
+        damageOverlay.SetActive(true);
+        yield return null;
+        damageOverlay.SetActive(false);
     }
 }
