@@ -9,7 +9,7 @@ public enum Sound
     sniper,
     bomb,
     mine,
-    trap,
+    bearTrap,
     log,
     repairKit,
     playerBulletHit,
