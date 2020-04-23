@@ -3,22 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ShieldPickup : MonoBehaviour
-{
-    //Sprite del escudo
-    Sprite sprite;
-    //Valores de peso y resistencia
-    public float weight = 1;
-    public float maxhp = 100;
+{   
     //Placeholder para mostrar las estadísticas del escudo
     bool showinfo=false;
-
-    private void Start()
-    {
-        SpriteRenderer sr = GetComponent<SpriteRenderer>();
-        if (sr != null)
-            sprite = sr.sprite;
-    }
-
+    [SerializeField] ShieldType shieldType;
+  
     private void OnTriggerEnter2D(Collider2D collision)
     {
         showinfo = true;
@@ -31,7 +20,7 @@ public class ShieldPickup : MonoBehaviour
         //el botón de interactuar, cambiamos el escudo y destruimos el del suelo
         if (Input.GetButtonDown("Use"))
         {
-            GameManager.instance.GetShield(maxhp, weight, sprite);
+            GameManager.instance.GetShield(shieldType);
             Destroy(this.gameObject);
         }
     }

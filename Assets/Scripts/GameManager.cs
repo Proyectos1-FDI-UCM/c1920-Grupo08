@@ -65,14 +65,15 @@ public class GameManager : MonoBehaviour
         shield = p.transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
     }
 
-    public void GetShield(float healPoints, float weight, Sprite newsprite) // Inicia los valores al coger un escudo
+    public void GetShield(ShieldType shieldType) // Inicia los valores al coger un escudo
     {
-        //Actualizamos los valores de peso y salud del escudo
+        /*//Actualizamos los valores de peso y salud del escudo
         shieldMaxHP = healPoints;
         shieldHP = healPoints;
         shieldWeight = weight;
         shield.GetComponent<SpriteRenderer>().sprite = newsprite;
         UIManager.UpdateShieldBar(healPoints, healPoints);
+    */
     }
 
     public void OnHit(GameObject obj, float damage) // Quita vida al jugador (colisión con enemigo)
