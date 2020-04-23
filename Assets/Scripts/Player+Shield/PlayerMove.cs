@@ -7,6 +7,7 @@ public class PlayerMove : MonoBehaviour
     Rigidbody2D rb;    
     IsItGrounded isItGrounded;
     PlayerJump jumping;
+    AudioSource audio;
 
     Animator animator;
 
@@ -32,7 +33,7 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         GameManager.instance.SetPlayer(this.gameObject);
-
+        audio = GetComponent<AudioSource>();        
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         isItGrounded = GetComponent<IsItGrounded>();
@@ -40,6 +41,22 @@ public class PlayerMove : MonoBehaviour
         dashCD = false;
         dash = false;
         stunned = false;
+    }
+
+    private void Update()
+    {
+        if (Mathf.Abs(Input.GetAxis("Horizontal"))>0)
+        {
+            if (!audio.isPlaying)
+            {
+                audio.Play();
+            }
+            Debug.Log("m");        }
+        else
+        {
+            Debug.Log("n");
+            audio.Stop();
+        }
     }
 
     //Movivmiento con sprint "dash"
@@ -73,13 +90,13 @@ public class PlayerMove : MonoBehaviour
                 rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed * (1 + dashSpeed / 100), rb.velocity.y);
             //Si no, nos movemos a la velocidad normal
             else
-            {
+            {                
                 rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, rb.velocity.y);
                 animator.SetFloat("Speed", Mathf.Abs(Input.GetAxis("Horizontal")));
             }
-        }
-
+        }        
     }
+
     void DashDuration()
     {
         dash = false;
