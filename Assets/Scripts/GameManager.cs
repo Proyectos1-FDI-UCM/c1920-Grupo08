@@ -34,14 +34,20 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
         }
-        else Destroy(this.gameObject);
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        DontDestroyOnLoad(gameObject);
     }
     #endregion
 
     private void Start()
     {
+        Time.timeScale = 1f;
         invulnerable = false;
         UIManager = UIManager.instance;
         UIManager.PauseMenu(isItPaused);

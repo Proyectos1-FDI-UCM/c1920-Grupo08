@@ -351,8 +351,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Back
+      - m_Target: {fileID: 1496543968}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10576,7 +10576,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1076742960
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12137,6 +12137,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8090a8ecf13a44949900124fdf917090, type: 3}
+--- !u!1 &1496543968 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7354965604544485765, guid: ddcab367c32bbc64ca07dff435693f42,
+    type: 3}
+  m_PrefabInstance: {fileID: 7354965605178720872}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1520925523
 GameObject:
   m_ObjectHideFlags: 0
