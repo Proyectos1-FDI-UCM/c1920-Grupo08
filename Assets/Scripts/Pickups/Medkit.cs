@@ -4,23 +4,20 @@ using UnityEngine;
 
 public class Medkit : MonoBehaviour
 {
-    public float heal = 100f;
-    private AudioSource sound;
-    private int n = 0;
+    
+    [SerializeField] private float heal = 100f;
+    [SerializeField] private Sound sound; 
 
-    private void Start()
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        sound = GetComponent<AudioSource>();
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if ((collision.gameObject.tag == "Player") && (n < 1))
-        {            
-            n += 1;
-            sound.Play();
-            GameManager.instance.OnHeal(heal);
-            Destroy(this.gameObject, 1f);
+        if (collision.GetComponent<PlayerMove>() != null)
+        {
+            if (Input.GetButtonDown("Use"))
+            {
+                AudioManager.instance.PlaySoundOnce(sound);
+                GameManager.instance.OnHeal(heal);
+                Destroy(this.gameObject);
+            }
         }
     }
 }

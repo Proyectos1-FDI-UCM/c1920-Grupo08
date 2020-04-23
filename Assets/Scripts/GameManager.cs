@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     GameObject player, shield;
     //True cuando el jugador acaba de recibir daño y es brevemente inmune al daño
     bool invulnerable;
-    public static GameManager instance;
+    
     bool isDead = false;
     const bool DEBUG = true;
 
@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     // Definir como único GameManager y designar quién será la UIManager
     UIManager UIManager;
 
+    #region Singleton
+    public static GameManager instance;
 
     private void Awake()
     {
@@ -36,11 +38,12 @@ public class GameManager : MonoBehaviour
         }
         else Destroy(this.gameObject);
     }
+    #endregion
 
     private void Start()
     {
         invulnerable = false;
-        UIManager = GetComponent<UIManager>();
+        UIManager = UIManager.instance;
         UIManager.PauseMenu(isItPaused);
         playerHP = playerMaxHP;
         shieldHP = shieldMaxHP;
@@ -153,6 +156,23 @@ public class GameManager : MonoBehaviour
         }
 
         UIManager.UpdateHealthBar(playerMaxHP, playerHP);
+    }
+
+    public void OnRepair(float reapairvalue) // Cura al jugador (colision con botiquines)
+    {
+        Debug.Log("Repair + " + reapairvalue);
+
+        if (shieldHP + reapairvalue > shieldMaxHP)
+        {
+            shieldHP = shieldMaxHP;
+        }
+
+        else
+        {
+            shieldHP += reapairvalue;
+        }
+
+        UIManager.UpdateShieldBar(shieldMaxHP, shieldHP);
     }
 
     public void Checkpoint(Vector2 pos, Sprite s) // Guarda los valores al pasar por un checkpoint 
