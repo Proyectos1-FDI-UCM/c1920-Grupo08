@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    Rigidbody2D rb;
+    Rigidbody2D rb;    
     IsItGrounded isItGrounded;
     PlayerJump jumping;
 
@@ -67,6 +67,7 @@ public class PlayerMove : MonoBehaviour
         //De este modo podemos subir esquinas
         if (isItGrounded.WallCheck()&& !stunned)
         {
+            Debug.Log("Esta en el suelo");
             //Si nos encontramos en modo dash, nos movemos a la velocidad incrementada
             if (dash)
                 rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed * (1 + dashSpeed / 100), rb.velocity.y);

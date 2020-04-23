@@ -12,7 +12,7 @@ public class IsItGrounded : MonoBehaviour
     
     //Radio para el detector de paredes. Mientras más grande sea, más fiable será el acto de subir esquinas, 
     //pero menos fiable serán los knockbacks
-    private float wallRadius = 0.3f;
+    private float wallRadius = 0.4f;
 
     public bool IsGrounded()
     {
@@ -26,5 +26,10 @@ public class IsItGrounded : MonoBehaviour
         //Este método lo usaremos para detectar si estamos contra un muro para así habilitar el movimiento lateral
         //en el PlayerMove
         return (Physics2D.OverlapCircle(groundCheck.position, wallRadius, ground) != null);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(groundCheck.position, wallRadius);
     }
 }
