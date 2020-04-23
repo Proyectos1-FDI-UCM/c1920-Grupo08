@@ -6,8 +6,23 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
    public string playScene;
+   public GameObject mainMenu, controlsMenu;
 
-   public void Play() 
+    public void Start()
+    {
+        if (mainMenu != null)
+        {
+            mainMenu.SetActive(true);
+        }
+        else Debug.LogError("Añade el objeto mainMenu");
+
+        if (controlsMenu != null)
+        {
+            controlsMenu.SetActive(false);
+        }
+        else Debug.LogError("Añade el objeto controlsMenu");        
+    }
+    public void Play() 
     {
         if (playScene != null)
         {
@@ -17,6 +32,18 @@ public class MainMenu : MonoBehaviour
         {
             Debug.Log("La escena no esta asignada");
         }
+    }
+
+    public void Controls() 
+    {
+        mainMenu.SetActive(false);
+        controlsMenu.SetActive(true);
+    }
+
+    public void Back() 
+    {
+        mainMenu.SetActive(true);
+        controlsMenu.SetActive(false);
     }
 
     public void Exit() 
