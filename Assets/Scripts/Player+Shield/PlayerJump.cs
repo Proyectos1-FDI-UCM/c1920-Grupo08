@@ -7,6 +7,7 @@ public class PlayerJump : MonoBehaviour
     public float jumpForce; // Fuerza de salto
 
     private IsItGrounded isItGrounded; // Almacena el scrip para comprobar si esta en el suelo
+    [SerializeField] private Sound sound;
 
     Rigidbody2D rb;
     void Start()
@@ -20,6 +21,7 @@ public class PlayerJump : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isItGrounded!=null && isItGrounded.WallCheck())
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            AudioManager.instance.PlaySoundOnce(sound);
         }
     }
 }
