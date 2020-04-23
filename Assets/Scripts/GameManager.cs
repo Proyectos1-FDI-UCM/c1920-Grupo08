@@ -170,6 +170,7 @@ public class GameManager : MonoBehaviour
         //lastCheckpoint (enviada como parámetro) y le envíe el sprite del escudo
         Checkpoint(lastCheckpoint, checkpointShield);
         player.transform.position = lastCheckpoint;
+        UIManager.UpdateHealthBar(playerMaxHP, playerMaxHP);
     }
 
     public void OnDialogue(int index)
