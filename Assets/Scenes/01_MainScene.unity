@@ -11452,6 +11452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 15
+  sound: 12
 --- !u!114 &1336794042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16262,6 +16263,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 7354965604544485766, guid: ddcab367c32bbc64ca07dff435693f42,
+        type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1943216642}
+    - target: {fileID: 7354965604544485766, guid: ddcab367c32bbc64ca07dff435693f42,
+        type: 3}
+      propertyPath: shieldBar
+      value: 
+      objectReference: {fileID: 1119276185}
+    - target: {fileID: 7354965604544485766, guid: ddcab367c32bbc64ca07dff435693f42,
+        type: 3}
+      propertyPath: shieldHolder
+      value: 
+      objectReference: {fileID: 704516883}
+    - target: {fileID: 7354965604544485766, guid: ddcab367c32bbc64ca07dff435693f42,
+        type: 3}
+      propertyPath: dialogueBubble
+      value: 
+      objectReference: {fileID: 310626015}
+    - target: {fileID: 7354965604544485766, guid: ddcab367c32bbc64ca07dff435693f42,
+        type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1734481813}
+    - target: {fileID: 7354965604544485766, guid: ddcab367c32bbc64ca07dff435693f42,
+        type: 3}
+      propertyPath: bubbleText
+      value: 
+      objectReference: {fileID: 1706974038}
+    - target: {fileID: 7354965604544485766, guid: ddcab367c32bbc64ca07dff435693f42,
+        type: 3}
+      propertyPath: controlsMenu
+      value: 
+      objectReference: {fileID: 1076742959}
+    - target: {fileID: 7354965604544485766, guid: ddcab367c32bbc64ca07dff435693f42,
+        type: 3}
+      propertyPath: damageOverlay
+      value: 
+      objectReference: {fileID: 617501852}
     - target: {fileID: 7354965604544485767, guid: ddcab367c32bbc64ca07dff435693f42,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16317,46 +16358,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7354965604544485766, guid: ddcab367c32bbc64ca07dff435693f42,
-        type: 3}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 1943216642}
-    - target: {fileID: 7354965604544485766, guid: ddcab367c32bbc64ca07dff435693f42,
-        type: 3}
-      propertyPath: shieldBar
-      value: 
-      objectReference: {fileID: 1119276185}
-    - target: {fileID: 7354965604544485766, guid: ddcab367c32bbc64ca07dff435693f42,
-        type: 3}
-      propertyPath: shieldHolder
-      value: 
-      objectReference: {fileID: 704516883}
-    - target: {fileID: 7354965604544485766, guid: ddcab367c32bbc64ca07dff435693f42,
-        type: 3}
-      propertyPath: dialogueBubble
-      value: 
-      objectReference: {fileID: 310626015}
-    - target: {fileID: 7354965604544485766, guid: ddcab367c32bbc64ca07dff435693f42,
-        type: 3}
-      propertyPath: pauseMenu
-      value: 
-      objectReference: {fileID: 1734481813}
-    - target: {fileID: 7354965604544485766, guid: ddcab367c32bbc64ca07dff435693f42,
-        type: 3}
-      propertyPath: bubbleText
-      value: 
-      objectReference: {fileID: 1706974038}
-    - target: {fileID: 7354965604544485766, guid: ddcab367c32bbc64ca07dff435693f42,
-        type: 3}
-      propertyPath: controlsMenu
-      value: 
-      objectReference: {fileID: 1076742959}
-    - target: {fileID: 7354965604544485766, guid: ddcab367c32bbc64ca07dff435693f42,
-        type: 3}
-      propertyPath: damageOverlay
-      value: 
-      objectReference: {fileID: 617501852}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddcab367c32bbc64ca07dff435693f42, type: 3}
 --- !u!1001 &8214010355912794779
