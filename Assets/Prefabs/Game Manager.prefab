@@ -43,3 +43,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccd9181692b98994fa8e93abc78452d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shieldArray:
+  - shieldType: 0
+    weight: 5
+    durability: 100
+    sprite: {fileID: 21300000, guid: 49653d4c43821c847b9dfdbfc55b74d2, type: 3}
+  - shieldType: 1
+    weight: 5
+    durability: 100
+    sprite: {fileID: 0}
+  - shieldType: 2
+    weight: 5
+    durability: 100
+    sprite: {fileID: 0}
+  - shieldType: 3
+    weight: 5
+    durability: 100
+    sprite: {fileID: 0}
+  - shieldType: 4
+    weight: 5
+    durability: 100
+    sprite: {fileID: 0}
