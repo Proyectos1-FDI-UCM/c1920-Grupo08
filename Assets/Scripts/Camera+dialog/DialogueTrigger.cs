@@ -10,7 +10,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (collision.GetComponent<PlayerMove>()!=null)
         {            
-            GameManager.instance.OnDialogue(frase);
+           UIManager.instance.OnDialogue(frase);
             Destroy(this.gameObject);
         }
     }

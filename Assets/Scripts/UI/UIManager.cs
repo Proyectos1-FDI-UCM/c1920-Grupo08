@@ -77,7 +77,7 @@ public class UIManager : MonoBehaviour
     }
     public void UpdateShieldHolder() { }
 
-    public void Dialogue(string text)
+    public void OnDialogue(string text)
     {
         dialogue = text;
         dialogueBubble.SetActive(true);
