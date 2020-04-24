@@ -5,8 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Collider2D))]
 public class Bullet : MonoBehaviour
-{
-    [SerializeField] private Sound playerHit;
+{    
     [SerializeField] private Sound shieldHit;
     [SerializeField] private Sound groundHit;
     AudioManager audioManager;
@@ -20,8 +19,7 @@ public class Bullet : MonoBehaviour
     {
         if (collision.GetComponent<PlayerMove>() != null)
         {
-            GameManager.instance.OnHit(collision.gameObject, damage);
-            audioManager.PlaySoundOnce(playerHit);
+            GameManager.instance.OnHit(collision.gameObject, damage);            
         }
 
         else if(collision.GetComponent<ShieldClass>() != null)

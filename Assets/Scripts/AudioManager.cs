@@ -37,6 +37,8 @@ public class AudioManager : MonoBehaviour
     }
 
     [SerializeField] private SoundFile[] soundFileArrray;
+    [SerializeField] float volume;
+    [SerializeField] float pitch;
 
     #region Singleton
     public static AudioManager instance;
@@ -67,6 +69,8 @@ public class AudioManager : MonoBehaviour
             soundObj.transform.parent = transform;
 
             AudioSource audioSource = soundObj.AddComponent<AudioSource>();
+            audioSource.volume = volume;
+            audioSource.pitch = pitch;
             audioSource.PlayOneShot(audioClip);
 
             Destroy(soundObj, audioClip.length);

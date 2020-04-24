@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccd9181692b98994fa8e93abc78452d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHit: 9
   shieldArray:
   - shieldType: 0
     weight: 5

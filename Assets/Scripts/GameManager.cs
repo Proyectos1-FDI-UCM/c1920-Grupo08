@@ -17,8 +17,9 @@ public class GameManager : MonoBehaviour
     
     bool isDead = false;
     const bool DEBUG = true;
-
+    AudioManager audioManager;
     private bool isItPaused = false;
+    [SerializeField] Sound playerHit;
 
     [SerializeField] Shield[] shieldArray;
     
@@ -52,7 +53,7 @@ public class GameManager : MonoBehaviour
         playerHP = playerMaxHP;
         shieldHP = shieldMaxHP;
         shieldWeight = 0;
-        
+        audioManager = AudioManager.instance;
         UIManager.UpdateHealthBar(playerMaxHP, playerHP);
         UIManager.UpdateShieldBar(shieldHP, shieldMaxHP);
         UIManager.UpdateShieldHolder();
@@ -93,6 +94,7 @@ public class GameManager : MonoBehaviour
 
                     UIManager.UpdateHealthBar(playerMaxHP, playerHP);
                     UIManager.DamageOverlay();
+                    audioManager.PlaySoundOnce(playerHit);
                 }
                 if (damage > 10)
                 {
@@ -106,6 +108,7 @@ public class GameManager : MonoBehaviour
                 // Llamar al UIManager
                 UIManager.UpdateHealthBar(playerMaxHP, playerHP);
                 UIManager.DamageOverlay();
+                audioManager.PlaySoundOnce(playerHit);
 
                 if (damage > 10)
                 {
@@ -120,6 +123,7 @@ public class GameManager : MonoBehaviour
             // Llamar al UIManager
             UIManager.UpdateHealthBar(playerMaxHP, playerHP);
             UIManager.DamageOverlay();
+            audioManager.PlaySoundOnce(playerHit);
         }
 
         if (playerHP <= 0) OnDead(player);
