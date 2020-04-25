@@ -25,6 +25,7 @@ public enum Sound
     shieldOff,
     shieldBroken,
     shieldPickup,
+    radio,
 }
 
 public class AudioManager : MonoBehaviour
@@ -37,8 +38,7 @@ public class AudioManager : MonoBehaviour
     }
 
     [SerializeField] private SoundFile[] soundFileArrray;
-    [SerializeField] float volume;
-    [SerializeField] float pitch;
+    private float volume = 0.5f;    
 
     #region Singleton
     public static AudioManager instance;
@@ -67,12 +67,9 @@ public class AudioManager : MonoBehaviour
         {
             GameObject soundObj = new GameObject("soundObj");
             soundObj.transform.parent = transform;
-
             AudioSource audioSource = soundObj.AddComponent<AudioSource>();
             audioSource.volume = volume;
-            audioSource.pitch = pitch;
             audioSource.PlayOneShot(audioClip);
-
             Destroy(soundObj, audioClip.length);
         }         
     }
