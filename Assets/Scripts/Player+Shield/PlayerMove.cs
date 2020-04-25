@@ -31,7 +31,8 @@ public class PlayerMove : MonoBehaviour
     //true si el dash activo es a la derecha
     bool dashRight;
     void Start()
-    {        
+    {
+        GameManager.instance.SetPlayer(this.gameObject);
         audio = GetComponent<AudioSource>();        
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
@@ -50,9 +51,10 @@ public class PlayerMove : MonoBehaviour
             {
                 audio.Play();
             }
-        }
+            Debug.Log("m");        }
         else
-        {            
+        {
+            Debug.Log("n");
             audio.Stop();
         }
     }
@@ -81,7 +83,8 @@ public class PlayerMove : MonoBehaviour
         //Si estamos al lado de un muro, podemos controlar nuestro movimiento aunque no tengamos los pies en el suelo
         //De este modo podemos subir esquinas
         if (isItGrounded.WallCheck()&& !stunned)
-        {            
+        {
+            Debug.Log("Esta en el suelo");
             //Si nos encontramos en modo dash, nos movemos a la velocidad incrementada
             if (dash)
                 rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed * (1 + dashSpeed / 100), rb.velocity.y);

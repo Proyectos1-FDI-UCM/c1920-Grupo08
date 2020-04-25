@@ -7,11 +7,14 @@ public class GameManager : MonoBehaviour
 {
     const float playerMaxHP = 200f;
     float shieldMaxHP = 100f;
-    float playerHP, shieldHP, shieldWeight;    
-    Vector2 lastCheckpoint;
-    GameObject player;
+    float playerHP, shieldHP, shieldWeight; // Estado del juego
+    float checkpointPlayerHP, checkpointShieldHP, checkpointShieldWeight; // Variables de puntos de guardados
+    Vector2 lastCheckpoint; // Lugar donde reaparecerá el jugador al morir
+    Sprite checkpointShield; // Escudo que tenía el jugador al pasar por el checkpoint
+    GameObject player, shield;
     //True cuando el jugador acaba de recibir daño y es brevemente inmune al daño
-    bool invulnerable;    
+    bool invulnerable;
+    
     bool isDead = false;
     const bool DEBUG = true;
     AudioManager audioManager;
@@ -20,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] Shield[] shieldArray;
     
-    private UIManager UIManager;
+    UIManager UIManager;
 
     #region Singleton
     public static GameManager instance;
@@ -43,38 +46,35 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1f;
+        invulnerable = false;
+        isItPaused = false;
+        UIManager = UIManager.instance;        
+        playerHP = playerMaxHP;
+        shieldHP = shieldMaxHP;
+        shieldWeight = 0;
         audioManager = AudioManager.instance;
-    }
-
-    public void SetSpawnPoint(Vector2 point) 
-    {
-        lastCheckpoint = point;
-        Debug.Log("El nuevo spawn es: " + point);
-    }
-
-    public void SetUIManager(GameObject obj)    
-    {
-        UIManager = obj.GetComponent<UIManager>();
         UIManager.UpdateHealthBar(playerMaxHP, playerHP);
         UIManager.UpdateShieldBar(shieldHP, shieldMaxHP);
-    }
+        UIManager.UpdateShieldHolder();
+        // Dar valores a lastCheckpoint y a checkpointShield
+    }   
 
-    public void SetPlayer(GameObject obj)
+    public void SetPlayer(GameObject p)
     {
-        player = obj;        
-    }
-
-    public void SpawnPlayer() 
-    {
-        playerHP = playerMaxHP;
-        shieldHP = shieldMaxHP;        
-        player.transform.position = lastCheckpoint;
-        Debug.Log("El jugador ha spawneado en " + lastCheckpoint + " con " + playerHP + " HP y " + shieldHP + " de escudo.");
+        player = p;
+        shield = p.transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
     }
 
     public void GetShield(ShieldType shieldType) // Inicia los valores al coger un escudo
     {
-        return;
+        /*//Actualizamos los valores de peso y salud del escudo
+        shieldMaxHP = healPoints;
+        shieldHP = healPoints;
+        shieldWeight = weight;
+        shield.GetComponent<SpriteRenderer>().sprite = newsprite;
+        UIManager.UpdateShieldBar(healPoints, healPoints);
+    */
     }
 
     public void OnHit(GameObject obj, float damage) // Quita vida al jugador (colisión con enemigo)
@@ -126,7 +126,7 @@ public class GameManager : MonoBehaviour
             audioManager.PlaySoundOnce(playerHit);
         }
 
-        if (playerHP <= 0) StartCoroutine(ResetScene());
+        if (playerHP <= 0) OnDead(player);
     }
 
     private void InvulnerableTimer()
@@ -168,15 +168,22 @@ public class GameManager : MonoBehaviour
         UIManager.UpdateShieldBar(shieldMaxHP, shieldHP);
     }
 
-    public void OnDialogue(string frase) 
+    public void Checkpoint(Vector2 pos, Sprite s) // Guarda los valores al pasar por un checkpoint 
     {
-        UIManager.OnDialogue(frase);
+        lastCheckpoint = pos;
+        checkpointPlayerHP = playerHP;
+        checkpointShieldHP = shieldHP;
+        checkpointShieldWeight = shieldWeight;
+        checkpointShield = s;
     }
 
-    private IEnumerator ResetScene()
-    {        
-        yield return SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);        
-    }
+    public void OnDead(GameObject player) // Resetea desde el checkpoint
+    {
+        // Llamar a un método del jugador para que cambie a la posición de 
+        //lastCheckpoint (enviada como parámetro) y le envíe el sprite del escudo
+        Checkpoint(lastCheckpoint, checkpointShield);
+        player.transform.position = lastCheckpoint;
+    }    
 
     public void MainMenu() 
     {
