@@ -14,8 +14,7 @@ public class ShieldPickup : MonoBehaviour
     }
 
     private void OnTriggerStay2D(Collider2D collision)
-    {
-        Debug.Log("col detected");
+    {        
         //Si en cualquier momento en el que el jugador está en contacto con el escudo se pulsa
         //el botón de interactuar, cambiamos el escudo y destruimos el del suelo
         if (Input.GetButtonDown("Use"))
