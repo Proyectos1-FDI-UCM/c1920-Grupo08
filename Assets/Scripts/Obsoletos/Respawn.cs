@@ -14,7 +14,7 @@ public class Respawn : MonoBehaviour
         {
             respawnPoint = this.transform.position;
 
-            GameManager.instance.Checkpoint(respawnPoint, s);
+            //GameManager.instance.Checkpoint(respawnPoint, s);
         }
     }
 }
