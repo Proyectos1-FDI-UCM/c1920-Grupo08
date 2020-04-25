@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7867011808530944469}
   - component: {fileID: 7867011808530944468}
-  - component: {fileID: 7867011808530944475}
+  - component: {fileID: 8397343580488611438}
   - component: {fileID: 7867011808530944474}
   m_Layer: 14
   m_Name: Checkpoint
@@ -71,18 +71,18 @@ SpriteRenderer:
   m_SortingLayerID: -875842001
   m_SortingLayer: 3
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: f8f9f128b0e8de640b034e53e4518877, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 60bda479ac2fd6c44b73dbac0dd9a17d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3, y: 3}
+  m_Size: {x: 1.62, y: 1.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &7867011808530944475
+--- !u!61 &8397343580488611438
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,18 +95,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.21}
+  m_Offset: {x: 0, y: -0.2}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3, y: 3}
-    newSize: {x: 3, y: 3}
+    oldSize: {x: 1.62, y: 1.32}
+    newSize: {x: 1.62, y: 1.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.61, y: 1.02}
+  m_Size: {x: 1.62, y: 0.83}
   m_EdgeRadius: 0
 --- !u!114 &7867011808530944474
 MonoBehaviour:
@@ -120,5 +120,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e016a5075df0c4eb989045c1da478c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useAsStartingPoint: 0
   sound: 22
+  isStartingPoint: 0
