@@ -16,7 +16,6 @@ public class MinaMejorada : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("col detected");
         if(explosion!=null)
             explosion.enabled = true;
     }
