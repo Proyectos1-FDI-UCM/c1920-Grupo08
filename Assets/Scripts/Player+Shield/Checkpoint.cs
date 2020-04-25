@@ -22,7 +22,7 @@ public class Checkpoint : MonoBehaviour
         if (collision.GetComponent<Player>() != null)
         {
             GameManager.instance.SetSpawnPoint(transform.position);
-            //GameManager.instance.OnDialogue(frase);
+            GameManager.instance.OnDialogue(frase);
             AudioManager.instance.PlaySoundOnce(sound);
             StartCoroutine(checkpointCD());
         }
