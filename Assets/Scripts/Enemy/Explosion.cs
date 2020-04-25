@@ -33,14 +33,14 @@ public class Explosion : MonoBehaviour
     CircleCollider2D explosionRadius;
     //Si hay un BurstSpawner en el padre, lo activaremos en la explosión
     BurstSpawner burstSpawner;
-    
+
     bool debug;
 
     void Start()
     {
         debug = false;
         radius = 0f;
-        
+
         explosionRadius = gameObject.GetComponent<CircleCollider2D>();
         burstSpawner = transform.GetComponentInParent<BurstSpawner>();
     }
@@ -106,8 +106,16 @@ public class Explosion : MonoBehaviour
                 rb.AddForce(10 * force * direction);
 
                 //Hacemos menos daño mientras más se aleje el jugador del centro de la explosión
-                    GameManager.instance.OnHit(collision.gameObject, (explosionDamage*(maxRadius-radius)));
+                //GameManager.instance.OnHit(collision.gameObject, (explosionDamage*(maxRadius-radius)));
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (exploded && collision.GetComponent<Player>())
+        {
+            GameManager.instance.OnHit(collision.gameObject, (explosionDamage * (maxRadius - radius)));
         }
     }
 }
