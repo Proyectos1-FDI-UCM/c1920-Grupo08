@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class IsItGrounded : MonoBehaviour
 {
-    public LayerMask ground; // Layer para filtrar los objetos de tipo "suelo".
+    [SerializeField] private LayerMask ground; // Layer para filtrar los objetos de tipo "suelo".
 
-    public Transform groundCheck; // Punto inferior del personaje
+    [SerializeField] private Transform groundCheck; // Punto inferior del personaje
 
-    private float groundRadius = 0.1f; // Radio para el detector de suelo
+    private float groundRadius = 0.4f; // Radio para el detector de suelo
     
     //Radio para el detector de paredes. Mientras más grande sea, más fiable será el acto de subir esquinas, 
     //pero menos fiable serán los knockbacks
-    private float wallRadius = 0.4f;
+    //private float wallRadius = 0.4f;
 
     public bool IsGrounded()
     {
@@ -21,15 +21,16 @@ public class IsItGrounded : MonoBehaviour
         //objetos encontrados
         return (Physics2D.OverlapCircle(groundCheck.position, groundRadius, ground) != null);
     }
-    public bool WallCheck()
-    {
-        //Este método lo usaremos para detectar si estamos contra un muro para así habilitar el movimiento lateral
-        //en el PlayerMove
-        return (Physics2D.OverlapCircle(groundCheck.position, wallRadius, ground) != null);
-    }
+
+    //public bool WallCheck()
+    //{
+    //    //Este método lo usaremos para detectar si estamos contra un muro para así habilitar el movimiento lateral
+    //    //en el PlayerMove
+    //    return (Physics2D.OverlapCircle(groundCheck.position, wallRadius, ground) != null);
+    //}
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(groundCheck.position, wallRadius);
+        Gizmos.DrawWireSphere(groundCheck.position, groundRadius);
     }
 }

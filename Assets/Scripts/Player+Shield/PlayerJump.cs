@@ -18,8 +18,8 @@ public class PlayerJump : MonoBehaviour
     void FixedUpdate()
     {
         //Solo saltamos si estamos en el suelo
-        if (Input.GetButtonDown("Jump") && isItGrounded!=null && isItGrounded.WallCheck())
-        {
+        if (Input.GetButtonDown("Jump") && isItGrounded!=null && isItGrounded.IsGrounded())
+        {            
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             AudioManager.instance.PlaySoundOnce(sound);
         }

@@ -10,18 +10,12 @@ public class PlayerClimb : MonoBehaviour
     [SerializeField] private float distance;
     private float moveY;
     float gravity;
-    // Start is called before the first frame update
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         gravity = rb.gravityScale;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    }    
 
     private void FixedUpdate()
     {

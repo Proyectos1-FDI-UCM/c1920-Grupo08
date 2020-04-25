@@ -7,7 +7,7 @@ public class PlayerMove : MonoBehaviour
     Rigidbody2D rb;    
     IsItGrounded isItGrounded;
     PlayerJump jumping;
-    AudioSource audio;
+    new AudioSource audio;
 
     Animator animator;
 
@@ -61,7 +61,7 @@ public class PlayerMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isItGrounded.WallCheck())
+        if (isItGrounded.IsGrounded())
             //No podemos hacer sprint si estamos agachados
             if (Input.GetButton("Sprint") && !dashCD && !Input.GetButton("Crouch"))
             {
@@ -80,7 +80,7 @@ public class PlayerMove : MonoBehaviour
             }
         //Si estamos al lado de un muro, podemos controlar nuestro movimiento aunque no tengamos los pies en el suelo
         //De este modo podemos subir esquinas
-        if (isItGrounded.WallCheck()&& !stunned)
+        if (isItGrounded.IsGrounded()&& !stunned)
         {            
             //Si nos encontramos en modo dash, nos movemos a la velocidad incrementada
             if (dash)
