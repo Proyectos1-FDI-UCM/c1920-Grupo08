@@ -6,42 +6,27 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject healthBar, shieldBar, shieldHolder, controlsMenu, pauseMenu,damageOverlay, dialogueBubble;
-    public TextMeshProUGUI bubbleText;
+    [SerializeField] private GameObject shieldHolder, controlsMenu, pauseMenu,damageOverlay, dialogueBubble;
+    [SerializeField] private TextMeshProUGUI bubbleText;
     private string dialogue;
     private float typeSpeed = 0.1f;
-    private Slider healthS, shieldS;
+    [SerializeField] private Slider healthS, shieldS;
     bool paused;
     private AudioManager audioManager;
     [SerializeField] Sound buttonSound;
-
-    #region Singleton
-    public static UIManager instance;
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
+        Time.timeScale = 1f;
     }
-    #endregion
-
     void Start()
     {
-        audioManager = AudioManager.instance;
-        Time.timeScale = 1f;
+        GameManager.instance.SetUIManager(this.gameObject);
+        audioManager = AudioManager.instance;        
         paused = false;
         pauseMenu.SetActive(paused);
         controlsMenu.SetActive(false);
         dialogueBubble.SetActive(false);
-        damageOverlay.SetActive(false);
-        healthS = healthBar.GetComponent<Slider>();
-        shieldS = shieldBar.GetComponent<Slider>();
+        damageOverlay.SetActive(false);        
     }
 
     private void Update()
