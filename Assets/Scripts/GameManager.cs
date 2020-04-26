@@ -74,7 +74,35 @@ public class GameManager : MonoBehaviour
         return;
     }
 
-    public void OnHit(GameObject obj, float damage) // Quita vida al jugador (colisión con enemigo)
+    public void OnHit(GameObject obj,float damage)
+    {
+        if (obj.GetComponent<ShieldClass>())
+        {
+            shieldHP -= damage;
+            if (shieldHP <= 0)
+            {                
+                playerHP += shieldHP;
+                audioManager.PlaySoundOnce(playerHit);
+            }
+        }
+
+        else if (obj.GetComponent<Player>()) 
+        {
+            UIManager.DamageOverlay();
+            audioManager.PlaySoundOnce(playerHit);
+            playerHP -= damage;
+
+            if (playerHP < 0) 
+            {
+                StartCoroutine(ResetScene());
+            }
+        }
+
+        UIManager.UpdateShieldBar(shieldMaxHP, shieldHP);
+        UIManager.UpdateHealthBar(playerMaxHP, playerHP);
+    }
+
+    public void OnHitOld(GameObject obj, float damage) // Quita vida al jugador (colisión con enemigo)
     {
         if (!invulnerable)
         {
@@ -93,11 +121,11 @@ public class GameManager : MonoBehaviour
                     UIManager.DamageOverlay();
                     audioManager.PlaySoundOnce(playerHit);
                 }
-                //if (damage > 10)
-                //{
-                //    invulnerable = true;
-                //    Invoke("InvulnerableTimer", 0.2f);
-                //}
+                if (damage > 10)
+                {
+                    invulnerable = true;
+                    Invoke("InvulnerableTimer", 0.2f);
+                }
             }
             else if (obj.tag == "Player")
             {
@@ -107,11 +135,11 @@ public class GameManager : MonoBehaviour
                 UIManager.DamageOverlay();
                 audioManager.PlaySoundOnce(playerHit);
 
-                //if (damage > 10)
-                //{
-                //    invulnerable = true;
-                //    Invoke("InvulnerableTimer", 0.2f);
-                //}
+                if (damage > 10)
+                {
+                    invulnerable = true;
+                    Invoke("invulnerabletimer", 0.2f);
+                }
             }
         }
         else if (obj.tag == "Player")
