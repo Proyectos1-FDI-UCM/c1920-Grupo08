@@ -6,7 +6,7 @@ public class Log : MonoBehaviour
 {
     void Start()
     {        
-        Destroy(this.gameObject, 3f);
+        Destroy(this.gameObject, 2.9f);
     }
 
     public void Update()
