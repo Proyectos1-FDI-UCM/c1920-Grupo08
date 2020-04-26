@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     AudioManager audioManager;
     private bool isItPaused = false;
     [SerializeField] Sound playerHit;
+    private bool shieldBroken =false;
 
     [SerializeField] Shield[] shieldArray;
     
@@ -80,9 +81,10 @@ public class GameManager : MonoBehaviour
         {
             shieldHP -= damage;
             if (shieldHP <= 0)
-            {                
+            {
+                shieldBroken = true;
                 playerHP += shieldHP;
-                audioManager.PlaySoundOnce(playerHit);
+                audioManager.PlaySoundOnce(playerHit);                
             }
         }
 
@@ -154,6 +156,11 @@ public class GameManager : MonoBehaviour
         if (playerHP <= 0) StartCoroutine(ResetScene());
     }
 
+    public bool ShieldBroken() 
+    {
+        return shieldBroken;
+    }
+
     private void InvulnerableTimer()
     {
         invulnerable = false;
@@ -179,6 +186,7 @@ public class GameManager : MonoBehaviour
     public void OnRepair(float reapairvalue) // Cura al jugador (colision con botiquines)
     {
         Debug.Log("Repair + " + reapairvalue);
+        shieldBroken = false;
 
         if (shieldHP + reapairvalue > shieldMaxHP)
         {

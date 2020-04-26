@@ -2,30 +2,32 @@
 
 public class ActiveShield : MonoBehaviour
 {
-    //FIX TEMPORAL, NO TERMINADO
-    // Falta comprobar si hay un escudo, la vida de este etc...
-
-    GameObject hand;    
+    GameObject shield;    
 
     void Start()
-    {
-        hand = gameObject.transform.GetChild(0).GetChild(0).gameObject;        
-        hand.SetActive(false);
+    {      
+        shield = gameObject.transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
+        shield.SetActive(false);
     }
 
     void Update()
-    {        
-            // ... se pulsa el ratón y el escudo no está activado
-            if (Input.GetButtonDown("Fire1") && !hand.activeSelf)
-            {
-                // ... se activa el escudo
-                hand.SetActive(true);
-            }
-            // ... y se suelta el ratón y el escudo está activado
-            else if (Input.GetButtonUp("Fire1") && hand.activeSelf)
-            { 
-                // ... el escudo se desactiva
-                hand.SetActive(false);
-            }        
+    {
+        if (GameManager.instance.ShieldBroken())
+        {
+            shield.SetActive(false);
+        }
+
+        // ... se pulsa el ratón y el escudo no está activado
+        else if (Input.GetButtonDown("Fire1") && !shield.activeSelf && !GameManager.instance.ShieldBroken())
+        {
+            // ... se activa el escudo
+            shield.SetActive(true);            
+        }
+        // ... y se suelta el ratón y el escudo está activado
+        else if (Input.GetButtonUp("Fire1") && shield.activeSelf)
+        {
+            // ... el escudo se desactiva
+            shield.SetActive(false);
+        }
     }
 }
