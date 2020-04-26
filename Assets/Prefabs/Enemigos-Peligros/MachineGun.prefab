@@ -146,7 +146,7 @@ MonoBehaviour:
     m_Bits: 0
   firePoint: {fileID: 8418682169875752517}
   bullet: {fileID: 4522584689729607789, guid: d37b6ecdc3f3fd74487e1431dd55bce4, type: 3}
-  damagePerShot: 3
+  damagePerShot: 10
   sound: 2
   shot_CD: 0.2
   burst_CD: 2
