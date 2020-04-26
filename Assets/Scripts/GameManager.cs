@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     float playerHP, shieldHP;   
     Vector2 lastCheckpoint;
     GameObject player;   
-    bool invulnerable;    
+    bool invulnerable=false;    
     AudioManager audioManager;
     private bool isItPaused = false;
     [SerializeField] Sound playerHit;
@@ -93,11 +93,11 @@ public class GameManager : MonoBehaviour
                     UIManager.DamageOverlay();
                     audioManager.PlaySoundOnce(playerHit);
                 }
-                if (damage > 10)
-                {
-                    invulnerable = true;
-                    Invoke("InvulnerableTimer", 0.2f);
-                }
+                //if (damage > 10)
+                //{
+                //    invulnerable = true;
+                //    Invoke("InvulnerableTimer", 0.2f);
+                //}
             }
             else if (obj.tag == "Player")
             {
@@ -107,11 +107,11 @@ public class GameManager : MonoBehaviour
                 UIManager.DamageOverlay();
                 audioManager.PlaySoundOnce(playerHit);
 
-                if (damage > 10)
-                {
-                    invulnerable = true;
-                    Invoke("InvulnerableTimer", 0.2f);
-                }
+                //if (damage > 10)
+                //{
+                //    invulnerable = true;
+                //    Invoke("InvulnerableTimer", 0.2f);
+                //}
             }
         }
         else if (obj.tag == "Player")
