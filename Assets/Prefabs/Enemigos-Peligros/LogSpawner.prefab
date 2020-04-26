@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8756588941129423593}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.75, y: -3.56, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -43,6 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd3d718e66e2337419750628d9a3b9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShootingPoint: {fileID: 8756588941129423593}
-  Logs: {fileID: 935690591578110164, guid: 453cd7104961491488bbaf30a2a50413, type: 3}
-  SpawnTime: 4
+  logPrefab: {fileID: 935690591578110167, guid: 453cd7104961491488bbaf30a2a50413,
+    type: 3}
+  spawnTime: 4
+  warmup: 3
+  left: 0
+  logSpeed: 10
