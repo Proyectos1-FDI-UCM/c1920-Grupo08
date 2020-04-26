@@ -74,6 +74,7 @@ public class UIManager : MonoBehaviour
     {
         if (!isTalking)
         {
+            isTalking = true;
             dialogue = text;
             dialogueBubble.SetActive(true);
             bubbleText.text = "";
