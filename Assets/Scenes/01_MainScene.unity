@@ -33889,6 +33889,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraZone
       objectReference: {fileID: 0}
+    - target: {fileID: 3951106594181600715, guid: b37b7a895ef74d444b6866e23bd30a9b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3951106594181600712, guid: b37b7a895ef74d444b6866e23bd30a9b,
         type: 3}
       propertyPath: m_LocalPosition.x
