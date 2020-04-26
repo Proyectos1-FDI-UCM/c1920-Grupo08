@@ -12,7 +12,7 @@ public class Checkpoint : MonoBehaviour
 
     private void Awake()
     {
-        if (isStartingPoint) GameManager.instance.SetSpawnPoint(transform.position);       
+        if (isStartingPoint) GameManager.instance.SetStartingPoint(transform.position);       
     }
     private void Start()
     {

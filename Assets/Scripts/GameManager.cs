@@ -43,6 +43,14 @@ public class GameManager : MonoBehaviour
     {
         audioManager = AudioManager.instance;       
     }
+    public void SetStartingPoint(Vector2 point)
+    {
+        if (lastCheckpoint == Vector2.zero) 
+        {
+            lastCheckpoint = point;
+        }
+        Debug.Log("El spawn inicial de la escena es: " + point);
+    }
 
     public void SetSpawnPoint(Vector2 point) 
     {
