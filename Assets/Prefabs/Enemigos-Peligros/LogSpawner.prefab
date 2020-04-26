@@ -48,4 +48,4 @@ MonoBehaviour:
   spawnTime: 4
   warmup: 3
   left: 0
-  logSpeed: 10
+  logSpeed: 6
