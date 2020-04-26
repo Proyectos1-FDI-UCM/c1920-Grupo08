@@ -6,7 +6,7 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private GameObject shieldHolder, controlsMenu, pauseMenu,damageOverlay, dialogueBubble;
+    [SerializeField] private GameObject shieldHolder, controlsMenu, pauseMenu, damageOverlay, dialogueBubble;
     [SerializeField] private TextMeshProUGUI bubbleText;
     private string dialogue;
     private float typeSpeed = 0.1f;
@@ -14,6 +14,8 @@ public class UIManager : MonoBehaviour
     bool paused;
     private AudioManager audioManager;
     [SerializeField] Sound buttonSound;
+    private bool isTalking = false;
+
     private void Awake()
     {
         Time.timeScale = 1f;
@@ -21,12 +23,13 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         GameManager.instance.SetUIManager(this.gameObject);
-        audioManager = AudioManager.instance;        
+        audioManager = AudioManager.instance;
         paused = false;
         pauseMenu.SetActive(paused);
         controlsMenu.SetActive(false);
         dialogueBubble.SetActive(false);
-        damageOverlay.SetActive(false);        
+        damageOverlay.SetActive(false);
+        isTalking = false;
     }
 
     private void Update()
@@ -34,7 +37,7 @@ public class UIManager : MonoBehaviour
         if (Input.GetButtonDown("Escape"))
         {
             if (paused)
-            {                
+            {
                 paused = false;
                 pauseMenu.SetActive(false);
                 controlsMenu.SetActive(false);
@@ -42,7 +45,7 @@ public class UIManager : MonoBehaviour
             }
 
             else
-            {                
+            {
                 paused = true;
                 pauseMenu.SetActive(true);
                 controlsMenu.SetActive(false);
@@ -68,10 +71,13 @@ public class UIManager : MonoBehaviour
 
     public void OnDialogue(string text)
     {
-        dialogue = text;
-        dialogueBubble.SetActive(true);
-        bubbleText.text = "";
-        StartCoroutine(Type());
+        if (!isTalking)
+        {
+            dialogue = text;
+            dialogueBubble.SetActive(true);
+            bubbleText.text = "";
+            StartCoroutine(Type());
+        }
     }
 
     private IEnumerator Type()
@@ -85,6 +91,8 @@ public class UIManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
 
         dialogueBubble.SetActive(false);
+
+        isTalking = false;
     }
 
     public void MainMenuButton()
