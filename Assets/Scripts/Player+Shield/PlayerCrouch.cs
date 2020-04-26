@@ -10,7 +10,7 @@ public class PlayerCrouch : MonoBehaviour
     public LayerMask ground;
 
     public Transform ceilingCheck; // Punto superior del personaje
-    private float ceilingRadius = 0.24f; // Radio para el detector de techo
+    private float ceilingRadius = 0.5f; // Radio para el detector de techo
 
     Animator animator;
     CapsuleCollider2D col; // Collider del personaje
