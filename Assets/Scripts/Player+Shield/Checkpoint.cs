@@ -10,9 +10,13 @@ public class Checkpoint : MonoBehaviour
     private BoxCollider2D boxCollider;
     [SerializeField] bool isStartingPoint = false;
 
+    private void Awake()
+    {
+        if (isStartingPoint) GameManager.instance.SetSpawnPoint(transform.position);       
+    }
     private void Start()
     {
-        if(isStartingPoint) GameManager.instance.SetSpawnPoint(transform.position);
+        //if(isStartingPoint) GameManager.instance.SetSpawnPoint(transform.position);
         
         boxCollider = GetComponent<BoxCollider2D>();
     }

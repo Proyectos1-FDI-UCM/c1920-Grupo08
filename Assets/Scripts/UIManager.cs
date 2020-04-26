@@ -19,10 +19,11 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         Time.timeScale = 1f;
+        GameManager.instance.SetUIManager(this.gameObject);
     }
     void Start()
     {
-        GameManager.instance.SetUIManager(this.gameObject);
+        //GameManager.instance.SetUIManager(this.gameObject);
         audioManager = AudioManager.instance;
         paused = false;
         pauseMenu.SetActive(paused);

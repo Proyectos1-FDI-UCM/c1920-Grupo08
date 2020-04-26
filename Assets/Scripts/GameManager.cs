@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        audioManager = AudioManager.instance;
+        audioManager = AudioManager.instance;       
     }
 
     public void SetSpawnPoint(Vector2 point) 
@@ -53,6 +53,8 @@ public class GameManager : MonoBehaviour
     public void SetUIManager(GameObject obj)    
     {
         UIManager = obj.GetComponent<UIManager>();
+        playerHP = playerMaxHP;
+        shieldHP = shieldMaxHP;
         UIManager.UpdateHealthBar(playerMaxHP, playerHP);
         UIManager.UpdateShieldBar(shieldHP, shieldMaxHP);
     }
@@ -62,10 +64,10 @@ public class GameManager : MonoBehaviour
         player = obj;        
     }
 
-    public void SpawnPlayer() 
+    public void SpawnPlayer()
     {
         playerHP = playerMaxHP;
-        shieldHP = shieldMaxHP;        
+        shieldHP = shieldMaxHP;
         player.transform.position = lastCheckpoint;
         Debug.Log("El jugador ha spawneado en " + lastCheckpoint + " con " + playerHP + " HP y " + shieldHP + " de escudo.");
     }
