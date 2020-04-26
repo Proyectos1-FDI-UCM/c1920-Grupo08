@@ -67,3 +67,4 @@ MonoBehaviour:
   explosionDamage: 0
   horizontalFactor: 1
   verticalFactor: 1
+  sound: 5

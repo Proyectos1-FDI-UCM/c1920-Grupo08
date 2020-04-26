@@ -33,6 +33,7 @@ public class Explosion : MonoBehaviour
     CircleCollider2D explosionRadius;
     //Si hay un BurstSpawner en el padre, lo activaremos en la explosión
     BurstSpawner burstSpawner;
+    [SerializeField] Sound sound;
 
     bool debug;
 
@@ -115,6 +116,7 @@ public class Explosion : MonoBehaviour
     {
         if (exploded && collision.GetComponent<Player>())
         {
+            AudioManager.instance.PlaySoundOnce(sound);
             GameManager.instance.OnHit(collision.gameObject, (explosionDamage * (maxRadius - radius)));
         }
     }
