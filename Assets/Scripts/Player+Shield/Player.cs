@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     {        
         gameManager = GameManager.instance;
         gameManager.SetPlayer(this.gameObject);
+        gameManager.SetShield(GetComponentInChildren<ShieldClass>().gameObject);
     }
 
     private void Start()
