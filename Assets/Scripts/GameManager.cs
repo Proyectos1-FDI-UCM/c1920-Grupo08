@@ -147,6 +147,9 @@ public class GameManager : MonoBehaviour
                 UIManager.DamageOverlay();
                 audioManager.PlaySoundOnce(playerHit);
 
+                if (playerHP < 1f && damage < 200)
+                    playerHP = 1f;
+
                 if (damage > 10)
                 {
                     invulnerable = true;
