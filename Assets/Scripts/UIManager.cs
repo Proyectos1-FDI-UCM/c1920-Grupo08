@@ -68,7 +68,10 @@ public class UIManager : MonoBehaviour
 
         shieldS.value = currentShield;
     }
-    public void UpdateShieldHolder() { }
+    public void UpdateShieldHolder(Sprite newShield) 
+    {
+        shieldHolder.GetComponent<Image>().sprite = newShield;
+    }
 
     public void OnDialogue(string text)
     {
