@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
-{
-   public string playScene;
+{   
    public GameObject mainMenu, controlsMenu, title;
    [SerializeField] Sound buttonSound;
    private AudioManager audioManager;
@@ -25,17 +24,15 @@ public class MainMenu : MonoBehaviour
         }
         else Debug.LogError("Añade el objeto controlsMenu");        
     }
-    public void Play() 
+    public void Play()
     {
-        if (playScene != null)
-        {
-            audioManager.PlaySoundOnce(buttonSound);
-            SceneManager.LoadScene(playScene);
-        }
-        else
-        {
-            Debug.Log("La escena no esta asignada");
-        }
+        audioManager.PlaySoundOnce(buttonSound);
+        StartCoroutine(LoadNextScene());
+    }
+
+    private IEnumerator LoadNextScene()
+    {
+        yield return SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void Controls() 
