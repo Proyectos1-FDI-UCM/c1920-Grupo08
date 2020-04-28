@@ -1579,7 +1579,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9d10d164cb78834e97868c023f1ca45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playScene: 01_MainScene
   mainMenu: {fileID: 2147371652}
   controlsMenu: {fileID: 899428589}
   title: {fileID: 61844234}
