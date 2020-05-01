@@ -46,13 +46,13 @@ MonoBehaviour:
   playerHit: 9
   shieldArray:
   - shieldType: 0
-    weight: 5
+    weight: 10
     durability: 100
     sprite: {fileID: 21300000, guid: 49653d4c43821c847b9dfdbfc55b74d2, type: 3}
   - shieldType: 1
-    weight: 5
-    durability: 100
-    sprite: {fileID: 0}
+    weight: 4
+    durability: 60
+    sprite: {fileID: 21300000, guid: 7b424ed46e59402458686f83f43ff8a1, type: 3}
   - shieldType: 2
     weight: 5
     durability: 100

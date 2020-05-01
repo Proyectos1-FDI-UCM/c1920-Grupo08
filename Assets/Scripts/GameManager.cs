@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour
     float shieldMaxHP = 100f;
     float playerHP, shieldHP;   
     Vector2 lastCheckpoint;
-    GameObject player;   
+    GameObject player;
+    GameObject shield;
     bool invulnerable=false;    
     AudioManager audioManager;
     private bool isItPaused = false;
@@ -67,9 +68,14 @@ public class GameManager : MonoBehaviour
         UIManager.UpdateShieldBar(shieldHP, shieldMaxHP);
     }
 
+    public void SetShield (GameObject obj)
+    {
+        shield = obj;
+    }
+
     public void SetPlayer(GameObject obj)
     {
-        player = obj;        
+        player = obj;
     }
 
     public void SpawnPlayer()
@@ -80,9 +86,21 @@ public class GameManager : MonoBehaviour
         Debug.Log("El jugador ha spawneado en " + lastCheckpoint + " con " + playerHP + " HP y " + shieldHP + " de escudo.");
     }
 
-    public void GetShield(ShieldType shieldType) // Inicia los valores al coger un escudo
+    public void GetShield(ShieldType sType) // Inicia los valores al coger un escudo
     {
-        return;
+        Debug.Log(sType);
+        Debug.Log("OldHP: " + shieldMaxHP);
+        int i = 0;
+        while (i < shieldArray.Length && shieldArray[i].shieldType != sType)
+            i++;
+        if (i == shieldArray.Length)
+            return;
+        Debug.Log("Shieldnº: " + i);
+        shieldHP = shieldMaxHP = shieldArray[i].durability;
+        //shieldweight = shieldArray[i].weight;
+        UIManager.UpdateShieldHolder(shieldArray[i].sprite);
+        shield.GetComponent<SpriteRenderer>().sprite = shieldArray[i].sprite;
+        Debug.Log("NewHP: " + shieldMaxHP);
     }
 
     public void OnHit(GameObject obj,float damage)
@@ -146,6 +164,9 @@ public class GameManager : MonoBehaviour
                 UIManager.UpdateHealthBar(playerMaxHP, playerHP);
                 UIManager.DamageOverlay();
                 audioManager.PlaySoundOnce(playerHit);
+
+                if (playerHP < 1f && damage < 200)
+                    playerHP = 1f;
 
                 if (damage > 10)
                 {
