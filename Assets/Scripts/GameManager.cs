@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
     }
     public void SetStartingPoint(Vector2 point)
     {
+        Debug.Log("yipee");
         if (lastCheckpoint == Vector2.zero) 
         {
             lastCheckpoint = point;
@@ -117,6 +118,7 @@ public class GameManager : MonoBehaviour
                 playerHP += shieldHP;
                 audioManager.PlaySoundOnce(playerHit);                
             }
+            SlowMo(0.1f);
         }
 
         else if (obj.GetComponent<Player>()) 
@@ -129,6 +131,7 @@ public class GameManager : MonoBehaviour
             {
                 StartCoroutine(ResetScene());
             }
+            SlowMo(0.3f);
         }
 
         UIManager.UpdateShieldBar(shieldMaxHP, shieldHP);
@@ -255,5 +258,16 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("El juego se ha cerrado");
         Application.Quit();
+    }
+    
+    private void SlowMo(float time)
+    {
+        Time.timeScale = 0.2f;
+        Invoke("ReturnTimeScale", time * 0.2f);
+    }
+
+    private void ReturnTimeScale ()
+    {
+        Time.timeScale = 1f;
     }
 }
