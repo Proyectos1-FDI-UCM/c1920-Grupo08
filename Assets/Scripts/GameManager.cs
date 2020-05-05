@@ -88,19 +88,22 @@ public class GameManager : MonoBehaviour
 
     public void GetShield(ShieldType sType) // Inicia los valores al coger un escudo
     {
-        Debug.Log(sType);
-        Debug.Log("OldHP: " + shieldMaxHP);
         int i = 0;
+        //Buscamos el escudo recogido entre el array de escudos conocidos
         while (i < shieldArray.Length && shieldArray[i].shieldType != sType)
             i++;
+        //Si no se encontró, no hacemos nada
         if (i == shieldArray.Length)
             return;
-        Debug.Log("Shieldnº: " + i);
+        //Actualizamos los PS del escudo, así como sus PS máximos
         shieldHP = shieldMaxHP = shieldArray[i].durability;
-        //shieldweight = shieldArray[i].weight;
+        //Actualizamos la velocidad del jugador según el peso del escudo nuevo
+        PlayerMove pm = player.GetComponent<PlayerMove>();
+        if (pm!=null)
+            pm.AddWeight(shieldArray[i].weight);
+        //Actualizamos el sprite y el icono del escudo
         UIManager.UpdateShieldHolder(shieldArray[i].sprite);
         shield.GetComponent<SpriteRenderer>().sprite = shieldArray[i].sprite;
-        Debug.Log("NewHP: " + shieldMaxHP);
     }
 
     public void OnHit(GameObject obj,float damage)
