@@ -11,14 +11,14 @@ public class ActiveShield : MonoBehaviour
     }
 
     void Update()
-    {
+    {/*
         if (GameManager.instance.ShieldBroken())
         {
             shield.SetActive(false);
         }
 
         // ... se pulsa el ratón y el escudo no está activado
-        else if (Input.GetButtonDown("Fire1") && !shield.activeSelf && !GameManager.instance.ShieldBroken())
+        else */if (Input.GetButtonDown("Fire1") && !shield.activeSelf && !GameManager.instance.ShieldBroken())
         {
             // ... se activa el escudo
             shield.SetActive(true);            
