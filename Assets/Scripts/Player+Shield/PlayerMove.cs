@@ -10,8 +10,11 @@ public class PlayerMove : MonoBehaviour
     new AudioSource audio;
 
     Animator animator;
-
-    public float speed;
+    //Velocidad estándar (máxima)
+    [SerializeField]
+    const float BASESPEED = 1050;
+    //Velocidad en cada momento
+    float speed;
     //Valor en porcentaje de cuanto queremos incrementar la velocidad cuando hacemos sprint (sprint CoD)
     //public float sprintBoost;
     //Duración del sprint (sprint dash)
@@ -34,8 +37,9 @@ public class PlayerMove : MonoBehaviour
     float moveX;
 
     void Start()
-    {        
-        audio = GetComponent<AudioSource>();        
+    {
+        speed = BASESPEED;
+        audio = GetComponent<AudioSource>();  
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         isItGrounded = GetComponent<IsItGrounded>();
@@ -115,7 +119,6 @@ public class PlayerMove : MonoBehaviour
     }
     public void Stunned(float time)
     {
-
         stunned = true;
         Invoke("StunCD", time);
         rb.velocity = Vector2.zero;
@@ -125,5 +128,17 @@ public class PlayerMove : MonoBehaviour
     {
         stunned = false;
         jumping.enabled = true;
+    }
+
+
+    //El peso de los escudos escalará de 0 a 50, reduciendo la velocidad del jugador en un porcentaje igual al valor peso
+    public void AddWeight(float weight)
+    {
+        if (weight <= 50 && weight >= 0)
+            speed = BASESPEED * (1f - 0.01f * weight);
+        else if (weight > 50)
+            speed = BASESPEED / 2;
+        else
+            speed = BASESPEED;
     }
 }
