@@ -46,7 +46,6 @@ public class GameManager : MonoBehaviour
     }
     public void SetStartingPoint(Vector2 point)
     {
-        Debug.Log("yipee");
         if (lastCheckpoint == Vector2.zero) 
         {
             lastCheckpoint = point;
