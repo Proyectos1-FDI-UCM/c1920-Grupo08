@@ -12,9 +12,13 @@ public class PlayerMove : MonoBehaviour
     Animator animator;
     //Velocidad estándar (máxima)
     [SerializeField]
-    const float BASESPEED = 1050;
+    const float BASESPEED = 15;
     //Velocidad en cada momento
     float speed;
+    //Multiplicador de velocidad agachado
+    [SerializeField]
+    [Range(0, 1)] 
+    float crouchspeed;
     //Valor en porcentaje de cuanto queremos incrementar la velocidad cuando hacemos sprint (sprint CoD)
     //public float sprintBoost;
     //Duración del sprint (sprint dash)
@@ -34,7 +38,10 @@ public class PlayerMove : MonoBehaviour
     //true si el dash activo es a la derecha
     bool dashRight;
     float acceleration = 1f;
+    //Variable auxiliar para guardar el GetAxis horizontal
     float moveX;
+    //Referencia al script agachar
+    PlayerCrouch crouch;
 
     void Start()
     {
@@ -47,6 +54,7 @@ public class PlayerMove : MonoBehaviour
         dashCD = false;
         dash = false;
         stunned = false;
+        crouch = GetComponent<PlayerCrouch>();
     }
 
     private void Update()
@@ -97,12 +105,15 @@ public class PlayerMove : MonoBehaviour
             ////Si no, nos movemos a la velocidad normal
             //else
             //{                
-            rb.velocity = new Vector2(moveX * speed, rb.velocity.y);
-            
+            if (crouch.IsCrouched())
+                rb.velocity = new Vector2(moveX * speed * crouchspeed, rb.velocity.y);
+            else
+                rb.velocity = new Vector2(moveX * speed, rb.velocity.y);
+            /*
             if (Mathf.Abs(rb.velocity.x) < speed)
             {                
                 rb.AddForce(new Vector2(acceleration * moveX, 0));
-            }
+            }*/
 
             animator.SetFloat("Speed", Mathf.Abs(moveX));
             //}
