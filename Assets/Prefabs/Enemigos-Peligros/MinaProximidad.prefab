@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3532315924464930883}
   - component: {fileID: 2992775845050638536}
   - component: {fileID: 5754910617828993814}
+  - component: {fileID: 7864965196590820162}
   m_Layer: 11
   m_Name: MinaProximidad
   m_TagString: Untagged
@@ -111,6 +112,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a4f6ffef5992ea40af94092c42e65c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &7864965196590820162
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3532315924464930882}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fb0a35b84ef123d4b98ff574dc05d739, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &3105241637954706072
 PrefabInstance:
   m_ObjectHideFlags: 0
