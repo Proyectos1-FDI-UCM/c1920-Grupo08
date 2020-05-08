@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3532315924464930883}
   - component: {fileID: 3532315924464930886}
   - component: {fileID: 192353729653785772}
+  - component: {fileID: 4750309363374673108}
   m_Layer: 11
   m_Name: MinaMejorada
   m_TagString: Untagged
@@ -111,6 +112,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 733202ed901ae244f9b79b4a8b16eb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &4750309363374673108
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3532315924464930882}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3e10d159fcf69d245bf2187bd8b315a0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &3105241637954706072
 PrefabInstance:
   m_ObjectHideFlags: 0
