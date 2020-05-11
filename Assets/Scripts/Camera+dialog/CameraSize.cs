@@ -39,7 +39,7 @@ public class CameraSize : MonoBehaviour
 
     public float GetSize()
     {
-        Debug.Log("camsize "+camera.orthographicSize);
+        //Debug.Log("camsize "+camera.orthographicSize);
         return camera.orthographicSize;
     }
 }

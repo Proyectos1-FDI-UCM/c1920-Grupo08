@@ -12,9 +12,16 @@ using UnityEngine;
 public class CameraZone : MonoBehaviour
 {
     //El tamaño que adquirirá la cámara cuando esté en esta zona
-    public float CameraSize = 5f;
+    [SerializeField]
+    float CameraSize = 5f;
     //La velocidad a la que la cámara se moverá hasta y desde esta zona
-    public float snapSpeed = 1f;
+    [SerializeField]
+    float snapSpeed = 1f;
+    [SerializeField]
+    bool UseAnchor = true;
+    //El desplazamiento vertical de la cámara (solo usado en zonas sin ancla)
+    [SerializeField]
+    float offset=0f;
     //La cámara en sí (no necesitamos guardar el objeto entero)
     Transform cam;
     //La posición donde se colocará la cámara en esta zona
@@ -53,11 +60,21 @@ public class CameraZone : MonoBehaviour
             //Guardamos el tamaño base de la cámara
             defaultSize = camSize.GetSize();
         }
-        
-        //Movemos la cámara hasta el ancla
-        movement.MoveTo(anchor, snapSpeed);
-        //Hacemos que no sea hija de nadie
-        cam.transform.parent = null;
+
+        if (UseAnchor)
+        {
+            //Movemos la cámara hasta el ancla
+            movement.MoveTo(anchor, snapSpeed);
+            //Hacemos que no sea hija de nadie
+            cam.transform.parent = null;
+        }
+        else if (offset != 0)
+        {
+            //Si no queremos usar el ancla pero sí elevar la cámara, invocamos el método 
+            //correspondiente en SmoothMovement
+            
+            movement.MoveTo(offset, snapSpeed);
+        }
         //Cambiamos el tamaño de la cámara a la necesaria para esta zona
         camSize.ChangeSize(CameraSize);
     }
@@ -65,7 +82,7 @@ public class CameraZone : MonoBehaviour
     {
         //No es necesario asignar cam: para poder salir del trigger tiene que haber primero entrado
 
-        //Movemos la cámara a su posición relativa al jugador
+        //Movemos la cámara a su posición original relativa al jugador
         movement.MoveTo(camerapos, snapSpeed);
         //Devolvemos la cámara a su tamaño original
         camSize.ChangeSize(defaultSize);
