@@ -16,7 +16,8 @@ public class GameManager : MonoBehaviour
     private bool isItPaused = false;
     [SerializeField] Sound playerHit;
     private bool shieldBroken =false;
-
+    //Si el jugador tiene una llave
+    private bool hasKey=false;
     [SerializeField] Shield[] shieldArray;
     
     private UIManager UIManager;
@@ -268,5 +269,16 @@ public class GameManager : MonoBehaviour
     private void ReturnTimeScale ()
     {
         Time.timeScale = 1f;
+    }
+
+    public bool HasKey()
+    {
+        if (hasKey)
+        {
+            hasKey = false;
+            return true;
+        }
+        else
+            return true;
     }
 }
