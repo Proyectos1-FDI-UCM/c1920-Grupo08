@@ -279,7 +279,7 @@ public class GameManager : MonoBehaviour
             return true;
         }
         else
-            return true;
+            return false;
     }
 
     public void KeyPickup()
