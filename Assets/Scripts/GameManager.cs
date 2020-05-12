@@ -281,4 +281,9 @@ public class GameManager : MonoBehaviour
         else
             return true;
     }
+
+    public void KeyPickup()
+    {
+        hasKey = true;
+    }
 }
