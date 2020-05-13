@@ -95,11 +95,12 @@ public class PlayerCrouch : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetButtonDown("Crouch"))
+        
+        if (!crouch && Input.GetButtonDown("Crouch"))
         {
             crouch = true;
         }
-        if (Input.GetButtonUp("Crouch"))
+        else if (crouch && !Input.GetButton("Crouch") && !IsBlocked())
         {
             crouch = false;
         }
@@ -107,18 +108,22 @@ public class PlayerCrouch : MonoBehaviour
 
     private void FixedUpdate()
     {
-        playerCrouch(crouch);
+        playerCrouch();
     }
 
     public bool IsCrouched()
     {
         return crouch;
     }
-
-    public void playerCrouch(bool crouch)
+    private bool IsBlocked()
     {
+        return Physics2D.OverlapCircle(ceilingCheck.position, ceilingRadius, ground);
+    }
+
+    public void playerCrouch()
+    {/*
         // Si el jugador intenta levantarse...
-        if (!crouch)
+        if (crouch)
         {
             // ...pero un esta bloqueado por un techo se lo impedimos.
             if (Physics2D.OverlapCircle(ceilingCheck.position, ceilingRadius, ground))
@@ -130,6 +135,7 @@ public class PlayerCrouch : MonoBehaviour
             // ... y no esta bloqueado por un techo.
             else
             {
+                crouch = false;
                 // ...aumenta el tamaño del collider del personaje al original
                 col.size = new Vector2(col.size.x, 1.6f);
                 // ...avisa al animador.
@@ -137,7 +143,7 @@ public class PlayerCrouch : MonoBehaviour
             }
         }
 
-        // Si el jugador se agacha...
+        
         else
         {
             // ...reduce el tamaño del collider del personaje,
@@ -145,6 +151,22 @@ public class PlayerCrouch : MonoBehaviour
 
             // ...avisa al animador.
             animator.SetBool("isCrouching", true);
+        }*/
+        // Si el jugador se agacha...
+        if (crouch)
+        {
+            // ...reduce el tamaño del collider del personaje,
+            col.size = new Vector2(col.size.x, 0.8f);
+
+            // ...avisa al animador.
+            animator.SetBool("isCrouching", true);
+        }
+        else
+        {
+            // ...aumenta el tamaño del collider del personaje al original
+            col.size = new Vector2(col.size.x, 1.6f);
+            // ...avisa al animador.
+            animator.SetBool("isCrouching", false);
         }
     }
 }
