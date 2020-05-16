@@ -40,9 +40,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2572535795097185050}
   - component: {fileID: 2572535795097185049}
-  - component: {fileID: 2572535795097185048}
   - component: {fileID: 2572535795097185051}
-  - component: {fileID: 2572535795097185054}
+  - component: {fileID: 2288977135480314613}
   m_Layer: 15
   m_Name: Sniper
   m_TagString: Untagged
@@ -114,22 +113,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &2572535795097185048
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2572535795097185053}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 5
 --- !u!120 &2572535795097185051
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -147,7 +130,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -173,7 +156,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.05
+    widthMultiplier: 0.02
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -218,15 +201,15 @@ LineRenderer:
       m_Mode: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 0
-    numCapVertices: 0
+    numCornerVertices: 35
+    numCapVertices: 54
     alignment: 0
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &2572535795097185054
+--- !u!114 &2288977135480314613
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -235,19 +218,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 2572535795097185053}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e755fb1148e69e24584ce08c7e315b0d, type: 3}
+  m_Script: {fileID: 11500000, guid: 5004a976f30acbb43be32770f4cf1755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  range: 20
+  damage: 10
+  shotCD: 3
   targetLayer:
     serializedVersion: 2
-    m_Bits: 132864
+    m_Bits: 1024
   firePoint: {fileID: 2572535794609817239}
-  bullet: {fileID: 4522584689729607789, guid: d37b6ecdc3f3fd74487e1431dd55bce4, type: 3}
-  damagePerShot: 30
-  sound: 3
-  shot_CD: 0
-  burst_CD: 5
-  burst_count: 1
-  laserSight: 1
-  staticShooting: 0
-  bulletSpeed: 30
+  projectile: {fileID: 514727091434510753, guid: c57f0e4e79c3b904c86db71dd6eecca9,
+    type: 3}
+  shotSound: 3
+  shieldHit: 10
+  groundHit: 11
