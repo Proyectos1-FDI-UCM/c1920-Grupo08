@@ -8,13 +8,11 @@ public class Respawn : MonoBehaviour
     Sprite s;
     void OnTriggerEnter2D(Collider2D other)
     {
-        PlayerMove player = other.GetComponent<PlayerMove>();
+        PlayerController player = other.GetComponent<PlayerController>();
 
         if (GameManager.instance != null && player != null)
         {
-            respawnPoint = this.transform.position;
-
-            //GameManager.instance.Checkpoint(respawnPoint, s);
+            respawnPoint = this.transform.position;            
         }
     }
 }

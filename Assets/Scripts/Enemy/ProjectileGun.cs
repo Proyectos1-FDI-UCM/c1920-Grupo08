@@ -83,7 +83,7 @@ public class ProjectileGun : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<PlayerMove>() != null)
+        if (collision.GetComponent<PlayerController>() != null)
         {
             Debug.Log("El jugador esta en rango de " + this.gameObject.name);
             if (staticShooting)
@@ -103,7 +103,7 @@ public class ProjectileGun : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         Debug.Log("El jugador ya no esta en rango de " + this.gameObject.name);
-        if (collision.GetComponent<PlayerMove>() != null)
+        if (collision.GetComponent<PlayerController>() != null)
         {
             onRange = false;
             if (laserSight) laser.enabled = false;

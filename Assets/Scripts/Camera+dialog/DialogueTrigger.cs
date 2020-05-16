@@ -8,7 +8,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<PlayerMove>()!=null)
+        if (collision.GetComponent<PlayerController>()!=null)
         {            
            GameManager.instance.OnDialogue(frase);
            Destroy(this.gameObject);

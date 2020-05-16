@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
         //Actualizamos los PS del escudo, así como sus PS máximos
         shieldHP = shieldMaxHP = shieldArray[i].durability;
         //Actualizamos la velocidad del jugador según el peso del escudo nuevo
-        PlayerMove pm = player.GetComponent<PlayerMove>();
+        PlayerController pm = player.GetComponent<PlayerController>();
         if (pm!=null)
             pm.AddWeight(shieldArray[i].weight);
         //Actualizamos el sprite y el icono del escudo

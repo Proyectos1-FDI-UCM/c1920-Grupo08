@@ -8,14 +8,14 @@ public class Cepo : MonoBehaviour
     [SerializeField] float retencion;
     [SerializeField] Sound sound;
     [SerializeField] Animator animator;
-    PlayerMove moving;
+    PlayerController playerController;
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        moving = other.GetComponent<PlayerMove>();
-        if (moving != null)
+        playerController = other.GetComponent<PlayerController>();
+        if (playerController != null)
         {
-            moving.Stunned(retencion);
+            playerController.Stunned(retencion);
             animator.SetBool("Activated", true);
             AudioManager.instance.PlaySoundOnce(sound);
             Destroy(this.gameObject, retencion);

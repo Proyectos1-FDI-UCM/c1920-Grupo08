@@ -12,7 +12,7 @@ public class DamageArea : MonoBehaviour
         //Con el transcurso de los segundos, se añade 1 al contador
         time += Time.deltaTime;
         ObjectHealth hp = other.gameObject.GetComponent<ObjectHealth>();
-        PlayerMove player = other.gameObject.GetComponent<PlayerMove>();
+        PlayerController player = other.gameObject.GetComponent<PlayerController>();
         //Si el contador es mayor que 2, el objeto que ha impactado con el collider 
         //posee el elemento PlayerController y posee vida, entonces resta salud
         if (time>2 && hp != null && player != null)

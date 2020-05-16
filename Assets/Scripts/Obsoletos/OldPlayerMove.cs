@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class OldPlayerMove : MonoBehaviour
 {
+    /*
     Rigidbody2D rb;    
     IsItGrounded isItGrounded;
-    PlayerJump jumping;
+    //PlayerJump jumping;
     new AudioSource audio;
 
     Animator animator;
@@ -41,7 +42,7 @@ public class OldPlayerMove : MonoBehaviour
     //Variable auxiliar para guardar el GetAxis horizontal
     float moveX;
     //Referencia al script agachar
-    PlayerCrouch crouch;
+    //PlayerCrouch crouch;
 
     void Start()
     {
@@ -78,45 +79,45 @@ public class OldPlayerMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //if (isItGrounded.IsGrounded())
-        //    //No podemos hacer sprint si estamos agachados
-        //    if (Input.GetButton("Sprint") && !dashCD && !Input.GetButton("Crouch"))
-        //    {
-        //        //Entra en modo dash
-        //        dash = true;
-        //        /*if (Input.GetAxisRaw("Horizontal") > 0)
-        //            dashRight = true;
-        //        else if (Input.GetAxisRaw("Horizontal") < 0)
-        //            dashRight = false;*/
-        //        //Cuando acabe el periodo dashDur, saldremos de modo dash
-        //        Invoke("DashDuration", dashDur);
-        //        //Ponemos el dash en enfriamiento
-        //        dashCD = true;
-        //        //Cuando acabe el tiempo dashCDDur, acaba el enfriamiento
-        //        Invoke("DashCooldown", dashCDDur);
-        //    }
+        if (isItGrounded.IsGrounded())
+            //No podemos hacer sprint si estamos agachados
+            if (Input.GetButton("Sprint") && !dashCD && !Input.GetButton("Crouch"))
+            {
+                //Entra en modo dash
+                dash = true;
+               if (Input.GetAxisRaw("Horizontal") > 0)
+                    dashRight = true;
+                else if (Input.GetAxisRaw("Horizontal") < 0)
+                   dashRight = false;
+                //Cuando acabe el periodo dashDur, saldremos de modo dash
+                Invoke("DashDuration", dashDur);
+                //Ponemos el dash en enfriamiento
+                dashCD = true;
+               //Cuando acabe el tiempo dashCDDur, acaba el enfriamiento
+                Invoke("DashCooldown", dashCDDur);
+            }
         //Si estamos al lado de un muro, podemos controlar nuestro movimiento aunque no tengamos los pies en el suelo
         //De este modo podemos subir esquinas
         if (isItGrounded.IsGrounded()&& !stunned)
         {
             //Si nos encontramos en modo dash, nos movemos a la velocidad incrementada
-            //if (dash)
-            //    rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed * (1 + dashSpeed / 100), rb.velocity.y);
-            ////Si no, nos movemos a la velocidad normal
-            //else
-            //{                
+            if (dash)
+                rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed * (1 + dashSpeed / 100), rb.velocity.y);
+            //Si no, nos movemos a la velocidad normal
+            else
+            {                
             if (crouch.IsCrouched())
                 rb.velocity = new Vector2(moveX * speed * crouchspeed, rb.velocity.y);
             else
-                rb.velocity = new Vector2(moveX * speed, rb.velocity.y);
-            /*
+               rb.velocity = new Vector2(moveX * speed, rb.velocity.y);
+            
             if (Mathf.Abs(rb.velocity.x) < speed)
             {                
                 rb.AddForce(new Vector2(acceleration * moveX, 0));
-            }*/
+            }
 
             animator.SetFloat("Speed", Mathf.Abs(moveX));
-            //}
+            }
         }        
     }
 
@@ -128,6 +129,7 @@ public class OldPlayerMove : MonoBehaviour
     {
         dashCD = false;
     }
+    
     public void Stunned(float time)
     {
         stunned = true;
@@ -152,4 +154,5 @@ public class OldPlayerMove : MonoBehaviour
         else
             speed = BASESPEED;
     }
+    */
 }
