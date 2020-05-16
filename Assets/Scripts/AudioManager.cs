@@ -54,9 +54,7 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
             return;
-        }
-
-        DontDestroyOnLoad(gameObject);
+        }        
     }
 	#endregion
 

@@ -1,17 +1,17 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {   
    public GameObject mainMenu, controlsMenu, title;
-   [SerializeField] Sound buttonSound;
-   private AudioManager audioManager;
+   AudioSource audioSource;
+   
 
     public void Start()
     {
-        audioManager = AudioManager.instance;
+        audioSource = GetComponent<AudioSource>();
+
         if (mainMenu != null)
         {
             mainMenu.SetActive(true);
@@ -26,7 +26,7 @@ public class MainMenu : MonoBehaviour
     }
     public void Play()
     {
-        audioManager.PlaySoundOnce(buttonSound);
+        audioSource.Play();
         StartCoroutine(LoadNextScene());
     }
 
@@ -37,21 +37,21 @@ public class MainMenu : MonoBehaviour
 
     public void Controls() 
     {
-        audioManager.PlaySoundOnce(buttonSound);
+        audioSource.Play();
         mainMenu.SetActive(false);
         controlsMenu.SetActive(true);
     }
 
     public void Back() 
     {
-        audioManager.PlaySoundOnce(buttonSound);
+        audioSource.Play();
         mainMenu.SetActive(true);
         controlsMenu.SetActive(false);
     }
 
     public void Exit() 
     {
-        audioManager.PlaySoundOnce(buttonSound);
+        audioSource.Play();
         Debug.Log("El juego se ha cerrado");
         Application.Quit();    
     }
