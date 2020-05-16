@@ -78,7 +78,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCrouch : MonoBehaviour
+public class OldPlayerCrouch : MonoBehaviour
 {
     bool crouch;
     public LayerMask ground;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerJump : MonoBehaviour
+public class OldPlayerJump : MonoBehaviour
 {
     public float jumpForce; // Fuerza de salto
 

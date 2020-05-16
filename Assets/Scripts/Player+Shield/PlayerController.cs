@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed;
-    public float jumpForce;
-    float moveX, moveY;
-    Rigidbody2D rb;
-    public LayerMask ground, ladder;
-    CapsuleCollider2D capsule;
-    public bool isCeilinged = false;
-    public bool isGrounded = false;
-    public bool isCrouching = false;
-    public bool jump = false;
-    public float ladderRange;
-    [SerializeField] private float climbSpeed;
-    float gravity;
+    [SerializeField] float speed, jumpForce, climbSpeed;
+    [SerializeField] LayerMask ground, ladder;
 
-    void Awake()
+    CapsuleCollider2D capsule;
+
+    float moveX, moveY, gravity;
+    float ladderRange = 0.55f;
+
+    Rigidbody2D rb;
+
+    bool isCeilinged = false;
+    bool isGrounded = false;
+    bool isCrouching = false;
+    bool jump = false;
+
+    void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         capsule = GetComponent<CapsuleCollider2D>();
@@ -32,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
         jump = Input.GetButtonDown("Jump");
         moveX = Input.GetAxis("Horizontal");
-        moveY = Input.GetAxis("Vertical");        
+        moveY = Input.GetAxis("Vertical");
 
         if (!isCrouching && Input.GetButtonDown("Crouch"))
         {
@@ -56,11 +57,10 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             jump = false;
-        }        
+        }
 
         if (Physics2D.OverlapCircle(transform.position, ladderRange, ladder) != null)
         {
-            print("pepega");
             rb.velocity = new Vector2(rb.velocity.x, moveY * climbSpeed);
             rb.gravityScale = 0f;
         }
@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.gravityScale = gravity;
         }
-    }    
+    }
 
     void CheckCollisions(bool up)
     {
@@ -90,20 +90,20 @@ public class PlayerController : MonoBehaviour
         Raycasts[1] = rayCenter;
         Raycasts[2] = rayCenter + Vector2.right * capsule.size.x * 0.5f;
 
-        int count=0;
+        int count = 0;
 
         for (int i = 0; i < Raycasts.Length; i++)
         {
             rayHits[i] = Physics2D.Raycast(Raycasts[i], rayDirection, dis, ground);
-            if (rayHits[i].point != Vector2.zero) count += 1;         
+            if (rayHits[i].point != Vector2.zero) count += 1;
         }
 
-        if (count == 0) 
+        if (count == 0)
         {
             if (up) isCeilinged = false;
             else isGrounded = false;
         }
-        else 
+        else
         {
             if (up) isCeilinged = true;
             else isGrounded = true;

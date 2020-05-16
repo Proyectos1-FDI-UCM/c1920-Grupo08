@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerClimb : MonoBehaviour
+public class OldPlayerClimb : MonoBehaviour
 {
     [SerializeField] private LayerMask ladder;
     [SerializeField] private float climbSpeed;
