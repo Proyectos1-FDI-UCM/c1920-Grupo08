@@ -26,6 +26,7 @@ public enum Sound
     shieldBroken,
     shieldPickup,
     radio,
+    tankShot,
 }
 
 public class AudioManager : MonoBehaviour
