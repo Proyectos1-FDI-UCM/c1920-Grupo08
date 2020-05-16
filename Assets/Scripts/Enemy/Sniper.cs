@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+[RequireComponent(typeof(LineRenderer))]
 public class Sniper : MonoBehaviour
 {
     // Dispara a un objetivo (no necesariamente al player) con una cadencia de disparo predeterminada y si esta activado lo avisa mediante un láser
@@ -12,48 +11,47 @@ public class Sniper : MonoBehaviour
     // El objeto debe de tener un objeto vacio como hijo que indique el punto de origen del disparo (firePoint) y se debe asignar desde el editor
     // El objetivo debe de ser capaz de entrar en el rango de disparo en caso de no ser el jugador y ser un objeto inmóvil (range)
     // La bala debe ser un prefab vacio con un componente LineRenderer que se ocupa de como se va a visualizar la bala (projectile)
-    // Para que el láser funcione el objeto debe tener un LineRenderer (laser)
-    // Se puede usar para otro tipo de enemigo, por ejemplo, desactivando el láser desde el editor y disminuyendo el enfriamiento entre disparos.
+    // Para que el láser funcione el objeto debe tener un LineRenderer (laser)    
 
-    public float range = 10f; // Rango de disparo
+    [SerializeField] float range; // Rango de disparo
 
-    public float damage = 10f; // Daño de disparo
+    [SerializeField] float damage; // Daño de disparo
 
-    public float shotCD = 3f; // Tiempo entre cada disparo
+    [SerializeField] float shotCD; // Tiempo entre cada disparo
 
-    private float elapsedTime = 0f; // Contador desde el último disparo
+    float elapsedTime = 0f; // Contador desde el último disparo
 
-    public LayerMask targetLayer; // Máscara para comprobar que el objetivo esta en rango
+    [SerializeField] LayerMask targetLayer; // Máscara para comprobar que el objetivo esta en rango
 
-    private Vector2 hitPoint; // Punto de impacto
+    Vector2 hitPoint; // Punto de impacto
 
-    public Transform firePoint; // Punto de origen del disparo
+    [SerializeField] Transform firePoint; // Punto de origen del disparo
 
-    private Transform target; // Posición del objetivo
+    Transform target; // Posición del objetivo
 
-    public GameObject projectile; // Prefab de la bala
+    [SerializeField] GameObject projectile; // Prefab de la bala
 
-    public bool laserSight = true; // Activar o desactivar el láser
+    [SerializeField] Sound shotSound;
+    [SerializeField] Sound shieldHit;
+    [SerializeField] Sound groundHit;
 
-    private LineRenderer laser; // Componente LineRenderer para el láser
+    AudioManager audioManager;
 
-    private AudioSource sound; // Efecto de audio 
+    LineRenderer laser; // Componente LineRenderer para el láser   
 
-    private Vector2 direction; // dirección de la bala
+    Vector2 direction; // dirección de la bala
 
-    private void Start()
+    void Awake()
     {
-        // Almacena el componenente de audio
-        sound = GetComponent<AudioSource>();
-
-        // Si el objeto usa láser almacena el componente LineRenderer que lo dibuja
-        if (laserSight)
-        {
-            laser = GetComponent<LineRenderer>();
-        }
+        laser = GetComponent<LineRenderer>();
     }
 
-    private void FixedUpdate()
+    void Start()
+    {
+        audioManager = AudioManager.instance;
+    }
+
+    void FixedUpdate()
     {
         // Si el objetivo esta en rango...
         if (Physics2D.OverlapCircle(firePoint.position, range, targetLayer))
@@ -63,12 +61,8 @@ public class Sniper : MonoBehaviour
 
             target = targetcollider.gameObject.GetComponent<Transform>();
 
-            // Activa el láser
-            if (laserSight)
-            {
-                laser.enabled = true;
-                DrawLine(laser);
-            }
+            laser.enabled = true;
+            DrawLine(laser);
 
             // Rota su posición en dirección al objetivo
             direction = target.position - transform.position;
@@ -83,16 +77,28 @@ public class Sniper : MonoBehaviour
             // Dispara respetando la cadencia de disparo
             if (Time.time > elapsedTime)
             {
+                Debug.Log(hit.collider.name);
                 // Reproduce el effecto de sonido
-                sound.Play();
+                audioManager.PlaySoundOnce(shotSound);
 
                 // Crea la bala
                 createBullet();
 
                 // Si el impactado es el player o el shield llama al GM y aplica daño
-                if (hit.collider.tag == "Player" || hit.collider.tag == "Shield")
+                if (hit.collider.GetComponent<Player>() != null)
                 {
                     GameManager.instance.OnHit(hit.collider.gameObject, damage);
+                }
+
+                else if (hit.collider.GetComponent<ShieldClass>() != null)
+                {
+                    GameManager.instance.OnHit(hit.collider.gameObject, damage);
+                    audioManager.PlaySoundOnce(shieldHit);
+                }
+
+                else
+                {
+                    audioManager.PlaySoundOnce(groundHit);
                 }
 
                 // Aumenta el contador de disparo
@@ -103,15 +109,12 @@ public class Sniper : MonoBehaviour
         // Si el objetivo no esta en rango se apaga el láser
         else
         {
-            if (laserSight)
-            {
-                laser.enabled = false;
-            }
+            laser.enabled = false;
         }
     }
 
     // Crea la bala y la dibuja
-    private void createBullet()
+    void createBullet()
     {
         // Crea una bala 
         GameObject bullet = Instantiate(projectile, firePoint.position, firePoint.rotation);
@@ -121,18 +124,18 @@ public class Sniper : MonoBehaviour
         DrawLine(tracer);
 
         // Destruye la bala rápidamente para crear sensación de movimiento
-        Destroy(bullet, 0.08f);
+        Destroy(bullet, 0.02f);
     }
 
     // Dibuja una línea de una posición a otra utilizando el componente LineRenderer
-    private void DrawLine(LineRenderer line)
+    void DrawLine(LineRenderer line)
     {
         line.SetPosition(0, firePoint.position);
         line.SetPosition(1, hitPoint);
     }
 
     // Muestra el rango de disparo en el editor
-    private void OnDrawGizmosSelected()
+    void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(firePoint.position, range);
     }
