@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CircleCollider2D))]
-public class RangedWeapon : MonoBehaviour
+public class ProjectileGun : MonoBehaviour
 {
     // Scrip configurable para el uso en armas a distancia
     // Dos modos de disparo principales estático o de seguimientoa un target (staticShooting)
