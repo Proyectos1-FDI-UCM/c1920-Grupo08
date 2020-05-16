@@ -1,16 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(CapsuleCollider2D))]
+[RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(Animator))]
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float speed, jumpForce, climbSpeed;
+    [SerializeField] float baseSpeed, jumpForce, climbSpeed;
     [SerializeField] LayerMask ground, ladder;
 
     CapsuleCollider2D capsule;
 
     float moveX, moveY, gravity;
     float ladderRange = 0.55f;
+    float currentSpeed;
 
     Rigidbody2D rb;
 
@@ -18,12 +22,20 @@ public class PlayerController : MonoBehaviour
     bool isGrounded = false;
     bool isCrouching = false;
     bool jump = false;
+    bool stunned = false;
+
+    [SerializeField] Sound jumpSound;
+    new AudioSource audio;
+    Animator animator;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         capsule = GetComponent<CapsuleCollider2D>();
+        audio = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
         gravity = rb.gravityScale;
+        currentSpeed = baseSpeed;
     }
 
     void Update()
@@ -40,21 +52,40 @@ public class PlayerController : MonoBehaviour
             isCrouching = true;
             capsule.size = new Vector2(capsule.size.x, 0.8f);
             capsule.offset = new Vector2(capsule.offset.x, -0.5f);
+            animator.SetBool("isCrouching", true);
         }
         else if (isCrouching && !Input.GetButton("Crouch") && !isCeilinged)
         {
             isCrouching = false;
             capsule.size = new Vector2(capsule.size.x, 1.8f);
             capsule.offset = Vector2.zero;
+            animator.SetBool("isCrouching", false);
+        }
+
+        if (Mathf.Abs(moveX) > 0)
+        {
+            if (!audio.isPlaying)
+            {
+                audio.Play();
+            }
+        }
+        else
+        {
+            audio.Stop();
         }
     }
 
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(speed * moveX, rb.velocity.y);
-
-        if (jump && isGrounded)
+        if (!stunned)
         {
+            rb.velocity = new Vector2(currentSpeed * moveX, rb.velocity.y);
+            animator.SetFloat("Speed", Mathf.Abs(moveX));
+        }
+
+        if (jump && isGrounded && !stunned)
+        {
+            AudioManager.instance.PlaySoundOnce(jumpSound);
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             jump = false;
         }
@@ -108,6 +139,28 @@ public class PlayerController : MonoBehaviour
             if (up) isCeilinged = true;
             else isGrounded = true;
         }
+    }
+
+    public void Stunned(float time)
+    {
+        stunned = true;
+        Invoke("StunCD", time);
+        rb.velocity = Vector2.zero;
+    }
+    void StunCD()
+    {
+        stunned = false;
+    }
+
+    //El peso de los escudos escalará de 0 a 50, reduciendo la velocidad del jugador en un porcentaje igual al valor peso
+    public void AddWeight(float weight)
+    {
+        if (weight <= 50 && weight >= 0)
+            currentSpeed = baseSpeed * (1f - 0.01f * weight);
+        else if (weight > 50)
+            currentSpeed = baseSpeed / 2;
+        else
+            currentSpeed = baseSpeed;
     }
 
     private void OnDrawGizmosSelected()
