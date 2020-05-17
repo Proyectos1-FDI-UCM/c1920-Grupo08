@@ -86,6 +86,7 @@ public class PlayerController : MonoBehaviour
         if (jump && isGrounded && !stunned)
         {
             AudioManager.instance.PlaySoundOnce(jumpSound);
+            rb.velocity = new Vector2(rb.velocity.x, 0f);
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             jump = false;
         }
