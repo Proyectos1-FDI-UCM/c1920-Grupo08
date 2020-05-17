@@ -27,13 +27,8 @@ public class MainMenu : MonoBehaviour
     public void Play()
     {
         audioSource.Play();
-        StartCoroutine(LoadNextScene());
-    }
-
-    private IEnumerator LoadNextScene()
-    {
-        yield return SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
-    }
+        SceneLoader.instance.NextScene();
+    }    
 
     public void Controls() 
     {
@@ -51,8 +46,6 @@ public class MainMenu : MonoBehaviour
 
     public void Exit() 
     {
-        audioSource.Play();
-        Debug.Log("El juego se ha cerrado");
-        Application.Quit();    
+        SceneLoader.instance.Exit();  
     }
 }
