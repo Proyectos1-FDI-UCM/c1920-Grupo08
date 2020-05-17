@@ -60,8 +60,7 @@ public class SceneLoader : MonoBehaviour
 
     IEnumerator LoadNextScene()
     {
-        yield return SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
-        GameManager.instance.SpawnPlayer();
+        yield return SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);        
     }
 
     public void LoadMainMenu() 
