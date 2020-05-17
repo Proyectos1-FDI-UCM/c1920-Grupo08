@@ -37,7 +37,7 @@ public class Tank : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Player>() != null)
+        if (collision.GetComponent<PlayerController>() != null)
         {
             Debug.Log("PlayerENTER");
             elapsedTime = Time.time;
@@ -47,7 +47,7 @@ public class Tank : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.GetComponent<Player>() != null) 
+        if (collision.GetComponent<PlayerController>() != null) 
         {
             Debug.Log("PlayerIN");
             targetInside = false;

@@ -85,7 +85,7 @@ public class Sniper : MonoBehaviour
                 createBullet();
 
                 // Si el impactado es el player o el shield llama al GM y aplica daño
-                if (hit.collider.GetComponent<Player>() != null)
+                if (hit.collider.GetComponent<PlayerController>() != null)
                 {
                     GameManager.instance.OnHit(hit.collider.gameObject, damage);
                 }

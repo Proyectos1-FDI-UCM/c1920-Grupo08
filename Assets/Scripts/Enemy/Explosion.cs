@@ -114,7 +114,7 @@ public class Explosion : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (exploded && collision.GetComponent<Player>())
+        if (exploded && collision.GetComponent<PlayerController>())
         {
             AudioManager.instance.PlaySoundOnce(sound);
             GameManager.instance.OnHit(collision.gameObject, (explosionDamage * (maxRadius - radius)));

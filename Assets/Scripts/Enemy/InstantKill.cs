@@ -8,7 +8,7 @@ public class InstantKill : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {        
-        if (collision.GetComponent<Player>() != null)
+        if (collision.GetComponent<PlayerController>() != null)
         {
             GameManager.instance.OnHit(collision.gameObject, 1000f);
         }

@@ -11,7 +11,7 @@ public class DamageOverTime : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Player>() != null)
+        if (collision.GetComponent<PlayerController>() != null)
         {
             timeElapsed = Time.time;
         }
@@ -19,7 +19,7 @@ public class DamageOverTime : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if ((timeElapsed < Time.time) && (collision.GetComponent<Player>() != null))
+        if ((timeElapsed < Time.time) && (collision.GetComponent<PlayerController>() != null))
         {
             GameManager.instance.OnHit(collision.gameObject, damage);
             timeElapsed += damageTick;
