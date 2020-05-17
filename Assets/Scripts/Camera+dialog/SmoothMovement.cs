@@ -80,8 +80,6 @@ public class SmoothMovement : MonoBehaviour
             //Si estamos en el objetivo, paramos el movimiento (se usa < 0.01 en vez de == porque son floats)
             if (Vector3.Distance(transform.position, dest.position) < 0.01f)
             {
-                //Hacemos que sea hija del jugador para que le siga
-                transform.SetParent(dest);
                 //Desactivamos active para dar por acabado el movimiento
                 active = false;
             }
@@ -103,6 +101,8 @@ public class SmoothMovement : MonoBehaviour
         speed = spd;
         dest = destination;
         active = true;
+        //Hacemos que sea hija del jugador para que le siga
+        transform.SetParent(dest);
     }
     //Esta versión del método se usa cuando el objetivo solo es un cambio de la posición relativa al 
     //padre del objeto en movimiento
