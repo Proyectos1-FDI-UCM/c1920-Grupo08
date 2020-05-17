@@ -10,10 +10,7 @@ EditorBuildSettings:
     guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/00_MainMenu.unity
-    guid: c9fb6349f4a0c534b9f7c9d241229e9c
-  - enabled: 0
-    path: Assets/Scenes/Niveles/MainScene.unity
-    guid: ef457b1ab96be8e4ca3b154310ec6259
+    guid: f7d37a78d88866c4ebddc7fe968d2c69
   - enabled: 1
     path: Assets/Scenes/01_Hito2.unity
     guid: 990bb10a313aa5440a4b7eae2b73d942
