@@ -13,7 +13,6 @@ public class ActiveZone : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("step 1");
         //Pasamos por todos los hijos, activándolos
         for (int i = 0; i < transform.childCount; i++)
             transform.GetChild(i).gameObject.SetActive(true);
