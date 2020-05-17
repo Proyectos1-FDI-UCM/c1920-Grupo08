@@ -6,7 +6,7 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private GameObject shieldHolder, controlsMenu, pauseMenu, damageOverlay, dialogueBubble;
+    [SerializeField] private GameObject shieldHolder, controlsMenu, pauseMenu, damageOverlay, dialogueBubble, blurShader;
     [SerializeField] private TextMeshProUGUI bubbleText;
     private string dialogue;
     private float typeSpeed = 0.1f;
@@ -29,6 +29,7 @@ public class UIManager : MonoBehaviour
         controlsMenu.SetActive(false);
         dialogueBubble.SetActive(false);
         damageOverlay.SetActive(false);
+        blurShader.SetActive(false);
         isTalking = false;
     }
 
@@ -39,6 +40,7 @@ public class UIManager : MonoBehaviour
             if (paused)
             {
                 paused = false;
+                blurShader.SetActive(false);
                 pauseMenu.SetActive(false);
                 controlsMenu.SetActive(false);
                 Time.timeScale = 1f;
@@ -47,6 +49,7 @@ public class UIManager : MonoBehaviour
             else
             {
                 paused = true;
+                blurShader.SetActive(true);
                 pauseMenu.SetActive(true);
                 controlsMenu.SetActive(false);
                 Time.timeScale = 0f;
