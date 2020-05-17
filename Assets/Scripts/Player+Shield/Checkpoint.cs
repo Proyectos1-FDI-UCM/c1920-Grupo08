@@ -5,28 +5,21 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Checkpoint : MonoBehaviour
 {   
-    [SerializeField] private Sound sound;
+    [SerializeField] Sound sound;    
     private string frase = "He alcanzado un nuevo punto de control";    
-    private BoxCollider2D boxCollider;
-    [SerializeField] bool isStartingPoint = false;
+    private BoxCollider2D boxCollider;    
 
-    private void Awake()
-    {
-        if (isStartingPoint) GameManager.instance.SetStartingPoint(transform.position);       
-    }
     private void Start()
-    {
-        //if(isStartingPoint) GameManager.instance.SetSpawnPoint(transform.position);
-        
+    {        
         boxCollider = GetComponent<BoxCollider2D>();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Player>() != null)
+        if (collision.GetComponent<PlayerController>() != null)
         {
-            GameManager.instance.SetSpawnPoint(transform.position);
-            //GameManager.instance.OnDialogue(frase);
+            SceneLoader.instance.SetSpawnPoint(transform.position);
+            GameManager.instance.OnDialogue(frase);
             AudioManager.instance.PlaySoundOnce(sound);
             StartCoroutine(checkpointCD());
         }

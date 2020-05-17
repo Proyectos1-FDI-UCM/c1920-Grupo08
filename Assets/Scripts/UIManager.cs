@@ -18,12 +18,11 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        Time.timeScale = 1f;
-        GameManager.instance.SetUIManager(this.gameObject);
+        Time.timeScale = 1f;        
     }
+
     void Start()
-    {
-        //GameManager.instance.SetUIManager(this.gameObject);
+    {        
         audioManager = AudioManager.instance;
         paused = false;
         pauseMenu.SetActive(paused);
@@ -103,13 +102,13 @@ public class UIManager : MonoBehaviour
     public void MainMenuButton()
     {
         audioManager.PlaySoundOnce(buttonSound);
-        GameManager.instance.MainMenu();
+        SceneLoader.instance.LoadMainMenu();
     }
 
     public void ExitButton() 
     {
         audioManager.PlaySoundOnce(buttonSound);
-        GameManager.instance.Exit();
+        SceneLoader.instance.Exit();
     }
 
     public void ControlsMenuButton() 
