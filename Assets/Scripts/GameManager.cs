@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
                 playerHP += shieldHP;
                 audioManager.PlaySoundOnce(playerHit);                
             }
-            SlowMo(0.1f);
+            StartCoroutine(SlowMotion(0.1f));
         }
 
         else if (obj.GetComponent<PlayerController>()) 
@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
             {
                 SceneLoader.instance.ResetScene();
             }
-            SlowMo(0.3f);
+            StartCoroutine(SlowMotion(0.3f));
         }
 
         UIManager.UpdateShieldBar(shieldMaxHP, shieldHP);
@@ -148,18 +148,14 @@ public class GameManager : MonoBehaviour
     public void OnDialogue(string frase) 
     {
         UIManager.OnDialogue(frase);
-    } 
+    }  
     
-    private void SlowMo(float time)
+    IEnumerator SlowMotion(float time) 
     {
         Time.timeScale = 0.2f;
-        Invoke("ReturnTimeScale", time * 0.2f);
-    }
-
-    private void ReturnTimeScale ()
-    {
+        yield return new WaitForSeconds(time * 0.2f);
         Time.timeScale = 1f;
-    }    
+    }
 
     public bool HasKey()
     {
