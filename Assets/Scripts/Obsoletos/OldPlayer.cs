@@ -15,6 +15,6 @@ public class OldPlayer : MonoBehaviour
 
     private void Start()
     {
-        gameManager.SpawnPlayer();
+        //gameManager.SpawnPlayer();
     }
 }

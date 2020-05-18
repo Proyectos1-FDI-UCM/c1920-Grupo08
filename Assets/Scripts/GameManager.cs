@@ -7,8 +7,7 @@ public class GameManager : MonoBehaviour
 {
     const float playerMaxHP = 200f;
     float shieldMaxHP = 100f;
-    float playerHP, shieldHP;   
-    Vector2 lastCheckpoint;    
+    float playerHP, shieldHP;       
     GameObject shield;       
     AudioManager audioManager;
     [SerializeField] UIManager UIManager;
@@ -47,13 +46,12 @@ public class GameManager : MonoBehaviour
         UIManager.UpdateShieldBar(shieldHP, shieldMaxHP);        
     }    
 
-    public void SpawnPlayer()
-    {
-        lastCheckpoint = SceneLoader.instance.GetSpawnPoint();
+    public void SpawnPlayer(Vector2 point)
+    {        
         playerHP = playerMaxHP;
         shieldHP = shieldMaxHP;
-        player.transform.position = lastCheckpoint;
-        Debug.Log("El jugador ha spawneado en " + lastCheckpoint + " con " + playerHP + " HP y " + shieldHP + " de escudo.");
+        player.transform.position = point;
+        Debug.Log("El jugador ha spawneado en " + point + " con " + playerHP + " HP y " + shieldHP + " de escudo.");
     }
 
     public void GetShield(ShieldType sType) // Inicia los valores al coger un escudo
@@ -161,7 +159,7 @@ public class GameManager : MonoBehaviour
     private void ReturnTimeScale ()
     {
         Time.timeScale = 1f;
-    }
+    }    
 
     public bool HasKey()
     {

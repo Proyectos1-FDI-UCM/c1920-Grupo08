@@ -4,7 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    Vector2 lastCheckpoint;
+    Vector2 lastCheckpoint = Vector2.zero;
+    [SerializeField] Animator faceToBlack;
     
     #region Singleton
     public static SceneLoader instance;    
@@ -23,23 +24,13 @@ public class SceneLoader : MonoBehaviour
 
         DontDestroyOnLoad(this);
     }
-    #endregion
-
-    private void Start()
-    {
-        lastCheckpoint = Vector2.zero;
-    }    
+    #endregion   
 
     public void SetSpawnPoint(Vector2 point) 
     {
         lastCheckpoint = point;
         Debug.Log("El nuevo spawn es: " + point);
-    }
-
-    public Vector2 GetSpawnPoint() 
-    {
-        return lastCheckpoint;
-    }
+    }    
 
     public void ResetScene() 
     {
@@ -47,9 +38,9 @@ public class SceneLoader : MonoBehaviour
     }
 
     IEnumerator LoadThisScene()
-    {
-        yield return SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
-        GameManager.instance.SpawnPlayer();
+    {        
+        yield return (SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex));
+        GameManager.instance.SpawnPlayer(lastCheckpoint);        
     }
 
     public void NextScene()
@@ -60,7 +51,10 @@ public class SceneLoader : MonoBehaviour
 
     IEnumerator LoadNextScene()
     {
-        yield return SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);        
+        faceToBlack.SetTrigger("playEnd");
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);       
+        faceToBlack.SetTrigger("playStart");
     }
 
     public void LoadMainMenu() 
@@ -72,7 +66,10 @@ public class SceneLoader : MonoBehaviour
 
     IEnumerator MainMenu() 
     {
-        yield return SceneManager.LoadSceneAsync("00_MainMenu");
+        faceToBlack.SetTrigger("playEnd");
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("00_MainMenu");
+        faceToBlack.SetTrigger("playStart");
     }
 
     public void Exit()
