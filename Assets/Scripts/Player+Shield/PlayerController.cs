@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("Speed", Mathf.Abs(moveX));
         }
 
-        if (jump && isGrounded && !stunned)
+        if (jump && isGrounded && !stunned && !isCrouching)
         {
             AudioManager.instance.PlaySoundOnce(jumpSound);
             rb.velocity = new Vector2(rb.velocity.x, 0f);
