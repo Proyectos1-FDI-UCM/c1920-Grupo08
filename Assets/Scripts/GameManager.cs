@@ -42,8 +42,11 @@ public class GameManager : MonoBehaviour
         audioManager = AudioManager.instance;
         playerHP = playerMaxHP;
         shieldHP = shieldMaxHP;
-        UIManager.UpdateHealthBar(playerMaxHP, playerHP);
-        UIManager.UpdateShieldBar(shieldHP, shieldMaxHP);        
+        if (UIManager != null)
+        {
+            UIManager.UpdateHealthBar(playerMaxHP, playerHP);
+            UIManager.UpdateShieldBar(shieldHP, shieldMaxHP);
+        }
     }    
 
     public void SpawnPlayer(Vector2 point)
