@@ -30,6 +30,11 @@ public class MenuManager : MonoBehaviour
         sceneLoader.NextScene();
     }
 
+    public void SceneByIndex(int index) 
+    {
+        sceneLoader.SceneByIndex(index);
+    }
+
     public void Controls()
     {
         buttonSound.Play();
@@ -46,7 +51,7 @@ public class MenuManager : MonoBehaviour
     {
         buttonSound.Play();
         sceneLoader.Exit();
-    }
+    }    
 
     void SetPanel(int index)
     {

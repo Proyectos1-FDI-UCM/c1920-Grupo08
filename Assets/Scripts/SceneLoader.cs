@@ -57,6 +57,20 @@ public class SceneLoader : MonoBehaviour
         faceToBlack.SetTrigger("playStart");
     }
 
+    public void SceneByIndex(int index)
+    {
+        StartCoroutine(LoadSceneByIndex(index));
+        lastCheckpoint = Vector2.zero;
+    }
+
+    IEnumerator LoadSceneByIndex(int index)
+    {
+        faceToBlack.SetTrigger("playEnd");
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(index);
+        faceToBlack.SetTrigger("playStart");
+    }
+
     public void LoadMainMenu() 
     {
         Time.timeScale = 1f;
@@ -68,7 +82,7 @@ public class SceneLoader : MonoBehaviour
     {
         faceToBlack.SetTrigger("playEnd");
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene("00_MainMenu");
+        SceneManager.LoadScene(0);
         faceToBlack.SetTrigger("playStart");
     }
 
