@@ -35,7 +35,6 @@ public class CameraSize : MonoBehaviour
     //Este método sirve para ser llamado desde otras componentes e inicializar los datos de un cambio de tamaño nuevo
     public void ChangeSize(float newSize, float spd)
     {
-        Debug.Log("Size changed intentionally");
         size = newSize;
         active = true;
         speed = spd;

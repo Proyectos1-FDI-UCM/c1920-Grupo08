@@ -94,7 +94,6 @@ public class CameraZone : MonoBehaviour
             //Devolvemos la cámara a su tamaño original
             camSize.ChangeSize(defaultSize, snapSpeed);
             inside = false;
-            Debug.Log("OnTriggerExit");
         }
     }
 }
