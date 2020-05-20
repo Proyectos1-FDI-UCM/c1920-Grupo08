@@ -80,7 +80,7 @@ public class CameraZone : MonoBehaviour
                 movement.MoveTo(offset, snapSpeed);
             }
             //Cambiamos el tamaño de la cámara a la necesaria para esta zona
-            camSize.ChangeSize(CameraSize);
+            camSize.ChangeSize(CameraSize, snapSpeed);
             inside = true;
         }
     }
@@ -92,8 +92,9 @@ public class CameraZone : MonoBehaviour
             //Movemos la cámara a su posición original relativa al jugador
             movement.MoveTo(camerapos, snapSpeed);
             //Devolvemos la cámara a su tamaño original
-            camSize.ChangeSize(defaultSize);
+            camSize.ChangeSize(defaultSize, snapSpeed);
             inside = false;
+            Debug.Log("OnTriggerExit");
         }
     }
 }
