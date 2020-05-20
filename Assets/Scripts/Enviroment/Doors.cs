@@ -9,10 +9,14 @@ public class Doors : MonoBehaviour
 {
     [SerializeField]
     bool locked=false;
+    [SerializeField]
+    Sprite open;
     BoxCollider2D bc;
+    SpriteRenderer sr;
     private void Start()
     {
         bc = transform.GetChild(0).GetComponent<BoxCollider2D>();
+        sr = GetComponentInChildren<SpriteRenderer>();
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -21,7 +25,8 @@ public class Doors : MonoBehaviour
             if (Input.GetButtonDown("Use") && (!locked || GameManager.instance.HasKey()))
             {
                 bc.enabled = false;
-                //Change sprite
+                sr.sprite = open;
+                transform.GetChild(0).transform.localPosition = new Vector3(0.4f, 0f, 0f);
             }
         }
     }
