@@ -15,7 +15,7 @@ public class ActiveZone : MonoBehaviour
     {
         //Pasamos por todos los hijos, activándolos
         for (int i = 0; i < transform.childCount; i++)
-            transform.GetChild(i).gameObject.SetActive(true);
+            transform.GetChild(i).gameObject.SetActive(!transform.GetChild(i).gameObject.active);
         //Desactivamos el collider para evitar que se repita
         if (col != null)
             col.enabled = false;
