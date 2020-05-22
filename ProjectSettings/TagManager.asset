@@ -53,12 +53,15 @@ TagManager:
   - name: Enemy
     uniqueID: 1835300455
     locked: 0
-  - name: Player
-    uniqueID: 3419125295
+  - name: Trap
+    uniqueID: 4221620035
     locked: 0
   - name: Bullet
     uniqueID: 4255346965
     locked: 0
-  - name: Trap
-    uniqueID: 4221620035
+  - name: Pickups
+    uniqueID: 1010249453
+    locked: 0
+  - name: Player
+    uniqueID: 3419125295
     locked: 0
