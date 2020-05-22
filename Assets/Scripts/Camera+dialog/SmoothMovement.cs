@@ -75,7 +75,12 @@ public class SmoothMovement : MonoBehaviour
     GameObject playerPos;
     //La velocidad de la cámara cuando sigue al jugador
     [SerializeField]
-    float playerFollowSpeed = 10;
+    float playerFollowSpeed = 10000;
+
+    private void Start()
+    {
+        speed = playerFollowSpeed;
+    }
     private void Update()
     {
         if (followPlayer)
@@ -86,9 +91,11 @@ public class SmoothMovement : MonoBehaviour
         //Si no estamos en el objetivo, movemos (se usa < 0.01 en vez de == porque son floats)
         if (!(Vector3.Distance(transform.position, dest) < 0.01f))
         {
+            Debug.Log(speed) ;
             //Movemos hacia el destino. El parámetro float limita cuánto se puede mover por frame
             transform.position = Vector3.MoveTowards(transform.position, dest, speed * Time.deltaTime);
         }
+        Debug.Log(dest);
     }
 
     //Este método sirve para ser llamado desde otras componentes e inicializar los datos de un desplazamiento nuevo

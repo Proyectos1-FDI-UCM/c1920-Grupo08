@@ -12,7 +12,7 @@ public class CameraSize : MonoBehaviour
     bool active = false;
     //La velocidad de cambio
     float speed;
-    void Start()
+    void Awake()
     {
         //Guardamos una referencia a la componente Camera de la cámara para poder ajustar luego
         //el tamaño
@@ -42,7 +42,8 @@ public class CameraSize : MonoBehaviour
 
     public float GetSize()
     {
-        //Debug.Log("camsize "+camera.orthographicSize);
+        if (camera==null)
+            Debug.Log("something wrong");
         return camera.orthographicSize;
     }
 }
