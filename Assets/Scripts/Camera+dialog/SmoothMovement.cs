@@ -70,16 +70,20 @@ public class SmoothMovement : MonoBehaviour
     float aux;
     //Controla si seguimos o no al jugador
     bool followPlayer = true;
+    //La posición del hijo CameraPosition del jugador
     [SerializeField]
     GameObject playerPos;
+    //La velocidad de la cámara cuando sigue al jugador
+    [SerializeField]
+    float playerFollowSpeed = 10;
     private void Update()
     {
-        if (followPlayer/* && dest != null*/)
+        if (followPlayer)
         {
             dest = playerPos.transform.position;
         }
 
-        //Si estamos en el objetivo, paramos el movimiento (se usa < 0.01 en vez de == porque son floats)
+        //Si no estamos en el objetivo, movemos (se usa < 0.01 en vez de == porque son floats)
         if (!(Vector3.Distance(transform.position, dest) < 0.01f))
         {
             //Movemos hacia el destino. El parámetro float limita cuánto se puede mover por frame
@@ -88,21 +92,16 @@ public class SmoothMovement : MonoBehaviour
     }
 
     //Este método sirve para ser llamado desde otras componentes e inicializar los datos de un desplazamiento nuevo
-    public void MoveTo(Transform destination, float spd)
+    public void MoveToAnchor(Vector3 destination, float spd)
     {
         speed = spd;
         dest = destination;
         followPlayer = true;
-        //Hacemos que sea hija del jugador para que le siga
-        transform.SetParent(dest);
     }
-    //Esta versión del método se usa cuando el objetivo solo es un cambio de la posición relativa al 
-    //padre del objeto en movimiento
-    public void MoveTo(float offset, float spd)
+    
+    public void ReturnToPlayer()
     {
-        speed = spd;
-        dest = null;
-        aux = offset;
+        speed = playerFollowSpeed;
         followPlayer = true;
     }
 }
