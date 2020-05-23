@@ -22,6 +22,7 @@ public class Sniper : MonoBehaviour
     float elapsedTime = 0f; // Contador desde el último disparo
 
     [SerializeField] LayerMask targetLayer; // Máscara para comprobar que el objetivo esta en rango
+    [SerializeField] LayerMask rayLayer;
 
     Vector2 hitPoint; // Punto de impacto
 
@@ -41,6 +42,8 @@ public class Sniper : MonoBehaviour
 
     Vector2 direction; // dirección de la bala
 
+    ContactFilter2D contactFilter;
+
     void Awake()
     {
         laser = GetComponent<LineRenderer>();
@@ -49,6 +52,8 @@ public class Sniper : MonoBehaviour
     void Start()
     {
         audioManager = AudioManager.instance;
+        contactFilter.layerMask = rayLayer;
+        contactFilter.useLayerMask = true;        
     }
 
     void FixedUpdate()
@@ -69,7 +74,7 @@ public class Sniper : MonoBehaviour
             transform.right = direction;
 
             // RAYCAST
-            RaycastHit2D hit = Physics2D.Raycast(firePoint.position, direction, range);
+            RaycastHit2D hit = Physics2D.Raycast(firePoint.position, direction,range,rayLayer);
 
             // Almacena el punto de impacto
             hitPoint = hit.point;
@@ -77,7 +82,6 @@ public class Sniper : MonoBehaviour
             // Dispara respetando la cadencia de disparo
             if (Time.time > elapsedTime)
             {
-                Debug.Log(hit.collider.name);
                 // Reproduce el effecto de sonido
                 audioManager.PlaySoundOnce(shotSound);
 
