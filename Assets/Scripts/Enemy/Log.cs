@@ -4,14 +4,34 @@ using UnityEngine;
 
 public class Log : MonoBehaviour
 {
+    enum Direction { Left, Right };
+    [SerializeField]
+    Direction direction;
+    [SerializeField]
+    float acceleration;
+    [SerializeField]
+    float maxSpeed;
+    Rigidbody2D rb;
     void Start()
-    {        
-        Destroy(this.gameObject, 2.9f);
+    {
+        rb = GetComponent<Rigidbody2D>();
+        //Si el objeto no tiene Rigidbody, no va a funcionar
+        if (rb == null)
+            Destroy(this.gameObject);
     }
 
-    public void Update()
-    {        
-        transform.Rotate(0f, 0f, -2f);
+    void FixedUpdate()
+    {
+        if (rb.velocity.magnitude < maxSpeed)
+            if (direction == Direction.Right)
+            {
+                rb.AddForce(new Vector2(acceleration, 0));
+            }
+            else
+            {
+                rb.AddForce(new Vector2(-acceleration, 0));
+            }
+        else
+            rb.velocity = rb.velocity / rb.velocity.magnitude * maxSpeed;
     }
-  
 }
