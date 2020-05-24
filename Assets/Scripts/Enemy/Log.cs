@@ -18,6 +18,7 @@ public class Log : MonoBehaviour
         //Si el objeto no tiene Rigidbody, no va a funcionar
         if (rb == null)
             Destroy(this.gameObject);
+        Destroy(this.gameObject, 10f);
     }
 
     void FixedUpdate()
