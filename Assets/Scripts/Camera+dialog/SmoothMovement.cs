@@ -67,7 +67,6 @@ public class SmoothMovement : MonoBehaviour
     //El transform destino. No puede ser un simple vector3 porque puede ser un objeto en movimiento,
     //conque el destino puede variar durante la trayectoria
     Vector3 dest;
-    float aux;
     //Controla si seguimos o no al jugador
     bool followPlayer = true;
     //La posición del hijo CameraPosition del jugador
@@ -78,12 +77,20 @@ public class SmoothMovement : MonoBehaviour
     float playerFollowSpeed = 100;
     //Distancia al objetivo
     float distance;
+    //El número de zonas cinemáticas en las que estamos
+    int inside = 0;
     private void Start()
     {
+        Debug.Log("before start: " + followPlayer);
+        followPlayer = true;
+        Debug.Log("after start: " + followPlayer);
+
         speed = playerFollowSpeed;
     }
     private void Update()
     {
+        Debug.Log("Each frame: " + followPlayer);
+        //Debug.Log(followPlayer);
         if (followPlayer)
         {
             dest = playerPos.transform.position;
@@ -92,24 +99,40 @@ public class SmoothMovement : MonoBehaviour
         //Si no estamos en el objetivo, movemos (se usa < 0.01 en vez de == porque son floats)
         if (!(distance < 0.01f))
         {
-            Debug.Log(speed) ;
             //Movemos hacia el destino. El parámetro float limita cuánto se puede mover por frame
             transform.position = Vector3.MoveTowards(transform.position, dest, speed * Time.deltaTime * distance / 4);
         }
-        Debug.Log(dest);
     }
 
     //Este método sirve para ser llamado desde otras componentes e inicializar los datos de un desplazamiento nuevo
     public void MoveToAnchor(Vector3 destination, float spd)
     {
+        //Debug.Log("MoveToAnchor");
         speed = spd;
         dest = destination;
-        followPlayer = true;
+        Debug.Log("before change: "+followPlayer);
+        followPlayer = false;
+        Debug.Log("after change: "+followPlayer);
     }
     
     public void ReturnToPlayer()
     {
         speed = playerFollowSpeed;
-        followPlayer = true;
+        //followPlayer = true;
+    }
+
+    public void EnterZone()
+    {
+        inside++;
+    }
+
+    public void ExitZone()
+    {
+        inside--;
+    }
+
+    public int InsideZones()
+    {
+        return inside;
     }
 }

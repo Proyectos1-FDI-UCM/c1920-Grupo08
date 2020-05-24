@@ -37,8 +37,6 @@ public class CameraZone : MonoBehaviour
     //Los scripts que tendremos que acceder de la cámara
     SmoothMovement movement;
     CameraSize camSize;
-    //Un control para ahorrarnos un getcomponent en el triggerexit
-    bool inside=false;
     
     void Start()
     {
@@ -55,32 +53,28 @@ public class CameraZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponentInChildren<SmoothMovement>()!= null)
+        Debug.Log("collision detected");
+        if (UseAnchor)
         {
-
-            if (UseAnchor)
-            {
-                //Movemos la cámara hasta el ancla
-                movement.MoveToAnchor(anchor, snapSpeed);
-                //Hacemos que no sea hija de nadie
-                cam.transform.parent = null;
-            }
-
-            //Cambiamos el tamaño de la cámara a la necesaria para esta zona
-            camSize.ChangeSize(CameraSize, snapSpeed);
-            inside = true;
+            Debug.Log("Anchor used: "+ anchor);
+            //Movemos la cámara hasta el ancla
+            movement.MoveToAnchor(anchor, snapSpeed);
         }
+
+        //Cambiamos el tamaño de la cámara a la necesaria para esta zona
+        camSize.ChangeSize(CameraSize, snapSpeed);
+        movement.EnterZone();
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        movement.ExitZone();
         //No es necesario asignar cam: para poder salir del trigger tiene que haber primero entrado
-        if (inside)
+        if (movement.InsideZones()==0)
         {
             //Movemos la cámara a su posición original relativa al jugador
             movement.ReturnToPlayer();
             //Devolvemos la cámara a su tamaño original
             camSize.ChangeSize(defaultSize, snapSpeed);
-            inside = false;
         }
     }
 }
