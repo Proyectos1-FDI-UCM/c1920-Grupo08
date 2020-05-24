@@ -23,77 +23,58 @@ public class CameraZone : MonoBehaviour
     [SerializeField]
     float offset=0f;
     //La cámara en sí (no necesitamos guardar el objeto entero)
-    Transform cam;
+    //Transform cam;
     //La posición donde se colocará la cámara en esta zona
-    Transform anchor;
+    Vector3 anchor;
     //La posición relativa al jugador y el tamaño a los que habrá que devolver la cámara 
     //una vez el jugador sale de la zona
-    Transform camerapos;
+    //GameObject cameraPos;
+    //Dado que no podemos tener una referencia pública al hijo de un prefab, usamos al jugador
+    //como paso medio
+    [SerializeField]
+    GameObject cam;
     float defaultSize;
     //Los scripts que tendremos que acceder de la cámara
     SmoothMovement movement;
     CameraSize camSize;
-    //Un control para ahorrarnos un getcomponent en el triggerexit
-    bool inside=false;
     
     void Start()
     {
         //Guardamos la posición de anclaje de la cámara
-        anchor = transform.GetChild(0).GetComponent<Transform>();
-        cam = null;
+        anchor = transform.GetChild(0).GetComponent<Transform>().position;
+
+        //Guardamos referencias a los scripts necesarios de la cámara
+        movement = cam.gameObject.GetComponent<SmoothMovement>();
+        camSize = cam.gameObject.transform.GetChild(0).GetComponent<CameraSize>();
+        //Guardamos el tamaño base de la cámara
+        //defaultSize = camSize.GetSize();
     }
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponentInChildren<SmoothMovement>()!= null)
+        Debug.Log("collision detected");
+        if (UseAnchor)
         {
-            //Para ahorrarnos referencias públicas entre objetos, podemos hacer que la primera vez que 
-            //se detecte la colisión de la cámara el script se guarde los datos de esta.
-            if (cam == null)
-            {
-                //Este es el hijo CameraPosition del player.
-                //Hacemos esta separación para que se pueda ajustar la posición de la cámara en relación 
-                //al jugador.
-                camerapos = collision.gameObject.transform;
-                //Guardamos una referencia a la cámara
-                cam = camerapos.transform.GetChild(0).transform;
-                //Guardamos referencias a los scripts necesarios de la cámara
-                movement = cam.gameObject.GetComponent<SmoothMovement>();
-                camSize = cam.gameObject.GetComponent<CameraSize>();
-                //Guardamos el tamaño base de la cámara
-                defaultSize = camSize.GetSize();
-            }
-
-            if (UseAnchor)
-            {
-                //Movemos la cámara hasta el ancla
-                movement.MoveTo(anchor, snapSpeed);
-                //Hacemos que no sea hija de nadie
-                cam.transform.parent = null;
-            }
-            else if (offset != 0)
-            {
-                //Si no queremos usar el ancla pero sí elevar la cámara, invocamos el método 
-                //correspondiente en SmoothMovement
-
-                movement.MoveTo(offset, snapSpeed);
-            }
-            //Cambiamos el tamaño de la cámara a la necesaria para esta zona
-            camSize.ChangeSize(CameraSize, snapSpeed);
-            inside = true;
+            Debug.Log("Anchor used: "+ anchor);
+            //Movemos la cámara hasta el ancla
+            movement.MoveToAnchor(anchor, snapSpeed);
         }
+
+        //Cambiamos el tamaño de la cámara a la necesaria para esta zona
+        camSize.ChangeSize(CameraSize, snapSpeed);
+        movement.EnterZone();
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        movement.ExitZone();
         //No es necesario asignar cam: para poder salir del trigger tiene que haber primero entrado
-        if (inside)
+        if (movement.InsideZones()==0)
         {
             //Movemos la cámara a su posición original relativa al jugador
-            movement.MoveTo(camerapos, snapSpeed);
+            movement.ReturnToPlayer();
             //Devolvemos la cámara a su tamaño original
             camSize.ChangeSize(defaultSize, snapSpeed);
-            inside = false;
         }
     }
 }
