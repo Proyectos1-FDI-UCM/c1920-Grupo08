@@ -81,15 +81,15 @@ public class SmoothMovement : MonoBehaviour
     int inside = 0;
     private void Start()
     {
-        Debug.Log("before start: " + followPlayer);
+        //Debug.Log("before start: " + followPlayer);
         followPlayer = true;
-        Debug.Log("after start: " + followPlayer);
+        //Debug.Log("after start: " + followPlayer);
 
         speed = playerFollowSpeed;
     }
     private void Update()
     {
-        Debug.Log("Each frame: " + followPlayer);
+        //Debug.Log("Each frame: " + followPlayer);
         //Debug.Log(followPlayer);
         if (followPlayer)
         {
