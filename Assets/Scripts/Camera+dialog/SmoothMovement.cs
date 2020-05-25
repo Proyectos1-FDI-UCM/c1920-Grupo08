@@ -58,7 +58,22 @@ public class SmoothMovement : MonoBehaviour
     }*/
 
 
+    #region Singleton
+    public static SmoothMovement mainCamera;
 
+    private void Awake()
+    {
+        if (mainCamera == null)
+        {
+            mainCamera = this;
+        }
+        else if (mainCamera != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
+    #endregion
 
 
 
@@ -81,15 +96,12 @@ public class SmoothMovement : MonoBehaviour
     int inside = 0;
     private void Start()
     {
-        //Debug.Log("before start: " + followPlayer);
         followPlayer = true;
-        //Debug.Log("after start: " + followPlayer);
 
         speed = playerFollowSpeed;
     }
     private void Update()
     {
-        //Debug.Log("Each frame: " + followPlayer);
         //Debug.Log(followPlayer);
         if (followPlayer)
         {
@@ -107,18 +119,15 @@ public class SmoothMovement : MonoBehaviour
     //Este método sirve para ser llamado desde otras componentes e inicializar los datos de un desplazamiento nuevo
     public void MoveToAnchor(Vector3 destination, float spd)
     {
-        //Debug.Log("MoveToAnchor");
         speed = spd;
         dest = destination;
-        Debug.Log("before change: "+followPlayer);
         followPlayer = false;
-        Debug.Log("after change: "+followPlayer);
     }
     
     public void ReturnToPlayer()
     {
         speed = playerFollowSpeed;
-        //followPlayer = true;
+        followPlayer = true;
     }
 
     public void EnterZone()
