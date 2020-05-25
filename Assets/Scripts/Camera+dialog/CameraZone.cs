@@ -22,16 +22,9 @@ public class CameraZone : MonoBehaviour
     //El desplazamiento vertical de la cámara (solo usado en zonas sin ancla)
     [SerializeField]
     float offset=0f;
-    //La cámara en sí (no necesitamos guardar el objeto entero)
-    //Transform cam;
     //La posición donde se colocará la cámara en esta zona
     Vector3 anchor;
-    //La posición relativa al jugador y el tamaño a los que habrá que devolver la cámara 
-    //una vez el jugador sale de la zona
-    //GameObject cameraPos;
-    //Dado que no podemos tener una referencia pública al hijo de un prefab, usamos al jugador
-    //como paso medio
-    [SerializeField]
+    //Referencia al objeto que contiene a la cámara
     GameObject cam;
     float defaultSize;
     //Los scripts que tendremos que acceder de la cámara
@@ -42,14 +35,13 @@ public class CameraZone : MonoBehaviour
     {
         //Guardamos la posición de anclaje de la cámara
         anchor = transform.GetChild(0).GetComponent<Transform>().position;
-
+        cam = SmoothMovement.mainCamera.gameObject;
         //Guardamos referencias a los scripts necesarios de la cámara
         movement = cam.gameObject.GetComponent<SmoothMovement>();
         camSize = cam.gameObject.transform.GetChild(0).GetComponent<CameraSize>();
         //Guardamos el tamaño base de la cámara
-        //defaultSize = camSize.GetSize();
+        defaultSize = camSize.GetSize();
     }
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -67,10 +59,12 @@ public class CameraZone : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        Debug.Log("inside " + movement.InsideZones() + " zones");
         movement.ExitZone();
         //No es necesario asignar cam: para poder salir del trigger tiene que haber primero entrado
         if (movement.InsideZones()==0)
         {
+            Debug.Log("defaultsize = " + defaultSize);
             //Movemos la cámara a su posición original relativa al jugador
             movement.ReturnToPlayer();
             //Devolvemos la cámara a su tamaño original
