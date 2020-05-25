@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1851706553297901059}
   - component: {fileID: 1851706553297901056}
   - component: {fileID: 1851706553297901057}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Escombro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 0.7}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &1851706553297901056
 MonoBehaviour:
@@ -156,3 +156,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 885d596b72b2fe64992f8e8db2755d8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeSpeed: 5

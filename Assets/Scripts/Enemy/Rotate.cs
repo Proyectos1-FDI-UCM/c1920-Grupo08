@@ -16,4 +16,16 @@ public class Rotate : MonoBehaviour
         else
             transform.Rotate(0f, 0f, rotateSpeed);
     }
+
+    public void RotateDirection(char d)
+    {
+        if (d=='l')
+        {
+            direction = Direction.Left;
+        }
+        else if (d=='r')
+        {
+            direction = Direction.Right;
+        }
+    }
 }
