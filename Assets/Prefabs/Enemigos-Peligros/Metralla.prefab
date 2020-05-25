@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 1851706553297901059}
   - component: {fileID: 1851706553297901056}
   - component: {fileID: -1556929283172955131}
+  - component: {fileID: 3891655670547113080}
+  - component: {fileID: 6100020362360536849}
   m_Layer: 11
   m_Name: Metralla
   m_TagString: Untagged
@@ -156,3 +158,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 885d596b72b2fe64992f8e8db2755d8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeSpeed: 1
+--- !u!114 &3891655670547113080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851706553297901086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a51be34ff9c89cf4b8a2f42d5ce9be45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 6786a456adb652242ac3a4f10bc82099, type: 3}
+  - {fileID: 21300000, guid: 28bc13a532260ed46ab5aa62f87c4447, type: 3}
+  - {fileID: 21300000, guid: ca0bb123c3b745446ab02e55558fd8cb, type: 3}
+  - {fileID: 21300000, guid: 1434141c961498049af595d100389166, type: 3}
+--- !u!114 &6100020362360536849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851706553297901086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ded4e55beb8ef047b3267d061ed3fe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: 0
+  rotateSpeed: 4
