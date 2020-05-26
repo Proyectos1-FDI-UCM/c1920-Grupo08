@@ -10,10 +10,22 @@ public class Rotate : MonoBehaviour
     [SerializeField]
     float rotateSpeed;
     public void Update()
-    {   
-        if (direction==Direction.Right)
+    {
+        if (direction == Direction.Right)
             transform.Rotate(0f, 0f, -rotateSpeed);
         else
             transform.Rotate(0f, 0f, rotateSpeed);
+    }
+
+    public void RotateDirection(char d)
+    {
+        if (d == 'l')
+        {
+            direction = Direction.Left;
+        }
+        else if (d == 'r')
+        {
+            direction = Direction.Right;
+        }
     }
 }
