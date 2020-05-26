@@ -102,6 +102,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CameraSize: 8
-  snapSpeed: 20
+  snapSpeed: 10
   UseAnchor: 1
   offset: 0

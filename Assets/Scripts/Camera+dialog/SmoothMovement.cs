@@ -40,17 +40,19 @@ public class SmoothMovement : MonoBehaviour
     float distance;
     //El número de zonas cinemáticas en las que estamos
     int inside = 0;
+    //El modificador de altura a la cámara
+    float offset;
     private void Start()
     {
         followPlayer = true;
-
+        offset = 0f;
         speed = playerFollowSpeed;
     }
     private void Update()
     {
         if (followPlayer)
         {
-            dest = playerPos.transform.position;
+            dest = new Vector3(playerPos.transform.position.x, playerPos.transform.position.y+offset, 0f);
         }
         distance = Vector3.Distance(transform.position, dest);
         //Si no estamos en el objetivo, movemos (se usa < 0.01 en vez de == porque son floats)
@@ -67,6 +69,10 @@ public class SmoothMovement : MonoBehaviour
         speed = spd;
         dest = destination;
         followPlayer = false;
+    }
+    public void OffsetPlayerFocus(float y)
+    {
+        offset = y;
     }
     
     public void ReturnToPlayer()

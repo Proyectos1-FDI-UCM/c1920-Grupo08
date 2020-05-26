@@ -45,12 +45,14 @@ public class CameraZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("collision detected");
         if (UseAnchor)
         {
-            Debug.Log("Anchor used: "+ anchor);
             //Movemos la cámara hasta el ancla
             movement.MoveToAnchor(anchor, snapSpeed);
+        }
+        else
+        {
+            movement.OffsetPlayerFocus(offset);
         }
 
         //Cambiamos el tamaño de la cámara a la necesaria para esta zona
@@ -59,14 +61,15 @@ public class CameraZone : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("inside " + movement.InsideZones() + " zones");
         movement.ExitZone();
         //No es necesario asignar cam: para poder salir del trigger tiene que haber primero entrado
         if (movement.InsideZones()==0)
         {
-            Debug.Log("defaultsize = " + defaultSize);
-            //Movemos la cámara a su posición original relativa al jugador
-            movement.ReturnToPlayer();
+            if (UseAnchor)
+                //Movemos la cámara a su posición original relativa al jugador
+                movement.ReturnToPlayer();
+            else
+                movement.OffsetPlayerFocus(0f);
             //Devolvemos la cámara a su tamaño original
             camSize.ChangeSize(defaultSize, snapSpeed);
         }
