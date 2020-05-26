@@ -14,7 +14,7 @@ public class Metralla : MonoBehaviour
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         if (sr != null)
         {
-            sr.sprite = sprites[Random.Range(0, sprites.Length - 1)];
+            sr.sprite = sprites[Random.Range(0, sprites.Length)];
         }
         if (rotate != null && rb != null)
         {
