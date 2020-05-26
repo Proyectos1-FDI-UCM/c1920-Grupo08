@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1851706553297901059}
   - component: {fileID: 1851706553297901056}
   - component: {fileID: 1851706553297901057}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Escombro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
