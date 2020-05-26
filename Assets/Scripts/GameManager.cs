@@ -101,6 +101,7 @@ public class GameManager : MonoBehaviour
             {
                 SceneLoader.instance.ResetScene();
             }
+            if (damage>=10)
             StartCoroutine(SlowMotion(0.3f));
         }
 
