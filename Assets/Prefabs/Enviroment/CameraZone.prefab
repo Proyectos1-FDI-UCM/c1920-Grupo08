@@ -87,7 +87,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 15, y: 10}
+  m_Size: {x: 15, y: 40}
   m_EdgeRadius: 0
 --- !u!114 &3951106594181600714
 MonoBehaviour:
@@ -105,4 +105,3 @@ MonoBehaviour:
   snapSpeed: 20
   UseAnchor: 1
   offset: 0
-  cam: {fileID: 2979258373214363584, guid: 7ec9c8bcc93593e4794ca6783b20c775, type: 3}
