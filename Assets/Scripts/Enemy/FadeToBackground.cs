@@ -7,19 +7,19 @@ using UnityEngine;
 
 public class FadeToBackground : MonoBehaviour
 {
-    bool active;
+    bool fading;
     SpriteRenderer sr;
     float aux = 1f;
     [SerializeField]
     float fadeSpeed = 1;
     private void Start()
     {
-        active = false;
+        fading = false;
         sr = GetComponent<SpriteRenderer>();
     }
     private void Update()
     {
-        if (active)
+        if (fading)
         {
             sr.color = new Color(1, 1, 1, aux);
             aux -= 0.01f * fadeSpeed;
@@ -44,6 +44,6 @@ public class FadeToBackground : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, -1.0f);
             rb.isKinematic = true;
         }
-        active = true;
+        fading = true;
     }
 }
