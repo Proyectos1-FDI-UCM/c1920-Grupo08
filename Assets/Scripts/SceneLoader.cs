@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
     Vector2 lastCheckpoint = Vector2.zero;
     [SerializeField] Animator faceToBlack;
+    [SerializeField] AudioMixer audioMixer;
+    private float volumeValue;
     
     #region Singleton
     public static SceneLoader instance;    
@@ -90,5 +93,11 @@ public class SceneLoader : MonoBehaviour
     {
         Debug.Log("El juego se ha cerrado");
         Application.Quit();
+    }
+
+    public void SetVolume(float value)
+    {
+        volumeValue = value;
+        audioMixer.SetFloat("GameVolume", Mathf.Log10(value) * 20);
     }
 }

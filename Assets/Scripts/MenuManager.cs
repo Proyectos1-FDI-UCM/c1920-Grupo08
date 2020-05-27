@@ -33,6 +33,11 @@ public class MenuManager : MonoBehaviour
         SetPanel(1);
     }
 
+    public void Credits() 
+    {
+        SetPanel(2);
+    }
+
     public void Back()
     {
         buttonSound.Play();
@@ -43,7 +48,12 @@ public class MenuManager : MonoBehaviour
     {
         buttonSound.Play();
         sceneLoader.Exit();
-    }    
+    }
+    
+    public void VolumeSlider(float value) 
+    {
+        sceneLoader.SetVolume(value);
+    }
 
     void SetPanel(int index)
     {

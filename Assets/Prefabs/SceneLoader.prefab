@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faceToBlack: {fileID: 1177777365952010980}
+  audioMixer: {fileID: 24100000, guid: de5e3d4d6ecba2e448d53b102fecfd6a, type: 2}
 --- !u!1 &8716633092152052526
 GameObject:
   m_ObjectHideFlags: 0
