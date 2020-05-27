@@ -1,18 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(AudioSource))]
 public class MenuManager : MonoBehaviour
 {
+    [SerializeField] Slider volumeSlider;
     [SerializeField] GameObject[] Panels;
     AudioSource buttonSound;
     SceneLoader sceneLoader;
+    
 
     void Start()
     {
         buttonSound = GetComponent<AudioSource>();
         sceneLoader = SceneLoader.instance;
+        volumeSlider.value = sceneLoader.CheckVolumeSlider();
         SetPanel(0);
     }    
 

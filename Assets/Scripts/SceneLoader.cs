@@ -8,7 +8,7 @@ public class SceneLoader : MonoBehaviour
     Vector2 lastCheckpoint = Vector2.zero;
     [SerializeField] Animator faceToBlack;
     [SerializeField] AudioMixer audioMixer;
-    private float volumeValue;
+    private float volumeValue=1f;
     
     #region Singleton
     public static SceneLoader instance;    
@@ -95,6 +95,10 @@ public class SceneLoader : MonoBehaviour
         Application.Quit();
     }
 
+    public float CheckVolumeSlider() 
+    {
+        return volumeValue;
+    }
     public void SetVolume(float value)
     {
         volumeValue = value;

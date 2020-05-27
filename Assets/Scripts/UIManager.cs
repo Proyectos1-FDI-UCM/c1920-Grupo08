@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI bubbleText;
     private string dialogue;
     private float typeSpeed = 0.1f;
-    [SerializeField] private Slider healthS, shieldS;
+    [SerializeField] private Slider healthS, shieldS,volumeSlider;
     bool paused;
     private AudioManager audioManager;
     [SerializeField] Sound buttonSound;
@@ -31,6 +31,7 @@ public class UIManager : MonoBehaviour
         damageOverlay.SetActive(false);
         blurShader.SetActive(false);
         isTalking = false;
+        volumeSlider.value = SceneLoader.instance.CheckVolumeSlider();
     }
 
     private void Update()
@@ -138,5 +139,10 @@ public class UIManager : MonoBehaviour
         damageOverlay.SetActive(true);
         yield return null;
         damageOverlay.SetActive(false);
+    }
+
+    public void VolumeSlider(float value)
+    {
+        SceneLoader.instance.SetVolume(value);
     }
 }
