@@ -16,10 +16,16 @@ public class MenuManager : MonoBehaviour
         SetPanel(0);
     }    
 
-    public void Play()
+    public void Play() 
     {
         buttonSound.Play();
-        sceneLoader.NextScene();
+        SetPanel(3);
+    }
+
+    public void Tutorial(int index)
+    {
+        buttonSound.Play();
+        sceneLoader.SceneByIndex(index);
     }
 
     public void SceneByIndex(int index) 
