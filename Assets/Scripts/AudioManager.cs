@@ -40,7 +40,7 @@ public class AudioManager : MonoBehaviour
         public AudioClip audioClip;        
     }
 
-    [SerializeField] AudioMixer audioMixer;
+    [SerializeField] AudioMixerGroup audioMixer;
     [SerializeField] private SoundFile[] soundFileArrray;       
 
     #region Singleton
@@ -69,7 +69,7 @@ public class AudioManager : MonoBehaviour
             GameObject soundObj = new GameObject("soundObj");
             soundObj.transform.parent = transform;
             AudioSource audioSource = soundObj.AddComponent<AudioSource>();
-            audioSource.outputAudioMixerGroup = audioMixer.outputAudioMixerGroup;
+            audioSource.outputAudioMixerGroup = audioMixer;
             audioSource.PlayOneShot(audioClip);
             Destroy(soundObj, audioClip.length);
         }         
