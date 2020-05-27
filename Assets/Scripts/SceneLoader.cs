@@ -41,9 +41,12 @@ public class SceneLoader : MonoBehaviour
     }
 
     IEnumerator LoadThisScene()
-    {        
+    {
+        faceToBlack.SetTrigger("playEnd");
+        yield return new WaitForSeconds(1f);
         yield return (SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex));
-        GameManager.instance.SpawnPlayer(lastCheckpoint);        
+        GameManager.instance.SpawnPlayer(lastCheckpoint);
+        faceToBlack.SetTrigger("playStart");
     }
 
     public void NextScene()

@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
 
             if (playerHP < 0) 
             {
-                SceneLoader.instance.ResetScene();
+                StartCoroutine(OnDead());
             }
             if (damage>=10)
             StartCoroutine(SlowMotion(0.3f));
@@ -108,6 +108,13 @@ public class GameManager : MonoBehaviour
         UIManager.UpdateShieldBar(shieldMaxHP, shieldHP);
         UIManager.UpdateHealthBar(playerMaxHP, playerHP);
     }    
+
+    IEnumerator OnDead()
+    {
+        Destroy(player);
+        yield return new WaitForSeconds(2f);
+        SceneLoader.instance.ResetScene();
+    }
 
     public bool ShieldBroken() 
     {
