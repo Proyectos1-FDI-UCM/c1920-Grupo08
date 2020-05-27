@@ -140,10 +140,10 @@ TextureImporter:
       name: shields_2
       rect:
         serializedVersion: 2
-        x: 102
-        y: 363
-        width: 183
-        height: 111
+        x: 293
+        y: 332
+        width: 207
+        height: 326
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
