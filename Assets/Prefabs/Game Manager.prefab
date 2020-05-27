@@ -43,24 +43,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccd9181692b98994fa8e93abc78452d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UIManager: {fileID: 0}
+  player: {fileID: 0}
   playerHit: 9
   shieldArray:
   - shieldType: 0
-    weight: 10
+    weight: 35
     durability: 100
-    sprite: {fileID: 21300000, guid: 49653d4c43821c847b9dfdbfc55b74d2, type: 3}
+    sprite: {fileID: -5736757271575316636, guid: efeaa302e861ed5478fca3cadbf89dab,
+      type: 3}
   - shieldType: 1
-    weight: 4
+    weight: 22
     durability: 60
-    sprite: {fileID: 21300000, guid: 7b424ed46e59402458686f83f43ff8a1, type: 3}
+    sprite: {fileID: 328039532180823927, guid: efeaa302e861ed5478fca3cadbf89dab, type: 3}
   - shieldType: 2
     weight: 5
     durability: 100
     sprite: {fileID: 0}
   - shieldType: 3
-    weight: 5
+    weight: 50
     durability: 100
-    sprite: {fileID: 0}
+    sprite: {fileID: -6433363496192085588, guid: efeaa302e861ed5478fca3cadbf89dab,
+      type: 3}
   - shieldType: 4
     weight: 5
     durability: 100

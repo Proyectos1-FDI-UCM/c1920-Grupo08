@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     float moveX, moveY, gravity;
     float ladderRange = 0.55f;
-    float currentSpeed;
+    float shieldMoveSpeed;
 
     Rigidbody2D rb;
 
@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
         audio = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         gravity = rb.gravityScale;
-        currentSpeed = baseSpeed;
+        AddWeight(22f);
     }
 
     void Update()
@@ -79,7 +79,10 @@ public class PlayerController : MonoBehaviour
     {
         if (!stunned)
         {
-            rb.velocity = new Vector2(currentSpeed * moveX, rb.velocity.y);
+            if (!GameManager.instance.ShieldBroken() && Input.GetButton("Fire1"))
+                rb.velocity = new Vector2(shieldMoveSpeed * moveX, rb.velocity.y);
+            else
+                rb.velocity = new Vector2(baseSpeed * moveX, rb.velocity.y);
             animator.SetFloat("Speed", Mathf.Abs(moveX));
         }
 
@@ -157,11 +160,11 @@ public class PlayerController : MonoBehaviour
     public void AddWeight(float weight)
     {
         if (weight <= 50 && weight >= 0)
-            currentSpeed = baseSpeed * (1f - 0.01f * weight);
+            shieldMoveSpeed = baseSpeed * (1f - 0.01f * weight);
         else if (weight > 50)
-            currentSpeed = baseSpeed / 2;
+            shieldMoveSpeed = baseSpeed / 2;
         else
-            currentSpeed = baseSpeed;
+            shieldMoveSpeed = baseSpeed;
     }
 
     private void OnDrawGizmosSelected()
