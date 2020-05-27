@@ -9,20 +9,12 @@ public class MenuManager : MonoBehaviour
     AudioSource buttonSound;
     SceneLoader sceneLoader;
 
-    // Start is called before the first frame update
     void Start()
     {
         buttonSound = GetComponent<AudioSource>();
         sceneLoader = SceneLoader.instance;
         SetPanel(0);
-    }
-
-    // Update is called once per frame
-    public void Continue()
-    {
-        buttonSound.Play();
-        SetPanel(1);
-    }
+    }    
 
     public void Play()
     {
@@ -38,13 +30,13 @@ public class MenuManager : MonoBehaviour
     public void Controls()
     {
         buttonSound.Play();
-        SetPanel(2);
+        SetPanel(1);
     }
 
     public void Back()
     {
         buttonSound.Play();
-        SetPanel(1);
+        SetPanel(0);
     }
 
     public void Exit()
