@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
+
 public enum Sound
 {
     defaultSound,
@@ -38,8 +40,8 @@ public class AudioManager : MonoBehaviour
         public AudioClip audioClip;        
     }
 
-    [SerializeField] private SoundFile[] soundFileArrray;
-    private float volume = 0.5f;    
+    [SerializeField] AudioMixer audioMixer;
+    [SerializeField] private SoundFile[] soundFileArrray;       
 
     #region Singleton
     public static AudioManager instance;
@@ -67,7 +69,7 @@ public class AudioManager : MonoBehaviour
             GameObject soundObj = new GameObject("soundObj");
             soundObj.transform.parent = transform;
             AudioSource audioSource = soundObj.AddComponent<AudioSource>();
-            audioSource.volume = volume;
+            audioSource.outputAudioMixerGroup = audioMixer.outputAudioMixerGroup;
             audioSource.PlayOneShot(audioClip);
             Destroy(soundObj, audioClip.length);
         }         
