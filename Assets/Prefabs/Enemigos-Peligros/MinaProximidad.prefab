@@ -138,11 +138,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3532315924464930880}
     m_Modifications:
-    - target: {fileID: 230217852659374417, guid: b3ed771105fd79747a6867048f229a1f,
-        type: 3}
-      propertyPath: m_Name
-      value: Explosive
-      objectReference: {fileID: 0}
     - target: {fileID: 230217852659374382, guid: b3ed771105fd79747a6867048f229a1f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -198,6 +193,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 230217852659374417, guid: b3ed771105fd79747a6867048f229a1f,
+        type: 3}
+      propertyPath: m_Name
+      value: Explosive
+      objectReference: {fileID: 0}
     - target: {fileID: 8081488720406162019, guid: b3ed771105fd79747a6867048f229a1f,
         type: 3}
       propertyPath: maxRadius
@@ -233,6 +233,11 @@ PrefabInstance:
       propertyPath: horizontalFactor
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8081488720406162019, guid: b3ed771105fd79747a6867048f229a1f,
+        type: 3}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3ed771105fd79747a6867048f229a1f, type: 3}
 --- !u!4 &2894105075716572086 stripped
