@@ -19,6 +19,10 @@ public class CameraZone : MonoBehaviour
     float snapSpeed = 1f;
     [SerializeField]
     bool UseAnchor = true;
+    [SerializeField]
+    bool cinematic = false;
+    [SerializeField]
+    float cinematicTime = 0f;
     //El desplazamiento vertical de la cámara (solo usado en zonas sin ancla)
     [SerializeField]
     float offset=0f;
@@ -58,12 +62,21 @@ public class CameraZone : MonoBehaviour
         //Cambiamos el tamaño de la cámara a la necesaria para esta zona
         camSize.ChangeSize(CameraSize, snapSpeed);
         movement.EnterZone();
+        if (cinematic)
+        {
+            Invoke("LeaveZone", cinematicTime);
+            Destroy(this.gameObject, cinematicTime + 0.1f);
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        LeaveZone();
+    }
+    private void LeaveZone()
+    {
         movement.ExitZone();
         //No es necesario asignar cam: para poder salir del trigger tiene que haber primero entrado
-        if (movement.InsideZones()==0)
+        if (movement.InsideZones() == 0)
         {
             if (UseAnchor)
                 //Movemos la cámara a su posición original relativa al jugador
