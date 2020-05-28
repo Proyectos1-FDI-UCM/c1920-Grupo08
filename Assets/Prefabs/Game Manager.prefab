@@ -49,11 +49,11 @@ MonoBehaviour:
   shieldArray:
   - shieldType: 0
     weight: 35
-    durability: 100
+    durability: 120
     sprite: {fileID: -5736757271575316636, guid: efeaa302e861ed5478fca3cadbf89dab,
       type: 3}
   - shieldType: 1
-    weight: 22
+    weight: 15
     durability: 60
     sprite: {fileID: 328039532180823927, guid: efeaa302e861ed5478fca3cadbf89dab, type: 3}
   - shieldType: 2
@@ -62,10 +62,10 @@ MonoBehaviour:
     sprite: {fileID: 0}
   - shieldType: 3
     weight: 50
-    durability: 100
+    durability: 180
     sprite: {fileID: -6433363496192085588, guid: efeaa302e861ed5478fca3cadbf89dab,
       type: 3}
-  - shieldType: 4
-    weight: 5
-    durability: 100
+  - shieldType: 7
+    weight: 25
+    durability: 90
     sprite: {fileID: 0}

@@ -10,7 +10,8 @@ public enum ShieldType
     sewerCap,
     ancientShield,
     ritoShield,
-    ballisticShield
+    ballisticShield,
+    roadSign
 }
 
 [System.Serializable]
