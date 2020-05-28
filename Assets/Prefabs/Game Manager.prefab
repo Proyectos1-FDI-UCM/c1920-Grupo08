@@ -56,12 +56,12 @@ MonoBehaviour:
     weight: 15
     durability: 60
     sprite: {fileID: 328039532180823927, guid: efeaa302e861ed5478fca3cadbf89dab, type: 3}
-  - shieldType: 2
-    weight: 5
-    durability: 100
-    sprite: {fileID: 0}
-  - shieldType: 3
+  - shieldType: 6
     weight: 50
+    durability: 250
+    sprite: {fileID: 904626188810745829, guid: efeaa302e861ed5478fca3cadbf89dab, type: 3}
+  - shieldType: 3
+    weight: 45
     durability: 180
     sprite: {fileID: -6433363496192085588, guid: efeaa302e861ed5478fca3cadbf89dab,
       type: 3}
