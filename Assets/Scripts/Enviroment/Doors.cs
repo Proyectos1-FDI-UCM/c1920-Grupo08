@@ -13,6 +13,7 @@ public class Doors : MonoBehaviour
     Sprite open;
     BoxCollider2D bc;
     SpriteRenderer sr;
+    bool isOpen = false;
     private void Start()
     {
         bc = transform.GetChild(0).GetComponent<BoxCollider2D>();
@@ -22,12 +23,23 @@ public class Doors : MonoBehaviour
     {
         if (collision.GetComponent<PlayerController>() != null)
         {
-            if (Input.GetButtonDown("Use") && (!locked || GameManager.instance.HasKey()))
+            if (Input.GetButtonDown("Use")&&!isOpen)
             {
-                bc.enabled = false;
-                sr.sprite = open;
-                transform.GetChild(0).transform.localPosition = new Vector3(0.4f, 0f, 0f);
-            }
+                if (!locked || GameManager.instance.HasKey())
+                {
+                    isOpen = true;
+                    bc.enabled = false;
+                    sr.sprite = open;
+                    transform.GetChild(0).transform.localPosition = new Vector3(0.4f, 0f, 0f);
+                    //Play sound
+                }
+
+                else
+                {
+                    //Play sound
+                    GameManager.instance.OnDialogue("Necesito una llave para abrir esta puerta");
+                }                
+            }            
         }
     }
 }
