@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour
         RaycastHit2D[] rayHits = new RaycastHit2D[3];
 
         Vector2 rayPoint = new Vector2(transform.position.x, transform.position.y) + capsule.offset;
-        float dis = 0.2f;
+        float dis = 0.35f;
 
         Vector2 rayDirection;
 
