@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
         CheckCollisions(true);
         CheckCollisions(false);
 
-        jump = Input.GetButtonDown("Jump");
+        jump = Input.GetButton("Jump");
         moveX = Input.GetAxis("Horizontal");
         moveY = Input.GetAxis("Vertical");
 
@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour
         RaycastHit2D[] rayHits = new RaycastHit2D[3];
 
         Vector2 rayPoint = new Vector2(transform.position.x, transform.position.y) + capsule.offset;
-        float dis = 0.35f;
+        float dis = 0.2f;
 
         Vector2 rayDirection;
 
