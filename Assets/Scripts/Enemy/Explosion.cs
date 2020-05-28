@@ -81,6 +81,7 @@ public class Explosion : MonoBehaviour
                 if (debug)
                     Debug.Log("Explosion ended");
                 Object.Destroy(this.gameObject.transform.parent.gameObject);
+                Instantiate(explosion, this.gameObject.transform.position, Quaternion.identity);
             }
             //Actualizamos el radio del collider 
             explosionRadius.radius = radius;
@@ -116,7 +117,7 @@ public class Explosion : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (exploded && collision.GetComponent<PlayerController>())
+        if (exploded && collision.GetComponent<PlayerController>() && burstSpawner == null)
         {
             AudioManager.instance.PlaySoundOnce(sound);
             Instantiate(explosion, this.gameObject.transform.position, Quaternion.identity);
