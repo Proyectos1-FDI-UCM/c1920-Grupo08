@@ -1,0 +1,2263 @@
+fileFormatVersion: 2
+guid: 2758848efc6926349ba6ee97cf0f5018
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1640750568154274629
+    second: BridgeTiles_0_0
+  - first:
+      213: -255301766598102387
+    second: BridgeTiles_0_1
+  - first:
+      213: -3307444066877356884
+    second: BridgeTiles_0_2
+  - first:
+      213: 6187170702266521220
+    second: BridgeTiles_0_3
+  - first:
+      213: -5045109069630073348
+    second: BridgeTiles_0_4
+  - first:
+      213: 2323621874958740387
+    second: BridgeTiles_0_5
+  - first:
+      213: 8882535889564352217
+    second: BridgeTiles_0_6
+  - first:
+      213: 8526421348512610349
+    second: BridgeTiles_0_7
+  - first:
+      213: 9096066228025528348
+    second: BridgeTiles_0_8
+  - first:
+      213: -4871224859556546604
+    second: BridgeTiles_0_9
+  - first:
+      213: -6272134131915362756
+    second: BridgeTiles_0_10
+  - first:
+      213: 2413937069482255420
+    second: BridgeTiles_0_11
+  - first:
+      213: 6612757441913734930
+    second: BridgeTiles_0_12
+  - first:
+      213: -2045259235543729156
+    second: BridgeTiles_0_13
+  - first:
+      213: -133123519667933344
+    second: BridgeTiles_0_14
+  - first:
+      213: 7971954152030599997
+    second: BridgeTiles_0_15
+  - first:
+      213: -1780881739394938622
+    second: BridgeTiles_0_16
+  - first:
+      213: 6627314428527551059
+    second: BridgeTiles_0_17
+  - first:
+      213: -1925634176941618268
+    second: BridgeTiles_0_18
+  - first:
+      213: -6880566335721651267
+    second: BridgeTiles_0_19
+  - first:
+      213: -6747935988855368356
+    second: BridgeTiles_0_20
+  - first:
+      213: 9190260618943137864
+    second: BridgeTiles_0_21
+  - first:
+      213: 6162831881012046291
+    second: BridgeTiles_0_22
+  - first:
+      213: 2722084535762845337
+    second: BridgeTiles_0_23
+  - first:
+      213: 658112952644069838
+    second: BridgeTiles_0_24
+  - first:
+      213: 6343729503958863294
+    second: BridgeTiles_0_25
+  - first:
+      213: -5864249759932044704
+    second: BridgeTiles_0_26
+  - first:
+      213: 2246050614837591115
+    second: BridgeTiles_0_27
+  - first:
+      213: -4468561443466766571
+    second: BridgeTiles_0_28
+  - first:
+      213: -7450132681344903799
+    second: BridgeTiles_0_29
+  - first:
+      213: 8880779969438032520
+    second: BridgeTiles_0_30
+  - first:
+      213: -8203610232185039650
+    second: BridgeTiles_0_31
+  - first:
+      213: -1226819396074651028
+    second: BridgeTiles_0_32
+  - first:
+      213: 5725588447012082649
+    second: BridgeTiles_0_33
+  - first:
+      213: -1857349817637805827
+    second: BridgeTiles_0_34
+  - first:
+      213: 2587398884446556717
+    second: BridgeTiles_0_35
+  - first:
+      213: -7251368157811247130
+    second: BridgeTiles_0_36
+  - first:
+      213: 4721627974963160987
+    second: BridgeTiles_0_37
+  - first:
+      213: -2149897173423001045
+    second: BridgeTiles_0_38
+  - first:
+      213: 1590058276970470588
+    second: BridgeTiles_0_39
+  - first:
+      213: -7958580744307878058
+    second: BridgeTiles_0_40
+  - first:
+      213: 646857161579254808
+    second: BridgeTiles_0_41
+  - first:
+      213: 3162502439512579301
+    second: BridgeTiles_0_42
+  - first:
+      213: 1402569444550687854
+    second: BridgeTiles_0_43
+  - first:
+      213: -1667979431364573457
+    second: BridgeTiles_0_44
+  - first:
+      213: -4421488434463338020
+    second: BridgeTiles_0_45
+  - first:
+      213: -5340583886471707581
+    second: BridgeTiles_0_46
+  - first:
+      213: 3879681456466793579
+    second: BridgeTiles_0_47
+  - first:
+      213: -6151130724293523337
+    second: BridgeTiles_0_48
+  - first:
+      213: 1578764589011714556
+    second: BridgeTiles_0_49
+  - first:
+      213: 4994092776319872459
+    second: BridgeTiles_0_50
+  - first:
+      213: -1164967615543744549
+    second: BridgeTiles_0_51
+  - first:
+      213: -6580350922583007104
+    second: BridgeTiles_0_52
+  - first:
+      213: 2894155562707538444
+    second: BridgeTiles_0_53
+  - first:
+      213: 5385085411396862730
+    second: BridgeTiles_0_54
+  - first:
+      213: -5026172191354673599
+    second: BridgeTiles_0_55
+  - first:
+      213: 8951254167626067314
+    second: BridgeTiles_0_56
+  - first:
+      213: -2742701346292576876
+    second: BridgeTiles_0_57
+  - first:
+      213: -1371910152803794384
+    second: BridgeTiles_0_58
+  - first:
+      213: -1647522702247552366
+    second: BridgeTiles_0_59
+  - first:
+      213: -7174282385831345677
+    second: BridgeTiles_0_60
+  - first:
+      213: -6851250325976879107
+    second: BridgeTiles_0_61
+  - first:
+      213: -1698804614678777702
+    second: BridgeTiles_0_62
+  - first:
+      213: -6892850534524648118
+    second: BridgeTiles_0_63
+  - first:
+      213: -6274095509858750056
+    second: BridgeTiles_0_64
+  - first:
+      213: 5561437783237944445
+    second: BridgeTiles_0_65
+  - first:
+      213: -2990702428799008247
+    second: BridgeTiles_0_66
+  - first:
+      213: -7255546331504025162
+    second: BridgeTiles_0_67
+  - first:
+      213: 7649306935368091246
+    second: BridgeTiles_0_68
+  - first:
+      213: -5641785926987988852
+    second: BridgeTiles_0_69
+  - first:
+      213: 3167985713638413575
+    second: BridgeTiles_0_70
+  - first:
+      213: -5307288323945652505
+    second: BridgeTiles_0_71
+  - first:
+      213: -1988134293870796754
+    second: BridgeTiles_0_72
+  - first:
+      213: 778204106815838362
+    second: BridgeTiles_0_73
+  - first:
+      213: -6347469878116457056
+    second: BridgeTiles_0_74
+  - first:
+      213: -70863636077896817
+    second: BridgeTiles_0_75
+  - first:
+      213: -12817281384577063
+    second: BridgeTiles_0_76
+  - first:
+      213: 2965624673635226093
+    second: BridgeTiles_0_77
+  - first:
+      213: -8126087310768244638
+    second: BridgeTiles_0_78
+  - first:
+      213: 2409384973284022944
+    second: BridgeTiles_0_79
+  - first:
+      213: 2812885933392116032
+    second: BridgeTiles_0_80
+  - first:
+      213: -6358552771823870544
+    second: BridgeTiles_0_81
+  - first:
+      213: 7507235177542506851
+    second: BridgeTiles_0_82
+  - first:
+      213: -6054672536752031307
+    second: BridgeTiles_0_83
+  - first:
+      213: -1324306250959779637
+    second: BridgeTiles_0_84
+  - first:
+      213: 8125013512844378307
+    second: BridgeTiles_0_85
+  - first:
+      213: 7940413096298909086
+    second: BridgeTiles_0_86
+  - first:
+      213: 2457044462904758162
+    second: BridgeTiles_0_87
+  - first:
+      213: -6827784541114592880
+    second: BridgeTiles_0_88
+  - first:
+      213: -4086019549174986593
+    second: BridgeTiles_0_89
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BridgeTiles_0_0
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 796
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15911967c0bf639448d0c7d8ee0ab139
+      internalID: -1640750568154274629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_1
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 796
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd6837e6305276343b542006b8e8bc5e
+      internalID: -255301766598102387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_2
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 796
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8adb9bcea7e4b9e468932a64ab3c967e
+      internalID: -3307444066877356884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_3
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 796
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85ed0b7b784656747a131fde316a3192
+      internalID: 6187170702266521220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_4
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 796
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 129b870ef49ba6843851864fa60cce25
+      internalID: -5045109069630073348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_5
+      rect:
+        serializedVersion: 2
+        x: 1300
+        y: 796
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d62e8a17d049ce94cbc88b8d43ccca25
+      internalID: 2323621874958740387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_6
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 796
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d0a9bfd668b450499384f9b5b71b721
+      internalID: 8882535889564352217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 696
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0750974bd600b2b43a1fd443e4f1f5eb
+      internalID: 8526421348512610349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_8
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 696
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e3e0c03e1cbaf344a10250c8ceb74c7
+      internalID: 9096066228025528348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_9
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 696
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a6221aab7d62344eb79ffb5e1c36aa5
+      internalID: -4871224859556546604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_10
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 696
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82db35f987b90fd4ab5db489c8a3b4fb
+      internalID: -6272134131915362756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_11
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 696
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e2adbc2ad9b45649997d4b0d9bced12
+      internalID: 2413937069482255420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_12
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 696
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 855e6823dd947f047b3bae5752066e98
+      internalID: 6612757441913734930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_13
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 696
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51e328426ba9f1843b2c8402cb2f0fef
+      internalID: -2045259235543729156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_14
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 696
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73ac698318949e54ba72fef9a9e38480
+      internalID: -133123519667933344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_15
+      rect:
+        serializedVersion: 2
+        x: 1300
+        y: 696
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72ed98502eeff39499ea094cef94047c
+      internalID: 7971954152030599997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_16
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 696
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 710b130133f532843b4e69e5fa48594d
+      internalID: -1780881739394938622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 596
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d59febd1a4e8c640adaad6da19ad82a
+      internalID: 6627314428527551059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_18
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 596
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91d5e0587ff30e14e913e37a68875b04
+      internalID: -1925634176941618268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_19
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 596
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 280c111b186888c40966c74667bfa30a
+      internalID: -6880566335721651267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_20
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 596
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25122fd5964c08144991ff98c9bb75d7
+      internalID: -6747935988855368356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_21
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 596
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7aa673af237c867499961004f778b57e
+      internalID: 9190260618943137864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_22
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 596
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffb8a2000a3f7634f8a8f59802a8923f
+      internalID: 6162831881012046291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_23
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 596
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f6071578e1d88343898da1044b822af
+      internalID: 2722084535762845337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_24
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 596
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b170267577b6a764c912dd85def8bc6b
+      internalID: 658112952644069838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_25
+      rect:
+        serializedVersion: 2
+        x: 1300
+        y: 596
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f5047e380d900640aa14c55405bc083
+      internalID: 6343729503958863294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_26
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 596
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b3842141efe04b44836db497d877142
+      internalID: -5864249759932044704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 496
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c7f1f4d5d62a1f4a86fc1711be45640
+      internalID: 2246050614837591115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_28
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 496
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf7c0b1fe79b44842894b4adde012fb3
+      internalID: -4468561443466766571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_29
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 496
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a71e3d7ec78499f4fb2a2feb2d6d35ef
+      internalID: -7450132681344903799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_30
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 496
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d7d3c05b2bd1f3438ff836e3cf13645
+      internalID: 8880779969438032520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_31
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 496
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b89577c78e200a5439a40e82add0b56e
+      internalID: -8203610232185039650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_32
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 496
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 085ec680219e30044a76c0cdb88c14d3
+      internalID: -1226819396074651028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_33
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 496
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ac6afb64a195db4ea53a9f06a98edef
+      internalID: 5725588447012082649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_34
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 496
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfe80fd8920776148bf4693f9294c293
+      internalID: -1857349817637805827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_35
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 496
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 082db884bf67ae648a56c0eaa5299c47
+      internalID: 2587398884446556717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_36
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 496
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a223ddc2e108484bbc506ccdc2032d0
+      internalID: -7251368157811247130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_37
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 496
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed1f4565162795f498d7199f8cb7a5fa
+      internalID: 4721627974963160987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_38
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 496
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43fd40e7a3ee2ef4fa9828e6e08c3709
+      internalID: -2149897173423001045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_39
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 496
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee2336b7c4035024aa90a11caa48305b
+      internalID: 1590058276970470588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_40
+      rect:
+        serializedVersion: 2
+        x: 1300
+        y: 496
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abc89df62290bd841bda3155f4216087
+      internalID: -7958580744307878058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_41
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 496
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b76f0313de72ec848b0f1ac284bd2009
+      internalID: 646857161579254808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 396
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c443dcc57cd6785479a97da5a05d5851
+      internalID: 3162502439512579301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_43
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 396
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5b021fe69a3d5c438f84bebb2cfeacb
+      internalID: 1402569444550687854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_44
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 396
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a84378c2daa361f4f8ab8a6962be213e
+      internalID: -1667979431364573457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_45
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 396
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8de76fd4c783e7848bf9112bd0c6e95e
+      internalID: -4421488434463338020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_46
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 396
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a665601f60c30ac4286f903701048dde
+      internalID: -5340583886471707581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_47
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 396
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a52857e8de734624ba6f29550793f27c
+      internalID: 3879681456466793579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_48
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 396
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f59572f2bc5d1745a360354b0f19051
+      internalID: -6151130724293523337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_49
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 396
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7252cd9cf1b28974b936ddc150da87a8
+      internalID: 1578764589011714556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_50
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 396
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a09bba8ca4236a94db478b9a0812c8ec
+      internalID: 4994092776319872459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_51
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 396
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 356306ea918dacc4ca6bb0df0980f065
+      internalID: -1164967615543744549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_52
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 396
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e113ec2365b8d964cb4e4de546b7acae
+      internalID: -6580350922583007104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_53
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 396
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e43001a6ab1c92f4daeeba829be3c3a1
+      internalID: 2894155562707538444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_54
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 396
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4514a996315ffe9428d657b1825876bf
+      internalID: 5385085411396862730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_55
+      rect:
+        serializedVersion: 2
+        x: 1300
+        y: 396
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ae274567275df44cb570ff79b0d35d5
+      internalID: -5026172191354673599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_56
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 396
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73466649082d0284cb1a4799a1f6a3c8
+      internalID: 8951254167626067314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_57
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 296
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65b2986463bc6864898bb9f310ec0107
+      internalID: -2742701346292576876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_58
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 296
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c723eb9bc93d8140a7b97208bcbd773
+      internalID: -1371910152803794384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_59
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 296
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e88052ba0f852184e8bb577e8bc88ae7
+      internalID: -1647522702247552366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_60
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 296
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5e6aa92e922eb34aad0f37468c0a166
+      internalID: -7174282385831345677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_61
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 296
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86413490478ee4c418340a0f378b0509
+      internalID: -6851250325976879107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_62
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 296
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d5c7f4f578c8b949adb03c9be977aa9
+      internalID: -1698804614678777702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_63
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 296
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2f5a4a0ae17c3242a2fe2dc6e22dcf0
+      internalID: -6892850534524648118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_64
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 296
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49cded255f9d35a49b996c20b007ff54
+      internalID: -6274095509858750056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_65
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 296
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd30bba152132c3408c655f25dcaac61
+      internalID: 5561437783237944445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_66
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 296
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b95f05cb9bb9bf449b856c3109879df
+      internalID: -2990702428799008247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_67
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 296
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d34c53dd37a9bdd468f31a5c1465049f
+      internalID: -7255546331504025162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_68
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 296
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78d0a08f7df772344a09b0467df7cb3f
+      internalID: 7649306935368091246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_69
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 196
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 773391d98be50284193d0062db92a7fe
+      internalID: -5641785926987988852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_70
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 196
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9df9e78aa21aff54b82ba0d638a35da1
+      internalID: 3167985713638413575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_71
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 196
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce91d1cc5de37a64388a000ff1b51c27
+      internalID: -5307288323945652505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_72
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 196
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2efd280b2754f3645bf8261d21278798
+      internalID: -1988134293870796754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_73
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 196
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b897491ed415c64fa074272a9df7284
+      internalID: 778204106815838362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_74
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 196
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a1354bee29faff42871411a577474be
+      internalID: -6347469878116457056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_75
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 196
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0840dad2e4c91c49a3cb3b6de3a4c46
+      internalID: -70863636077896817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_76
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 196
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82858d690737d954395427b67964bcc1
+      internalID: -12817281384577063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_77
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 196
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1386ebae816cf9a498a4f5a314b874b6
+      internalID: 2965624673635226093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_78
+      rect:
+        serializedVersion: 2
+        x: 1300
+        y: 196
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7429460824d77c2478d9593247182fd0
+      internalID: -8126087310768244638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_79
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 196
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10e3f871c43b4114eb48ee9a5860c90d
+      internalID: 2409384973284022944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a3af54cca7e39345964d3621d97bec0
+      internalID: 2812885933392116032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_81
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 96
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89f8cccb2c3505042aa6c4a225d23342
+      internalID: -6358552771823870544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_82
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 96
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f605628a4b02e1242a0d8eadce868c01
+      internalID: 7507235177542506851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_83
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 96
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aecbc1fb80c2350499bb2c6b4a42822a
+      internalID: -6054672536752031307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_84
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 96
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 899ebe143c4b53f40a4e19babc266ee5
+      internalID: -1324306250959779637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_85
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 96
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46581565f0107a94c9bd897790731e30
+      internalID: 8125013512844378307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_86
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 96
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 753816e18f5a3d4448f11d8287938efd
+      internalID: 7940413096298909086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_87
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 96
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1883fdf678ae3b439b1db20cbdc52b9
+      internalID: 2457044462904758162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_88
+      rect:
+        serializedVersion: 2
+        x: 1300
+        y: 96
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a29df6bfd487f684789985a5e43f3b29
+      internalID: -6827784541114592880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeTiles_0_89
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 96
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b6c6203a4cca1a41a08bda317decd68
+      internalID: -4086019549174986593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
