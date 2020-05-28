@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     const float playerMaxHP = 200f;
-    float shieldMaxHP = 100f;
+    float shieldMaxHP = 60f;
     float playerHP, shieldHP;       
     GameObject shield;       
     AudioManager audioManager;

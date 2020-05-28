@@ -136,9 +136,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 1851706553297901086, guid: 5cd4a829e72be924aaa9d138ee1cf5e5,
     type: 3}
-  amount: 9
+  amount: 11
   rotateAngle: 0
-  spawnSpeed: 20
+  spawnSpeed: 15
 --- !u!95 &7501551101119721525
 Animator:
   serializedVersion: 3
@@ -248,7 +248,7 @@ PrefabInstance:
     - target: {fileID: 8081488720406162019, guid: b3ed771105fd79747a6867048f229a1f,
         type: 3}
       propertyPath: maxRadius
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8081488720406162019, guid: b3ed771105fd79747a6867048f229a1f,
         type: 3}
