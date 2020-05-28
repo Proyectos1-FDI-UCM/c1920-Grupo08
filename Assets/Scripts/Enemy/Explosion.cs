@@ -31,6 +31,8 @@ public class Explosion : MonoBehaviour
     bool exploded = false;
     //Este collider marca en cada momento el umbral de efecto de la explosión
     CircleCollider2D explosionRadius;
+    //Este será el prefab de la explosion
+    public GameObject explosion;
     //Si hay un BurstSpawner en el padre, lo activaremos en la explosión
     BurstSpawner burstSpawner;
     [SerializeField] Sound sound;
@@ -117,6 +119,7 @@ public class Explosion : MonoBehaviour
         if (exploded && collision.GetComponent<PlayerController>())
         {
             AudioManager.instance.PlaySoundOnce(sound);
+            Instantiate(explosion, this.gameObject.transform.position, Quaternion.identity);
             GameManager.instance.OnHit(collision.gameObject, (explosionDamage * (maxRadius - radius)));
         }
     }
