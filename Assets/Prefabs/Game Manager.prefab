@@ -68,4 +68,5 @@ MonoBehaviour:
   - shieldType: 7
     weight: 25
     durability: 90
-    sprite: {fileID: 0}
+    sprite: {fileID: 7710633978311161596, guid: efeaa302e861ed5478fca3cadbf89dab,
+      type: 3}
