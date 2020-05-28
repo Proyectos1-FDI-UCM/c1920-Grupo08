@@ -46,6 +46,8 @@ public class GameManager : MonoBehaviour
         {
             UIManager.UpdateHealthBar(playerMaxHP, playerHP);
             UIManager.UpdateShieldBar(shieldHP, shieldMaxHP);
+            if (shieldArray.Length > 1)
+                UIManager.UpdateShieldHolder(shieldArray[1].sprite);
         }
     }    
 
