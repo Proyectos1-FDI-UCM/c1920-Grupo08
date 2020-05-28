@@ -11,6 +11,9 @@ TextureImporter:
   - first:
       213: -6433363496192085588
     second: shields_2
+  - first:
+      213: 7710633978311161596
+    second: shields_3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -153,6 +156,27 @@ TextureImporter:
       bones: []
       spriteID: 5fba679078303c042ab07ba36a7bfe0a
       internalID: -6433363496192085588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shields_3
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 114
+        width: 228
+        height: 227
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b83a72400ee26804f968c00b56df6dcb
+      internalID: 7710633978311161596
       vertices: []
       indices: 
       edges: []
