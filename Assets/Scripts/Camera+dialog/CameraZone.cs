@@ -49,6 +49,7 @@ public class CameraZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("entered zone");
         if (UseAnchor)
         {
             //Movemos la cámara hasta el ancla
@@ -65,6 +66,7 @@ public class CameraZone : MonoBehaviour
         if (cinematic)
         {
             Invoke("LeaveZone", cinematicTime);
+            Debug.Log("leaving scheduled");
             Destroy(this.gameObject, cinematicTime + 0.1f);
         }
     }
@@ -74,8 +76,8 @@ public class CameraZone : MonoBehaviour
     }
     private void LeaveZone()
     {
+        Debug.Log("left?");
         movement.ExitZone();
-        //No es necesario asignar cam: para poder salir del trigger tiene que haber primero entrado
         if (movement.InsideZones() == 0)
         {
             if (UseAnchor)

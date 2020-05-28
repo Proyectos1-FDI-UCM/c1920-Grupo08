@@ -25,7 +25,6 @@ public class FadeToBackground : MonoBehaviour
             aux -= 0.01f * fadeSpeed;
             if (aux == 0)
                 Destroy(this.gameObject);
-            Debug.Log(aux);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
