@@ -11,7 +11,8 @@ public class GameManager : MonoBehaviour
     GameObject shield;       
     AudioManager audioManager;
     [SerializeField] UIManager UIManager;
-    [SerializeField] GameObject player;   
+    [SerializeField] GameObject player;
+    [SerializeField] ShieldType startingShield;
 
     [SerializeField] Sound playerHit;
     private bool shieldBroken =false;
@@ -42,12 +43,11 @@ public class GameManager : MonoBehaviour
         audioManager = AudioManager.instance;
         playerHP = playerMaxHP;
         shieldHP = shieldMaxHP;
+        GetShield(startingShield);
         if (UIManager != null)
         {
             UIManager.UpdateHealthBar(playerMaxHP, playerHP);
-            UIManager.UpdateShieldBar(shieldHP, shieldMaxHP);
-            if (shieldArray.Length > 1)
-                UIManager.UpdateShieldHolder(shieldArray[1].sprite);
+            UIManager.UpdateShieldBar(shieldHP, shieldMaxHP);            
         }
     }    
 
@@ -70,12 +70,14 @@ public class GameManager : MonoBehaviour
             return;
         //Actualizamos los PS del escudo, así como sus PS máximos
         shieldHP = shieldMaxHP = shieldArray[i].durability;
+        shieldBroken = false;
         //Actualizamos la velocidad del jugador según el peso del escudo nuevo
         PlayerController pm = player.GetComponent<PlayerController>();
         if (pm!=null)
             pm.AddWeight(shieldArray[i].weight);
         //Actualizamos el sprite y el icono del escudo
         UIManager.UpdateShieldHolder(shieldArray[i].sprite);
+        UIManager.UpdateShieldBar(shieldMaxHP, shieldHP);
         shield.GetComponent<SpriteRenderer>().sprite = shieldArray[i].sprite;
     }
 
