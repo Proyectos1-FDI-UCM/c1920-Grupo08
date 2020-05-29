@@ -43,12 +43,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e60ae6a9f24d34d4e9a19066e124507b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
-  shieldBar: {fileID: 0}
   shieldHolder: {fileID: 0}
   controlsMenu: {fileID: 0}
   pauseMenu: {fileID: 0}
   damageOverlay: {fileID: 0}
   dialogueBubble: {fileID: 0}
+  blurShader: {fileID: 0}
   bubbleText: {fileID: 0}
-  buttonSound: 17
+  healthS: {fileID: 0}
+  shieldS: {fileID: 0}
+  volumeSlider: {fileID: 0}
+  buttonSound: 11
