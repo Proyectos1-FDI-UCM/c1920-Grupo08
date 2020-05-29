@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
                 playerHP += shieldHP;
                 audioManager.PlaySoundOnce(playerHit);                
             }
-            StartCoroutine(SlowMotion(0.1f));
+            //StartCoroutine(SlowMotion(0.1f));
         }
 
         else if (obj.GetComponent<PlayerController>()) 
@@ -104,8 +104,8 @@ public class GameManager : MonoBehaviour
             {
                 StartCoroutine(OnDead());
             }
-            if (damage>=10)
-            StartCoroutine(SlowMotion(0.3f));
+            //if (damage>=10)
+            //StartCoroutine(SlowMotion(0.3f));
         }
 
         UIManager.UpdateShieldBar(shieldMaxHP, shieldHP);
