@@ -8,6 +8,7 @@ public class SceneLoader : MonoBehaviour
     Vector2 lastCheckpoint = Vector2.zero;
     [SerializeField] Animator faceToBlack;
     [SerializeField] AudioMixer audioMixer;
+    private ShieldType currentShield = ShieldType.woodenPlank;
     private float volumeValue=1f;
     
     #region Singleton
@@ -106,5 +107,15 @@ public class SceneLoader : MonoBehaviour
     {
         volumeValue = value;
         audioMixer.SetFloat("GameVolume", Mathf.Log10(value) * 20);
+    }
+
+    public ShieldType CheckShield()
+    {
+        return currentShield;
+    }
+
+    public void SetShield(ShieldType type) 
+    {
+        currentShield = type;
     }
 }

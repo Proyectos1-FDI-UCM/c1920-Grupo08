@@ -12,8 +12,6 @@ public class GameManager : MonoBehaviour
     AudioManager audioManager;
     [SerializeField] UIManager UIManager;
     [SerializeField] GameObject player;
-    [SerializeField] ShieldType startingShield;
-
     [SerializeField] Sound playerHit;
     private bool shieldBroken =false;
     //Si el jugador tiene una llave
@@ -43,7 +41,7 @@ public class GameManager : MonoBehaviour
         audioManager = AudioManager.instance;
         playerHP = playerMaxHP;
         shieldHP = shieldMaxHP;
-        GetShield(startingShield);
+        GetShield(SceneLoader.instance.CheckShield());
         if (UIManager != null)
         {
             UIManager.UpdateHealthBar(playerMaxHP, playerHP);
@@ -61,6 +59,7 @@ public class GameManager : MonoBehaviour
 
     public void GetShield(ShieldType sType) // Inicia los valores al coger un escudo
     {
+        SceneLoader.instance.SetShield(sType);
         int i = 0;
         //Buscamos el escudo recogido entre el array de escudos conocidos
         while (i < shieldArray.Length && shieldArray[i].shieldType != sType)
