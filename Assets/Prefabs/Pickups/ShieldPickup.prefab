@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shieldType: 0
-  sound: 21
+  sound: 12
 --- !u!114 &6730639371240707067
 MonoBehaviour:
   m_ObjectHideFlags: 0

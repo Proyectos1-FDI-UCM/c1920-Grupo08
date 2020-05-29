@@ -234,5 +234,5 @@ MonoBehaviour:
   projectile: {fileID: 514727091434510753, guid: c57f0e4e79c3b904c86db71dd6eecca9,
     type: 3}
   shotSound: 3
-  shieldHit: 10
-  groundHit: 11
+  shieldHit: 8
+  groundHit: 9

@@ -181,5 +181,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   damage: 50
-  shieldHit: 10
-  groundHit: 11
+  shieldHit: 8
+  groundHit: 9

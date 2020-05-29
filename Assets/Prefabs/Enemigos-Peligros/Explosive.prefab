@@ -67,4 +67,5 @@ MonoBehaviour:
   explosionDamage: 30
   horizontalFactor: 1
   verticalFactor: 1
-  sound: 5
+  explosion: {fileID: 0}
+  sound: 4

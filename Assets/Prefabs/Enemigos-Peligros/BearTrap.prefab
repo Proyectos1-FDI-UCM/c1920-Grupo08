@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   retencion: 3
-  sound: 6
+  sound: 5
   animator: {fileID: 8950929863831038807}
 --- !u!61 &3004516930460537448
 BoxCollider2D:

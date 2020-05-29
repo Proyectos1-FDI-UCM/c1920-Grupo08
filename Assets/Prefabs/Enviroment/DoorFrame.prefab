@@ -178,5 +178,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74baf8d8c3a34b04fa47f1a249f81b43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locked: 0
+  sound: 15
+  locked: 1
   open: {fileID: 21300000, guid: aeb2d70215e34ff48b5029d1ac35391b, type: 3}

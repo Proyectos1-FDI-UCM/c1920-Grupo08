@@ -321,7 +321,7 @@ MonoBehaviour:
   ladder:
     serializedVersion: 2
     m_Bits: 262144
-  jumpSound: 12
+  jumpSound: 10
 --- !u!114 &7438061066213899307
 MonoBehaviour:
   m_ObjectHideFlags: 0

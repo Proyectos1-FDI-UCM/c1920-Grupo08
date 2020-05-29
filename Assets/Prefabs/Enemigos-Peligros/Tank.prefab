@@ -227,4 +227,4 @@ MonoBehaviour:
   muzzleFlash: {fileID: 8635866380241914932}
   firePoint: {fileID: 8635866379582700688}
   shotCD: 3
-  sound: 23
+  sound: 14

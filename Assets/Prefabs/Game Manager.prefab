@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIManager: {fileID: 0}
   player: {fileID: 0}
-  playerHit: 9
+  playerHit: 7
   shieldArray:
   - shieldType: 0
     weight: 35

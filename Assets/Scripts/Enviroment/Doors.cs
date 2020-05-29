@@ -7,6 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Doors : MonoBehaviour
 {
+    [SerializeField] Sound sound;
     [SerializeField]
     bool locked=false;
     [SerializeField]
@@ -31,12 +32,11 @@ public class Doors : MonoBehaviour
                     bc.enabled = false;
                     sr.sprite = open;
                     transform.GetChild(0).transform.localPosition = new Vector3(0.4f, 0f, 0f);
-                    //Play sound
+                    AudioManager.instance.PlaySoundOnce(sound);
                 }
 
                 else
-                {
-                    //Play sound
+                {                    
                     GameManager.instance.OnDialogue("Necesito una llave para abrir esta puerta");
                 }                
             }            

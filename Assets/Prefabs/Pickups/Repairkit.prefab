@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reapairvalue: 20
-  sound: 8
+  sound: 6
 --- !u!114 &5285365778742696079
 MonoBehaviour:
   m_ObjectHideFlags: 0
