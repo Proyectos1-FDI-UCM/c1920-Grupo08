@@ -117,9 +117,9 @@ public class Explosion : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        AudioManager.instance.PlaySoundOnce(sound);
         if (exploded && collision.GetComponent<PlayerController>() && burstSpawner == null)
-        {
-            AudioManager.instance.PlaySoundOnce(sound);
+        {            
             Instantiate(explosion, this.gameObject.transform.position, Quaternion.identity);
             GameManager.instance.OnHit(collision.gameObject, (explosionDamage * (maxRadius - radius)));
         }
