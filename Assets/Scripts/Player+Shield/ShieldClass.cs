@@ -5,11 +5,8 @@ using UnityEngine;
 public enum ShieldType 
 {
     carDoor,
-    woodenPlank,
-    largePicture,
-    sewerCap,
-    ancientShield,
-    ritoShield,
+    woodenPlank,    
+    sewerCap,   
     ballisticShield,
     roadSign
 }
