@@ -82,6 +82,7 @@ public class SceneLoader : MonoBehaviour
     {
         Time.timeScale = 1f;
         lastCheckpoint = Vector2.zero;
+        currentShield = ShieldType.woodenPlank;
         StartCoroutine(MainMenu());
     }
 
