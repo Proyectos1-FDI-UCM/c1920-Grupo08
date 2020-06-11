@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float baseSpeed, jumpForce, climbSpeed;
     [SerializeField] LayerMask ground, ladder;
+    [SerializeField] GameObject shield;
 
     CapsuleCollider2D capsule;
 
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
     bool isCrouching = false;
     bool jump = false;
     bool stunned = false;
+    bool shieldBroken = false;
 
     [SerializeField] Sound jumpSound;
     new AudioSource audio;
@@ -34,6 +36,7 @@ public class PlayerController : MonoBehaviour
         capsule = GetComponent<CapsuleCollider2D>();
         audio = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
+        shield.SetActive(false);
         gravity = rb.gravityScale;
         AddWeight(22f);
     }
@@ -73,13 +76,33 @@ public class PlayerController : MonoBehaviour
         {
             audio.Stop();
         }
+
+        if (shieldBroken)
+        {
+            shield.SetActive(false);
+        }
+
+        else
+        {
+            if (Input.GetButtonDown("Fire1") && !shield.activeSelf)
+            {
+
+                shield.SetActive(true);
+            }
+
+            else if (Input.GetButtonUp("Fire1") && shield.activeSelf)
+            {
+
+                shield.SetActive(false);
+            }
+        }
     }
 
     void FixedUpdate()
     {
         if (!stunned)
         {
-            if (!GameManager.instance.ShieldBroken() && Input.GetButton("Fire1"))
+            if (!shieldBroken && Input.GetButton("Fire1"))
                 rb.velocity = new Vector2(shieldMoveSpeed * moveX, rb.velocity.y);
             else
                 rb.velocity = new Vector2(baseSpeed * moveX, rb.velocity.y);
@@ -165,6 +188,11 @@ public class PlayerController : MonoBehaviour
             shieldMoveSpeed = baseSpeed / 2;
         else
             shieldMoveSpeed = baseSpeed;
+    }
+
+    public void ShieldBroken(bool state)
+    {
+        shieldBroken = state;
     }
 
     private void OnDrawGizmosSelected()

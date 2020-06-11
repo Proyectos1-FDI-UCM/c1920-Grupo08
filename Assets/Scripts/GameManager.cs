@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] UIManager UIManager;
     [SerializeField] GameObject player;
     [SerializeField] Sound playerHit;
-    private bool shieldBroken =false;
+    PlayerController playerController;
     //Si el jugador tiene una llave
     private bool hasKey=false;
     [SerializeField] Shield[] shieldArray;    
@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {        
         shield = player.transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
+        playerController = player.GetComponent<PlayerController>();
         audioManager = AudioManager.instance;
         playerHP = playerMaxHP;
         shieldHP = shieldMaxHP;
@@ -69,7 +70,7 @@ public class GameManager : MonoBehaviour
             return;
         //Actualizamos los PS del escudo, así como sus PS máximos
         shieldHP = shieldMaxHP = shieldArray[i].durability;
-        shieldBroken = false;
+        playerController.ShieldBroken(false);
         //Actualizamos la velocidad del jugador según el peso del escudo nuevo
         PlayerController pm = player.GetComponent<PlayerController>();
         if (pm!=null)
@@ -87,11 +88,10 @@ public class GameManager : MonoBehaviour
             shieldHP -= damage;
             if (shieldHP <= 0)
             {
-                shieldBroken = true;
+                playerController.ShieldBroken(true);
                 playerHP += shieldHP;
                 audioManager.PlaySoundOnce(playerHit);                
-            }
-            //StartCoroutine(SlowMotion(0.1f));
+            }            
         }
 
         else if (obj.GetComponent<PlayerController>()) 
@@ -103,9 +103,7 @@ public class GameManager : MonoBehaviour
             if (playerHP < 0) 
             {
                 StartCoroutine(OnDead());
-            }
-            //if (damage>=10)
-            //StartCoroutine(SlowMotion(0.3f));
+            }            
         }
 
         UIManager.UpdateShieldBar(shieldMaxHP, shieldHP);
@@ -117,12 +115,7 @@ public class GameManager : MonoBehaviour
         Destroy(player);
         yield return new WaitForSeconds(2f);
         SceneLoader.instance.ResetScene();
-    }
-
-    public bool ShieldBroken() 
-    {
-        return shieldBroken;
-    }   
+    }     
 
     public void OnHeal(float heal) // Cura al jugador (colision con botiquines)
     {
@@ -144,7 +137,7 @@ public class GameManager : MonoBehaviour
     public void OnRepair(float reapairvalue) // Cura al jugador (colision con botiquines)
     {
         Debug.Log("Repair + " + reapairvalue);
-        shieldBroken = false;
+        playerController.ShieldBroken(false);
 
         if (shieldHP + reapairvalue > shieldMaxHP)
         {
@@ -162,14 +155,7 @@ public class GameManager : MonoBehaviour
     public void OnDialogue(string frase) 
     {
         UIManager.OnDialogue(frase);
-    }  
-    
-    IEnumerator SlowMotion(float time) 
-    {
-        Time.timeScale = 0.2f;
-        yield return new WaitForSeconds(time * 0.2f);
-        Time.timeScale = 1f;
-    }
+    }   
 
     public bool HasKey()
     {
