@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Sound jumpSound;
     new AudioSource audio;
     Animator animator;
+    float moveSpeed;
 
     void Start()
     {
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         shield.SetActive(false);
         gravity = rb.gravityScale;
+        moveSpeed = baseSpeed;
         AddWeight(22f);
     }
 
@@ -52,11 +54,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
-        }
+        }        
 
         if (!isCrouching && Input.GetButtonDown("Crouch") && isGrounded)
         {
             isCrouching = true;
+            moveSpeed *= 0.5f;
             capsule.size = new Vector2(capsule.size.x, 0.8f);
             capsule.offset = new Vector2(capsule.offset.x, -0.5f);
             animator.SetBool("isCrouching", true);
@@ -65,10 +68,11 @@ public class PlayerController : MonoBehaviour
         else if (isCrouching && !Input.GetButton("Crouch") && !isCeilinged)
         {
             isCrouching = false;
+            moveSpeed = baseSpeed;
             capsule.size = new Vector2(capsule.size.x, 1.8f);
             capsule.offset = Vector2.zero;
             animator.SetBool("isCrouching", false);
-        }
+        }        
 
         if (Mathf.Abs(moveX) > 0 && !stunned && Time.timeScale != 0)
         {
@@ -108,10 +112,11 @@ public class PlayerController : MonoBehaviour
     {
         if (!stunned)
         {
-            if (!shieldBroken && Input.GetButton("Fire1"))
+            if (!shieldBroken && Input.GetButton("Fire1") && shieldMoveSpeed < moveSpeed)
                 rb.velocity = new Vector2(shieldMoveSpeed * moveX, rb.velocity.y);
             else
-                rb.velocity = new Vector2(baseSpeed * moveX, rb.velocity.y);
+                rb.velocity = new Vector2(moveSpeed * moveX, rb.velocity.y);
+
             animator.SetFloat("Speed", Mathf.Abs(moveX));
         }
 
