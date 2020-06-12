@@ -46,17 +46,22 @@ public class PlayerController : MonoBehaviour
         CheckCollisions(true);
         CheckCollisions(false);
 
-        jump = Input.GetButton("Jump");
         moveX = Input.GetAxis("Horizontal");
         moveY = Input.GetAxis("Vertical");
 
-        if (!isCrouching && Input.GetButtonDown("Crouch"))
+        if (Input.GetButtonDown("Jump"))
+        {
+            jump = true;
+        }
+
+        if (!isCrouching && Input.GetButtonDown("Crouch") && isGrounded)
         {
             isCrouching = true;
             capsule.size = new Vector2(capsule.size.x, 0.8f);
             capsule.offset = new Vector2(capsule.offset.x, -0.5f);
             animator.SetBool("isCrouching", true);
         }
+
         else if (isCrouching && !Input.GetButton("Crouch") && !isCeilinged)
         {
             isCrouching = false;
@@ -72,6 +77,7 @@ public class PlayerController : MonoBehaviour
                 audio.Play();
             }
         }
+
         else
         {
             audio.Stop();
@@ -116,10 +122,10 @@ public class PlayerController : MonoBehaviour
 
         if (jump && isGrounded && !stunned && !isCrouching)
         {
+            jump = false;
             AudioManager.instance.PlaySoundOnce(jumpSound);
             rb.velocity = new Vector2(rb.velocity.x, 0f);
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-            jump = false;
         }
 
         if (Physics2D.OverlapCircle(transform.position, ladderRange, ladder) != null)
