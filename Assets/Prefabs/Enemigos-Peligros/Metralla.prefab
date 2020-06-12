@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 1851706553297901061}
   - component: {fileID: 1851706553297901058}
   - component: {fileID: 1851706553297901059}
-  - component: {fileID: 1851706553297901056}
   - component: {fileID: -1556929283172955131}
   - component: {fileID: 1154322277989074426}
   - component: {fileID: -6433449650728395869}
-  m_Layer: 11
+  - component: {fileID: 6397065252860889114}
+  m_Layer: 12
   m_Name: Metralla
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.000000059604645}
@@ -133,19 +133,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7, y: 0.7}
   m_EdgeRadius: 0
---- !u!114 &1851706553297901056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1851706553297901086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e25bf00939355aa4c838d60ab39bb0da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 15
 --- !u!114 &-1556929283172955131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,3 +177,18 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5514458a06a17a24e98c5a6b0f5b9d72, type: 3}
   - {fileID: 21300000, guid: 9f0e1e066fc13724dacb598d88e1da0c, type: 3}
   - {fileID: 21300000, guid: 6a4f3f438161c0347ba27bee2acd3a48, type: 3}
+--- !u!114 &6397065252860889114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851706553297901086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6683e8704d244fd4ea2cbe4697dfe9dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shieldHit: 8
+  groundHit: 9
+  damage: 15

@@ -240,4 +240,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shieldHit: 8
+  playGroundHitSound: 1
   groundHit: 9
+  damage: 10
