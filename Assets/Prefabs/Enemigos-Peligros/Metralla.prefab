@@ -105,7 +105,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &1851706553297901059
 BoxCollider2D:
@@ -190,5 +190,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shieldHit: 8
+  playGroundHitSound: 0
   groundHit: 9
   damage: 15
