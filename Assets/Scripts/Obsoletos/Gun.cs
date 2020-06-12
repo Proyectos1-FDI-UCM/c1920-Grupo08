@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MachineGun : MonoBehaviour
+public class Gun : MonoBehaviour
 {
     // Dispara a un objetivo (no necesariamente al player) en ráfagas de 3 disparos
     // Usa Raycast para "simular impactos de objetos a alta velocidad"
