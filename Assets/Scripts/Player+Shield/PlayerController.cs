@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
         gravity = rb.gravityScale;
         AddWeight(22f);
     }
-   
+
     void Update()
     {
         CheckCollisions(true);
@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
         jump = Input.GetButton("Jump");
         moveX = Input.GetAxis("Horizontal");
         moveY = Input.GetAxis("Vertical");
-        
+
         if (!isCrouching && Input.GetButtonDown("Crouch"))
         {
             isCrouching = true;
@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isCrouching", false);
         }
 
-        if (Mathf.Abs(moveX) > 0 && !stunned)
+        if (Mathf.Abs(moveX) > 0 && !stunned && Time.timeScale != 0)
         {
             if (!audio.isPlaying)
             {
@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("Speed", Mathf.Abs(moveX));
         }
 
-		else 
+        else
         {
             animator.SetFloat("Speed", 0f);
         }
