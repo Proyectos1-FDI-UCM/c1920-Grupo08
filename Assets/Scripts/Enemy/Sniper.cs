@@ -28,7 +28,7 @@ public class Sniper : MonoBehaviour
 
     [SerializeField] Transform firePoint; // Punto de origen del disparo
 
-    Transform target; // Posición del objetivo
+    GameObject target; // Posición del objetivo
 
     [SerializeField] GameObject projectile; // Prefab de la bala
 
@@ -41,6 +41,7 @@ public class Sniper : MonoBehaviour
     LineRenderer laser; // Componente LineRenderer para el láser   
 
     Vector2 direction; // dirección de la bala
+    Vector2 targetPosition;
 
     ContactFilter2D contactFilter;
 
@@ -64,13 +65,14 @@ public class Sniper : MonoBehaviour
             // Almacenamos la posición del target
             Collider2D targetcollider = Physics2D.OverlapCircle(firePoint.position, range, targetLayer);
 
-            target = targetcollider.gameObject.GetComponent<Transform>();
+            target = targetcollider.gameObject;
+            targetPosition = new Vector2(target.GetComponent<Transform>().position.x, target.GetComponent<Transform>().position.y + target.GetComponent<CapsuleCollider2D>().offset.y);
 
             laser.enabled = true;
             DrawLine(laser);
 
             // Rota su posición en dirección al objetivo
-            direction = target.position - transform.position;
+            direction = targetPosition - new Vector2(transform.position.x,transform.position.y);
             transform.right = direction;
 
             // RAYCAST
