@@ -20,15 +20,15 @@ public class Sniper : MonoBehaviour
     [SerializeField] float shotCD; // Tiempo entre cada disparo
 
     float elapsedTime = 0f; // Contador desde el último disparo
-
-    [SerializeField] LayerMask targetLayer; // Máscara para comprobar que el objetivo esta en rango
+    
     [SerializeField] LayerMask rayLayer;
 
     Vector2 hitPoint; // Punto de impacto
 
     [SerializeField] Transform firePoint; // Punto de origen del disparo
 
-    GameObject target; // Posición del objetivo
+    Transform target; // Objetivo
+    CapsuleCollider2D targetCollider;
 
     [SerializeField] GameObject projectile; // Prefab de la bala
 
@@ -44,83 +44,106 @@ public class Sniper : MonoBehaviour
     Vector2 targetPosition;
 
     ContactFilter2D contactFilter;
-
-    void Awake()
-    {
-        laser = GetComponent<LineRenderer>();
-    }
+    bool onRange = false;
+    RaycastHit2D hit;
 
     void Start()
     {
+        laser = GetComponent<LineRenderer>();
         audioManager = AudioManager.instance;
         contactFilter.layerMask = rayLayer;
         contactFilter.useLayerMask = true;        
     }
 
-    void FixedUpdate()
+    private void Update()
     {
-        // Si el objetivo esta en rango...
-        if (Physics2D.OverlapCircle(firePoint.position, range, targetLayer))
+        if (onRange)
         {
-            // Almacenamos la posición del target
-            Collider2D targetcollider = Physics2D.OverlapCircle(firePoint.position, range, targetLayer);
-
-            target = targetcollider.gameObject;
-            targetPosition = new Vector2(target.GetComponent<Transform>().position.x, target.GetComponent<Transform>().position.y + target.GetComponent<CapsuleCollider2D>().offset.y);
-
             laser.enabled = true;
             DrawLine(laser);
 
+            targetPosition = new Vector2(target.position.x, target.position.y + targetCollider.offset.y);
+
             // Rota su posición en dirección al objetivo
-            direction = targetPosition - new Vector2(transform.position.x,transform.position.y);
-            transform.right = direction;
+            direction = targetPosition - new Vector2(transform.position.x, transform.position.y);
+            transform.right = direction;           
 
-            // RAYCAST
-            RaycastHit2D hit = Physics2D.Raycast(firePoint.position, direction,range,rayLayer);
-
-            // Almacena el punto de impacto
-            hitPoint = hit.point;
-
-            // Dispara respetando la cadencia de disparo
-            if (Time.time > elapsedTime)
-            {
-                // Reproduce el effecto de sonido
-                audioManager.PlaySoundOnce(shotSound);
-
-                // Crea la bala
-                createBullet();
-
-                // Si el impactado es el player o el shield llama al GM y aplica daño
-                if (hit.collider.GetComponent<PlayerController>() != null)
-                {
-                    GameManager.instance.OnHit(hit.collider.gameObject, damage);
-                }
-
-                else if (hit.collider.GetComponent<ShieldClass>() != null)
-                {
-                    GameManager.instance.OnHit(hit.collider.gameObject, damage);
-                    audioManager.PlaySoundOnce(shieldHit);
-                }
-
-                else
-                {
-                    audioManager.PlaySoundOnce(groundHit);
-                }
-
-                // Aumenta el contador de disparo
-                elapsedTime = Time.time + shotCD;
-            }
+            Shoot();        
         }
 
-        // Si el objetivo no esta en rango se apaga el láser
-        else
+		else 
         {
             laser.enabled = false;
         }
     }
 
+    void FixedUpdate()
+    {
+		if (onRange) 
+        {
+            // RAYCAST
+            hit = Physics2D.Raycast(firePoint.position, direction, range, rayLayer);
+
+            // Almacena el punto de impacto
+            hitPoint = hit.point;
+        }        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<PlayerController>() != null)
+        {
+            Debug.Log("El jugador esta en rango de " + this.gameObject.name);
+            elapsedTime = Time.time + shotCD;
+            onRange = true;            
+            target = collision.GetComponent<Transform>();
+            targetCollider = collision.GetComponent<CapsuleCollider2D>();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Debug.Log("El jugador ya no esta en rango de " + this.gameObject.name);
+        if (collision.GetComponent<PlayerController>() != null)
+        {
+            onRange = false;            
+        }
+    }
+
+    void Shoot() 
+    {
+        if (Time.time > elapsedTime)
+        {
+            // Reproduce el effecto de sonido
+            audioManager.PlaySoundOnce(shotSound);
+
+            // Crea la bala
+            CreateBullet();
+
+            // Si el impactado es el player o el shield llama al GM y aplica daño
+            if (hit.collider.GetComponent<PlayerController>() != null)
+            {
+                GameManager.instance.OnHit(hit.collider.gameObject, damage);
+            }
+
+            else if (hit.collider.GetComponent<ShieldClass>() != null)
+            {
+                GameManager.instance.OnHit(hit.collider.gameObject, damage);
+                audioManager.PlaySoundOnce(shieldHit);
+            }
+
+            else
+            {
+                audioManager.PlaySoundOnce(groundHit);
+            }
+
+            // Aumenta el contador de disparo
+            elapsedTime = Time.time + shotCD;
+        }
+    }
+
     // Crea la bala y la dibuja
-    void createBullet()
+    void CreateBullet()
     {
         // Crea una bala 
         GameObject bullet = Instantiate(projectile, firePoint.position, firePoint.rotation);
@@ -130,7 +153,7 @@ public class Sniper : MonoBehaviour
         DrawLine(tracer);
 
         // Destruye la bala rápidamente para crear sensación de movimiento
-        Destroy(bullet, 0.02f);
+        Destroy(bullet, 0.025f);
     }
 
     // Dibuja una línea de una posición a otra utilizando el componente LineRenderer
@@ -138,11 +161,5 @@ public class Sniper : MonoBehaviour
     {
         line.SetPosition(0, firePoint.position);
         line.SetPosition(1, hitPoint);
-    }
-
-    // Muestra el rango de disparo en el editor
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.DrawWireSphere(firePoint.position, range);
-    }
+    }   
 }
