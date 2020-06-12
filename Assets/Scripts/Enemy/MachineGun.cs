@@ -28,7 +28,7 @@ public class MachineGun : MonoBehaviour
 
     private Transform firePoint;
     private float elapsedTime = 0f;
-    private Vector2 direction = Vector2.zero;
+    private Vector2 direction = Vector2.left;
     //private Transform target;   
     private bool onRange = false;
     private CircleCollider2D c_collider;
@@ -41,13 +41,7 @@ public class MachineGun : MonoBehaviour
 
     private void Update()
     {
-        if (onRange)
-        {           
-            direction = Vector2.left;
-            direction.Normalize();                    
-
-            Shoot();
-        }        
+        if (onRange) Shoot();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
