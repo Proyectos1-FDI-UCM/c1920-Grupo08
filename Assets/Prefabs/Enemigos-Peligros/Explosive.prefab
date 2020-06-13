@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 230217852659374382}
   - component: {fileID: 230217852659374380}
-  - component: {fileID: 8081488720406162019}
+  - component: {fileID: 8163443231680314811}
   m_Layer: 11
   m_Name: Explosive
   m_TagString: Untagged
@@ -47,8 +47,8 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
---- !u!114 &8081488720406162019
+  m_Radius: 2.5
+--- !u!114 &8163443231680314811
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,15 +57,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 230217852659374417}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0858a80d02c665446b7466b81a291b39, type: 3}
+  m_Script: {fileID: 11500000, guid: 76011b23c8d055a4cacfb5d78886731e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 0
-  explosionRate: 0.5
-  maxRadius: 3
-  force: 40
-  explosionDamage: 30
-  horizontalFactor: 1
-  verticalFactor: 1
-  explosion: {fileID: 0}
+  damage: 40
+  force: 15
   sound: 4
+  explosionEffect: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 3}
