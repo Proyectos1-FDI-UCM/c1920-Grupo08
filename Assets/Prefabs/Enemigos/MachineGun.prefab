@@ -99,7 +99,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1835300455
+  m_SortingLayerID: -1852122195
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 129243287c4afca449cfbf34bf102272, type: 3}
@@ -141,7 +141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e755fb1148e69e24584ce08c7e315b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 8418682169875752517}
   bullet: {fileID: 4522584689729607789, guid: d37b6ecdc3f3fd74487e1431dd55bce4, type: 3}
   damagePerShot: 10
   sound: 2

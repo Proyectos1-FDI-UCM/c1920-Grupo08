@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4750309363374673108}
   - component: {fileID: 5435835984805358470}
   m_Layer: 11
-  m_Name: MinaMejorada
+  m_Name: Mine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1835300455
+  m_SortingLayerID: -1852122195
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c723480dabbda5649ab24d3dc03d9c84, type: 3}
@@ -172,6 +172,16 @@ PrefabInstance:
       propertyPath: explosion
       value: 
       objectReference: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 3}
+    - target: {fileID: 230217852659374417, guid: b3ed771105fd79747a6867048f229a1f,
+        type: 3}
+      propertyPath: m_Name
+      value: Explosive
+      objectReference: {fileID: 0}
+    - target: {fileID: 230217852659374417, guid: b3ed771105fd79747a6867048f229a1f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 230217852659374382, guid: b3ed771105fd79747a6867048f229a1f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -225,16 +235,6 @@ PrefabInstance:
     - target: {fileID: 230217852659374382, guid: b3ed771105fd79747a6867048f229a1f,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 230217852659374417, guid: b3ed771105fd79747a6867048f229a1f,
-        type: 3}
-      propertyPath: m_Name
-      value: Explosive
-      objectReference: {fileID: 0}
-    - target: {fileID: 230217852659374417, guid: b3ed771105fd79747a6867048f229a1f,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

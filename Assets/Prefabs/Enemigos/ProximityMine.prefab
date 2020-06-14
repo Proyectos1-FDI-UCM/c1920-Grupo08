@@ -70,7 +70,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1835300455
+  m_SortingLayerID: -1852122195
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 49dd67b6901bb9849b16ef47dbfa2fea, type: 3}
@@ -140,6 +140,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3532315924464930880}
     m_Modifications:
+    - target: {fileID: 230217852659374417, guid: b3ed771105fd79747a6867048f229a1f,
+        type: 3}
+      propertyPath: m_Name
+      value: Explosive
+      objectReference: {fileID: 0}
+    - target: {fileID: 230217852659374417, guid: b3ed771105fd79747a6867048f229a1f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 230217852659374382, guid: b3ed771105fd79747a6867048f229a1f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -193,16 +203,6 @@ PrefabInstance:
     - target: {fileID: 230217852659374382, guid: b3ed771105fd79747a6867048f229a1f,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 230217852659374417, guid: b3ed771105fd79747a6867048f229a1f,
-        type: 3}
-      propertyPath: m_Name
-      value: Explosive
-      objectReference: {fileID: 0}
-    - target: {fileID: 230217852659374417, guid: b3ed771105fd79747a6867048f229a1f,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8081488720406162019, guid: b3ed771105fd79747a6867048f229a1f,
