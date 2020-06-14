@@ -1,8 +1,6 @@
 ﻿//Este script se aplica a todo lo que vaya a desvanecer después de impactar con algo, 
 //como escombros y metralla
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FadeToBackground : MonoBehaviour

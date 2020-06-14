@@ -1,17 +1,17 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SceneManagement;
 
+// Este script se encarga unicamente de la escena introductoria mediante una coroutine. 
+// Escribe un texto dado y muestra el título del juego esperando los tiempos para crear un effecto de vídeo introductorio.
 public class IntroScene : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI bubbleText;
+    [SerializeField] GameObject a, b;
+
     string dialogue;
     private float typeSpeed = 0.1f;
     AudioSource audioS;
-    [SerializeField]GameObject a,b;
 
     private void Start()
     {
@@ -24,7 +24,9 @@ public class IntroScene : MonoBehaviour
     private IEnumerator Type()
     {
         yield return new WaitForSeconds(1f);
+
         audioS.Play();
+
         foreach (char c in dialogue.ToCharArray())
         {
             bubbleText.text += c;
@@ -32,11 +34,13 @@ public class IntroScene : MonoBehaviour
         }
 
         audioS.Stop();
+
         yield return new WaitForSeconds(2f);
         a.SetActive(false);
         yield return new WaitForSeconds(2f);
         b.SetActive(true);
         yield return new WaitForSeconds(5f);
+
         SceneLoader.instance.NextScene();
-    }    
+    }
 }

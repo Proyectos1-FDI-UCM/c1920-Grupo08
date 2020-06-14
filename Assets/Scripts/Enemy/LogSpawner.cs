@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+//Invoca un tronco cada X tiempo
 public class LogSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject logPrefab;
@@ -11,8 +10,7 @@ public class LogSpawner : MonoBehaviour
     [SerializeField] private float logSpeed;
     protected Transform spawnPool;
     private float moveX = 0;
-
-    //Invoca un tronco cada X tiempo
+   
     private void Start()
     {
         if (left)

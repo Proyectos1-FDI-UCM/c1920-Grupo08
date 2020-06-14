@@ -1,13 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+// Se encarga de rotar el hombro en dirección al ratón y colocarlo de manera correcta.
 public class RotateToMouseAndFlip : MonoBehaviour
 {
     Vector2 aimV;
     Vector2 direction, mousePos, playerPos;
-    Transform player;
-    // --- Límite superior e inferior del escudo?
+    Transform player;    
 
     private void Start()
     {

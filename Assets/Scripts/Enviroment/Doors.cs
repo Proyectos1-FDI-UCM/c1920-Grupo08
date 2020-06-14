@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 //Este script desactiva el collider de su hijo cuando el jugador pulsa usar estando al lado
 //Si se activa la cerradura, no se abrirá si el jugador no tiene una llave, en cual caso eliminará esa llave

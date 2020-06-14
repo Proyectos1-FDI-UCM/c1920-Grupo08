@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+// Este script controlla la bala del tanque que simula un movimiento más parabólico
 public class TankBullet : MonoBehaviour
 {
     Rigidbody2D rb;
@@ -13,8 +12,7 @@ public class TankBullet : MonoBehaviour
     [SerializeField] Sound groundHit;
 
     AudioManager audioManager;
-
-    // Start is called before the first frame update
+    
     void Awake()
     {
         direction = Vector2.left;

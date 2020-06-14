@@ -1,7 +1,7 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+// El tanque dispara una bala a un punto fijo de manera continua siempre que el jugador este en rango
 
 [RequireComponent(typeof(CircleCollider2D))]
 public class Tank : MonoBehaviour

@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-//Para usar esta componente en junto a una explosión, es necesario desactivarla desde el editor
+// Este script es el encargado de generar "metralla"
 public class BurstSpawner : MonoBehaviour
 {
     //El objeto a instanciar

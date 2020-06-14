@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+// Este script hace daño al jugador cada segundo si esta encima de su collider
 [RequireComponent(typeof(Collider2D))]
 public class DamageOverTime : MonoBehaviour
 {

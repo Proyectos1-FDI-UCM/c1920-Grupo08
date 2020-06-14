@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /*Esta componente detecta cuando el CameraPosition entra en la zona de influencia del objeto asociado. El 
  objeto necesitará un collider habilitado como trigger (no importa el tipo de collider). 

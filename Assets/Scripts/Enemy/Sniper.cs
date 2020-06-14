@@ -3,15 +3,10 @@
 [RequireComponent(typeof(LineRenderer))]
 public class Sniper : MonoBehaviour
 {
-    // Dispara a un objetivo (no necesariamente al player) con una cadencia de disparo predeterminada y si esta activado lo avisa mediante un láser
+    // Dispara a un objetivo con una cadencia de disparo predeterminada y si esta activado lo avisa mediante un láser
     // Usa Raycast para "simular impactos de objetos a alta velocidad"
 
-    // El jugador no puede esquivar este enemigo, debe cubrirse con el escudo o con coberturas y esperar al enfriamiento para no recibir daño
-
-    // El objeto debe de tener un objeto vacio como hijo que indique el punto de origen del disparo (firePoint) y se debe asignar desde el editor
-    // El objetivo debe de ser capaz de entrar en el rango de disparo en caso de no ser el jugador y ser un objeto inmóvil (range)
-    // La bala debe ser un prefab vacio con un componente LineRenderer que se ocupa de como se va a visualizar la bala (projectile)
-    // Para que el láser funcione el objeto debe tener un LineRenderer (laser)    
+    // El jugador no puede esquivar este enemigo, debe cubrirse con el escudo o con coberturas y esperar al enfriamiento para no recibir daño       
 
     [SerializeField] float range; // Rango de disparo
 

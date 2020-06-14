@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Audio;
 
 public enum Sound
@@ -24,17 +22,18 @@ public enum Sound
     key,
 }
 
+// Este script maneja los efectos de audio de un solo uso utilizando la clase SoundFile y los enum de tipo Sound es capaz de reproducir cualquier sonido que este en su base de datos.
 public class AudioManager : MonoBehaviour
 {
     [System.Serializable]
     private class SoundFile
     {
         public Sound sound;
-        public AudioClip audioClip;        
+        public AudioClip audioClip;
     }
 
     [SerializeField] AudioMixerGroup audioMixer;
-    [SerializeField] private SoundFile[] soundFileArrray;       
+    [SerializeField] private SoundFile[] soundFileArrray;
 
     #region Singleton
     public static AudioManager instance;
@@ -49,12 +48,13 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
             return;
-        }        
+        }
     }
-	#endregion
+    #endregion
 
-  public void PlaySoundOnce(Sound sound) 
-    {       
+    // Instancia un objeto vacio para reproducir un sonido, cuando este ha terminado de reproducirlo lo destruye.
+    public void PlaySoundOnce(Sound sound)
+    {
         AudioClip audioClip = GetAudioClip(sound);
 
         if (audioClip != null)
@@ -65,19 +65,20 @@ public class AudioManager : MonoBehaviour
             audioSource.outputAudioMixerGroup = audioMixer;
             audioSource.PlayOneShot(audioClip);
             Destroy(soundObj, audioClip.length);
-        }         
+        }
     }
 
+    // Busca el archivo de audio en la base de datos.
     private AudioClip GetAudioClip(Sound sound)
     {
         foreach (SoundFile soundFile in soundFileArrray)
         {
-            if(soundFile.sound == sound) 
+            if (soundFile.sound == sound)
             {
                 return soundFile.audioClip;
-            }            
+            }
         }
-        
+
         Debug.LogError("Audio Manager: el sonido " + sound + " no ha sido encontrado!");
         return null;
     }

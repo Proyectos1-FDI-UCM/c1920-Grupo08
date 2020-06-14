@@ -1,7 +1,7 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+// Este script es el encargado de activar el explosivo de la mina según su comportamiento
 public class SimpleMine : MonoBehaviour
 {
 	[SerializeField] GameObject explosive;

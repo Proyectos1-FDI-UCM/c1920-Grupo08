@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+// Script para almacenar los tipos de escudo y reconocerlo durante colisiones
 public enum ShieldType 
 {
     carDoor,
@@ -22,5 +21,5 @@ public class Shield
 
 public class ShieldClass : MonoBehaviour 
 {
-    // ESTO ES UN ESCUDO
+    // ESTO ES EL ESCUDO
 }

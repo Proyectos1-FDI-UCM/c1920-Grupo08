@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+// Este script de la metralla se encarga de elegir el sprite de la misma asi como de la rotación
 public class Metralla : MonoBehaviour
 {
     [SerializeField]

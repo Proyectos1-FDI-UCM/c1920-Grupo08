@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Medkit : MonoBehaviour
 {
@@ -16,6 +14,7 @@ public class Medkit : MonoBehaviour
             {
                 AudioManager.instance.PlaySoundOnce(sound);
                 GameManager.instance.OnHeal(heal);
+                GameManager.instance.OnDialogue("Ahora me siento mucho mejor");
                 Destroy(this.gameObject);
             }
         }

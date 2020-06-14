@@ -1,17 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+// Se encarga del comportamiento de los troncos, su dirección y movimiento.
 public class Log : MonoBehaviour
 {
     enum Direction { Left, Right };
-    [SerializeField]
-    Direction direction;
-    [SerializeField]
-    float acceleration;
+    [SerializeField] Direction direction;
+    [SerializeField] float acceleration;
     [SerializeField]
     float maxSpeed;
     Rigidbody2D rb;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();

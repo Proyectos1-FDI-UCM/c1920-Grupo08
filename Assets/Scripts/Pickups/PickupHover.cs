@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+// Una pequeña animación reutilizable para los pickups.
 public class PickupHover : MonoBehaviour
 {
     float aux;

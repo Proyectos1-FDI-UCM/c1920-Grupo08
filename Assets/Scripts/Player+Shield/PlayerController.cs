@@ -5,6 +5,7 @@
 [RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(Animator))]
 
+// Script de movimiento del jugador y activación del escudo.
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float baseSpeed, jumpForce, climbSpeed;
@@ -45,9 +46,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        // Comprueba las colisiones con el suelo y el techo en cada momento posible.
         CheckCollisions(true);
         CheckCollisions(false);
 
+        // Input
         moveX = Input.GetAxis("Horizontal");
         moveY = Input.GetAxis("Vertical");
 
@@ -56,6 +59,7 @@ public class PlayerController : MonoBehaviour
             jump = true;
         }        
 
+        // Control del agachado según tenga techo encima o no.
         if (!isCrouching && Input.GetButtonDown("Crouch") && isGrounded)
         {
             isCrouching = true;
@@ -74,6 +78,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isCrouching", false);
         }        
 
+        // Control de sonido "continuado" al andar
         if (Mathf.Abs(moveX) > 0 && !stunned && Time.timeScale != 0)
         {
             if (!audio.isPlaying)
@@ -87,6 +92,7 @@ public class PlayerController : MonoBehaviour
             audio.Stop();
         }
 
+        // Control de la activación del escudo si este está roto o no.
         if (shieldBroken)
         {
             shield.SetActive(false);
@@ -110,6 +116,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        // Físicas del movimiento horizontal
         if (!stunned)
         {
             if (!shieldBroken && Input.GetButton("Fire1") && shieldMoveSpeed < moveSpeed)
@@ -125,6 +132,7 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("Speed", 0f);
         }
 
+        // Físicas de salto
         if (jump && isGrounded && !stunned && !isCrouching)
         {
             jump = false;
@@ -133,6 +141,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         }
 
+        // Físicas para trepar
         if (Physics2D.OverlapCircle(transform.position, ladderRange, ladder) != null)
         {
             rb.velocity = new Vector2(rb.velocity.x, moveY * climbSpeed);
@@ -145,6 +154,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Control de colisiones verticales y horizontales según la capsula de colision, su posición y tamaño
+    // Puede controlar las colisiones inferiores y superiores según se le indique.
+    // Usa un array de rayos para conprobar las colisiones de manera más precisa.
     void CheckCollisions(bool up)
     {
         Vector2[] Raycasts = new Vector2[3];
@@ -184,6 +196,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Se encarga de paralizar al jugador
     public void Stunned(float time)
     {
         stunned = true;
@@ -206,13 +219,9 @@ public class PlayerController : MonoBehaviour
             shieldMoveSpeed = baseSpeed;
     }
 
+    // El GM puede avisar del estado del escudo para permitir o no su utilización
     public void ShieldBroken(bool state)
     {
         shieldBroken = state;
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.DrawWireSphere(transform.position, ladderRange);
-    }
+    }  
 }

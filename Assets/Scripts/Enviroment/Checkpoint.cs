@@ -1,7 +1,7 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+// Comunica el nuevo punto de reaparición para el jugador cuando este colisiona con él.
 [RequireComponent(typeof(BoxCollider2D))]
 public class Checkpoint : MonoBehaviour
 {   

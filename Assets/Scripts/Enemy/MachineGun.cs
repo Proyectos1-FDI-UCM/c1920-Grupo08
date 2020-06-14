@@ -1,20 +1,10 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+// Este script de ametralladora completamente configurable en la cantidad de disparos que se quieren por ráfaga y lo enfriamientos entre ráfagas y entre disparos únicos
 [RequireComponent(typeof(CircleCollider2D))]
 public class MachineGun : MonoBehaviour
-{
-    // Scrip configurable para el uso en armas a distancia
-    // Dos modos de disparo principales estático o de seguimientoa un target (staticShooting)
-    // Posibilidad de añadir un designador láser (laserSight + LineRenderer)
-    // Completamente configurable en la cantidad de disparos que se quieren por ráfaga y lo enfriamientos entre ráfagas y entre disparos únicos
-
-    // Para funcionar correctamente el objeto necesita un punto de origen de disparo (firePoint) que se debe asignar desde el editor
-    // La bala debe contener un RigidBody dinámico sin gravedad
-    // Para el rango de detección es necesario añadir un CircleCollider2D
-    // Para el láser el objeto necesita un LineRenderer y configurar correctamente el targetLayer
-
+{    
     [Header("Configuración")]       
     [SerializeField] private GameObject bullet;
     [SerializeField] private int damagePerShot;
@@ -28,15 +18,12 @@ public class MachineGun : MonoBehaviour
 
     private Transform firePoint;
     private float elapsedTime = 0f;
-    private Vector2 direction = Vector2.left;
-    //private Transform target;   
-    private bool onRange = false;
-    private CircleCollider2D c_collider;
+    private Vector2 direction = Vector2.left;       
+    private bool onRange = false;    
 
     private void Start()
     {
-        firePoint = transform.GetChild(0).gameObject.GetComponent<Transform>();
-        c_collider = GetComponent<CircleCollider2D>();
+        firePoint = transform.GetChild(0).gameObject.GetComponent<Transform>();       
     }
 
     private void Update()
@@ -91,4 +78,4 @@ public class MachineGun : MonoBehaviour
         m_bullet.GetComponent<Bullet>().SetDamage(damagePerShot);
         rb.velocity = (direction * bulletSpeed);
     }
-}  
+} 

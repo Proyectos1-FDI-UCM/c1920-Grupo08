@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 //Esta componente mueve un objeto hasta un transform y a una rapidez determinados
 //Esta componente está ideada para la cámara y no debe usarse para ningún objeto con RigidBody

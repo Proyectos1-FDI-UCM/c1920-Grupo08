@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+// Este script se usa para proyectiles que tengan que diferenciar entre dañar al jugador o al escudo la velocidad y el daño de los mismos se puede modificar de manera externa
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Collider2D))]
 public class Bullet : MonoBehaviour
@@ -17,6 +16,7 @@ public class Bullet : MonoBehaviour
     {
         audioManager = AudioManager.instance;
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<PlayerController>() != null)

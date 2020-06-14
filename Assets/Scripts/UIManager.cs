@@ -1,28 +1,29 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+// Este script se encarga de actulizar la UI según le comunique el GM
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private GameObject shieldHolder, controlsMenu, pauseMenu, damageOverlay, dialogueBubble, blurShader;
-    [SerializeField] private TextMeshProUGUI bubbleText;
-    private string dialogue;
-    private float typeSpeed = 0.1f;
-    [SerializeField] private Slider healthS, shieldS,volumeSlider;
-    bool paused;
-    private AudioManager audioManager;
+    [SerializeField] GameObject shieldHolder, controlsMenu, pauseMenu, damageOverlay, dialogueBubble, blurShader;
+    [SerializeField] TextMeshProUGUI bubbleText;
+    [SerializeField] Slider healthS, shieldS, volumeSlider;
     [SerializeField] Sound buttonSound;
-    private bool isTalking = false;
+
+    AudioManager audioManager;
+    string dialogue;
+    float typeSpeed = 0.1f;
+    bool isTalking = false;
+    bool paused;
 
     private void Awake()
     {
-        Time.timeScale = 1f;        
+        Time.timeScale = 1f;
     }
 
     void Start()
-    {        
+    {
         audioManager = AudioManager.instance;
         paused = false;
         pauseMenu.SetActive(paused);
@@ -34,6 +35,7 @@ public class UIManager : MonoBehaviour
         volumeSlider.value = SceneLoader.instance.CheckVolumeSlider();
     }
 
+    // En update controlamos el uso del menú de pausa
     private void Update()
     {
         if (Input.GetButtonDown("Escape"))
@@ -58,6 +60,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    // Actualiza la barra de vida con los valores recibidos
     public void UpdateHealthBar(float maxHP, float currentHP)
     {
         healthS.maxValue = maxHP;
@@ -65,17 +68,21 @@ public class UIManager : MonoBehaviour
         healthS.value = currentHP;
     }
 
+    // Actualiza la barra de resistencia con los valores recibidos
     public void UpdateShieldBar(float maxShield, float currentShield)
     {
         shieldS.maxValue = maxShield;
 
         shieldS.value = currentShield;
     }
-    public void UpdateShieldHolder(Sprite newShield) 
+
+    // Actualiza el icono del escudo
+    public void UpdateShieldHolder(Sprite newShield)
     {
         shieldHolder.GetComponent<Image>().sprite = newShield;
     }
 
+    // Muestra la frase recibida mediante un bocadillo de texto
     public void OnDialogue(string text)
     {
         if (!isTalking)
@@ -103,44 +110,47 @@ public class UIManager : MonoBehaviour
         isTalking = false;
     }
 
+    //Control de botones
     public void MainMenuButton()
     {
         audioManager.PlaySoundOnce(buttonSound);
         SceneLoader.instance.LoadMainMenu();
     }
 
-    public void ExitButton() 
+    public void ExitButton()
     {
         audioManager.PlaySoundOnce(buttonSound);
         SceneLoader.instance.Exit();
     }
 
-    public void ControlsMenuButton() 
+    public void ControlsMenuButton()
     {
         audioManager.PlaySoundOnce(buttonSound);
         controlsMenu.SetActive(true);
         pauseMenu.SetActive(false);
     }
 
-    public void BackButton() 
+    public void BackButton()
     {
         audioManager.PlaySoundOnce(buttonSound);
         controlsMenu.SetActive(false);
         pauseMenu.SetActive(true);
     }
 
-    public void DamageOverlay()    
+    // Effecto de dao al recibir un impacto
+    public void DamageOverlay()
     {
         StartCoroutine(DamageEffect());
     }
 
-    IEnumerator DamageEffect() 
+    IEnumerator DamageEffect()
     {
         damageOverlay.SetActive(true);
         yield return null;
         damageOverlay.SetActive(false);
     }
 
+    // Control de volumen
     public void VolumeSlider(float value)
     {
         SceneLoader.instance.SetVolume(value);

@@ -1,17 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ShieldPickup : MonoBehaviour
-{   
-    //Placeholder para mostrar las estadísticas del escudo
-    bool showinfo=false;
+{    
     [SerializeField] ShieldType shieldType;
-    [SerializeField] Sound sound;
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        showinfo = true;
-    }
+    [SerializeField] Sound sound;   
 
     private void OnTriggerStay2D(Collider2D collision)
     {        
@@ -21,12 +13,8 @@ public class ShieldPickup : MonoBehaviour
         {
             AudioManager.instance.PlaySoundOnce(sound);
             GameManager.instance.GetShield(shieldType);
+            GameManager.instance.OnDialogue("Esto tiene buena pinta...");
             Destroy(this.gameObject);
         }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        showinfo = false;
-    }
+    } 
 }

@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
-using UnityEngine;
+﻿using UnityEngine;
 
+// Este script crea una crea una explosión con efectos visuales que daña al jugador y lo empuja ligeramente
 public class SimpleExplosive : MonoBehaviour
 {
 	[SerializeField] float damage, force;

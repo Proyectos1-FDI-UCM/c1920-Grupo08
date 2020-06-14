@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+// Repara el escudo al recogerlo
 public class Repairkit : MonoBehaviour
 {
 
@@ -16,6 +15,7 @@ public class Repairkit : MonoBehaviour
             {
                 AudioManager.instance.PlaySoundOnce(sound);
                 GameManager.instance.OnRepair(reapairvalue);
+                GameManager.instance.OnDialogue("Espero que aguante...");
                 Destroy(this.gameObject);
             }
         }

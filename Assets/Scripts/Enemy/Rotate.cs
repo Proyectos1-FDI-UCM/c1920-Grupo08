@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+// Script auxiliar para la animación del tronco
 public class Rotate : MonoBehaviour
 {
     enum Direction { Left, Right };

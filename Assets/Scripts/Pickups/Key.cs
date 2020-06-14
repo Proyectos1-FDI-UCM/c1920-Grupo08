@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Key : MonoBehaviour
 {
@@ -14,6 +12,7 @@ public class Key : MonoBehaviour
         {
             AudioManager.instance.PlaySoundOnce(sound);
             GameManager.instance.KeyPickup();
+            GameManager.instance.OnDialogue("Ahora a buscar la puerta que abre...");
             Destroy(this.gameObject);
         }
     }

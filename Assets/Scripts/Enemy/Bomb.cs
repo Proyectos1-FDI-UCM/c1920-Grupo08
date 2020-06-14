@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+// Este script se usa en la bomba se encarga de activar el spawner de metralla y matar al jugador en caso de colisionar con el
 public class Bomb : MonoBehaviour
 {
 	[SerializeField] BurstSpawner bs;

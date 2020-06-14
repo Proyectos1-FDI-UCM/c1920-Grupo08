@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+// Auxiliar para el correcto funcionamiento de la cámara
 public class DestroyCamOnDeath : MonoBehaviour
 {
     private void OnDestroy()

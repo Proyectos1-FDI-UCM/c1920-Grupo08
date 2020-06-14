@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+// Este script destruye los troncos al entrar en su collider
 public class LogDestroyer : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)

@@ -1,7 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+
+// Este script se encarga de navegar mediante los paneles del menú principal y comunicar los cambios de escena de sus botones.
 
 [RequireComponent(typeof(AudioSource))]
 public class MenuManager : MonoBehaviour
@@ -10,7 +10,6 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject[] Panels;
     AudioSource buttonSound;
     SceneLoader sceneLoader;
-    
 
     void Start()
     {
@@ -18,9 +17,9 @@ public class MenuManager : MonoBehaviour
         sceneLoader = SceneLoader.instance;
         volumeSlider.value = sceneLoader.CheckVolumeSlider();
         SetPanel(0);
-    }    
+    }
 
-    public void Play() 
+    public void Play()
     {
         buttonSound.Play();
         SetPanel(3);
@@ -32,7 +31,7 @@ public class MenuManager : MonoBehaviour
         sceneLoader.SceneByIndex(index);
     }
 
-    public void SceneByIndex(int index) 
+    public void SceneByIndex(int index)
     {
         sceneLoader.SceneByIndex(index);
     }
@@ -43,7 +42,7 @@ public class MenuManager : MonoBehaviour
         SetPanel(1);
     }
 
-    public void Credits() 
+    public void Credits()
     {
         SetPanel(2);
     }
@@ -59,8 +58,8 @@ public class MenuManager : MonoBehaviour
         buttonSound.Play();
         sceneLoader.Exit();
     }
-    
-    public void VolumeSlider(float value) 
+
+    public void VolumeSlider(float value)
     {
         sceneLoader.SetVolume(value);
     }
