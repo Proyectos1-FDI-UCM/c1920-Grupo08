@@ -8,18 +8,6 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: Assets/Scenes/Test & Old Scenes/Plan de pruebas/00_MenuPDP.unity
-    guid: ab51c0e2d786c7742b12336abbf28137
-  - enabled: 0
-    path: Assets/Scenes/Test & Old Scenes/Plan de pruebas/01_Enemigos.unity
-    guid: af5c1af97d57dd942961ac4e894ce886
-  - enabled: 0
-    path: Assets/Scenes/Test & Old Scenes/Plan de pruebas/02_Movimiento.unity
-    guid: 872727afcbc447e409f09612bdf582ae
-  - enabled: 0
-    path: Assets/Scenes/Test & Old Scenes/Plan de pruebas/03_Francotirador.unity
-    guid: 3f4412b613dea8d41b00f48fd16b159e
   - enabled: 1
     path: Assets/Scenes/00_MainMenu.unity
     guid: f7d37a78d88866c4ebddc7fe968d2c69
