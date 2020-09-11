@@ -7,7 +7,8 @@ public enum ShieldType
     woodenPlank,    
     sewerCap,   
     ballisticShield,
-    roadSign
+    roadSign,
+    carWheel
 }
 
 [System.Serializable]

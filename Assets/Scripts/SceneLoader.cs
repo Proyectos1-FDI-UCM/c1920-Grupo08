@@ -65,10 +65,16 @@ public class SceneLoader : MonoBehaviour
 
     IEnumerator LoadNextScene()
     {
-        faceToBlack.SetTrigger("playEnd");
-        yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);       
-        faceToBlack.SetTrigger("playStart");
+        int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
+        if(nextScene < 7)
+        {
+            faceToBlack.SetTrigger("playEnd");
+            yield return new WaitForSeconds(1f);
+            SceneManager.LoadScene(nextScene);
+            faceToBlack.SetTrigger("playStart");
+        }
+        // La siguiente escena del nivel extra es volver al menú
+        else LoadMainMenu();
     }
 
     // Este usa cuando quieres cargar una escena concreta, pero funciona igual que lo anteriores métodos

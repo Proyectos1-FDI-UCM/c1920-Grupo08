@@ -31,6 +31,13 @@ public class MenuManager : MonoBehaviour
         sceneLoader.SceneByIndex(index);
     }
 
+    public void Extra()
+    {
+        buttonSound.Play();
+        //SetPanel(3);
+        sceneLoader.SceneByIndex(6);
+    }
+
     public void SceneByIndex(int index)
     {
         sceneLoader.SceneByIndex(index);
