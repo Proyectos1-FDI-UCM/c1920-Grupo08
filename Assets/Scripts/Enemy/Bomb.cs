@@ -17,5 +17,6 @@ public class Bomb : MonoBehaviour
 		Instantiate(explosionEffect, this.gameObject.transform.position, Quaternion.identity);
 		AudioManager.instance.PlaySoundOnce(sound);
 		bs.enabled = true;
+		Destroy(this.gameObject);
 	}
 }
