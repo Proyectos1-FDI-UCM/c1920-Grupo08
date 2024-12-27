@@ -1,10 +1,12 @@
 ﻿using System.Collections;
+using System.Drawing;
 using UnityEngine;
 
 // Comunica el nuevo punto de reaparición para el jugador cuando este colisiona con él.
 [RequireComponent(typeof(BoxCollider2D))]
 public class Checkpoint : MonoBehaviour
-{   
+{
+    [SerializeField] bool debug;
     [SerializeField] Sound sound;    
     private string frase = "He alcanzado un nuevo punto de control";    
     private BoxCollider2D boxCollider;    
@@ -18,6 +20,8 @@ public class Checkpoint : MonoBehaviour
     {
         if (collision.GetComponent<PlayerController>() != null)
         {
+
+            if (debug) Debug.Log("El nuevo spawn es: " + transform.position);
             SceneLoader.instance.SetSpawnPoint(transform.position);
             GameManager.instance.OnDialogue(frase);
             AudioManager.instance.PlaySoundOnce(sound);

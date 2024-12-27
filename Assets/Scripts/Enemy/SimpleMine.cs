@@ -4,6 +4,8 @@ using UnityEngine;
 // Este script es el encargado de activar el explosivo de la mina según su comportamiento
 public class SimpleMine : MonoBehaviour
 {
+	[SerializeField] bool debug;
+	
 	[SerializeField] GameObject explosive;
 	[SerializeField] float delay = 0f;
 
@@ -17,7 +19,7 @@ public class SimpleMine : MonoBehaviour
 
 	IEnumerator Ignite()
 	{
-		Debug.Log("mina activada");
+		if (debug) Debug.Log("Mina activada");
 		yield return new WaitForSeconds(delay);
 		explosive.SetActive(true);
 	}

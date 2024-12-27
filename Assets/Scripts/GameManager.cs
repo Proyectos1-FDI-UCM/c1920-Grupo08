@@ -4,6 +4,8 @@ using UnityEngine;
 // Este script se usa como medio general de comunicación, principalmente para avisar a la UI o para actualizar el estado del jugador.
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] bool debug;
+
     const float playerMaxHP = 200f;
     float shieldMaxHP = 60f;
     float playerHP, shieldHP;
@@ -61,7 +63,7 @@ public class GameManager : MonoBehaviour
         playerHP = playerMaxHP;
         shieldHP = shieldMaxHP;
         player.transform.position = point;
-        Debug.Log("El jugador ha spawneado en " + point + " con " + playerHP + " HP y " + shieldHP + " de escudo.");
+        if (debug) Debug.Log("El jugador ha spawneado en " + point + " con " + playerHP + " HP y " + shieldHP + " de escudo.");
     }
 
     // Al recoger un escudo actualiza los valores adecuados.
@@ -96,11 +98,12 @@ public class GameManager : MonoBehaviour
     {
         if (obj.GetComponent<ShieldClass>() != null)
         {
+            if (debug) Debug.Log("Shield hit");
             shieldHP -= damage;
             if (shieldHP <= 0)
             {
                 playerController.ShieldBroken(true);
-                playerHP += shieldHP;
+                playerHP += shieldHP;               // Transfiere el exceso de daño (PS negativos del escudo) al jugador
                 audioManager.PlaySoundOnce(playerHit);
             }
         }
@@ -121,7 +124,7 @@ public class GameManager : MonoBehaviour
         UIManager.UpdateHealthBar(playerMaxHP, playerHP);
     }
 
-    // Incia el sistema de respawn con un poco de delay.
+    // Inicia el sistema de respawn con un poco de delay.
     IEnumerator OnDead()
     {
         Destroy(player);
@@ -132,7 +135,7 @@ public class GameManager : MonoBehaviour
     // Cura al jugador
     public void OnHeal(float heal) 
     {
-        Debug.Log("Heal + " + heal);
+        if (debug) Debug.Log("Heal + " + heal);
 
         if (playerHP + heal > playerMaxHP)
         {
@@ -150,7 +153,7 @@ public class GameManager : MonoBehaviour
     // Repara el escudo
     public void OnRepair(float reapairvalue)
     {
-        Debug.Log("Repair + " + reapairvalue);
+        if (debug) Debug.Log("Repair + " + reapairvalue);
         playerController.ShieldBroken(false);
 
         if (shieldHP + reapairvalue > shieldMaxHP)

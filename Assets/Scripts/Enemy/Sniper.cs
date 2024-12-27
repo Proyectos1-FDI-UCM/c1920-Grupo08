@@ -8,6 +8,8 @@ public class Sniper : MonoBehaviour
 
     // El jugador no puede esquivar este enemigo, debe cubrirse con el escudo o con coberturas y esperar al enfriamiento para no recibir daño       
 
+    [SerializeField] bool debug;
+
     [SerializeField] float range; // Rango de disparo
 
     [SerializeField] float damage; // Daño de disparo
@@ -88,7 +90,7 @@ public class Sniper : MonoBehaviour
     {
         if (collision.GetComponent<PlayerController>() != null)
         {
-            Debug.Log("El jugador esta en rango de " + this.gameObject.name);
+            if (debug) Debug.Log("El jugador esta en rango de " + this.gameObject.name);
             elapsedTime = Time.time + shotCD;
             onRange = true;            
             target = collision.GetComponent<Transform>();
@@ -98,7 +100,7 @@ public class Sniper : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("El jugador ya no esta en rango de " + this.gameObject.name);
+        if (debug) Debug.Log("El jugador ya no esta en rango de " + this.gameObject.name);
         if (collision.GetComponent<PlayerController>() != null)
         {
             onRange = false;            

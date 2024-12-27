@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
             else if (Input.GetButtonUp("Fire1") && shield.activeSelf)
             {
 
-                shield.SetActive(false);
+                //shield.SetActive(false);
             }
         }
     }

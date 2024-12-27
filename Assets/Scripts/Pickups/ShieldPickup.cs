@@ -13,7 +13,7 @@ public class ShieldPickup : MonoBehaviour
         {
             AudioManager.instance.PlaySoundOnce(sound);
             GameManager.instance.GetShield(shieldType);
-            GameManager.instance.OnDialogue("Esto tiene buena pinta...");
+            GameManager.instance.OnDialogue("Esto parece rígido.");
             Destroy(this.gameObject);
         }
     } 

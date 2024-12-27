@@ -4,7 +4,9 @@ using UnityEngine;
 // Este script de ametralladora completamente configurable en la cantidad de disparos que se quieren por ráfaga y lo enfriamientos entre ráfagas y entre disparos únicos
 [RequireComponent(typeof(CircleCollider2D))]
 public class MachineGun : MonoBehaviour
-{    
+{
+    [SerializeField] bool debug;
+
     [Header("Configuración")]       
     [SerializeField] private GameObject bullet;
     [SerializeField] private int damagePerShot;
@@ -35,14 +37,14 @@ public class MachineGun : MonoBehaviour
     {
         if (collision.GetComponent<PlayerController>() != null)
         {
-            Debug.Log("El jugador esta en rango de " + this.gameObject.name);
+            if (debug) Debug.Log("El jugador esta en rango de " + this.gameObject.name);
             onRange = true;            
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("El jugador ya no esta en rango de " + this.gameObject.name);
+        if (debug) Debug.Log("El jugador ya no esta en rango de " + this.gameObject.name);
         if (collision.GetComponent<PlayerController>() != null)
         {
             onRange = false;           

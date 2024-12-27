@@ -38,7 +38,6 @@ public class SceneLoader : MonoBehaviour
     public void SetSpawnPoint(Vector2 point) 
     {
         lastCheckpoint = point;
-        Debug.Log("El nuevo spawn es: " + point);
     }    
 
     // Recarga la escena con la ayuda de una coroutina para hacer la animación y spawnear al player, normalmente se usa cuando el player muere.
