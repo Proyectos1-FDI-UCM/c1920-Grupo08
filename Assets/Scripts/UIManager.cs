@@ -32,7 +32,7 @@ public class UIManager : MonoBehaviour
         damageOverlay.SetActive(false);
         blurShader.SetActive(false);
         isTalking = false;
-        volumeSlider.value = SceneLoader.instance.CheckVolumeSlider();
+        if (volumeSlider != null) volumeSlider.value = SceneLoader.instance.CheckVolumeSlider();
     }
 
     // En update controlamos el uso del menú de pausa

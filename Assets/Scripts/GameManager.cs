@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     bool hasKey = false;
 
     [SerializeField] UIManager UIManager;
-    [SerializeField] GameObject player;
+    [SerializeField] public GameObject player;
     [SerializeField] Sound playerHit;
     [SerializeField] Shield[] shieldArray;
 

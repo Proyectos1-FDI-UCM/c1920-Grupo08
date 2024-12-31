@@ -238,12 +238,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5004a976f30acbb43be32770f4cf1755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 20
+  debug: 0
   damage: 10
   shotCD: 3
-  rayLayer:
+  targettingLayer:
     serializedVersion: 2
-    m_Bits: 132864
+    m_Bits: 1280
+  bulletLayer:
+    serializedVersion: 2
+    m_Bits: 1792
   firePoint: {fileID: 2572535794609817239}
   projectile: {fileID: 514727091434510753, guid: c57f0e4e79c3b904c86db71dd6eecca9,
     type: 3}

@@ -1,24 +1,24 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 
 [RequireComponent(typeof(LineRenderer))]
 public class Sniper : MonoBehaviour
 {
-    // Dispara a un objetivo con una cadencia de disparo predeterminada y si esta activado lo avisa mediante un láser
+    // Dispara a un objetivo con una cadencia de disparo predeterminada y si está activado lo avisa mediante un láser
     // Usa Raycast para "simular impactos de objetos a alta velocidad"
 
     // El jugador no puede esquivar este enemigo, debe cubrirse con el escudo o con coberturas y esperar al enfriamiento para no recibir daño       
 
     [SerializeField] bool debug;
 
-    [SerializeField] float range; // Rango de disparo
-
     [SerializeField] float damage; // Daño de disparo
 
     [SerializeField] float shotCD; // Tiempo entre cada disparo
 
-    float elapsedTime = 0f; // Contador desde el último disparo
+    float timeUntilShoot; // Contador desde el último disparo
     
-    [SerializeField] LayerMask rayLayer;
+    [SerializeField] LayerMask targettingLayer; // Es importante separar las dos capas, porque el escudo debe bloquear el disparo pero no el rastreo
+    [SerializeField] LayerMask bulletLayer;
 
     Vector2 hitPoint; // Punto de impacto
 
@@ -37,106 +37,139 @@ public class Sniper : MonoBehaviour
 
     LineRenderer laser; // Componente LineRenderer para el láser   
 
-    Vector2 direction; // dirección de la bala
-    Vector2 targetPosition;
+    Vector2 lastKnownLocation; // Última posición conocida del objetivo
 
     ContactFilter2D contactFilter;
-    bool onRange = false;
-    RaycastHit2D hit;
+    bool tracking = false;   // true as long as sniper is preparing to shoot
+    bool inRange = false;   // true as long as sniper target is within trigger zone
+    float range;
+    RaycastHit2D rayCast;
 
     void Start()
     {
         laser = GetComponent<LineRenderer>();
         audioManager = AudioManager.instance;
-        contactFilter.layerMask = rayLayer;
-        contactFilter.useLayerMask = true;        
+        contactFilter.layerMask = targettingLayer;
+        contactFilter.useLayerMask = true;       
+        range = GetComponent<CircleCollider2D>().radius;
+        timeUntilShoot = shotCD;
+        target = GameManager.instance.player.transform;
+        targetCollider = target.GetComponent<CapsuleCollider2D>();
     }
+
+
+    /*
+     * If in range
+     * Try to raycast at target, update lastKnownLocation
+     * While tracking, aim at lastKnownLocation
+     * After shooting, check for target location. If not found, set tracking to false.
+     */
 
     private void Update()
     {
-        if (onRange)
+        if (tracking)
         {
-            laser.enabled = true;
+            timeUntilShoot -= Time.deltaTime;
             DrawLine(laser);
 
-            targetPosition = new Vector2(target.position.x, target.position.y + targetCollider.offset.y);
-
+            Vector2 direction = lastKnownLocation - new Vector2(transform.position.x, transform.position.y);
             // Rota su posición en dirección al objetivo
-            direction = targetPosition - new Vector2(transform.position.x, transform.position.y);
-            transform.right = direction;           
+            transform.right = direction;
 
-            Shoot();        
-        }
-
-		else 
-        {
-            laser.enabled = false;
+            if (timeUntilShoot <= 0f)
+                Shoot();
         }
     }
 
     void FixedUpdate()
     {
-		if (onRange) 
+        if (inRange)
         {
-            // RAYCAST
-            hit = Physics2D.Raycast(firePoint.position, direction, range, rayLayer);
-
-            // Almacena el punto de impacto
-            hitPoint = hit.point;
-        }        
+            FindTarget();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<PlayerController>() != null)
+        if (collision.transform == target)
         {
-            if (debug) Debug.Log("El jugador esta en rango de " + this.gameObject.name);
-            elapsedTime = Time.time + shotCD;
-            onRange = true;            
-            target = collision.GetComponent<Transform>();
-            targetCollider = collision.GetComponent<CapsuleCollider2D>();
+            inRange = true;
+            
+            if (debug) Debug.Log("El jugador está en el alcance de " + this.gameObject.name);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (debug) Debug.Log("El jugador ya no esta en rango de " + this.gameObject.name);
+        if (debug) Debug.Log("El jugador ya no está en el alcance de " + this.gameObject.name);
         if (collision.GetComponent<PlayerController>() != null)
         {
-            onRange = false;            
+            inRange = false;
+            tracking = false;
+            laser.enabled = false;
         }
+    }
+
+    bool FindTarget()
+    {
+        Vector2 targetPosition = new Vector2(target.position.x, target.position.y + targetCollider.offset.y);
+
+        Vector2 direction = targetPosition - new Vector2(transform.position.x, transform.position.y);
+
+        // RAYCAST
+        rayCast = Physics2D.Raycast(transform.position, direction, range*2, targettingLayer);
+
+        if (rayCast.collider?.transform == target)
+        {
+            if (debug) Debug.Log("Target found");
+            // Almacena el punto de impacto
+            lastKnownLocation = rayCast.point;
+            if (!tracking)
+            {
+                tracking = true;
+                timeUntilShoot = shotCD;
+                laser.enabled = true;
+            }
+            return true;
+        }
+        return false;
     }
 
     void Shoot() 
     {
-        if (Time.time > elapsedTime)
+        ///////////START HERE
+
+        if (debug) Debug.Log("Shoot");
+
+        // Reproduce el effecto de sonido
+        audioManager.PlaySoundOnce(shotSound);
+
+        Vector2 direction = lastKnownLocation - new Vector2(transform.position.x, transform.position.y);
+        rayCast = Physics2D.Raycast(transform.position, direction, range * 2, bulletLayer);
+
+        // Crea la bala
+        CreateBullet();
+
+        // Si el impactado es el player o el shield llama al GM y aplica daño
+        if (rayCast.collider.GetComponent<PlayerController>() != null)
         {
-            // Reproduce el effecto de sonido
-            audioManager.PlaySoundOnce(shotSound);
-
-            // Crea la bala
-            CreateBullet();
-
-            // Si el impactado es el player o el shield llama al GM y aplica daño
-            if (hit.collider.GetComponent<PlayerController>() != null)
-            {
-                GameManager.instance.OnHit(hit.collider.gameObject, damage);
-            }
-
-            else if (hit.collider.GetComponent<ShieldClass>() != null)
-            {
-                GameManager.instance.OnHit(hit.collider.gameObject, damage);
-                audioManager.PlaySoundOnce(shieldHit);
-            }
-
-            else
-            {
-                audioManager.PlaySoundOnce(groundHit);
-            }
-
-            // Aumenta el contador de disparo
-            elapsedTime = Time.time + shotCD;
+            GameManager.instance.OnHit(rayCast.collider.gameObject, damage);
         }
+
+        else if (rayCast.collider.GetComponent<ShieldClass>() != null)
+        {
+            GameManager.instance.OnHit(rayCast.collider.gameObject, damage);
+            audioManager.PlaySoundOnce(shieldHit);
+        }
+
+        else
+        {
+            audioManager.PlaySoundOnce(groundHit);
+        }
+
+        // Aumenta el contador de disparo
+        timeUntilShoot = shotCD;
+        if (!FindTarget()) tracking = false;
     }
 
     // Crea la bala y la dibuja
@@ -157,6 +190,6 @@ public class Sniper : MonoBehaviour
     void DrawLine(LineRenderer line)
     {
         line.SetPosition(0, firePoint.position);
-        line.SetPosition(1, hitPoint);
+        line.SetPosition(1, lastKnownLocation);
     }   
 }
