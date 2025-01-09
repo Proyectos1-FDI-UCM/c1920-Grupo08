@@ -8,9 +8,12 @@
 // Script de movimiento del jugador y activación del escudo.
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] bool debug;
     [SerializeField] float baseSpeed, jumpForce, climbSpeed;
     [SerializeField] LayerMask ground, ladder;
     [SerializeField] GameObject shield;
+    [SerializeField] float coyoteTime = 0.05f;  // Tiempo máximo que se puede saltar después de estar en el aire
+    private float remainingCoyoteTime = 0f;     // Medida del tiempo de coyote restante
 
     CapsuleCollider2D capsule;
 
@@ -46,6 +49,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (debug) Debug.Log("Remaining coyote time: " + remainingCoyoteTime);
+        remainingCoyoteTime -= Time.deltaTime;
+        isGrounded = remainingCoyoteTime > 0f;
         // Comprueba las colisiones con el suelo y el techo en cada momento posible.
         CheckCollisions(true);
         CheckCollisions(false);
@@ -156,7 +162,7 @@ public class PlayerController : MonoBehaviour
 
     // Control de colisiones verticales y horizontales según la capsula de colision, su posición y tamaño
     // Puede controlar las colisiones inferiores y superiores según se le indique.
-    // Usa un array de rayos para conprobar las colisiones de manera más precisa.
+    // Usa un array de rayos para comprobar las colisiones de manera más precisa.
     void CheckCollisions(bool up)
     {
         Vector2[] Raycasts = new Vector2[3];
@@ -187,12 +193,16 @@ public class PlayerController : MonoBehaviour
         if (count == 0)
         {
             if (up) isCeilinged = false;
-            else isGrounded = false;
         }
         else
         {
             if (up) isCeilinged = true;
-            else isGrounded = true;
+            else
+            {
+
+                remainingCoyoteTime = coyoteTime;
+                isGrounded = true;
+            }
         }
     }
 
