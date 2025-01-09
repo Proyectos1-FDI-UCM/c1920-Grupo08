@@ -61,9 +61,9 @@ public class PlayerController : MonoBehaviour
         moveY = Input.GetAxis("Vertical");
 
         if (Input.GetButtonDown("Jump"))
-        {
             jump = true;
-        }        
+        else if (Input.GetButtonUp("Jump"))
+            jump = false;
 
         // Control del agachado según tenga techo encima o no.
         if (!isCrouching && Input.GetButtonDown("Crouch") && isGrounded)
