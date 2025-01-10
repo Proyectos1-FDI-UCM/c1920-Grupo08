@@ -8,11 +8,13 @@ public class SimpleMine : MonoBehaviour
 	
 	[SerializeField] GameObject explosive;
 	[SerializeField] float delay = 0f;
+	[SerializeField] ParticleSystem detectionPulse;
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.GetComponent<PlayerController>() != null)
 		{
+			if(detectionPulse != null) { detectionPulse.Emit(1); }
 			StartCoroutine(Ignite());
 		}
 	}

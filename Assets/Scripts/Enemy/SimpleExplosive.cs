@@ -10,7 +10,7 @@ public class SimpleExplosive : MonoBehaviour
 	
 	private void Start()
 	{
-		Invoke("Des", 0.1f);
+		Invoke("Des", 0f);
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
