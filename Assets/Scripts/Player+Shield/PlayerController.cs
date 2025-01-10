@@ -63,7 +63,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
             jump = true;
         else if (Input.GetButtonUp("Jump"))
+        {
             jump = false;
+            if (rb.velocity.y > 0f)
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.2f);
+        }
 
         // Control del agachado según tenga techo encima o no.
         if (!isCrouching && Input.GetButtonDown("Crouch") && isGrounded)
