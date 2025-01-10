@@ -14,6 +14,7 @@ public class Sniper : MonoBehaviour
     [SerializeField] float damage; // Daño de disparo
 
     [SerializeField] float shotCD; // Tiempo entre cada disparo
+    [SerializeField] AnimationCurve laserIntensity; // Intensidad del láser en función de cuánto tiempo queda para el disparo
 
     float timeUntilShoot; // Contador desde el último disparo
     
@@ -32,6 +33,8 @@ public class Sniper : MonoBehaviour
     [SerializeField] Sound shotSound;
     [SerializeField] Sound shieldHit;
     [SerializeField] Sound groundHit;
+    private Color laserColour;
+    private float laserWidth;
 
     AudioManager audioManager;
 
@@ -48,6 +51,8 @@ public class Sniper : MonoBehaviour
     void Start()
     {
         laser = GetComponent<LineRenderer>();
+        laserColour = laser.startColor;
+        laserWidth = laser.startWidth;
         audioManager = AudioManager.instance;
         contactFilter.layerMask = targettingLayer;
         contactFilter.useLayerMask = true;       
@@ -70,6 +75,20 @@ public class Sniper : MonoBehaviour
         if (tracking)
         {
             timeUntilShoot -= Time.deltaTime;
+
+            float animationProgress = laserIntensity.Evaluate((shotCD - timeUntilShoot) / shotCD);
+            laser.endColor = new Color(laserColour.r, laserColour.g, laserColour.b, animationProgress);
+            // Si está en el último 10% de la animación, hacemos parpadear el laser
+            if (animationProgress > 0.90 && timeUntilShoot * 500f % 10 > 5)
+            {
+                laser.startWidth = 0f; laser.endWidth = 0f;
+            }   
+            else
+            {
+                laser.startWidth = animationProgress * laserWidth;
+                laser.endWidth = animationProgress * laserWidth * 5f;
+            }
+            Debug.Log("Laser intensity: " + animationProgress + "    Evaluating: " + ((shotCD - timeUntilShoot) / shotCD));
             DrawLine(laser);
 
             Vector2 direction = lastKnownLocation - new Vector2(transform.position.x, transform.position.y);
