@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public GameObject player;
     [SerializeField] Sound playerHit;
     [SerializeField] Shield[] shieldArray;
+    private GameObject camera;
 
     #region Singleton
     public static GameManager instance;
@@ -55,6 +56,11 @@ public class GameManager : MonoBehaviour
             UIManager.UpdateHealthBar(playerMaxHP, playerHP);
             UIManager.UpdateShieldBar(shieldHP, shieldMaxHP);
         }
+    }
+
+    public void SetCamera(GameObject cam)
+    {
+        camera = cam;
     }
 
     // Al cargar la escena spawnea al player en el punto adecuado.
@@ -100,6 +106,8 @@ public class GameManager : MonoBehaviour
         {
             if (debug) Debug.Log("Shield hit");
             shieldHP -= damage;
+
+            ScreenShake(0.5f, 0.2f);
             if (shieldHP <= 0)
             {
                 playerController.ShieldBroken(true);
@@ -110,10 +118,12 @@ public class GameManager : MonoBehaviour
 
         else if (obj.GetComponent<PlayerController>() != null)
         {
+            if (debug) Debug.Log("Player hit");
             UIManager.DamageOverlay();
             audioManager.PlaySoundOnce(playerHit);
             playerHP -= damage;
 
+            ScreenShake(1f, 0.3f);
             if (playerHP < 0)
             {
                 StartCoroutine(OnDead());
@@ -191,5 +201,13 @@ public class GameManager : MonoBehaviour
     public void KeyPickup()
     {        
         hasKey = true;
+    }
+
+    public void ScreenShake(float magnitude, float duration)
+    {
+        if (camera != null) 
+        {
+            camera.GetComponent<SmoothMovement>().StartShake(magnitude, duration);
+        }
     }
 }

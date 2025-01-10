@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEditor.Compilation;
+using UnityEngine;
 
 //Esta componente mueve un objeto hasta un transform y a una rapidez determinados
 //Esta componente está ideada para la cámara y no debe usarse para ningún objeto con RigidBody
@@ -40,12 +42,15 @@ public class SmoothMovement : MonoBehaviour
     int inside = 0;
     //El modificador de altura a la cámara
     float offset;
+    
     private void Start()
     {
         followPlayer = true;
         offset = 0f;
         speed = playerFollowSpeed;
+        GameManager.instance.SetCamera(this.gameObject);
     }
+
     private void Update()
     {
         if (followPlayer)
@@ -92,5 +97,25 @@ public class SmoothMovement : MonoBehaviour
     public int InsideZones()
     {
         return inside;
+    }
+
+    public void StartShake(float magnitude, float duration)
+    {
+        StartCoroutine(CamShake(magnitude, duration));
+    }
+
+    private IEnumerator CamShake(float magnitude, float duration)
+    {
+        Vector3 displacement = new Vector3(Random.Range(0, magnitude), Random.Range(0, magnitude), 0f), prevDisplacement = Vector3.zero;
+        float elapsed = 0f;
+        do
+        {
+            elapsed += Time.deltaTime;
+            transform.Translate(-prevDisplacement);
+            transform.Translate(displacement);
+            prevDisplacement = displacement;
+            displacement = new Vector3(Random.Range(0, magnitude), Random.Range(0, magnitude), 0f);
+            yield return null;
+        } while (elapsed < duration);
     }
 }
