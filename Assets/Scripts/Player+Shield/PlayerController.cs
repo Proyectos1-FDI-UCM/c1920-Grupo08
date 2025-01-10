@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
         gravity = rb.gravityScale;
         moveSpeed = baseSpeed;
         AddWeight(22f);
+        shield.SetActive(true);
     }
 
     void Update()
@@ -107,7 +108,7 @@ public class PlayerController : MonoBehaviour
         {
             shield.SetActive(false);
         }
-
+        /*
         else
         {
             if (Input.GetButtonDown("Fire1") && !shield.activeSelf)
@@ -122,6 +123,7 @@ public class PlayerController : MonoBehaviour
                 //shield.SetActive(false);
             }
         }
+        */
     }
 
     void FixedUpdate()
