@@ -88,7 +88,7 @@ public class Sniper : MonoBehaviour
                 laser.startWidth = animationProgress * laserWidth;
                 laser.endWidth = animationProgress * laserWidth * 5f;
             }
-            Debug.Log("Laser intensity: " + animationProgress + "    Evaluating: " + ((shotCD - timeUntilShoot) / shotCD));
+            if (debug) Debug.Log("Laser intensity: " + animationProgress + "    Evaluating: " + ((shotCD - timeUntilShoot) / shotCD));
             DrawLine(laser);
 
             Vector2 direction = lastKnownLocation - new Vector2(transform.position.x, transform.position.y);
