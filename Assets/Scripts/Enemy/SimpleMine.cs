@@ -10,6 +10,12 @@ public class SimpleMine : MonoBehaviour
 	[SerializeField] float delay = 0f;
 	[SerializeField] ParticleSystem detectionPulse;
 
+	void Awake()
+	{
+		if (delay > 0f)
+			transform.position = new Vector3(transform.position.x, transform.position.y, -0.5f);
+	}
+
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.GetComponent<PlayerController>() != null)
