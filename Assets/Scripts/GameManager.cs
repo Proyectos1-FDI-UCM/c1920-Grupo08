@@ -6,6 +6,9 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] bool debug;
 
+    public enum Languages { Español, English};
+    public Languages currLanguage;
+
     const float playerMaxHP = 200f;
     float shieldMaxHP = 60f;
     float playerHP, shieldHP;
