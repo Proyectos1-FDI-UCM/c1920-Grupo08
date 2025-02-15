@@ -8,7 +8,7 @@ public class Checkpoint : MonoBehaviour
 {
     [SerializeField] bool debug;
     [SerializeField] Sound sound;    
-    private string frase = "He alcanzado un nuevo punto de control";    
+    [SerializeField] private TransString frase;    
     private BoxCollider2D boxCollider;    
 
     private void Start()
@@ -23,7 +23,7 @@ public class Checkpoint : MonoBehaviour
 
             if (debug) Debug.Log("El nuevo spawn es: " + transform.position);
             SceneLoader.instance.SetSpawnPoint(transform.position);
-            GameManager.instance.OnDialogue(frase);
+            GameManager.instance.OnDialogue(frase.Get());
             AudioManager.instance.PlaySoundOnce(sound);
             StartCoroutine(checkpointCD());
         }

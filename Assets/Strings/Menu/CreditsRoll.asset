@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e98684f030c204840b93ff0a213acc4a, type: 3}
+  m_Name: CreditsRoll
+  m_EditorClassIdentifier: 
+  translations:
+  - "CR\xC9DITOS<BR> <BR> Desarrollado para la asignatura Proyecto 1 del Grado en
+    Desarrollo de Videojuegos de la Universidad Complutense de Madrid durante el curso
+    2019/20<BR> <BR> EQUIPO DE DESARROLLO<BR> <BR> Abel Moro Paje<BR> Cristian Rene
+    Castillo de Le\xF3n<BR> Eva S\xE1nchez Mu\xF1oz<BR> Gonzalo Fern\xE1ndez Moreno<BR>
+    Emile de Kadt<BR> <BR> - Colaboradores -<BR> <BR> Diego Jim\xE9nez G\xF3mez<BR>
+    Pablo Etayo Rodr\xEDguez<BR> <BR> PROFESORADO<BR> <BR> Guillermo Jim\xE9nez D\xEDaz<BR>
+    Antonio S\xE1nchez Ruiz-Granados<BR> <BR> - Tutores puntuales -<BR> <BR> Jaime
+    S\xE1nchez Hern\xE1ndez<BR> Federico Peinado Gil<BR> <BR> HERRAMIENTAS UTILIZADAS<BR>
+    <BR> Unity Microsoft Visual Studio<BR> Github<BR> Gimp<BR> Aseprite<BR> Pivotal
+    Tracker<BR> Adobe Photoshop<BR> Adobe Illustrator<BR> Adobe Premiere<BR> Adobe
+    Encoder<BR> Audacity<BR> Clip Studio Paint<BR> Discord<BR> Google Meet<BR> Google
+    Drive<BR> Google Docs<BR> <BR> MATERIAL UTILIZADO<BR> <BR> - Sprites -<BR> <BR>
+    Pinterest<BR> DeviantArt<BR> RedBubble<BR> OpenGameArt<BR> 2D Game Kit Assets
+    por Unity<BR> Free Platform Game Assets por Bayat Games<BR> Itch.io<BR> <BR> -
+    Sonido -<BR> <BR> M\xFAsica por Petter Sumelius<BR> Canci\xF3n final por Shivangi
+    Katoch<BR> FreeSound<BR> SoundBible<BR> Gaming Sound FX<BR> <BR> - Tutoriales
+    -<BR> <BR> Unity Learn<BR> Asbj\xF8rn Thirslund \u201CBrackeys\u201D<BR> Game
+    Dev Guide"
+  - "CREDITS<BR> <BR> Developed for the course Proyecto 1 of the Video Game Development
+    degree at Universidad Complutense de Madrid during the academic year 2019/20<BR>
+    <BR> DEVELOPMENT TEAM<BR> <BR> Abel Moro Paje<BR> Cristian Rene Castillo de Le\xF3n<BR>
+    Eva S\xE1nchez Mu\xF1oz<BR> Gonzalo Fern\xE1ndez Moreno<BR> Emile de Kadt<BR>
+    <BR> - With contributions by -<BR> <BR> Diego Jim\xE9nez G\xF3mez<BR> Pablo Etayo
+    Rodr\xEDguez<BR> <BR> - And the supervision and guidance of -<BR> <BR> Guillermo
+    Jim\xE9nez D\xEDaz<BR> Antonio S\xE1nchez Ruiz-Granados<BR> <BR> - Additional
+    tutors -<BR> <BR> Jaime S\xE1nchez Hern\xE1ndez<BR> Federico Peinado Gil<BR> <BR>
+    TOOLS USED<BR> <BR> Unity Microsoft Visual Studio<BR> Github<BR> Gimp<BR> Aseprite<BR>
+    Pivotal Tracker<BR> Adobe Photoshop<BR> Adobe Illustrator<BR> Adobe Premiere<BR>
+    Adobe Encoder<BR> Audacity<BR> Clip Studio Paint<BR> Discord<BR> Google Meet<BR>
+    Google Drive<BR> Google Docs<BR> <BR> ASSETS USED<BR> <BR> - Sprites -<BR> <BR>
+    Pinterest<BR> DeviantArt<BR> RedBubble<BR> OpenGameArt<BR> 2D Game Kit Assets
+    by Unity<BR> Free Platform Game Assets by Bayat Games<BR> Itch.io<BR> <BR> - Sound
+    -<BR> <BR> Music by Petter Sumelius<BR> Ending song by Shivangi Katoch<BR> FreeSound<BR>
+    SoundBible<BR> Gaming Sound FX<BR> <BR> - Tutorials -<BR> <BR> Unity Learn<BR>
+    Asbj\xF8rn Thirslund \u201CBrackeys\u201D<BR> Game Dev Guide"

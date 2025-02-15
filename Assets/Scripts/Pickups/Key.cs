@@ -3,6 +3,7 @@
 public class Key : MonoBehaviour
 {
     [SerializeField] Sound sound;
+    [SerializeField] TransString pickupMessage;
 
     //Este script notifica al GM cuando el jugador recoge una llave
     private void OnTriggerStay2D(Collider2D collision)
@@ -12,7 +13,7 @@ public class Key : MonoBehaviour
         {
             AudioManager.instance.PlaySoundOnce(sound);
             GameManager.instance.KeyPickup();
-            GameManager.instance.OnDialogue("Ahora a buscar la puerta que abre...");
+            GameManager.instance.OnDialogue(pickupMessage.Get());
             Destroy(this.gameObject);
         }
     }

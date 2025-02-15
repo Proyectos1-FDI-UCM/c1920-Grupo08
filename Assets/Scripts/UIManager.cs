@@ -123,6 +123,11 @@ public class UIManager : MonoBehaviour
         SceneLoader.instance.Exit();
     }
 
+    public void LangButton()
+    {
+        GameManager.instance.languageManager.ChangeLanguage();
+    }
+
     public void ControlsMenuButton()
     {
         audioManager.PlaySoundOnce(buttonSound);

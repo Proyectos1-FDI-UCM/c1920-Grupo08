@@ -123,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reapairvalue: 20
   sound: 6
+  onUseMessage: {fileID: 11400000, guid: 5d01d526310916249bd8120ab07298d9, type: 2}
 --- !u!114 &5285365778742696079
 MonoBehaviour:
   m_ObjectHideFlags: 0

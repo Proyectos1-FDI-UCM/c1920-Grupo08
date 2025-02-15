@@ -7,6 +7,7 @@ using UnityEngine;
 public class Tank : MonoBehaviour
 {
     [SerializeField] GameObject projectile,muzzleFlash;
+    [SerializeField] bool debug;
     [SerializeField] Transform firePoint;
     [SerializeField] float shotCD;
     [SerializeField] Sound sound;
@@ -39,7 +40,7 @@ public class Tank : MonoBehaviour
     {
         if (collision.GetComponent<PlayerController>() != null)
         {
-            Debug.Log("PlayerENTER");
+            if (debug) Debug.Log("PlayerENTER");
             elapsedTime = Time.time;
             targetInside = true;
         }
@@ -49,7 +50,7 @@ public class Tank : MonoBehaviour
     {
         if (collision.GetComponent<PlayerController>() != null) 
         {
-            Debug.Log("PlayerIN");
+            if (debug) Debug.Log("PlayerIN");
             targetInside = false;
         }
     }

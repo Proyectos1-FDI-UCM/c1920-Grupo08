@@ -124,6 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shieldType: 0
   sound: 12
+  onCollectMessage: {fileID: 11400000, guid: bbe2bc1aa2222144082de984e608a577, type: 2}
 --- !u!114 &6730639371240707067
 MonoBehaviour:
   m_ObjectHideFlags: 0

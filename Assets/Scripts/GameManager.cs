@@ -6,9 +6,6 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] bool debug;
 
-    public enum Languages { Español, English};
-    public Languages currLanguage;
-
     const float playerMaxHP = 200f;
     float shieldMaxHP = 60f;
     float playerHP, shieldHP;
@@ -20,6 +17,7 @@ public class GameManager : MonoBehaviour
     bool hasKey = false;
 
     [SerializeField] UIManager UIManager;
+    public LanguageManager languageManager;
     [SerializeField] public GameObject player;
     [SerializeField] Sound playerHit;
     [SerializeField] Shield[] shieldArray;
@@ -46,18 +44,21 @@ public class GameManager : MonoBehaviour
     {
         audioManager = AudioManager.instance;
 
-        // Recogemos cierta información del player para usar durante la ejecución.
-        shield = player.transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
-        playerController = player.GetComponent<PlayerController>();        
-        playerHP = playerMaxHP;
-        shieldHP = shieldMaxHP;
-        GetShield(SceneLoader.instance.CheckShield());
-
-        // Actualizamos la UI
-        if (UIManager != null)
+        if (player != null)
         {
-            UIManager.UpdateHealthBar(playerMaxHP, playerHP);
-            UIManager.UpdateShieldBar(shieldHP, shieldMaxHP);
+            // Recogemos cierta información del player para usar durante la ejecución.
+            shield = player.transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
+            playerController = player.GetComponent<PlayerController>();        
+            playerHP = playerMaxHP;
+            shieldHP = shieldMaxHP;
+            GetShield(SceneLoader.instance.CheckShield());
+
+            // Actualizamos la UI
+            if (UIManager != null)
+            {
+                UIManager.UpdateHealthBar(playerMaxHP, playerHP);
+                UIManager.UpdateShieldBar(shieldHP, shieldMaxHP);
+            }
         }
     }
 

@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: 16
+  pickupMessage: {fileID: 11400000, guid: 0907cab90997866499311f30f1d3d78a, type: 2}
 --- !u!114 &8891219307527334143
 MonoBehaviour:
   m_ObjectHideFlags: 0

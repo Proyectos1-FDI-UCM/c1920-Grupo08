@@ -3,7 +3,8 @@
 public class ShieldPickup : MonoBehaviour
 {    
     [SerializeField] ShieldType shieldType;
-    [SerializeField] Sound sound;   
+    [SerializeField] Sound sound;
+    [SerializeField] private TransString onCollectMessage;
 
     private void OnTriggerStay2D(Collider2D collision)
     {        
@@ -13,7 +14,7 @@ public class ShieldPickup : MonoBehaviour
         {
             AudioManager.instance.PlaySoundOnce(sound);
             GameManager.instance.GetShield(shieldType);
-            GameManager.instance.OnDialogue("Esto parece rígido.");
+            GameManager.instance.OnDialogue(onCollectMessage.Get());
             Destroy(this.gameObject);
         }
     } 

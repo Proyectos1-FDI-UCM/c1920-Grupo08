@@ -6,6 +6,7 @@ public class Repairkit : MonoBehaviour
 
     [SerializeField] private float reapairvalue = 20f;
     [SerializeField] private Sound sound;
+    [SerializeField] private TransString onUseMessage;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -15,7 +16,7 @@ public class Repairkit : MonoBehaviour
             {
                 AudioManager.instance.PlaySoundOnce(sound);
                 GameManager.instance.OnRepair(reapairvalue);
-                GameManager.instance.OnDialogue("Espero que aguante...");
+                GameManager.instance.OnDialogue(onUseMessage.Get());
                 Destroy(this.gameObject);
             }
         }

@@ -121,7 +121,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e016a5075df0c4eb989045c1da478c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
   sound: 13
+  frase: {fileID: 11400000, guid: fb6908d2715a69741a8e33a49f69013a, type: 2}
 --- !u!95 &2273224964653621726
 Animator:
   serializedVersion: 3

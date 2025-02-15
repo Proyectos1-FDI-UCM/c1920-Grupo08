@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using UnityEditor.Compilation;
 using UnityEngine;
 
 //Esta componente mueve un objeto hasta un transform y a una rapidez determinados

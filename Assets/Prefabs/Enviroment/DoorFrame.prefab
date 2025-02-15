@@ -181,3 +181,4 @@ MonoBehaviour:
   sound: 15
   locked: 1
   open: {fileID: 21300000, guid: aeb2d70215e34ff48b5029d1ac35391b, type: 3}
+  noKeyMessage: {fileID: 11400000, guid: c6a3be96e393b314abc5d21dcda1ec7c, type: 2}

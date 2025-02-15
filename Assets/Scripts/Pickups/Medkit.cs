@@ -5,6 +5,7 @@ public class Medkit : MonoBehaviour
     
     [SerializeField] private float heal = 100f;
     [SerializeField] private Sound sound; 
+    [SerializeField] private TransString onUseMessage;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -14,7 +15,7 @@ public class Medkit : MonoBehaviour
             {
                 AudioManager.instance.PlaySoundOnce(sound);
                 GameManager.instance.OnHeal(heal);
-                GameManager.instance.OnDialogue("Ahora me siento mucho mejor");
+                GameManager.instance.OnDialogue(onUseMessage.Get());
                 Destroy(this.gameObject);
             }
         }

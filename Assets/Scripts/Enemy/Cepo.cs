@@ -5,6 +5,7 @@ public class Cepo : MonoBehaviour
 {
     [SerializeField] float retencion;
     [SerializeField] Sound sound;
+    [SerializeField] bool silent = false;
     [SerializeField] Animator animator;
     PlayerController playerController;
 
@@ -16,7 +17,7 @@ public class Cepo : MonoBehaviour
         {
             playerController.Stunned(retencion);
             animator.SetBool("Activated", true);
-            AudioManager.instance.PlaySoundOnce(sound);
+            if (!silent) AudioManager.instance.PlaySoundOnce(sound);
             Destroy(this.gameObject, retencion);
         }
     }

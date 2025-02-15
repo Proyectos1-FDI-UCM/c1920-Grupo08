@@ -13,6 +13,8 @@ public class Doors : MonoBehaviour
     BoxCollider2D bc;
     SpriteRenderer sr;
     bool isOpen = false;
+    [SerializeField] TransString noKeyMessage;
+
     private void Start()
     {
         bc = transform.GetChild(0).GetComponent<BoxCollider2D>();
@@ -35,7 +37,7 @@ public class Doors : MonoBehaviour
 
                 else
                 {                    
-                    GameManager.instance.OnDialogue("Necesito una llave para abrir esta puerta");
+                    GameManager.instance.OnDialogue(noKeyMessage.Get());
                 }                
             }            
         }
