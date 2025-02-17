@@ -1,6 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 
+
 [RequireComponent(typeof(LineRenderer))]
 public class Sniper : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class Sniper : MonoBehaviour
 
     Vector2 hitPoint; // Punto de impacto
 
+    [SerializeField] Transform rifle; // Sprite del fusil que se rota
     [SerializeField] Transform firePoint; // Punto de origen del disparo
 
     Transform target; // Objetivo
@@ -91,9 +93,9 @@ public class Sniper : MonoBehaviour
             if (debug) Debug.Log("Laser intensity: " + animationProgress + "    Evaluating: " + ((shotCD - timeUntilShoot) / shotCD));
             DrawLine(laser);
 
-            Vector2 direction = lastKnownLocation - new Vector2(transform.position.x, transform.position.y);
             // Rota su posición en dirección al objetivo
-            transform.right = direction;
+            Vector2 direction = lastKnownLocation - new Vector2(transform.position.x, transform.position.y);
+            rifle.right = direction;
 
             if (timeUntilShoot <= 0f)
                 Shoot();
