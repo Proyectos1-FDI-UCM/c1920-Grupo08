@@ -15,9 +15,13 @@ public class Sniper : MonoBehaviour
     [SerializeField] float damage; // Daño de disparo
 
     [SerializeField] float shotCD; // Tiempo entre cada disparo
+    [SerializeField] float holdTime; // Tiempo que puede retener su punteria despues de perder de vista al objetivo
+    [SerializeField] float decayTime; // Tiempo que tarda en perderse un apuntado completo
     [SerializeField] AnimationCurve laserIntensity; // Intensidad del láser en función de cuánto tiempo queda para el disparo
 
-    float timeUntilShoot; // Contador desde el último disparo
+    float timeUntilShoot; // Tiempo restante para un apuntado completo
+    float remainingHoldTime; // Tiempo restante para un apuntado completo
+    bool decaying; // True si ha perdido de vista al objetivo, pero sigue vigilando su última posición vista
     
     [SerializeField] LayerMask targettingLayer; // Es importante separar las dos capas, porque el escudo debe bloquear el disparo pero no el rastreo
     [SerializeField] LayerMask bulletLayer;
@@ -57,13 +61,13 @@ public class Sniper : MonoBehaviour
         laserWidth = laser.startWidth;
         audioManager = AudioManager.instance;
         contactFilter.layerMask = targettingLayer;
-        contactFilter.useLayerMask = true;       
-        range = GetComponent<CircleCollider2D>().radius;
+        contactFilter.useLayerMask = true;
+        // La máxima distancia posible a la que puede apuntar es la distancia entre el fusil y el centro de la zona de apuntado mas el radio de la zona
+        range = (GetComponent<CircleCollider2D>().radius + Vector3.Magnitude(rifle.localPosition)) * 1.2f;
         timeUntilShoot = shotCD;
         target = GameManager.instance.player.transform;
         targetCollider = target.GetComponent<CapsuleCollider2D>();
     }
-
 
     /*
      * If in range
@@ -76,12 +80,12 @@ public class Sniper : MonoBehaviour
     {
         if (tracking)
         {
-            timeUntilShoot -= Time.deltaTime;
+            if (!decaying) timeUntilShoot -= Time.deltaTime;
 
             float animationProgress = laserIntensity.Evaluate((shotCD - timeUntilShoot) / shotCD);
             laser.endColor = new Color(laserColour.r, laserColour.g, laserColour.b, animationProgress);
             // Si está en el último 10% de la animación, hacemos parpadear el laser
-            if (animationProgress > 0.90 && timeUntilShoot * 500f % 10 > 5)
+            if (animationProgress > 0.90 && timeUntilShoot * 500f % 10 > 5 && decaying == false)
             {
                 laser.startWidth = 0f; laser.endWidth = 0f;
             }   
@@ -90,15 +94,31 @@ public class Sniper : MonoBehaviour
                 laser.startWidth = animationProgress * laserWidth;
                 laser.endWidth = animationProgress * laserWidth * 5f;
             }
-            if (debug) Debug.Log("Laser intensity: " + animationProgress + "    Evaluating: " + ((shotCD - timeUntilShoot) / shotCD));
+            if (debug) Debug.Log("Sniper aim progress: " + ((shotCD - timeUntilShoot) / shotCD));
             DrawLine(laser);
 
             // Rota su posición en dirección al objetivo
-            Vector2 direction = lastKnownLocation - new Vector2(transform.position.x, transform.position.y);
+            Vector2 direction = lastKnownLocation - new Vector2(rifle.position.x, rifle.position.y);
             rifle.right = direction;
 
             if (timeUntilShoot <= 0f)
                 Shoot();
+        }
+        if (decaying && remainingHoldTime > 0.01f) // Si ha perdido de vista al objetivo, retiene su apuntado por holdTime
+        {
+            if (debug) Debug.Log("Sniper holding target. Remaining hold time:" + remainingHoldTime);
+            remainingHoldTime -= Time.deltaTime;
+        }
+        else if (decaying && timeUntilShoot < shotCD)
+        {
+            if (debug) Debug.Log("Sniper aim decaying. Time until shoot: " + ((shotCD - timeUntilShoot) / shotCD));
+            timeUntilShoot = Mathf.Clamp(timeUntilShoot + shotCD / decayTime * Time.deltaTime, 0, shotCD);
+        }
+        else if (decaying) 
+        {
+            if (debug) Debug.Log("Sniper target lost");
+            decaying = false;
+            tracking = false;
         }
     }
 
@@ -135,16 +155,18 @@ public class Sniper : MonoBehaviour
     {
         Vector2 targetPosition = new Vector2(target.position.x, target.position.y + targetCollider.offset.y);
 
-        Vector2 direction = targetPosition - new Vector2(transform.position.x, transform.position.y);
+        Vector2 direction = targetPosition - new Vector2(rifle.position.x, rifle.position.y);
 
         // RAYCAST
-        rayCast = Physics2D.Raycast(transform.position, direction, range*2, targettingLayer);
+        rayCast = Physics2D.Raycast(rifle.position, direction, range, targettingLayer);
 
         if (rayCast.collider?.transform == target)
         {
             if (debug) Debug.Log("Target found");
             // Almacena el punto de impacto
             lastKnownLocation = rayCast.point;
+            decaying = false;
+            remainingHoldTime = holdTime;
             if (!tracking)
             {
                 tracking = true;
@@ -153,6 +175,7 @@ public class Sniper : MonoBehaviour
             }
             return true;
         }
+        decaying = true;
         return false;
     }
 
@@ -165,8 +188,8 @@ public class Sniper : MonoBehaviour
         // Reproduce el effecto de sonido
         audioManager.PlaySoundOnce(shotSound);
 
-        Vector2 direction = lastKnownLocation - new Vector2(transform.position.x, transform.position.y);
-        rayCast = Physics2D.Raycast(transform.position, direction, range * 2, bulletLayer);
+        Vector2 direction = lastKnownLocation - new Vector2(rifle.position.x, rifle.position.y);
+        rayCast = Physics2D.Raycast(rifle.position, direction, range, bulletLayer);
 
         // Crea la bala
         CreateBullet();

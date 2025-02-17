@@ -242,6 +242,8 @@ MonoBehaviour:
   debug: 0
   damage: 10
   shotCD: 3
+  holdTime: 1.2
+  decayTime: 1.5
   laserIntensity:
     serializedVersion: 2
     m_Curve:
