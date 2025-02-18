@@ -29,6 +29,7 @@ public class Sniper : MonoBehaviour
     Vector2 hitPoint; // Punto de impacto
 
     [SerializeField] Transform rifle; // Sprite del fusil que se rota
+    private SpriteRenderer rifleSprite;
     [SerializeField] Transform firePoint; // Punto de origen del disparo
 
     Transform target; // Objetivo
@@ -63,10 +64,11 @@ public class Sniper : MonoBehaviour
         contactFilter.layerMask = targettingLayer;
         contactFilter.useLayerMask = true;
         // La máxima distancia posible a la que puede apuntar es la distancia entre el fusil y el centro de la zona de apuntado mas el radio de la zona
-        range = (GetComponent<CircleCollider2D>().radius + Vector3.Magnitude(rifle.localPosition)) * 1.2f;
+        range = (GetComponent<CircleCollider2D>().radius + Vector3.Magnitude(rifle.localPosition)) * 2f;
         timeUntilShoot = shotCD;
         target = GameManager.instance.player.transform;
         targetCollider = target.GetComponent<CapsuleCollider2D>();
+        rifleSprite = rifle.GetComponent<SpriteRenderer>();
     }
 
     /*
@@ -100,6 +102,7 @@ public class Sniper : MonoBehaviour
             // Rota su posición en dirección al objetivo
             Vector2 direction = lastKnownLocation - new Vector2(rifle.position.x, rifle.position.y);
             rifle.right = direction;
+            rifleSprite.flipY = rifle.right.x < 0f;
 
             if (timeUntilShoot <= 0f)
                 Shoot();
