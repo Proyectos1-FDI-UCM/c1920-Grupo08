@@ -7,12 +7,18 @@ using TMPro;
 public class IntroScene : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI bubbleText;
+    [SerializeField] TextMeshProUGUI skipPrompt;
     [SerializeField] GameObject a, b;
     [SerializeField] TransString introText;
+    [SerializeField] KeyCode skipKey;
+    [SerializeField] private float skipPromptDuration = 1f;
+    [SerializeField] private float requiredSkipTime = 1f; // Tiempo que hay que sujetar la tecla de saltar para que salte
 
     string dialogue;
     private float typeSpeed = 0.1f;
     AudioSource audioS;
+    private float remainingSkipPromptTime = 0f;
+    private float keyDownTimestamp = -1f;
 
     private void Start()
     {
@@ -20,6 +26,31 @@ public class IntroScene : MonoBehaviour
         dialogue = introText.Get();
         bubbleText.text = "";
         StartCoroutine(Type());
+        skipPrompt.enabled = false;
+    }
+
+    private void Update()
+    {
+        if(remainingSkipPromptTime > 0f)
+            remainingSkipPromptTime -= Time.deltaTime;
+
+        if (Input.anyKeyDown)
+        {
+            skipPrompt.enabled = true;
+            remainingSkipPromptTime = skipPromptDuration;
+        }
+        else if (remainingSkipPromptTime < 0f)
+            skipPrompt.enabled = false;
+        
+        if (Input.GetKeyDown(skipKey))
+        {
+            keyDownTimestamp = Time.time;
+        }
+        if (Input.GetKey(skipKey) && keyDownTimestamp > 0f && Time.time - keyDownTimestamp > requiredSkipTime)
+        {
+            SceneLoader.instance.NextScene();
+            keyDownTimestamp = -1f;
+        }
     }
 
     private IEnumerator Type()
