@@ -127,8 +127,8 @@ public class GameManager : MonoBehaviour
             audioManager.PlaySoundOnce(playerHit);
             playerHP -= damage;
 
-            ScreenShake(1f, 0.3f);
-            if (playerHP < 0)
+            ScreenShake(Mathf.Clamp(0.015f * damage, 0.7f, 1.5f), Mathf.Clamp(0.007f * damage, 0.15f, 0.5f));
+            if (playerHP <= 0)
             {
                 StartCoroutine(OnDead());
             }
