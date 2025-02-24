@@ -111,12 +111,16 @@ public class GameManager : MonoBehaviour
             if (debug) Debug.Log("Shield hit");
             shieldHP -= damage;
 
-            ScreenShake(0.5f, 0.2f);
+            ScreenShake(Mathf.Clamp(0.005f * damage, 0.3f, 0.6f), Mathf.Clamp(0.003f * damage, 0.05f, 0.3f));
             if (shieldHP <= 0)
             {
                 playerController.ShieldBroken(true);
                 playerHP += shieldHP;               // Transfiere el exceso de daño (PS negativos del escudo) al jugador
                 audioManager.PlaySoundOnce(playerHit);
+                if (playerHP <= 0)
+                {
+                    StartCoroutine(OnDead());
+                }
             }
         }
 
