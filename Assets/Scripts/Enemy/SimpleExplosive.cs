@@ -3,7 +3,8 @@
 // Este script crea una crea una explosión con efectos visuales que daña al jugador y lo empuja ligeramente
 public class SimpleExplosive : MonoBehaviour
 {
-	[SerializeField] float damage, force;
+	public float damage, force;
+	public float radius;
 	[SerializeField] Sound sound;
 	[SerializeField] GameObject explosionEffect;
 	Vector2 direction;
@@ -11,6 +12,7 @@ public class SimpleExplosive : MonoBehaviour
 	private void Start()
 	{
 		Invoke("Des", 0f);
+		GetComponent<CircleCollider2D>().radius = radius;
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)

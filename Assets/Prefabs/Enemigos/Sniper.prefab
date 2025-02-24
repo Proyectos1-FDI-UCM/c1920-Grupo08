@@ -270,10 +270,10 @@ MonoBehaviour:
     m_RotationOrder: 4
   targettingLayer:
     serializedVersion: 2
-    m_Bits: 1280
+    m_Bits: 132352
   bulletLayer:
     serializedVersion: 2
-    m_Bits: 1792
+    m_Bits: 132864
   rifle: {fileID: 2840491710608865509}
   firePoint: {fileID: 2247688434596586417}
   projectile: {fileID: 514727091434510753, guid: c57f0e4e79c3b904c86db71dd6eecca9,

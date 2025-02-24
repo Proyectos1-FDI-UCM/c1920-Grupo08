@@ -101,7 +101,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2.5
+  m_Radius: 7
 --- !u!95 &7864965196590820162
 Animator:
   serializedVersion: 3
@@ -134,8 +134,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
+  damage: 60
   explosive: {fileID: 2894105075716572105}
-  delay: 1
+  explosionRadius: 4
+  delay: 0.8
   detectionPulse: {fileID: 1552615015218929116}
 --- !u!198 &1552615015218929116
 ParticleSystem:
