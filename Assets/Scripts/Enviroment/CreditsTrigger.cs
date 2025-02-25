@@ -10,7 +10,6 @@ public class CreditsTrigger : MonoBehaviour
         if (collision.GetComponent<PlayerController>() != null) 
         {
             credits.SetActive(true);
-            Destroy(this.gameObject);
         }
     }
 }
