@@ -10,12 +10,15 @@ public class CreditsBackdropFadeIn : MonoBehaviour
     [SerializeField] Transform startFade, endFade;
     [SerializeField] float midValue, startDuration, endDuration;
     [SerializeField] SpriteRenderer sprite;
+    [SerializeField] UIManager uiManager;
+    HoldToSkip holdToSkip;
 
     bool started = false, ended = false;
 
     void Start()
     {
         playerPos = GameManager.instance.player.transform;
+        holdToSkip = GetComponent<HoldToSkip>();
     }
 
     void Update()
@@ -23,6 +26,8 @@ public class CreditsBackdropFadeIn : MonoBehaviour
         if (!started && playerPos.position.x > startFade.position.x)
         {
             StartCoroutine(Fade(midValue, startDuration));
+            holdToSkip.enabled = true;
+            uiManager.enabled = false;
             started = true;
         }
 
