@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     bool shieldBroken = false;
 
     [SerializeField] Sound jumpSound;
-    new AudioSource audio;
+    AudioSource audio;
     Animator animator;
     float moveSpeed;
 
@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         capsule = GetComponent<CapsuleCollider2D>();
         audio = GetComponent<AudioSource>();
+        audio.volume = 0.1f;
         animator = GetComponent<Animator>();
         shield.SetActive(false);
         gravity = rb.gravityScale;
@@ -148,7 +149,7 @@ public class PlayerController : MonoBehaviour
         if (jump && isGrounded && !stunned && !isCrouching)
         {
             jump = false;
-            AudioManager.instance.PlaySoundOnce(jumpSound);
+            AudioManager.instance.PlaySoundOnce(jumpSound, 0.2f);
             rb.velocity = new Vector2(rb.velocity.x, 0f);
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         }

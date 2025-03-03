@@ -53,7 +53,7 @@ public class AudioManager : MonoBehaviour
     #endregion
 
     // Instancia un objeto vacio para reproducir un sonido, cuando este ha terminado de reproducirlo lo destruye.
-    public void PlaySoundOnce(Sound sound)
+    public void PlaySoundOnce(Sound sound, float volume = 1f)
     {
         AudioClip audioClip = GetAudioClip(sound);
 
@@ -63,7 +63,7 @@ public class AudioManager : MonoBehaviour
             soundObj.transform.parent = transform;
             AudioSource audioSource = soundObj.AddComponent<AudioSource>();
             audioSource.outputAudioMixerGroup = audioMixer;
-            audioSource.PlayOneShot(audioClip);
+            audioSource.PlayOneShot(audioClip, volume);
             Destroy(soundObj, audioClip.length);
         }
     }
