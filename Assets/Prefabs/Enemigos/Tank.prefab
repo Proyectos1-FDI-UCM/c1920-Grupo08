@@ -225,6 +225,7 @@ MonoBehaviour:
   projectile: {fileID: 3053012758138319132, guid: e5a1c2e029df131478dea1d63c627dd6,
     type: 3}
   muzzleFlash: {fileID: 8635866380241914932}
+  debug: 0
   firePoint: {fileID: 8635866379582700688}
-  shotCD: 3
+  shotCD: 2
   sound: 14

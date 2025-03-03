@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
-  damage: 10
+  damage: 100
   shotCD: 3
   holdTime: 1.2
   decayTime: 1.5

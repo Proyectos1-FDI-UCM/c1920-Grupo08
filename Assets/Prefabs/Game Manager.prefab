@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
+  playerMaxHP: 100
   UIManager: {fileID: 0}
   languageManager: {fileID: 6222720678093086648}
   player: {fileID: 0}
@@ -52,26 +53,26 @@ MonoBehaviour:
   shieldArray:
   - shieldType: 1
     weight: 50
-    durability: 60
+    durability: 80
     sprite: {fileID: 328039532180823927, guid: efeaa302e861ed5478fca3cadbf89dab, type: 3}
   - shieldType: 4
     weight: 50
-    durability: 90
+    durability: 120
     sprite: {fileID: 7710633978311161596, guid: efeaa302e861ed5478fca3cadbf89dab,
       type: 3}
   - shieldType: 0
     weight: 50
-    durability: 130
+    durability: 160
     sprite: {fileID: -5736757271575316636, guid: efeaa302e861ed5478fca3cadbf89dab,
       type: 3}
   - shieldType: 2
     weight: 50
-    durability: 180
+    durability: 250
     sprite: {fileID: -6433363496192085588, guid: efeaa302e861ed5478fca3cadbf89dab,
       type: 3}
   - shieldType: 3
     weight: 50
-    durability: 250
+    durability: 350
     sprite: {fileID: 904626188810745829, guid: efeaa302e861ed5478fca3cadbf89dab, type: 3}
 --- !u!1001 &1203108866473870950
 PrefabInstance:

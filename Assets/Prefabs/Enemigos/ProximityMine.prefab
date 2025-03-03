@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3532315924464930880}
   - component: {fileID: 3532315924464930883}
-  - component: {fileID: 2992775845050638536}
   - component: {fileID: 7864965196590820162}
   - component: {fileID: 2603445085057513730}
   - component: {fileID: 1552615015218929116}
   - component: {fileID: 366563998351891926}
+  - component: {fileID: 7943397475384221235}
   m_Layer: 11
   m_Name: ProximityMine
   m_TagString: Untagged
@@ -86,22 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &2992775845050638536
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3532315924464930882}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 7
 --- !u!95 &7864965196590820162
 Animator:
   serializedVersion: 3
@@ -134,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
-  damage: 60
+  damage: 30
   explosive: {fileID: 2894105075716572105}
   explosionRadius: 4
   delay: 0.8
@@ -4860,6 +4844,32 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!61 &7943397475384221235
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3532315924464930882}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 2}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3, y: 3}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 14, y: 5}
+  m_EdgeRadius: 0
 --- !u!1001 &3105241637954706072
 PrefabInstance:
   m_ObjectHideFlags: 0

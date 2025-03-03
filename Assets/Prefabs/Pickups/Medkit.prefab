@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb00c6c77015fba4c9acd1db0d71d337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heal: 100
+  heal: 50
   sound: 1
   onUseMessage: {fileID: 11400000, guid: d0b90e18017d6f74aa62247149ea1c33, type: 2}
 --- !u!114 &1858417906269581612
