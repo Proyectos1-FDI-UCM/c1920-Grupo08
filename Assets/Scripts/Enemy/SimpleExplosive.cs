@@ -11,7 +11,7 @@ public class SimpleExplosive : MonoBehaviour
 	
 	private void Start()
 	{
-		Invoke("Des", 0f);
+		Invoke("Des", 0.1f);
 		GetComponent<CircleCollider2D>().radius = radius;
 	}
 
