@@ -64,7 +64,7 @@ public class Sniper : MonoBehaviour
         contactFilter.layerMask = targettingLayer;
         contactFilter.useLayerMask = true;
         // La máxima distancia posible a la que puede apuntar es la distancia entre el fusil y el centro de la zona de apuntado mas el radio de la zona
-        range = (GetComponent<CircleCollider2D>().radius + Vector3.Magnitude(rifle.localPosition)) * 2f;
+        range = (GetComponent<CircleCollider2D>().radius + Vector3.Magnitude(rifle.localPosition));
         timeUntilShoot = shotCD;
         target = GameManager.instance.player.transform;
         targetCollider = target.GetComponent<CapsuleCollider2D>();
@@ -137,17 +137,16 @@ public class Sniper : MonoBehaviour
     {
         if (collision.transform == target)
         {
-            inRange = true;
-            
             if (debug) Debug.Log("El jugador está en el alcance de " + this.gameObject.name);
+            inRange = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (debug) Debug.Log("El jugador ya no está en el alcance de " + this.gameObject.name);
-        if (collision.GetComponent<PlayerController>() != null)
+        if (collision.transform == target)
         {
+            if (debug) Debug.Log("El jugador ya no está en el alcance de " + this.gameObject.name);
             inRange = false;
             tracking = false;
             laser.enabled = false;
