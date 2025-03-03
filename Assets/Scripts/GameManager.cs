@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] bool debug;
 
-    const float playerMaxHP = 200f;
+    [SerializeField] float playerMaxHP = 200f;
     float shieldMaxHP = 60f;
     float playerHP, shieldHP;
     GameObject shield;
@@ -106,6 +106,7 @@ public class GameManager : MonoBehaviour
     // Cuando el jugador o el escudo reciben daño se llama a este método
     public void OnHit(GameObject obj, float damage)
     {
+        if (damage == 0) return;
         if (obj.GetComponent<ShieldClass>() != null)
         {
             if (debug) Debug.Log("Shield hit");
