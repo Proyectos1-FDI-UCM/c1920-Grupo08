@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6683e8704d244fd4ea2cbe4697dfe9dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyOnCollision: 0
   shieldHit: 8
   playGroundHitSound: 0
   groundHit: 9
@@ -159,4 +160,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 885d596b72b2fe64992f8e8db2755d8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeSpeed: 1
+  fadeDuration: 1

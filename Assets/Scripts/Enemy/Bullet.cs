@@ -5,6 +5,7 @@
 [RequireComponent(typeof(Collider2D))]
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] private bool destroyOnCollision = true;
     [SerializeField] private Sound shieldHit;
     [SerializeField] bool playGroundHitSound;
     [SerializeField] private Sound groundHit;
@@ -35,7 +36,7 @@ public class Bullet : MonoBehaviour
             if (playGroundHitSound) audioManager.PlaySoundOnce(groundHit);
         }
 
-        Destroy(this.gameObject);
+        if (destroyOnCollision) Destroy(this.gameObject);
     }
 
     public void SetDamage(int value)

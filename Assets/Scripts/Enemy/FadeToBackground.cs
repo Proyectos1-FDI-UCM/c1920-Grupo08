@@ -7,11 +7,15 @@ public class FadeToBackground : MonoBehaviour
 {
     bool fading;
     SpriteRenderer sr;
-    float aux = 1f;
+    float aux;
     [SerializeField]
-    float fadeSpeed = 1;
+    float fadeDuration = 1f;
+
     private void Start()
     {
+        if (fadeDuration <= 0f)
+            Debug.LogError("FadeDuration must be a positive value.");
+        aux = fadeDuration;
         fading = false;
         sr = GetComponent<SpriteRenderer>();
     }
@@ -19,13 +23,15 @@ public class FadeToBackground : MonoBehaviour
     {
         if (fading)
         {
-            sr.color = new Color(1, 1, 1, aux);
-            aux -= 0.01f * fadeSpeed;
-            if (aux == 0)
+            aux -= Time.deltaTime;
+            sr.color = new Color(1, 1, 1, (aux / fadeDuration));
+            if (fadeDuration <= 0f)
+            {
                 Destroy(this.gameObject);
+            }
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
         //Accedemos a las componentes necesarias
         Rigidbody2D rb = this.gameObject.GetComponent<Rigidbody2D>();
