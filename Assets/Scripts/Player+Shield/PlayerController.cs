@@ -46,7 +46,6 @@ public class PlayerController : MonoBehaviour
         gravity = rb.gravityScale;
         moveSpeed = baseSpeed;
         AddWeight(22f);
-        //shield.SetActive(true);
     }
 
     void Update()
@@ -72,7 +71,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Control del agachado según tenga techo encima o no.
-        if (!isCrouching && Input.GetButtonDown("Crouch") && isGrounded)
+        if (!isCrouching && isGrounded && Input.GetAxisRaw("Vertical") < 0f && isGrounded)
         {
             isCrouching = true;
             moveSpeed *= 0.5f;
@@ -81,7 +80,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isCrouching", true);
         }
 
-        else if (isCrouching && !Input.GetButton("Crouch") && !isCeilinged)
+        else if (!isGrounded || (isCrouching && Input.GetAxisRaw("Vertical") >= 0f && !isCeilinged))
         {
             isCrouching = false;
             moveSpeed = baseSpeed;
@@ -114,17 +113,14 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetButtonDown("Fire1") && !shield.activeSelf)
             {
-
                 shield.SetActive(true);
             }
 
             else if (Input.GetButtonUp("Fire1") && shield.activeSelf)
             {
-
                 shield.SetActive(false);
             }
         }
-        
     }
 
     void FixedUpdate()
@@ -160,7 +156,6 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, moveY * climbSpeed);
             rb.gravityScale = 0f;
         }
-
         else
         {
             rb.gravityScale = gravity;
