@@ -112,7 +112,7 @@ public class GameManager : MonoBehaviour
             if (debug) Debug.Log("Shield hit");
             shieldHP -= damage;
 
-            ScreenShake(Mathf.Clamp(0.005f * damage, 0.3f, 0.6f), Mathf.Clamp(0.003f * damage, 0.05f, 0.3f));
+            ScreenShake(Mathf.Clamp(0.005f * damage, 0.1f, 0.6f), Mathf.Clamp(0.003f * damage, 0.03f, 0.3f));
             if (shieldHP <= 0)
             {
                 playerController.ShieldBroken(true);
@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour
             audioManager.PlaySoundOnce(playerHit);
             playerHP -= damage;
 
-            ScreenShake(Mathf.Clamp(0.015f * damage, 0.7f, 1.5f), Mathf.Clamp(0.007f * damage, 0.15f, 0.5f));
+            ScreenShake(Mathf.Clamp(0.015f * damage, 0.2f, 1.5f), Mathf.Clamp(0.007f * damage, 0.05f, 0.5f));
             if (playerHP <= 0)
             {
                 StartCoroutine(OnDead());
