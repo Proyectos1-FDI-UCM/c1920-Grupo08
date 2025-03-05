@@ -13,9 +13,9 @@ public class HoldToSkip : MonoBehaviour
     private float remainingSkipPromptTime = 0f;
     private float keyDownTimestamp = -1f;
 
-    void Start()
+    void Awake()
     {
-        skipPrompt.enabled = false;
+        skipPrompt.gameObject.SetActive(false);
     }
 
     void Update()
@@ -25,11 +25,11 @@ public class HoldToSkip : MonoBehaviour
 
         if (Input.anyKeyDown)
         {
-            skipPrompt.enabled = true;
+            skipPrompt.gameObject.SetActive(true);
             remainingSkipPromptTime = skipPromptDuration;
         }
         else if (remainingSkipPromptTime < 0f)
-            skipPrompt.enabled = false;
+            skipPrompt.gameObject.SetActive(false);
 
         if (Input.GetKeyDown(skipKey))
         {

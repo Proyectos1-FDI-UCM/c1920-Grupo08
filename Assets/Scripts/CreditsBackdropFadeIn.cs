@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CreditsBackdropFadeIn : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class CreditsBackdropFadeIn : MonoBehaviour
     Transform playerPos;
     [SerializeField] Transform startFade, endFade;
     [SerializeField] float midValue, startDuration, endDuration;
-    [SerializeField] SpriteRenderer sprite;
+    [SerializeField] Image img;
     [SerializeField] UIManager uiManager;
     HoldToSkip holdToSkip;
 
@@ -41,12 +42,12 @@ public class CreditsBackdropFadeIn : MonoBehaviour
     // Gradually increases the sprite's opacity up to finalOpacity over duration seconds
     IEnumerator Fade(float finalOpacity, float duration)
     {
-        float startOpacity = sprite.color.a;
+        float startOpacity = img.color.a;
         float startTime = Time.time;
 
-        while (sprite.color.a < finalOpacity)
+        while (img.color.a < finalOpacity)
         {
-            sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, (startOpacity + (Time.time - startTime) * (finalOpacity - startOpacity) / duration));
+            img.color = new Color(img.color.r, img.color.g, img.color.b, (startOpacity + (Time.time - startTime) * (finalOpacity - startOpacity) / duration));
             yield return null;
         }
     }

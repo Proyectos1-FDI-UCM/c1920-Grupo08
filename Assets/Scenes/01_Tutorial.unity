@@ -74766,6 +74766,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ChangeLanguage
       objectReference: {fileID: 0}
+    - target: {fileID: 8626716233022753255, guid: 23d4508ee846a8f4f8d754e208cd3839,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 821034668}
+    - target: {fileID: 8626716233022753255, guid: 23d4508ee846a8f4f8d754e208cd3839,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExitButton
+      objectReference: {fileID: 0}
     - target: {fileID: 8626716232877796117, guid: 23d4508ee846a8f4f8d754e208cd3839,
         type: 3}
       propertyPath: m_AnchorMin.y
