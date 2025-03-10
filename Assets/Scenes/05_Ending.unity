@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skipPrompt: {fileID: 1184951853}
-  skipKey: 27
+  skipKey: 13
   skipPromptDuration: 1.5
   requiredSkipTime: 2
 --- !u!114 &61961459 stripped
@@ -7138,11 +7138,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: '---- Canvas'
       objectReference: {fileID: 0}
-    - target: {fileID: 8626716234364144650, guid: 23d4508ee846a8f4f8d754e208cd3839,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8626716233354794066, guid: 23d4508ee846a8f4f8d754e208cd3839,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -7342,6 +7337,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ExitButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 8626716234364144650, guid: 23d4508ee846a8f4f8d754e208cd3839,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8626716232728698003, guid: 23d4508ee846a8f4f8d754e208cd3839,
         type: 3}

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SkipPrompt
   m_EditorClassIdentifier: 
   translations:
-  - Sujeta Esc para saltar
-  - Hold Esc to skip
+  - Sujeta Enter para saltar
+  - Hold Enter to skip

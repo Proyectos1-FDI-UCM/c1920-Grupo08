@@ -365,7 +365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skipPrompt: {fileID: 2028712530}
-  skipKey: 27
+  skipKey: 13
   skipPromptDuration: 2
   requiredSkipTime: 2
 --- !u!1 &193565403
